@@ -1,0 +1,29 @@
+/* Navigation Bar Styling */
+.navbar {
+  padding: 1rem 2rem; /* top-bottom 1rem, left-right 2rem */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff; /* adjust as needed */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* subtle shadow */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.75rem 1rem; /* slightly smaller padding on mobile */
+  }
+}
+
+✅ Explanation:
+
+padding: 1rem 2rem adds spacing inside the navbar.
+
+display: flex; align-items: center; justify-content: space-between; ensures items are properly aligned.
+
+box-shadow adds subtle separation from the content.
+
+Media query ensures the navbar looks good on smaller screens.
+
+
+You can tweak the padding values depending on how spacious you want it to look.
