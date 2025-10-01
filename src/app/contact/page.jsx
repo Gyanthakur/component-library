@@ -1,0 +1,8 @@
+export default function ContactPage() {
+  return (
+    <div className="max-w-4xl mx-auto">
+      <h1 className="text-4xl font-bold text-gray-900 mb-4">Contact</h1>
+      <p className="text-lg text-gray-600">This is the Contact page - routing is working correctly!</p>
+    </div>
+  )
+}
