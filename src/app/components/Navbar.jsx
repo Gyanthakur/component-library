@@ -7,10 +7,9 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-white shadow-md sticky top-0 z-50">
+    <nav className="bg-white shadow-md sticky top-0 z-50 px-4 mb-2">
       <div className=" ">
         <div className="flex justify-between h-16">
-          
           <div className="flex items-center">
             <Link href="/" className="text-xl font-bold text-indigo-600">
               MyLibrary
