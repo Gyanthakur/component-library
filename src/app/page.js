@@ -6,6 +6,7 @@ import SecondaryButton from '../components/buttons/SecondaryButton'
 import GhostButton from '../components/buttons/GhostButton'
 import IconButton from '../components/buttons/IconButton'
 import PillButton from '../components/buttons/PillButton'
+import Modal from '../components/feedback/Modal';
 
 import SimpleCard from '../components/cards/SimpleCard'
 import ImageCard from '../components/cards/ImageCard'
@@ -45,6 +46,8 @@ export default function Page() {
   const [inputValue, setInputValue] = React.useState('');
   const [selectValue, setSelectValue] = React.useState('');
   const [checkboxValue, setCheckboxValue] = React.useState(false);
+  const [isModalOpen, setIsModalOpen] = React.useState(false);
+
   
   // Navigation component states
   const [activeTab, setActiveTab] = React.useState(0);
@@ -99,6 +102,7 @@ export default function Page() {
           <IconButton aria-label="star">★</IconButton>
           <PillButton>Subscribe</PillButton>
           <ThemeToggleButton onClick={handleThemeToggle} isDark={isDark} />
+          <PrimaryButton onClick={() => setIsModalOpen(true)}>Open Modal</PrimaryButton>
         </div>
       </section>
 
@@ -253,6 +257,18 @@ export default function Page() {
           </div>
         </div>
       </section>
+        <Modal 
+    isOpen={isModalOpen} 
+    onClose={() => setIsModalOpen(false)} 
+    title="Confirmation"
+  >
+    <p>Are you sure you want to delete this item?</p>
+    <div className="mt-4 flex justify-end gap-2">
+      <PrimaryButton onClick={() => setIsModalOpen(false)}>Yes</PrimaryButton>
+      <SecondaryButton onClick={() => setIsModalOpen(false)}>No</SecondaryButton>
+    </div>
+  </Modal>
+      
     </div>
   )
 }
