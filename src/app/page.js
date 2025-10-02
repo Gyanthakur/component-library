@@ -1,90 +1,90 @@
 "use client";
-import React from 'react'
-import ThemeToggleButton from './components/ThemeToggleButton'
-import PrimaryButton from '../components/buttons/PrimaryButton'
-import SecondaryButton from '../components/buttons/SecondaryButton'
-import GhostButton from '../components/buttons/GhostButton'
-import IconButton from '../components/buttons/IconButton'
-import PillButton from '../components/buttons/PillButton'
+import React from "react";
+import ThemeToggleButton from "./components/ThemeToggleButton";
+import PrimaryButton from "../components/buttons/PrimaryButton";
+import SecondaryButton from "../components/buttons/SecondaryButton";
+import GhostButton from "../components/buttons/GhostButton";
+import IconButton from "../components/buttons/IconButton";
+import PillButton from "../components/buttons/PillButton";
 
-import SimpleCard from '../components/cards/SimpleCard'
-import ImageCard from '../components/cards/ImageCard'
-import FeatureCard from '../components/cards/FeatureCard'
-import ProfileCard from '../components/cards/ProfileCard'
-import PricingCard from '../components/cards/PricingCard'
-import DataCard from '@/components/cards/DataCard'
-import OutlineButton from '@/components/buttons/OutlineButton'
-import DangerButton from '@/components/buttons/DangerButton'
-import LinkButton from '@/components/buttons/LinkButton'
-import LoadingButton from '@/components/buttons/LoadingButton'
-import RoundButton from '@/components/buttons/RoundButton'
-import SuccessButton from '@/components/buttons/SuccessButton'
-import StatsCard from '@/components/cards/StatsCard'
-import TestimonialCard from '@/components/cards/TestimonialCard'
+import SimpleCard from "../components/cards/SimpleCard";
+import ImageCard from "../components/cards/ImageCard";
+import FeatureCard from "../components/cards/FeatureCard";
+import ProfileCard from "../components/cards/ProfileCard";
+import PricingCard from "../components/cards/PricingCard";
+import DataCard from "@/components/cards/DataCard";
+import OutlineButton from "@/components/buttons/OutlineButton";
+import DangerButton from "@/components/buttons/DangerButton";
+import LinkButton from "@/components/buttons/LinkButton";
+import LoadingButton from "@/components/buttons/LoadingButton";
+import RoundButton from "@/components/buttons/RoundButton";
+import SuccessButton from "@/components/buttons/SuccessButton";
+import StatsCard from "@/components/cards/StatsCard";
+import TestimonialCard from "@/components/cards/TestimonialCard";
 
 // Input Components
-import TextInput from '../components/inputs/TextInput'
-import Select from '../components/inputs/Select'
-import Checkbox from '../components/inputs/Checkbox'
+import TextInput from "../components/inputs/TextInput";
+import Select from "../components/inputs/Select";
+import Checkbox from "../components/inputs/Checkbox";
 
 // Navigation Components
-import Tabs from '../components/navigation/Tabs'
-import Breadcrumb from '../components/navigation/Breadcrumb'
-import Pagination from '../components/navigation/Pagination'
+import Tabs from "../components/navigation/Tabs";
+import Breadcrumb from "../components/navigation/Breadcrumb";
+import Pagination from "../components/navigation/Pagination";
 
 // Feedback Components
-import Alert from '../components/feedback/Alert'
-import Badge from '../components/feedback/Badge'
-import ProgressBar from '../components/feedback/ProgressBar'
+import Alert from "../components/feedback/Alert";
+import Badge from "../components/feedback/Badge";
+import ProgressBar from "../components/feedback/ProgressBar";
 
 export default function Page() {
   const [isDark, setIsDark] = React.useState(false);
   const handleThemeToggle = () => setIsDark((prev) => !prev);
-  
+
   // Input component states
-  const [inputValue, setInputValue] = React.useState('');
-  const [selectValue, setSelectValue] = React.useState('');
+  const [inputValue, setInputValue] = React.useState("");
+  const [selectValue, setSelectValue] = React.useState("");
   const [checkboxValue, setCheckboxValue] = React.useState(false);
-  
+
   // Navigation component states
   const [activeTab, setActiveTab] = React.useState(0);
   const [currentPage, setCurrentPage] = React.useState(1);
-  
+
   // Feedback component states
   const [showAlert, setShowAlert] = React.useState(true);
-  
+
   // Sample data
   const selectOptions = [
-    { value: 'option1', label: 'Option 1' },
-    { value: 'option2', label: 'Option 2' },
-    { value: 'option3', label: 'Option 3' }
+    { value: "option1", label: "Option 1" },
+    { value: "option2", label: "Option 2" },
+    { value: "option3", label: "Option 3" },
   ];
-  
+
   const tabsData = [
-    { 
-      label: 'Dashboard', 
+    {
+      label: "Dashboard",
       content: <div className="p-4">Dashboard content goes here...</div>,
-      badge: '3'
+      badge: "3",
     },
-    { 
-      label: 'Analytics', 
-      content: <div className="p-4">Analytics content goes here...</div>
+    {
+      label: "Analytics",
+      content: <div className="p-4">Analytics content goes here...</div>,
     },
-    { 
-      label: 'Settings', 
-      content: <div className="p-4">Settings content goes here...</div>
-    }
+    {
+      label: "Settings",
+      content: <div className="p-4">Settings content goes here...</div>,
+    },
   ];
-  
+
   const breadcrumbItems = [
-    { label: 'Home', href: '/' },
-    { label: 'Components', href: '/components' },
-    { label: 'Navigation', href: '/components/navigation' },
-    { label: 'Breadcrumb' }
+    { label: "Home", href: "/" },
+    { label: "Components", href: "/components" },
+    { label: "Navigation", href: "/components/navigation" },
+    { label: "Breadcrumb" },
   ];
   return (
     <div className="space-y-12">
-      <section className='mt-12'>
+      <section className="mt-12">
         <h2 className="text-2xl font-semibold mb-4">Buttons</h2>
         <div className="flex gap-4 flex-wrap items-center">
           <PrimaryButton>Primary</PrimaryButton>
@@ -105,12 +105,33 @@ export default function Page() {
       <section>
         <h2 className="text-2xl font-semibold mb-4">Cards</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <SimpleCard title="Simple Card" description="A minimal card with actions." />
+          <SimpleCard
+            title="Simple Card"
+            description="A minimal card with actions."
+          />
           <ImageCard title="Image Card" description="Card with SVG image." />
-          <FeatureCard title="Feature Card" description="Highlight features and benefits." />
-          <ProfileCard name="Alex Johnson" role="Product Designer" />
-          <PricingCard plan="Pro" price="$9/mo" features={["10 projects", "Priority support", "Unlimited users"]} />
-          <TestimonialCard name="Jane Doe" role="CEO" quote="This product is amazing!" />
+          <FeatureCard
+            title="Feature Card"
+            description="Highlight features and benefits."
+          />
+          <ProfileCard
+            name="Alex Johnson"
+            role="Product Designer"
+            image="https://via.placeholder.com/150"
+            twitter="https://twitter.com/yourhandle"
+            github="https://github.com/yourhandle"
+            linkedin="https://linkedin.com/in/yourhandle"
+          />
+          <PricingCard
+            plan="Pro"
+            price="$9/mo"
+            features={["10 projects", "Priority support", "Unlimited users"]}
+          />
+          <TestimonialCard
+            name="Jane Doe"
+            role="CEO"
+            quote="This product is amazing!"
+          />
           <DataCard title="Active Projects" value="27" icon="📂" trend={8} />
           <StatsCard title="Revenue" value="$12K" icon="💰" trend={12} />
         </div>
@@ -161,16 +182,16 @@ export default function Page() {
             <h3 className="text-lg font-medium mb-3">Breadcrumb</h3>
             <Breadcrumb items={breadcrumbItems} />
           </div>
-          
+
           <div>
             <h3 className="text-lg font-medium mb-3">Tabs</h3>
-            <Tabs 
-              tabs={tabsData} 
+            <Tabs
+              tabs={tabsData}
               defaultTab={activeTab}
               onTabChange={(index) => setActiveTab(index)}
             />
           </div>
-          
+
           <div>
             <h3 className="text-lg font-medium mb-3">Pagination</h3>
             <Pagination
@@ -214,45 +235,46 @@ export default function Page() {
               />
             </div>
           </div>
-          
+
           <div>
             <h3 className="text-lg font-medium mb-3">Badges</h3>
             <div className="flex flex-wrap gap-2">
               <Badge>Default</Badge>
               <Badge variant="primary">Primary</Badge>
-              <Badge variant="success" dot>Success</Badge>
-              <Badge variant="warning" size="sm">Warning</Badge>
-              <Badge variant="error" size="lg">Error</Badge>
-              <Badge variant="info" removable onRemove={() => alert('Badge removed!')}>
+              <Badge variant="success" dot>
+                Success
+              </Badge>
+              <Badge variant="warning" size="sm">
+                Warning
+              </Badge>
+              <Badge variant="error" size="lg">
+                Error
+              </Badge>
+              <Badge
+                variant="info"
+                removable
+                onRemove={() => alert("Badge removed!")}
+              >
                 Removable
               </Badge>
             </div>
           </div>
-          
+
           <div>
             <h3 className="text-lg font-medium mb-3">Progress Bars</h3>
             <div className="space-y-4 max-w-md">
-              <ProgressBar
-                label="Upload Progress"
-                value={75}
-                color="indigo"
-              />
+              <ProgressBar label="Upload Progress" value={75} color="indigo" />
               <ProgressBar
                 label="Download"
                 value={45}
                 color="green"
                 size="sm"
               />
-              <ProgressBar
-                value={90}
-                color="red"
-                size="lg"
-                animated
-              />
+              <ProgressBar value={90} color="red" size="lg" animated />
             </div>
           </div>
         </div>
       </section>
     </div>
-  )
+  );
 }
