@@ -1,0 +1,69 @@
+1. Create the About Page File
+
+Inside your app directory, add a new folder about with a page.tsx (or page.jsx) file:
+
+/app
+ ├─ /about
+ │   └─ page.tsx
+
+
+---
+
+2. Basic About Page Example
+
+// app/about/page.tsx
+export default function AboutPage() {
+  return (
+    <main className="max-w-3xl mx-auto p-6">
+      <h1 className="text-4xl font-bold mb-4">About This Library</h1>
+      <p className="text-lg mb-4">
+        This component library was built to provide reusable, accessible, and 
+        customizable UI elements for modern web applications. 
+      </p>
+      <p className="text-lg mb-4">
+        It is designed to be developer-friendly, with a focus on simplicity, 
+        performance, and flexibility. Each component follows best practices 
+        for accessibility and can be easily integrated into new or existing projects.
+      </p>
+      <p className="text-lg">
+        Whether you’re building dashboards, portfolios, or full-scale applications, 
+        this library gives you the building blocks you need to get started quickly.
+      </p>
+    </main>
+  );
+}
+
+
+---
+
+3. Update Navigation
+
+If you already have a navigation bar (like in /components/NavBar.tsx), add a link to /about:
+
+import Link from "next/link";
+
+export function NavBar() {
+  return (
+    <nav className="flex space-x-4 p-4 bg-gray-100">
+      <Link href="/">Home</Link>
+      <Link href="/components">Components</Link>
+      <Link href="/contact">Contact</Link>
+      <Link href="/about">About</Link>
+    </nav>
+  );
+}
+
+
+---
+
+4. (Optional) Enhance with Metadata
+
+You can add custom metadata for SEO by using generateMetadata in page.tsx:
+
+export const metadata = {
+  title: "About - Component Library",
+  description: "Learn more about the vision and goals behind this component library.",
+};
+
+
+---
