@@ -1,5 +1,5 @@
 "use client"
-
+import { useState } from 'react';
 import Head from 'next/head';
 import Navbar from '@/components/Navbar';
 import PrimaryButton from '@/components/buttons/PrimaryButton';
@@ -13,7 +13,7 @@ import OutlineButton from '@/components/buttons/OutlineButton';
 import PillButton from '@/components/buttons/PillButton';
 import SuccessButton from '@/components/buttons/SuccessButton';
 import RoundButton from '@/components/buttons/RoundButton';
-
+import ThemeToggleButton from '../components/ThemeToggleButton';
 import SimpleCard from '@/components/cards/SimpleCard'
 import ImageCard from '@/components/cards/ImageCard'
 import FeatureCard from '@/components/cards/FeatureCard'
@@ -24,7 +24,7 @@ import DataCard from '@/components/cards/DataCard'
 
 export default function ComponentsPage({useToggle}) {
   const { on, toggle } = useToggle();
-  const [isDark, setIsDark] = React.useState(false);
+  const [isDark, setIsDark] = useState(false);
   const handleThemeToggle = () => setIsDark((prev) => !prev);
 
   return (
@@ -48,6 +48,7 @@ export default function ComponentsPage({useToggle}) {
             <SuccessButton>Success</SuccessButton>
             <IconButton aria-label="star">★</IconButton>
             <PillButton>Subscribe</PillButton>
+            <ThemeToggleButton></ThemeToggleButton>
           </div>
         </section>
 
