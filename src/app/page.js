@@ -1,4 +1,6 @@
+"use client";
 import React from 'react'
+import ThemeToggleButton from './components/ThemeToggleButton'
 import PrimaryButton from '../components/buttons/PrimaryButton'
 import SecondaryButton from '../components/buttons/SecondaryButton'
 import GhostButton from '../components/buttons/GhostButton'
@@ -17,14 +19,18 @@ import LinkButton from '@/components/buttons/LinkButton'
 import LoadingButton from '@/components/buttons/LoadingButton'
 import RoundButton from '@/components/buttons/RoundButton'
 import SuccessButton from '@/components/buttons/SuccessButton'
+import StatsCard from '@/components/cards/StatsCard'
+import TestimonialCard from '@/components/cards/TestimonialCard'
 
 export default function Page() {
- 
+  const [isDark, setIsDark] = React.useState(false);
+  const handleThemeToggle = () => setIsDark((prev) => !prev);
+
   return (
     <div className="space-y-12">
       <section className='mt-12'>
         <h2 className="text-2xl font-semibold mb-4">Buttons</h2>
-        <div className="flex gap-4 flex-wrap">
+        <div className="flex gap-4 flex-wrap items-center">
           <PrimaryButton>Primary</PrimaryButton>
           <SecondaryButton>Secondary</SecondaryButton>
           <GhostButton>Ghost</GhostButton>
@@ -36,6 +42,7 @@ export default function Page() {
           <SuccessButton>Success</SuccessButton>
           <IconButton aria-label="star">★</IconButton>
           <PillButton>Subscribe</PillButton>
+          <ThemeToggleButton onClick={handleThemeToggle} isDark={isDark} />
         </div>
       </section>
 
@@ -47,9 +54,12 @@ export default function Page() {
           <FeatureCard title="Feature Card" description="Highlight features and benefits." />
           <ProfileCard name="Alex Johnson" role="Product Designer" />
           <PricingCard plan="Pro" price="$9/mo" features={["10 projects", "Priority support", "Unlimited users"]} />
+          <TestimonialCard name="Jane Doe" role="CEO" quote="This product is amazing!" />
           <DataCard title="Active Projects" value="27" icon="📂" trend={8} />
+          <StatsCard title="Revenue" value="$12K" icon="💰" trend={12} />
         </div>
       </section>
     </div>
   )
 }
+

@@ -1,85 +1,77 @@
-"use client";
+import React from 'react';
+import { Code, Users, Heart, Github } from 'lucide-react';
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen px-8 py-16 text-gray-900">
-      <div className="max-w-4xl mx-auto space-y-8">
-        {/* Project Description */}
-        <section>
-          <h1 className="text-5xl font-bold mb-4 text-center">
-            About Open Source Component Library
-          </h1>
-          <p className="text-lg leading-relaxed text-center">
-            This repository is an open-source <strong>Next.js + Tailwind CSS</strong> Component Library.
-            It contains ready-to-use UI components like <strong>Buttons</strong> and <strong>Cards</strong>
-            that you can plug into any project. Perfect for beginners to learn, practice, and contribute during Hacktoberfest 🎉.
-          </p>
-        </section>
+    <div className="max-w-4xl mx-auto px-4 py-12 space-y-16">
+      {/* Overview Section */}
+      <section className="text-center">
+        <h1 className="text-4xl font-bold text-gray-900 mb-6">About MyLibrary</h1>
+        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          MyLibrary is a comprehensive component library built with Next.js and Tailwind CSS,
+          designed to provide developers with reusable, accessible, and beautifully designed UI components.
+          Our goal is to accelerate development workflows and maintain design consistency across projects.
+        </p>
+      </section>
 
-        {/* Tech Stack */}
-        <section>
-          <h2 className="text-3xl font-semibold mb-4">Tech Stack</h2>
-          <ul className="list-disc list-inside space-y-2 text-lg">
-            <li>Next.js 14 (App Router)</li>
-            <li>Tailwind CSS for styling</li>
-            <li>React for UI components</li>
-            <li>Vercel for deployment</li>
+      {/* Technologies Section */}
+      <section>
+        <div className="flex items-center mb-8">
+          <Code className="w-8 h-8 text-blue-600 mr-3" />
+          <h2 className="text-3xl font-semibold text-gray-900">Technologies Used</h2>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="bg-white p-6 rounded-lg shadow-sm border">
+            <h3 className="text-xl font-medium text-gray-900 mb-2">Next.js</h3>
+            <p className="text-gray-600">React framework for production with server-side rendering and static site generation.</p>
+          </div>
+          <div className="bg-white p-6 rounded-lg shadow-sm border">
+            <h3 className="text-xl font-medium text-gray-900 mb-2">React</h3>
+            <p className="text-gray-600">JavaScript library for building user interfaces with component-based architecture.</p>
+          </div>
+          <div className="bg-white p-6 rounded-lg shadow-sm border">
+            <h3 className="text-xl font-medium text-gray-900 mb-2">Tailwind CSS</h3>
+            <p className="text-gray-600">Utility-first CSS framework for rapid UI development and responsive design.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Contribution Section */}
+      <section>
+        <div className="flex items-center mb-8">
+          <Github className="w-8 h-8 text-blue-600 mr-3" />
+          <h2 className="text-3xl font-semibold text-gray-900">Contributing</h2>
+        </div>
+        <p className="text-gray-600 mb-6">
+          We welcome contributions from the community! Whether you're fixing bugs, adding new components,
+          or improving documentation, your help is invaluable.
+        </p>
+        <div className="bg-blue-50 p-6 rounded-lg">
+          <h3 className="text-lg font-medium text-gray-900 mb-2">How to Contribute</h3>
+          <ul className="list-disc list-inside text-gray-600 space-y-1">
+            <li>Check out our <a href="/CONTRIBUTING.md" className="text-blue-600 hover:underline">Contributing Guidelines</a></li>
+            <li>Report issues or suggest features on <a href="https://github.com/your-repo" className="text-blue-600 hover:underline">GitHub</a></li>
+            <li>Join our community discussions</li>
           </ul>
-        </section>
+        </div>
+      </section>
 
-        {/* Contribution Guidelines */}
-        <section>
-          <h2 className="text-3xl font-semibold mb-4">Contribution Guidelines</h2>
-          <p className="mb-4">
-            We welcome all contributions! Please follow these steps:
+      {/* Acknowledgements Section */}
+      <section>
+        <div className="flex items-center mb-8">
+          <Heart className="w-8 h-8 text-red-500 mr-3" />
+          <h2 className="text-3xl font-semibold text-gray-900">Acknowledgements</h2>
+        </div>
+        <div className="bg-gray-50 p-6 rounded-lg">
+          <p className="text-gray-600 mb-4">
+            Special thanks to our contributors and the open-source community for their support and inspiration.
           </p>
-          <ul className="list-disc list-inside space-y-2 text-lg mb-4">
-            <li>Give this repo a star ⭐ (mandatory)</li>
-            <li>Follow my GitHub account (mandatory)</li>
-            <li>Fork this repository</li>
-            <li>Create an Issue for the feature/bug you want to work on</li>
-            <li>Commit your changes with a meaningful message</li>
-            <li>Push your changes to your forked repo</li>
-            <li>Create a Pull Request (PR)</li>
-            <li>Wait for review and merge 🚀</li>
-          </ul>
-
-          <h3 className="text-2xl font-semibold mb-2">How to Fork this Repository</h3>
-          <p className="mb-4">
-            On the top-right corner of this repo page, click Fork. Choose your GitHub account to fork the repo into.
-            Then clone your forked repo: 
-            <code className="bg-gray-100 px-1 rounded mx-1">git clone https://github.comGyanthakur/component-library.git</code>
-          </p>
-
-          <h3 className="text-2xl font-semibold mb-2">How to Create an Issue</h3>
-          <p className="mb-4">
-            Go to the Issues tab of this repository, click New Issue, choose a template (bug, enhancement, documentation, etc.), fill in the details, and submit.
-          </p>
-
-          <h3 className="text-2xl font-semibold mb-2">How to Raise a Pull Request (PR)</h3>
-          <p className="mb-4">
-            Push your code to your forked repository. Go to the Pull Requests tab of the main repository, click New Pull Request, select your branch from your forked repo, and submit the PR with a proper description of your changes.
-          </p>
-
-          <h3 className="text-2xl font-semibold mb-2">Need Help? Contact Me!</h3>
-          <p className="mb-4">
-            If you have any query or confusion, you can WhatsApp me at <strong>+91 895-7818-597</strong> or click the WhatsApp button below:
-          </p>
-          <a
-            href="https://wa.me/918957818597"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
-          >
-            WhatsApp
-          </a>
-
-          <p className="mt-6">
-            Thank you to every contributor of this repository. Your efforts make this project better for everyone 💜
-          </p>
-          <p className="mt-2 font-semibold">🌟 Happy Contributing & Happy Hacktoberfest 2025 🎉</p>
-        </section>
-      </div>
+          <div className="flex items-center">
+            <Users className="w-6 h-6 text-gray-500 mr-2" />
+            <span className="text-gray-700">Built with ❤️ by the MyLibrary team</span>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
