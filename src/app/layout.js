@@ -43,7 +43,7 @@ export default function RootLayout({ children }) {
         <ThemeProvider>
           <div className="">
             <Navbar />
-            <main className='max-w-7xl mx-auto'>
+            <main className='max-w-8xl mx-auto'>
               {children}
             </main> 
             <Footer/>

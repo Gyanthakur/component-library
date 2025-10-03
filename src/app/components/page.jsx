@@ -47,6 +47,7 @@ import Checkbox from './inputs/Checkbox'
 import Tabs from './navigation/Tabs'
 import Breadcrumb from './navigation/Breadcrumb'
 import Pagination from './navigation/Pagination'
+import ProfileCardCustom from './cards/ProfileCardCustom';
  
 
 
@@ -102,6 +103,29 @@ export default function Page() {
     { label: 'Navigation', href: '/components/navigation' },
     { label: 'Breadcrumb' }
   ];
+  
+// Social links for ProfileCardCustom
+  const socialLinks = [
+    {
+      platform: "twitter",
+      url: "https://twitter.com/user",
+      icon: "𝕏",
+    },
+    {
+      platform: "github",
+      url: "https://github.com/user",
+      icon: "⎔",
+    },
+    {
+      platform: "linkedin",
+      url: "https://linkedin.com/in/user",
+      icon: "in",
+    },
+  ];
+  // click function for ProfileCardCustom 
+    const handleContactClick = () => {
+    alert("Contact button clicked!");
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-sky-50 via-indigo-50 to-pink-50 dark:from-[#1d1e26] dark:via-[#212936] dark:to-[#28243c] transition-colors duration-500">
@@ -157,6 +181,15 @@ export default function Page() {
             <FeatureCard title="Feature Card" description="Highlight features and benefits." />
             <PricingCard plan="Pro" price="$9/mo" features={["10 projects", "Priority support", "Unlimited users"]} />
             <DataCard title="Active Projects" value="27" icon="📂" trend={8} />
+            <ProfileCardCustom
+              avatarUrl="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&crop=face"
+              name="Sarah Smith"
+              bio="UI/UX Designer creating beautiful and user-friendly interfaces for web and mobile applications."
+              socialLinks={socialLinks}
+              theme="dark"
+              contactButtonText="View Portfolio"
+              onContactClick={handleContactClick}
+            />
           </div>
         </section>
 
