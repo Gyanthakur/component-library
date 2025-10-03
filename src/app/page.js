@@ -1,274 +1,145 @@
 "use client";
-import React from 'react'
-import ThemeToggleButton from './components/ThemeToggleButton'
-import PrimaryButton from '../components/buttons/PrimaryButton'
-import SecondaryButton from '../components/buttons/SecondaryButton'
-import GhostButton from '../components/buttons/GhostButton'
-import IconButton from '../components/buttons/IconButton'
-import PillButton from '../components/buttons/PillButton'
-import Modal from '../components/feedback/Modal';
+import React, { useState, useEffect } from "react";
+import Link from "next/link";
+import PrimaryButton from './components/buttons/PrimaryButton';
+import SimpleCard from './components/cards/SimpleCard';
+import FeatureCard from './components/cards/FeatureCard';
+import PricingCard from './components/cards/PricingCard';
+import DataCard from './components/cards/DataCard';
+import Image from "next/image";
 
-import SimpleCard from '../components/cards/SimpleCard'
-import ImageCard from '../components/cards/ImageCard'
-import FeatureCard from '../components/cards/FeatureCard'
-import ProfileCard from '../components/cards/ProfileCard'
-import PricingCard from '../components/cards/PricingCard'
-import DataCard from '@/components/cards/DataCard'
-import OutlineButton from '@/components/buttons/OutlineButton'
-import DangerButton from '@/components/buttons/DangerButton'
-import LinkButton from '@/components/buttons/LinkButton'
-import LoadingButton from '@/components/buttons/LoadingButton'
-import RoundButton from '@/components/buttons/RoundButton'
-import SuccessButton from '@/components/buttons/SuccessButton'
-import StatsCard from '@/components/cards/StatsCard'
-import TestimonialCard from '@/components/cards/TestimonialCard'
+export default function HomePage() {
+  const [darkMode, setDarkMode] = useState(false);
 
-// Input Components
-import TextInput from '../components/inputs/TextInput'
-import Select from '../components/inputs/Select'
-import Checkbox from '../components/inputs/Checkbox'
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [darkMode]);
 
-// Navigation Components
-import Tabs from '../components/navigation/Tabs'
-import Breadcrumb from '../components/navigation/Breadcrumb'
-import Pagination from '../components/navigation/Pagination'
-
-// Feedback Components
-import Alert from '../components/feedback/Alert'
-import Badge from '../components/feedback/Badge'
-import ProgressBar from '../components/feedback/ProgressBar'
-
-export default function Page() {
-  const [isDark, setIsDark] = React.useState(false);
-  const handleThemeToggle = () => setIsDark((prev) => !prev);
-  
-  // Input component states
-  const [inputValue, setInputValue] = React.useState('');
-  const [selectValue, setSelectValue] = React.useState('');
-  const [checkboxValue, setCheckboxValue] = React.useState(false);
-  const [isModalOpen, setIsModalOpen] = React.useState(false);
-
-  
-  // Navigation component states
-  const [activeTab, setActiveTab] = React.useState(0);
-  const [currentPage, setCurrentPage] = React.useState(1);
-  
-  // Feedback component states
-  const [showAlert, setShowAlert] = React.useState(true);
-  
-  // Sample data
-  const selectOptions = [
-    { value: 'option1', label: 'Option 1' },
-    { value: 'option2', label: 'Option 2' },
-    { value: 'option3', label: 'Option 3' }
-  ];
-  
-  const tabsData = [
-    { 
-      label: 'Dashboard', 
-      content: <div className="p-4">Dashboard content goes here...</div>,
-      badge: '3'
+  const features = [
+    {
+      icon: "🚀",
+      title: "Optimized for React",
+      description: "Lightweight and fast components, designed specifically for React applications."
     },
-    { 
-      label: 'Analytics', 
-      content: <div className="p-4">Analytics content goes here...</div>
+    {
+      icon: "🎨",
+      title: "Custom Themes",
+      description: "Supports effortless customization with light, dark, and custom themes."
     },
-    { 
-      label: 'Settings', 
-      content: <div className="p-4">Settings content goes here...</div>
+    {
+      icon: "⚙️",
+      title: "Flexible APIs",
+      description: "Simple, intuitive props enabling full control over your components."
+    },
+    {
+      icon: "📚",
+      title: "Well Documented",
+      description: "Comprehensive, clear documentation to ease your development experience."
     }
   ];
-  
-  const breadcrumbItems = [
-    { label: 'Home', href: '/' },
-    { label: 'Components', href: '/components' },
-    { label: 'Navigation', href: '/components/navigation' },
-    { label: 'Breadcrumb' }
+
+  const usageSteps = [
+    {
+      step: 1,
+      title: "Add the Package",
+      description: "Install with npm or yarn for easy integration.",
+      code: "npm install my-components-library"
+    },
+    {
+      step: 2,
+      title: "Import Components",
+      description: "Import only what you need from the library to keep bundles small.",
+      code: "import { Button, Card } from 'my-components-library';"
+    },
+    {
+      step: 3,
+      title: "Use Components",
+      description: "Apply components directly with easy-to-use props.",
+      code: "<Button variant='primary'>Click Me</Button>"
+    }
   ];
+
   return (
-    <div className="space-y-12">
-      <section className='mt-12'>
-        <h2 className="text-2xl font-semibold mb-4">Buttons</h2>
-        <div className="flex gap-4 flex-wrap items-center">
-          <PrimaryButton>Primary</PrimaryButton>
-          <SecondaryButton>Secondary</SecondaryButton>
-          <GhostButton>Ghost</GhostButton>
-          <OutlineButton>Outline</OutlineButton>
-          <DangerButton>Danger</DangerButton>
-          <LinkButton>Link</LinkButton>
-          <LoadingButton>Loading</LoadingButton>
-          <RoundButton>Rounded</RoundButton>
-          <SuccessButton>Success</SuccessButton>
-          <IconButton aria-label="star">★</IconButton>
-          <PillButton>Subscribe</PillButton>
-          <ThemeToggleButton onClick={handleThemeToggle} isDark={isDark} />
-          <PrimaryButton onClick={() => setIsModalOpen(true)}>Open Modal</PrimaryButton>
-        </div>
-      </section>
-
-      <section>
-        <h2 className="text-2xl font-semibold mb-4">Cards</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <SimpleCard title="Simple Card" description="A minimal card with actions." />
-          <ImageCard title="Image Card" description="Card with SVG image." />
-          <FeatureCard title="Feature Card" description="Highlight features and benefits." />
-          <ProfileCard name="Alex Johnson" role="Product Designer" />
-          <PricingCard plan="Pro" price="$9/mo" features={["10 projects", "Priority support", "Unlimited users"]} />
-          <TestimonialCard name="Jane Doe" role="CEO" quote="This product is amazing!" />
-          <DataCard title="Active Projects" value="27" icon="📂" trend={8} />
-          <StatsCard title="Revenue" value="$12K" icon="💰" trend={12} />
-        </div>
-      </section>
-
-      <section>
-        <h2 className="text-2xl font-semibold mb-4">Input Components</h2>
-        <div className="max-w-md space-y-4">
-          <TextInput
-            label="Email Address"
-            placeholder="Enter your email"
-            value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}
-            helperText="We'll never share your email"
-            required
-          />
-          <TextInput
-            label="Password"
-            type="password"
-            placeholder="Enter your password"
-            error="Password must be at least 8 characters"
-          />
-          <Select
-            label="Choose an option"
-            options={selectOptions}
-            value={selectValue}
-            onChange={(e) => setSelectValue(e.target.value)}
-            required
-          />
-          <Checkbox
-            label="Terms and Conditions"
-            description="I agree to the terms and conditions"
-            checked={checkboxValue}
-            onChange={(e) => setCheckboxValue(e.target.checked)}
-          />
-          <Checkbox
-            label="Disabled Option"
-            description="This option is disabled"
-            disabled
-          />
-        </div>
-      </section>
-
-      <section>
-        <h2 className="text-2xl font-semibold mb-4">Navigation Components</h2>
-        <div className="space-y-8">
-          <div>
-            <h3 className="text-lg font-medium mb-3">Breadcrumb</h3>
-            <Breadcrumb items={breadcrumbItems} />
+    <div className={`${darkMode ? "dark" : "light"} transition-colors duration-700`}>
+      <div className="min-h-screen bg-gradient-to-tr light:from-indigo-50 light:via-purple-100 light:to-pink-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-950 text-gray-900 dark:text-gray-100">
+        
+        {/* Hero Section */}
+        <section className="max-w-7xl mx-auto px-6 py-24 flex flex-col md:flex-row items-center gap-16">
+          <div className="md:w-1/2 space-y-8 text-center md:text-left">
+            <h1 className="text-5xl font-extrabold bg-clip-text text-transparent light:bg-gradient-to-r light:from-purple-600 light:to-pink-500 dark:bg-gradient-to-r dark:from-pink-500 dark:to-purple-600 select-none">
+              Build beautiful and performant React apps with ease
+            </h1>
+            <p className="text-lg max-w-md mx-auto md:mx-0 light:text-gray-700 dark:text-gray-300">
+              Our component library empowers developers with customizable, accessible UI elements optimized for React ecosystems.
+            </p>
+            <div className="space-x-6">
+              <PrimaryButton onClick={() => setDarkMode(!darkMode)}>
+                {darkMode ? "Switch to Light" : "Switch to Dark"}
+              </PrimaryButton>
+              <Link href="#features" className="inline-block px-6 py-3 rounded-lg font-semibold light:text-purple-700 dark:text-pink-400 hover:underline cursor-pointer">
+                Explore Features
+              </Link>
+            </div>
           </div>
-          
-          <div>
-            <h3 className="text-lg font-medium mb-3">Tabs</h3>
-            <Tabs 
-              tabs={tabsData} 
-              defaultTab={activeTab}
-              onTabChange={(index) => setActiveTab(index)}
+          <div className="md:w-1/2 max-w-lg mx-auto">
+            <Image
+              src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=800&q=80"
+              alt="Modern UI Design Illustration"
+              className="rounded-3xl shadow-2xl w-full"
+              loading="lazy"
             />
           </div>
-          
-          <div>
-            <h3 className="text-lg font-medium mb-3">Pagination</h3>
-            <Pagination
-              currentPage={currentPage}
-              totalPages={10}
-              onPageChange={(page) => setCurrentPage(page)}
-              maxVisiblePages={5}
-            />
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <section>
-        <h2 className="text-2xl font-semibold mb-4">Feedback Components</h2>
-        <div className="space-y-6">
-          <div>
-            <h3 className="text-lg font-medium mb-3">Alerts</h3>
-            <div className="space-y-3">
-              {showAlert && (
-                <Alert
-                  type="success"
-                  title="Success!"
-                  message="Your account has been created successfully."
-                  dismissible
-                  onClose={() => setShowAlert(false)}
-                />
-              )}
-              <Alert
-                type="error"
-                title="Error"
-                message="There was a problem processing your request."
-              />
-              <Alert
-                type="warning"
-                message="Your subscription will expire in 3 days."
-              />
-              <Alert
-                type="info"
-                title="Information"
-                message="New features are now available."
-              />
+        {/* Features Section */}
+        <section id="features" className="max-w-7xl mx-auto px-6 py-20 grid grid-cols-1 md:grid-cols-4 gap-16 text-center">
+          {features.map(({ icon, title, description }) => (
+            <div key={title} className="light:bg-white dark:bg-gray-800 rounded-3xl p-10 shadow-lg hover:shadow-2xl transition-shadow cursor-default flex flex-col items-center space-y-8">
+              <div className="text-7xl">{icon}</div>
+              <h3 className="text-2xl font-bold">{title}</h3>
+              <p className="light:text-gray-600 dark:text-gray-400 max-w-xs">{description}</p>
             </div>
+          ))}
+        </section>
+
+        {/* Featured Components */}
+        <section className="max-w-7xl mx-auto px-6 py-20">
+          <h2 className="text-4xl font-extrabold mb-16 text-center">Featured Components</h2>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-20">
+            <SimpleCard title="Simple Card" description="Clean, minimal card with action support." />
+            <FeatureCard title="Feature Card" description="Highlight your app’s features with style." />
+            <PricingCard plan="Pro" price="$9/mo" features={["10 projects", "Priority support", "Unlimited users"]} />
+            <DataCard title="Active Projects" value="27" icon="📂" trend={8} />
           </div>
-          
-          <div>
-            <h3 className="text-lg font-medium mb-3">Badges</h3>
-            <div className="flex flex-wrap gap-2">
-              <Badge>Default</Badge>
-              <Badge variant="primary">Primary</Badge>
-              <Badge variant="success" dot>Success</Badge>
-              <Badge variant="warning" size="sm">Warning</Badge>
-              <Badge variant="error" size="lg">Error</Badge>
-              <Badge variant="info" removable onRemove={() => alert('Badge removed!')}>
-                Removable
-              </Badge>
-            </div>
+        </section>
+
+        {/* Usage Instructions */}
+        <section className="max-w-5xl mx-auto px-6 py-24 bg-white dark:bg-gray-900 rounded-3xl shadow-2xl text-center space-y-14">
+          <h2 className="text-4xl font-bold">Getting Started</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
+            {usageSteps.map(({ step, title, description, code }) => (
+              <div key={step} className="rounded-xl p-8 light:bg-indigo-50 dark:bg-indigo-900 shadow-lg hover:shadow-xl transition">
+                <div className="text-6xl font-extrabold text-purple-600 mb-6">{step}</div>
+                <h3 className="font-semibold text-xl mb-4">{title}</h3>
+                <p className="mb-6 light:text-gray-700 dark:text-gray-300">{description}</p>
+                <pre className="light:bg-purple-100 dark:bg-purple-800 light:text-purple-900 dark:text-purple-300 p-5 rounded-lg overflow-x-auto text-left text-sm">
+                  {code}
+                </pre>
+              </div>
+            ))}
           </div>
-          
-          <div>
-            <h3 className="text-lg font-medium mb-3">Progress Bars</h3>
-            <div className="space-y-4 max-w-md">
-              <ProgressBar
-                label="Upload Progress"
-                value={75}
-                color="indigo"
-              />
-              <ProgressBar
-                label="Download"
-                value={45}
-                color="green"
-                size="sm"
-              />
-              <ProgressBar
-                value={90}
-                color="red"
-                size="lg"
-                animated
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-        <Modal 
-    isOpen={isModalOpen} 
-    onClose={() => setIsModalOpen(false)} 
-    title="Confirmation"
-  >
-    <p>Are you sure you want to delete this item?</p>
-    <div className="mt-4 flex justify-end gap-2">
-      <PrimaryButton onClick={() => setIsModalOpen(false)}>Yes</PrimaryButton>
-      <SecondaryButton onClick={() => setIsModalOpen(false)}>No</SecondaryButton>
+        </section>
+
+        {/* Call to Action */}
+        <section className="max-w-4xl mx-auto px-6 py-28 text-center">
+          <h2 className="text-5xl font-extrabold mb-10">Ready to build stunning apps?</h2>
+          <PrimaryButton className="text-lg px-14 py-6">Start Building Now</PrimaryButton>
+        </section>
+      </div>
     </div>
-  </Modal>
-      
-    </div>
-  )
+  );
 }
