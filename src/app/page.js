@@ -36,52 +36,78 @@ import Pagination from '../components/navigation/Pagination'
 import Alert from '../components/feedback/Alert'
 import Badge from '../components/feedback/Badge'
 import ProgressBar from '../components/feedback/ProgressBar'
+import ProfileCardCustom from '@/components/cards/ProfileCardCustom';
 
 export default function Page() {
   const [isDark, setIsDark] = React.useState(false);
   const handleThemeToggle = () => setIsDark((prev) => !prev);
-  
+
   // Input component states
   const [inputValue, setInputValue] = React.useState('');
   const [selectValue, setSelectValue] = React.useState('');
   const [checkboxValue, setCheckboxValue] = React.useState(false);
-  
+
   // Navigation component states
   const [activeTab, setActiveTab] = React.useState(0);
   const [currentPage, setCurrentPage] = React.useState(1);
-  
+
   // Feedback component states
   const [showAlert, setShowAlert] = React.useState(true);
-  
+
   // Sample data
   const selectOptions = [
     { value: 'option1', label: 'Option 1' },
     { value: 'option2', label: 'Option 2' },
     { value: 'option3', label: 'Option 3' }
   ];
-  
+
   const tabsData = [
-    { 
-      label: 'Dashboard', 
+    {
+      label: 'Dashboard',
       content: <div className="p-4">Dashboard content goes here...</div>,
       badge: '3'
     },
-    { 
-      label: 'Analytics', 
+    {
+      label: 'Analytics',
       content: <div className="p-4">Analytics content goes here...</div>
     },
-    { 
-      label: 'Settings', 
+    {
+      label: 'Settings',
       content: <div className="p-4">Settings content goes here...</div>
     }
   ];
-  
+
   const breadcrumbItems = [
     { label: 'Home', href: '/' },
     { label: 'Components', href: '/components' },
     { label: 'Navigation', href: '/components/navigation' },
     { label: 'Breadcrumb' }
   ];
+
+  // Social links for ProfileCardCustom
+  const socialLinks = [
+    {
+      platform: "twitter",
+      url: "https://twitter.com/user",
+      icon: "𝕏",
+    },
+    {
+      platform: "github",
+      url: "https://github.com/user",
+      icon: "⎔",
+    },
+    {
+      platform: "linkedin",
+      url: "https://linkedin.com/in/user",
+      icon: "in",
+    },
+  ];
+
+  // click function for ProfileCardCustom 
+    const handleContactClick = () => {
+    alert("Contact button clicked!");
+  };
+
   return (
     <div className="space-y-12">
       <section className='mt-12'>
@@ -113,6 +139,15 @@ export default function Page() {
           <TestimonialCard name="Jane Doe" role="CEO" quote="This product is amazing!" />
           <DataCard title="Active Projects" value="27" icon="📂" trend={8} />
           <StatsCard title="Revenue" value="$12K" icon="💰" trend={12} />
+          <ProfileCardCustom
+            avatarUrl="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&crop=face"
+            name="Sarah Smith"
+            bio="UI/UX Designer creating beautiful and user-friendly interfaces for web and mobile applications."
+            socialLinks={socialLinks}
+            theme="dark"
+            contactButtonText="View Portfolio"
+            onContactClick={handleContactClick}
+          />
         </div>
       </section>
 
@@ -161,16 +196,16 @@ export default function Page() {
             <h3 className="text-lg font-medium mb-3">Breadcrumb</h3>
             <Breadcrumb items={breadcrumbItems} />
           </div>
-          
+
           <div>
             <h3 className="text-lg font-medium mb-3">Tabs</h3>
-            <Tabs 
-              tabs={tabsData} 
+            <Tabs
+              tabs={tabsData}
               defaultTab={activeTab}
               onTabChange={(index) => setActiveTab(index)}
             />
           </div>
-          
+
           <div>
             <h3 className="text-lg font-medium mb-3">Pagination</h3>
             <Pagination
@@ -214,7 +249,7 @@ export default function Page() {
               />
             </div>
           </div>
-          
+
           <div>
             <h3 className="text-lg font-medium mb-3">Badges</h3>
             <div className="flex flex-wrap gap-2">
@@ -228,7 +263,7 @@ export default function Page() {
               </Badge>
             </div>
           </div>
-          
+
           <div>
             <h3 className="text-lg font-medium mb-3">Progress Bars</h3>
             <div className="space-y-4 max-w-md">
