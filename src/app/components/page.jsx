@@ -48,6 +48,7 @@ import Checkbox from './inputs/Checkbox'
 import Tabs from './navigation/Tabs'
 import Breadcrumb from './navigation/Breadcrumb'
 import Pagination from './navigation/Pagination'
+import ProfileCardCustom from './cards/ProfileCardCustom';
  
 
 
@@ -107,6 +108,29 @@ export default function Page() {
     { label: 'Navigation', href: '/components/navigation' },
     { label: 'Breadcrumb' }
   ];
+  
+// Social links for ProfileCardCustom
+  const socialLinks = [
+    {
+      platform: "twitter",
+      url: "https://twitter.com/user",
+      icon: "𝕏",
+    },
+    {
+      platform: "github",
+      url: "https://github.com/user",
+      icon: "⎔",
+    },
+    {
+      platform: "linkedin",
+      url: "https://linkedin.com/in/user",
+      icon: "in",
+    },
+  ];
+  // click function for ProfileCardCustom 
+    const handleContactClick = () => {
+    alert("Contact button clicked!");
+  };
 
   // All components with search data
   const allComponents = {
@@ -124,7 +148,8 @@ export default function Page() {
       { name: 'Image Card', component: <ImageCard title="Image Card" description="Card with SVG image." />, keywords: ['image', 'picture', 'visual'] },
       { name: 'Feature Card', component: <FeatureCard title="Feature Card" description="Highlight features and benefits." />, keywords: ['feature', 'highlight', 'benefit'] },
       { name: 'Pricing Card', component: <PricingCard plan="Pro" price="$9/mo" features={["10 projects", "Priority support", "Unlimited users"]} />, keywords: ['pricing', 'plan', 'subscription', 'price'] },
-      { name: 'Data Card', component: <DataCard title="Active Projects" value="27" icon="📂" trend={8} />, keywords: ['data', 'stats', 'analytics', 'metrics'] }
+      { name: 'Data Card', component: <DataCard title="Active Projects" value="27" icon="📂" trend={8} />, keywords: ['data', 'stats', 'analytics', 'metrics'] },
+      { name: 'Profile Card', component: <ProfileCardCustom avtarUrl="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&crop=face" name="Sarah Smith" bio="UI/UX Designer creating beautifyl mobile and web apps" socialLinks={socialLinks} theme="dark" contactButtonText="View Portfolio" onContactClick={handleContactClick} />, keywords: ['custom', 'profile', 'reusable']}
     ],
     inputs: [
       { name: 'Text Input', component: <TextInput label="Sample Input" placeholder="Enter text" />, keywords: ['text', 'input', 'field', 'form'] },
