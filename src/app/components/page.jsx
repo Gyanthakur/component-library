@@ -49,20 +49,14 @@ import Breadcrumb from './navigation/Breadcrumb'
 import Pagination from './navigation/Pagination'
  
 
-
+import { useTheme } from '../context/ThemeContext';
 
 
 
 export default function Page() {
-  // Theme State
-  const [theme, setTheme] = React.useState("light");
-  React.useEffect(() => {
-    if (theme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [theme]);
+// Theme from context
+const { darkMode } = useTheme();
+const theme = darkMode ? "dark" : "light";
 
   // Inputs
   const [inputValue, setInputValue] = React.useState('');
