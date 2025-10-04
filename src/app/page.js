@@ -6,7 +6,7 @@ import SimpleCard from './components/cards/SimpleCard';
 import FeatureCard from './components/cards/FeatureCard';
 import PricingCard from './components/cards/PricingCard';
 import DataCard from './components/cards/DataCard';
-import Image from "next/image";
+
 
 export default function HomePage() {
   const [darkMode, setDarkMode] = useState(false);
@@ -66,7 +66,7 @@ export default function HomePage() {
   return (
     <div className={`${darkMode ? "dark" : "light"} transition-colors duration-700`}>
       <div className="min-h-screen bg-gradient-to-tr light:from-indigo-50 light:via-purple-100 light:to-pink-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-950 text-gray-900 dark:text-gray-100">
-        
+
         {/* Hero Section */}
         <section className="max-w-7xl mx-auto px-6 py-24 flex flex-col md:flex-row items-center gap-16">
           <div className="md:w-1/2 space-y-8 text-center md:text-left">
@@ -86,12 +86,13 @@ export default function HomePage() {
             </div>
           </div>
           <div className="md:w-1/2 max-w-lg mx-auto">
-            <Image
-              src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=800&q=80"
-              alt="Modern UI Design Illustration"
-              className="rounded-3xl shadow-2xl w-full"
-              loading="lazy"
-            />
+            <div className="bg-gradient-to-br from-blue-400 via-purple-500 to-pink-500 rounded-3xl shadow-2xl w-full h-96 flex items-center justify-center">
+              <div className="text-white text-center">
+                <div className="text-6xl mb-4">🎨</div>
+                <h3 className="text-2xl font-bold mb-2">Beautiful Components</h3>
+                <p className="text-blue-100">Ready to use in your projects</p>
+              </div>
+            </div>
           </div>
         </section>
 
