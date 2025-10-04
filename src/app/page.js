@@ -7,7 +7,6 @@ import FeatureCard from './components/cards/FeatureCard';
 import PricingCard from './components/cards/PricingCard';
 import DataCard from './components/cards/DataCard';
 import Image from "next/image";
-import ProfileCardCustom from "./components/cards/ProfileCardCustom";
 
 export default function HomePage() {
   const [darkMode, setDarkMode] = useState(false);
@@ -64,29 +63,6 @@ export default function HomePage() {
     }
   ];
 
-  // Social links for ProfileCardCustom
-  const socialLinks = [
-    {
-      platform: "twitter",
-      url: "https://twitter.com/user",
-      icon: "𝕏",
-    },
-    {
-      platform: "github",
-      url: "https://github.com/user",
-      icon: "⎔",
-    },
-    {
-      platform: "linkedin",
-      url: "https://linkedin.com/in/user",
-      icon: "in",
-    },
-  ];
-  // click function for ProfileCardCustom 
-    const handleContactClick = () => {
-    alert("Contact button clicked!");
-  };
-
   return (
     <div className={`${darkMode ? "dark" : "light"} transition-colors duration-700`}>
       <div className="min-h-screen bg-gradient-to-tr light:from-indigo-50 light:via-purple-100 light:to-pink-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-950 text-gray-900 dark:text-gray-100">
@@ -133,20 +109,11 @@ export default function HomePage() {
         {/* Featured Components */}
         <section className="max-w-7xl mx-auto px-6 py-20">
           <h2 className="text-4xl font-extrabold mb-16 text-center">Featured Components</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-20">
             <SimpleCard title="Simple Card" description="Clean, minimal card with action support." />
             <FeatureCard title="Feature Card" description="Highlight your app’s features with style." />
             <PricingCard plan="Pro" price="$9/mo" features={["10 projects", "Priority support", "Unlimited users"]} />
             <DataCard title="Active Projects" value="27" icon="📂" trend={8} />
-            <ProfileCardCustom
-              avatarUrl="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&crop=face"
-              name="Sarah Smith"
-              bio="UI/UX Designer creating beautiful and user-friendly interfaces for web and mobile applications."
-              socialLinks={socialLinks}
-              theme="dark"
-              contactButtonText="View Portfolio"
-              onContactClick={handleContactClick}
-            />
           </div>
         </section>
 
