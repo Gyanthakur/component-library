@@ -8,9 +8,9 @@ export default function TextInput({
   ...props 
 }) {
   return (
-    <div className="w-full">
+    <div className="w-full space-y-2">
       {label && (
-        <label className="block text-sm font-medium text-theme-primary mb-1">
+        <label className="block text-gray-100 text-sm font-medium text-theme-primary mb-2">
           {label}
           {required && <span className="text-red-500 ml-1">*</span>}
         </label>
@@ -32,7 +32,7 @@ export default function TextInput({
         <p className="mt-1 text-sm text-red-500">{error}</p>
       )}
       {helperText && !error && (
-        <p className="mt-1 text-sm text-theme-secondary">{helperText}</p>
+        <p className="mt-1 text-sm text-gray-100 text-theme-secondary">{helperText}</p>
       )}
     </div>
   )

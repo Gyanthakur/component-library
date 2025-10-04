@@ -1,6 +1,7 @@
 "use client";
+ 
 import React, { useState } from 'react'
-import { Search, X } from 'lucide-react'
+import { Search, X } from 'lucide-react' 
 // Button Imports
 // import PrimaryButton from '@/components/buttons/PrimaryButton'
 // import SecondaryButton from '@/components/buttons/SecondaryButton'
@@ -24,35 +25,29 @@ import { Search, X } from 'lucide-react'
 // import Breadcrumb from '@/components/navigation/Breadcrumb'
 // import Pagination from '@/components/navigation/Pagination'
 
-
 // button Imports
-import PrimaryButton from './buttons/PrimaryButton'
-import SecondaryButton from './buttons/SecondaryButton'
-import GhostButton from './buttons/GhostButton'
-import IconButton from './buttons/IconButton'
+import PrimaryButton from "./buttons/PrimaryButton";
+import SecondaryButton from "./buttons/SecondaryButton";
+import GhostButton from "./buttons/GhostButton";
+import IconButton from "./buttons/IconButton";
 
-import OutlineButton from './buttons/OutlineButton'
-import DangerButton from './buttons/DangerButton'
-import SuccessButton from './buttons/SuccessButton'
+import OutlineButton from "./buttons/OutlineButton";
+import DangerButton from "./buttons/DangerButton";
+import SuccessButton from "./buttons/SuccessButton";
 // Cards
-import SimpleCard from './cards/SimpleCard'
-import ImageCard from './cards/ImageCard'
-import FeatureCard from './cards/FeatureCard'
-import PricingCard from './cards/PricingCard'
-import DataCard from './cards/DataCard'
+import SimpleCard from "./cards/SimpleCard";
+import ImageCard from "./cards/ImageCard";
+import FeatureCard from "./cards/FeatureCard";
+import PricingCard from "./cards/PricingCard";
+import DataCard from "./cards/DataCard";
 // Inputs
-import TextInput from './inputs/TextInput'
-import Select from './inputs/Select'
-import Checkbox from './inputs/Checkbox'
+import TextInput from "./inputs/TextInput";
+import Select from "./inputs/Select";
+import Checkbox from "./inputs/Checkbox";
 // Nav
-import Tabs from './navigation/Tabs'
-import Breadcrumb from './navigation/Breadcrumb'
-import Pagination from './navigation/Pagination'
- 
-
-
-
-
+import Tabs from "./navigation/Tabs";
+import Breadcrumb from "./navigation/Breadcrumb";
+import Pagination from "./navigation/Pagination";
 
 export default function Page() {
   // Search and Filter State
@@ -70,8 +65,8 @@ export default function Page() {
   }, [theme]);
 
   // Inputs
-  const [inputValue, setInputValue] = React.useState('');
-  const [selectValue, setSelectValue] = React.useState('');
+  const [inputValue, setInputValue] = React.useState("");
+  const [selectValue, setSelectValue] = React.useState("");
   const [checkboxValue, setCheckboxValue] = React.useState(false);
 
   // Navigation
@@ -80,44 +75,44 @@ export default function Page() {
 
   // Data
   const selectOptions = [
-    { value: 'option1', label: 'Option 1' },
-    { value: 'option2', label: 'Option 2' },
-    { value: 'option3', label: 'Option 3' }
+    { value: "option1", label: "Option 1" },
+    { value: "option2", label: "Option 2" },
+    { value: "option3", label: "Option 3" },
   ];
 
   const tabsData = [
     {
-      label: 'Dashboard',
+      label: "Dashboard",
       content: <div className="p-4">Dashboard content goes here...</div>,
-      badge: '3'
+      badge: "3",
     },
     {
-      label: 'Analytics',
-      content: <div className="p-4">Analytics content goes here...</div>
+      label: "Analytics",
+      content: <div className="p-4">Analytics content goes here...</div>,
     },
     {
-      label: 'Settings',
-      content: <div className="p-4">Settings content goes here...</div>
-    }
+      label: "Settings",
+      content: <div className="p-4">Settings content goes here...</div>,
+    },
   ];
 
   const breadcrumbItems = [
-    { label: 'Home', href: '/' },
-    { label: 'Components', href: '/components' },
-    { label: 'Navigation', href: '/components/navigation' },
-    { label: 'Breadcrumb' }
+    { label: "Home", href: "/" },
+    { label: "Components", href: "/components" },
+    { label: "Navigation", href: "/components/navigation" },
+    { label: "Breadcrumb" },
   ];
 
   // All components with search data
   const allComponents = {
     buttons: [
-      { name: 'Primary Button', component: <PrimaryButton>Primary</PrimaryButton>, keywords: ['primary', 'main', 'action', 'cta'] },
-      { name: 'Secondary Button', component: <SecondaryButton>Secondary</SecondaryButton>, keywords: ['secondary', 'alternate'] },
-      { name: 'Ghost Button', component: <GhostButton>Ghost</GhostButton>, keywords: ['ghost', 'transparent', 'subtle'] },
-      { name: 'Outline Button', component: <OutlineButton>Outline</OutlineButton>, keywords: ['outline', 'border', 'stroke'] },
-      { name: 'Danger Button', component: <DangerButton>Danger</DangerButton>, keywords: ['danger', 'error', 'delete', 'warning', 'red'] },
-      { name: 'Success Button', component: <SuccessButton>Success</SuccessButton>, keywords: ['success', 'confirm', 'done', 'green'] },
-      { name: 'Icon Button', component: <IconButton aria-label="star">★</IconButton>, keywords: ['icon', 'star', 'symbol'] }
+      { name: 'Primary Button', component: <PrimaryButton>Primary</PrimaryButton>, keywords: ['primary', 'main', 'action', 'cta'] , desc : "Used for Main Actions"},
+      { name: 'Secondary Button', component: <SecondaryButton>Secondary</SecondaryButton>, keywords: ['secondary', 'alternate'] , desc: "Used for secondary Actions" },
+      { name: 'Ghost Button', component: <GhostButton>Ghost</GhostButton>, keywords: ['ghost', 'transparent', 'subtle'] , desc : "Used for minimal actions"},
+      { name: 'Outline Button', component: <OutlineButton>Outline</OutlineButton>, keywords: ['outline', 'border', 'stroke'] , desc : "Used for gives outline"},
+      { name: 'Danger Button', component: <DangerButton>Danger</DangerButton>, keywords: ['danger', 'error', 'delete', 'warning', 'red'] , desc : "Used for destructive actions" },
+      { name: 'Success Button', component: <SuccessButton>Success</SuccessButton>, keywords: ['success', 'confirm', 'done', 'green'] , desc : "Used for success actions"},
+      { name: 'Icon Button', component: <IconButton aria-label="star">★</IconButton>, keywords: ['icon', 'star', 'symbol'] , desc : "Used for icons"}
     ],
     cards: [
       { name: 'Simple Card', component: <SimpleCard title="Simple Card" description="A minimal card with actions." />, keywords: ['simple', 'basic', 'minimal'] },
@@ -181,7 +176,8 @@ export default function Page() {
             React UI Playground
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 text-center max-w-2xl">
-            Beautiful, modern & responsive component demo – each below section is styled for clarity, vibrance, and accessibility.
+            Beautiful, modern & responsive component demo – each below section
+            is styled for clarity, vibrance, and accessibility.
           </p>
           
           {/* Search Bar */}
@@ -244,36 +240,46 @@ export default function Page() {
 
       {/* Content Sections */}
       <div className="max-w-5xl mx-auto px-4 space-y-16 pb-24">
-
         {/* Buttons Section */}
         {filteredComponents.buttons && (
-          <section 
+          <section
             id="buttons"
             className="bg-white/90 dark:bg-gray-900/90 border border-blue-100 dark:border-blue-900 shadow-xl rounded-2xl p-10 transition-colors duration-300"
           >
-            <h2 className="text-2xl font-semibold mb-6 flex items-center gap-2 text-blue-700 dark:text-blue-200">
+            <h2 className="relative text-2xl font-semibold mb-6 flex justify-center items-center gap-2 text-blue-700 dark:text-blue-200">
               <span>Buttons ({filteredComponents.buttons.length})</span>
-              <span className="h-1 w-16 bg-gradient-to-r from-blue-400 to-fuchsia-400 rounded-full block" />
+              <span className="absolute top-10 h-1 w-full bg-gradient-to-r from-blue-400 to-fuchsia-400 rounded-full block" />
             </h2>
-            <div className="flex flex-wrap gap-4">
+            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {filteredComponents.buttons.map((item, index) => (
+                <div
+                className={`${
+                  theme === "dark"
+                    ? "bg-gray-800 text-gray-200"
+                    : "bg-gray-300 text-gray-900"
+                } shadow-md rounded-2xl p-5 flex flex-col items-center text-center border border-gray-100 hover:shadow-lg transition w-60`}
+              >
                 <div key={index} title={item.name}>
                   {item.component}
                 </div>
-              ))}
+                <div>
+                  <p className="text-sm mt-3">{item.desc}</p>
+                </div>
+              </div>
+              ))} 
             </div>
           </section>
         )}
 
         {/* Cards Section */}
         {filteredComponents.cards && (
-          <section 
+          <section
             id="cards"
             className="bg-gradient-to-br from-purple-50 via-pink-50 to-indigo-50 dark:from-[#23293b] dark:via-[#1e142e] dark:to-[#222849] border border-purple-100 dark:border-purple-900 shadow-xl rounded-2xl p-10"
           >
-            <h2 className="text-2xl font-semibold mb-6 flex items-center gap-2 text-purple-600 dark:text-fuchsia-200">
+            <h2 className="relative text-2xl font-semibold mb-6 flex justify-center items-center gap-2 text-purple-600 dark:text-fuchsia-200">
               <span>Cards ({filteredComponents.cards.length})</span>
-              <span className="h-1 w-16 bg-gradient-to-r from-purple-300 to-fuchsia-300 rounded-full block" />
+              <span className="absolute top-10 h-1 w-full bg-gradient-to-r from-purple-300 to-fuchsia-300 rounded-full block" />
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredComponents.cards.map((item, index) => (
@@ -289,13 +295,13 @@ export default function Page() {
         {filteredComponents.inputs && (
           <section
             id="inputs"
-            className="bg-white/90 dark:bg-gray-900/90 border border-green-100 dark:border-green-900 shadow-xl rounded-2xl p-10"
+            className="bg-white/90 w-full dark:bg-gray-900/90 border border-green-100 dark:border-green-900 shadow-xl rounded-2xl p-10"
           >
-            <h2 className="text-2xl font-semibold mb-6 flex items-center gap-2 text-green-700 dark:text-green-200">
+            <h2 className="relative text-2xl font-semibold mb-6 flex items-center justify-center gap-2 text-green-700 dark:text-green-200">
               <span>Input Components ({filteredComponents.inputs.length})</span>
-              <span className="h-1 w-16 bg-gradient-to-r from-green-300 to-sky-300 rounded-full block" />
+              <span className="absolute top-10 h-1 w-full bg-gradient-to-r from-green-300 to-sky-300 rounded-full block" />
             </h2>
-            <div className="max-w-lg space-y-6">
+            <div className="max-w-lg space-y-6 flex flex-col justify-center">
               {filteredComponents.inputs.map((item, index) => (
                 <div key={index} title={item.name}>
                   {item.component}
@@ -311,12 +317,23 @@ export default function Page() {
                     onChange={(e) => setInputValue(e.target.value)}
                     helperText="We'll never share your email"
                     required
+                    className="text-gray-100 bg-gray-600 px-4 py-2"
                   />
                   <TextInput
                     label="Password"
                     type="password"
                     placeholder="Enter your password"
                     error="Password must be at least 8 characters"
+                    className="text-gray-100 bg-gray-600 px-4 py-2"
+                  />
+                  <Select
+                    label="Choose an option"
+                    options={selectOptions}
+                    value={selectValue}
+                    onChange={(e) => setSelectValue(e.target.value)}
+                    required
+                    
+                    className="text-gray-100 bg-gray-600 px-4 py-2"
                   />
                   <Checkbox
                     label="Terms and Conditions"
@@ -333,7 +350,7 @@ export default function Page() {
               )}
             </div>
           </section>
-        )}
+        )} 
 
         {/* Navigation Section */}
         {filteredComponents.navigation && (
@@ -341,9 +358,9 @@ export default function Page() {
             id="navigation"
             className="bg-gradient-to-br from-yellow-50 via-orange-50 to-pink-50 dark:from-[#3a3020] dark:via-[#412920] dark:to-[#16101a] border border-yellow-100 dark:border-yellow-900 shadow-xl rounded-2xl p-10"
           >
-            <h2 className="text-2xl font-semibold mb-6 flex items-center gap-2 text-yellow-600 dark:text-yellow-200">
+            <h2 className="relative text-2xl font-semibold mb-6 flex items-center justify-center gap-2 text-yellow-600 dark:text-yellow-200">
               <span>Navigation Components ({filteredComponents.navigation.length})</span>
-              <span className="h-1 w-16 bg-gradient-to-r from-yellow-300 to-pink-300 rounded-full block" />
+              <span className="absolute top-10 h-1 w-full bg-gradient-to-r from-yellow-300 to-pink-300 rounded-full block" />
             </h2>
             <div className="space-y-8">
               {filteredComponents.navigation.map((item, index) => (
@@ -363,9 +380,9 @@ export default function Page() {
           <section
             className="bg-white/90 dark:bg-gray-900/90 border border-blue-100 dark:border-blue-900 shadow-xl rounded-2xl p-10"
           >
-            <h2 className="text-2xl font-semibold mb-6 flex items-center gap-2 text-blue-700 dark:text-blue-200">
+            <h2 className="relative text-2xl font-semibold mb-6 flex items-center justify-center gap-2 text-blue-700 dark:text-blue-200">
               <span>Feedback Components</span>
-              <span className="h-1 w-16 bg-gradient-to-r from-blue-300 to-violet-300 rounded-full block" />
+              <span className="absolute top-10 h-1 w-full bg-gradient-to-r from-blue-300 to-violet-300 rounded-full block" />
             </h2>
             <div className="grid gap-4">
               <div className="flex items-center gap-2 p-5 bg-gradient-to-r from-green-50 to-green-100/80 dark:from-green-900 dark:to-green-700 text-green-800 dark:text-green-200 rounded-xl font-semibold shadow-sm border border-green-200 dark:border-green-800">
