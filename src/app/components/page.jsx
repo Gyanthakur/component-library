@@ -30,7 +30,6 @@ import PrimaryButton from "./buttons/PrimaryButton";
 import SecondaryButton from "./buttons/SecondaryButton";
 import GhostButton from "./buttons/GhostButton";
 import IconButton from "./buttons/IconButton";
-
 import OutlineButton from "./buttons/OutlineButton";
 import DangerButton from "./buttons/DangerButton";
 import SuccessButton from "./buttons/SuccessButton";
@@ -51,19 +50,13 @@ import Pagination from "./navigation/Pagination";
 import FAQAccordion from "./accordion/FAQAccordion";
 
 export default function Page() {
+  // Theme from context
+  const { darkMode } = useTheme();
+  const theme = darkMode ? "dark" : "light";
+
   // Search and Filter State
   const [searchTerm, setSearchTerm] = useState("");
   const [filterType, setFilterType] = useState("all");
-
-  // Theme State
-  const [theme, setTheme] = React.useState("light");
-  React.useEffect(() => {
-    if (theme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [theme]);
 
   // Inputs
   const [inputValue, setInputValue] = React.useState("");
@@ -306,8 +299,6 @@ export default function Page() {
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-sky-50 via-indigo-50 to-pink-50 dark:from-[#1d1e26] dark:via-[#212936] dark:to-[#28243c] transition-colors duration-500">
-      {/* <ThemeToggle theme={theme} setTheme={setTheme} /> */}
-
       {/* Glassmorphism Hero Header */}
       <section className="relative max-w-5xl mx-auto px-4 mt-8 mb-16">
         <div className="backdrop-blur-md bg-white/70 dark:bg-gray-900/70 rounded-2xl shadow-2xl py-12 px-8 flex flex-col items-center gap-6 border border-gray-50 dark:border-gray-800">
