@@ -1,7 +1,31 @@
-import React from 'react';
-import { Code, Users, Heart, Github, Star, Target, Zap, Shield, Palette, Rocket } from 'lucide-react';
+'use client';
+import React, { useState, useEffect } from 'react';
+import { Code, Users, Heart, Github, Star, Target, Zap, Shield, Palette, Rocket, ExternalLink } from 'lucide-react';
+import FetchContributors from '../fetchData/fetchContributers';
 
 export default function AboutPage() {
+  const [contributors, setContributors] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const loadContributors = async () => {
+      try {
+        setLoading(true);
+        const data = await FetchContributors();
+        setContributors(data);
+        setError(null);
+      } catch (err) {
+        setError('Failed to load contributors');
+        console.error('Error fetching contributors:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadContributors();
+  }, []);
+
   return (
     <div className="max-w-6xl mx-auto px-4 py-12 space-y-16">
       {/* Overview Section */}
@@ -36,20 +60,20 @@ export default function AboutPage() {
             <h2 className="text-2xl font-bold text-gray-900">Our Mission</h2>
           </div>
           <p className="text-gray-700">
-            To empower developers with a robust, flexible, and beautiful component library that 
-            reduces development time while maintaining high-quality user experiences. We believe 
+            To empower developers with a robust, flexible, and beautiful component library that
+            reduces development time while maintaining high-quality user experiences. We believe
             in making web development more efficient and enjoyable.
           </p>
         </div>
-        
+
         <div className="bg-green-50 p-8 rounded-2xl">
           <div className="flex items-center mb-4">
             <Rocket className="w-6 h-6 text-green-600 mr-3" />
             <h2 className="text-2xl font-bold text-gray-900">Our Vision</h2>
           </div>
           <p className="text-gray-700">
-            To become the go-to component library for React developers, fostering a community 
-            where innovation meets practicality. We envision a world where building beautiful 
+            To become the go-to component library for React developers, fostering a community
+            where innovation meets practicality. We envision a world where building beautiful
             UIs is accessible to developers of all skill levels.
           </p>
         </div>
@@ -66,7 +90,7 @@ export default function AboutPage() {
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Design System</h3>
             <p className="text-gray-600">Consistent design tokens and theming system for cohesive user experiences.</p>
           </div>
-          
+
           <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
             <div className="bg-blue-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
               <Shield className="w-6 h-6 text-blue-600" />
@@ -74,7 +98,7 @@ export default function AboutPage() {
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Accessibility First</h3>
             <p className="text-gray-600">Built with WCAG 2.1 guidelines and keyboard navigation support.</p>
           </div>
-          
+
           <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
             <div className="bg-green-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
               <Zap className="w-6 h-6 text-green-600" />
@@ -82,7 +106,7 @@ export default function AboutPage() {
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Performance</h3>
             <p className="text-gray-600">Optimized bundle size with tree-shaking and minimal dependencies.</p>
           </div>
-          
+
           <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
             <div className="bg-orange-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
               <Code className="w-6 h-6 text-orange-600" />
@@ -90,7 +114,7 @@ export default function AboutPage() {
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Developer Experience</h3>
             <p className="text-gray-600">TypeScript support, comprehensive documentation, and excellent IDE integration.</p>
           </div>
-          
+
           <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
             <div className="bg-pink-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
               <Heart className="w-6 h-6 text-pink-600" />
@@ -98,7 +122,7 @@ export default function AboutPage() {
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Community Driven</h3>
             <p className="text-gray-600">Open source project with active community contributions and feedback.</p>
           </div>
-          
+
           <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
             <div className="bg-indigo-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
               <Users className="w-6 h-6 text-indigo-600" />
@@ -115,7 +139,7 @@ export default function AboutPage() {
           <Code className="w-8 h-8 text-blue-600 mr-3" />
           <h2 className="text-3xl font-bold text-gray-900">Tech Stack</h2>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           <div className="bg-white p-6 rounded-xl shadow-sm text-center">
             <div className="bg-black w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center">
@@ -124,7 +148,7 @@ export default function AboutPage() {
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Next.js 14</h3>
             <p className="text-sm text-gray-600">React framework with App Router</p>
           </div>
-          
+
           <div className="bg-white p-6 rounded-xl shadow-sm text-center">
             <div className="bg-blue-500 w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center">
               <span className="text-white font-bold text-xl">R</span>
@@ -132,7 +156,7 @@ export default function AboutPage() {
             <h3 className="text-lg font-semibold text-gray-900 mb-2">React 18</h3>
             <p className="text-sm text-gray-600">Component-based architecture</p>
           </div>
-          
+
           <div className="bg-white p-6 rounded-xl shadow-sm text-center">
             <div className="bg-cyan-500 w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center">
               <span className="text-white font-bold text-xl">T</span>
@@ -140,7 +164,7 @@ export default function AboutPage() {
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Tailwind CSS</h3>
             <p className="text-sm text-gray-600">Utility-first styling</p>
           </div>
-          
+
           <div className="bg-white p-6 rounded-xl shadow-sm text-center">
             <div className="bg-blue-600 w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center">
               <span className="text-white font-bold text-xl">TS</span>
@@ -264,6 +288,88 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Contributors Section */}
+      <section>
+        <div className="flex items-center justify-center mb-8">
+          <Users className="w-8 h-8 text-blue-600 mr-3" />
+          <h2 className="text-3xl font-bold text-gray-900">Our Contributors</h2>
+        </div>
+
+        <p className="text-center text-gray-600 mb-8 max-w-2xl mx-auto">
+          Thank you to all the amazing developers who have contributed to making this component library better!
+        </p>
+
+        {loading ? (
+          <div className="text-center py-12">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+            <p className="text-gray-600">Loading contributors...</p>
+          </div>
+        ) : error ? (
+          <div className="text-center py-12">
+            <div className="bg-red-50 border border-red-200 rounded-lg p-6 max-w-md mx-auto">
+              <p className="text-red-600">{error}</p>
+            </div>
+          </div>
+        ) : (
+          <>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+              {contributors.map((contributor) => (
+                <div
+                  key={contributor.id}
+                  className="group bg-white p-4 rounded-xl shadow-sm border border-gray-100 hover:shadow-md hover:border-blue-200 transition-all duration-200 text-center"
+                >
+                  <div className="relative mb-3">
+                    <img
+                      src={contributor.avatar_url}
+                      alt={`${contributor.login}'s avatar`}
+                      className="w-16 h-16 rounded-full mx-auto border-2 border-gray-200 group-hover:border-blue-300 transition-colors duration-200"
+                      loading="lazy"
+                    />
+                    <div className="absolute -top-1 -right-1 bg-green-500 w-4 h-4 rounded-full border-2 border-white"></div>
+                  </div>
+
+                  <h3 className="font-semibold text-gray-900 text-sm mb-1 truncate">
+                    {contributor.login}
+                  </h3>
+
+                  <p className="text-xs text-gray-500 mb-3">
+                    {contributor.contributions} contribution{contributor.contributions !== 1 ? 's' : ''}
+                  </p>
+
+                  <a
+                    href={contributor.html_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-xs text-blue-600 hover:text-blue-800 font-medium transition-colors duration-200"
+                  >
+                    <Github className="w-3 h-3" />
+                    <span>Profile</span>
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
+                </div>
+              ))}
+            </div>
+
+            {contributors.length > 0 && (
+              <div className="text-center mt-8">
+                <p className="text-sm text-gray-500">
+                  Want to join our contributors? Check out our{' '}
+                  <a
+                    href="https://github.com/Sharma-Ji-21/component-library"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:text-blue-800 font-medium"
+                  >
+                    GitHub repository
+                  </a>
+                  {' '}to get started!
+                </p>
+              </div>
+            )}
+          </>
+        )}
+      </section>
+
       {/* License & Links Section */}
       <section className="text-center bg-gray-50 p-8 rounded-2xl">
         <h2 className="text-2xl font-bold text-gray-900 mb-4">Open Source & Free</h2>
@@ -271,17 +377,17 @@ export default function AboutPage() {
           MyLibrary is released under the MIT License, making it free to use for both personal and commercial projects.
         </p>
         <div className="flex justify-center gap-4">
-          <a 
-            href="https://github.com/yourusername/component-library" 
-            target="_blank" 
+          <a
+            href="https://github.com/yourusername/component-library"
+            target="_blank"
             rel="noopener noreferrer"
             className="bg-gray-900 text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-800 transition-colors flex items-center gap-2"
           >
             <Github className="w-5 h-5" />
             View on GitHub
           </a>
-          <a 
-            href="/contact" 
+          <a
+            href="/contact"
             className="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors"
           >
             Get in Touch

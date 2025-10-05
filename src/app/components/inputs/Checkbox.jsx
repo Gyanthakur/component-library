@@ -26,12 +26,12 @@ export default function Checkbox({
       {(label || description) && (
         <div className="ml-3 text-sm">
           {label && (
-            <label className={`font-medium text-theme-primary ${disabled ? 'opacity-50' : ''}`}>
+            <label className={`font-medium text-gray-100 text-theme-primary ${disabled ? 'opacity-50' : ''}`}>
               {label}
             </label>
           )}
           {description && (
-            <p className={`text-theme-secondary ${disabled ? 'opacity-50' : ''}`}>
+            <p className={`text-theme-secondary text-gray-100 ${disabled ? 'opacity-50' : ''}`}>
               {description}
             </p>
           )}
