@@ -7,7 +7,7 @@
 //   FaDiscord,
 //   FaYoutube,
 // } from "react-icons/fa";
-import { Github, Linkedin, Trash, Twitter, Youtube } from "lucide-react";
+import { Github, Linkedin, Twitter, Youtube } from "lucide-react";
 import { useTheme } from "../context/ThemeContext";
 
 const FooterLink = ({ href, Icon, title }) => (
@@ -36,7 +36,7 @@ const div = () => {
       title: "LinkedIn",
     },
     { href: "https://x.com/gps_96169", Icon: Twitter, title: "Twitter" },
-    { href: "https://discord.com", Icon: Trash, title: "Discord" },
+    // { href: "https://discord.com", Icon:, title: "Discord" } couldn't find discord icon in lucide,
     { href: "https://youtube.com", Icon: Youtube, title: "YouTube" },
   ];
 
