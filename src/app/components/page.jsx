@@ -1,7 +1,7 @@
 "use client";
- 
-import React, { useState } from 'react'
-import { Search, X } from 'lucide-react' 
+
+import React, { useState } from "react";
+import { Search, X } from "lucide-react";
 // Button Imports
 // import PrimaryButton from '@/components/buttons/PrimaryButton'
 // import SecondaryButton from '@/components/buttons/SecondaryButton'
@@ -48,11 +48,12 @@ import Checkbox from "./inputs/Checkbox";
 import Tabs from "./navigation/Tabs";
 import Breadcrumb from "./navigation/Breadcrumb";
 import Pagination from "./navigation/Pagination";
+import FAQAccordion from "./accordion/FAQAccordion";
 
 export default function Page() {
   // Search and Filter State
-  const [searchTerm, setSearchTerm] = useState('');
-  const [filterType, setFilterType] = useState('all');
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filterType, setFilterType] = useState("all");
 
   // Theme State
   const [theme, setTheme] = React.useState("light");
@@ -102,55 +103,190 @@ export default function Page() {
     { label: "Navigation", href: "/components/navigation" },
     { label: "Breadcrumb" },
   ];
+  const generalFaqs = [
+    {
+      title: "What payment methods do you accept?",
+      content:
+        "We accept all major credit cards (Visa, Mastercard, American Express), PayPal, and bank transfers for enterprise accounts.",
+    },
+    {
+      title: "What is your refund policy?",
+      content:
+        "We offer a 30-day money-back guarantee. If you're not satisfied with your purchase, contact our support team for a full refund.",
+    },
+    {
+      title: "Do you offer customer support?",
+      content:
+        "Yes! We provide 24/7 customer support via email, live chat, and phone. Premium users get priority support with faster response times.",
+    },
+  ];
 
   // All components with search data
   const allComponents = {
     buttons: [
-      { name: 'Primary Button', component: <PrimaryButton>Primary</PrimaryButton>, keywords: ['primary', 'main', 'action', 'cta'] , desc : "Used for Main Actions"},
-      { name: 'Secondary Button', component: <SecondaryButton>Secondary</SecondaryButton>, keywords: ['secondary', 'alternate'] , desc: "Used for secondary Actions" },
-      { name: 'Ghost Button', component: <GhostButton>Ghost</GhostButton>, keywords: ['ghost', 'transparent', 'subtle'] , desc : "Used for minimal actions"},
-      { name: 'Outline Button', component: <OutlineButton>Outline</OutlineButton>, keywords: ['outline', 'border', 'stroke'] , desc : "Used for gives outline"},
-      { name: 'Danger Button', component: <DangerButton>Danger</DangerButton>, keywords: ['danger', 'error', 'delete', 'warning', 'red'] , desc : "Used for destructive actions" },
-      { name: 'Success Button', component: <SuccessButton>Success</SuccessButton>, keywords: ['success', 'confirm', 'done', 'green'] , desc : "Used for success actions"},
-      { name: 'Icon Button', component: <IconButton aria-label="star">★</IconButton>, keywords: ['icon', 'star', 'symbol'] , desc : "Used for icons"}
+      {
+        name: "Primary Button",
+        component: <PrimaryButton>Primary</PrimaryButton>,
+        keywords: ["primary", "main", "action", "cta"],
+        desc: "Used for Main Actions",
+      },
+      {
+        name: "Secondary Button",
+        component: <SecondaryButton>Secondary</SecondaryButton>,
+        keywords: ["secondary", "alternate"],
+        desc: "Used for secondary Actions",
+      },
+      {
+        name: "Ghost Button",
+        component: <GhostButton>Ghost</GhostButton>,
+        keywords: ["ghost", "transparent", "subtle"],
+        desc: "Used for minimal actions",
+      },
+      {
+        name: "Outline Button",
+        component: <OutlineButton>Outline</OutlineButton>,
+        keywords: ["outline", "border", "stroke"],
+        desc: "Used for gives outline",
+      },
+      {
+        name: "Danger Button",
+        component: <DangerButton>Danger</DangerButton>,
+        keywords: ["danger", "error", "delete", "warning", "red"],
+        desc: "Used for destructive actions",
+      },
+      {
+        name: "Success Button",
+        component: <SuccessButton>Success</SuccessButton>,
+        keywords: ["success", "confirm", "done", "green"],
+        desc: "Used for success actions",
+      },
+      {
+        name: "Icon Button",
+        component: <IconButton aria-label="star">★</IconButton>,
+        keywords: ["icon", "star", "symbol"],
+        desc: "Used for icons",
+      },
     ],
     cards: [
-      { name: 'Simple Card', component: <SimpleCard title="Simple Card" description="A minimal card with actions." />, keywords: ['simple', 'basic', 'minimal'] },
-      { name: 'Image Card', component: <ImageCard title="Image Card" description="Card with SVG image." />, keywords: ['image', 'picture', 'visual'] },
-      { name: 'Feature Card', component: <FeatureCard title="Feature Card" description="Highlight features and benefits." />, keywords: ['feature', 'highlight', 'benefit'] },
-      { name: 'Pricing Card', component: <PricingCard plan="Pro" price="$9/mo" features={["10 projects", "Priority support", "Unlimited users"]} />, keywords: ['pricing', 'plan', 'subscription', 'price'] },
-      { name: 'Data Card', component: <DataCard title="Active Projects" value="27" icon="📂" trend={8} />, keywords: ['data', 'stats', 'analytics', 'metrics'] }
+      {
+        name: "Simple Card",
+        component: (
+          <SimpleCard
+            title="Simple Card"
+            description="A minimal card with actions."
+          />
+        ),
+        keywords: ["simple", "basic", "minimal"],
+      },
+      {
+        name: "Image Card",
+        component: (
+          <ImageCard title="Image Card" description="Card with SVG image." />
+        ),
+        keywords: ["image", "picture", "visual"],
+      },
+      {
+        name: "Feature Card",
+        component: (
+          <FeatureCard
+            title="Feature Card"
+            description="Highlight features and benefits."
+          />
+        ),
+        keywords: ["feature", "highlight", "benefit"],
+      },
+      {
+        name: "Pricing Card",
+        component: (
+          <PricingCard
+            plan="Pro"
+            price="$9/mo"
+            features={["10 projects", "Priority support", "Unlimited users"]}
+          />
+        ),
+        keywords: ["pricing", "plan", "subscription", "price"],
+      },
+      {
+        name: "Data Card",
+        component: (
+          <DataCard title="Active Projects" value="27" icon="📂" trend={8} />
+        ),
+        keywords: ["data", "stats", "analytics", "metrics"],
+      },
     ],
     inputs: [
-      { name: 'Text Input', component: <TextInput label="Sample Input" placeholder="Enter text" />, keywords: ['text', 'input', 'field', 'form'] },
-      { name: 'Select', component: <Select label="Sample Select" options={selectOptions} />, keywords: ['select', 'dropdown', 'options', 'choice'] },
-      { name: 'Checkbox', component: <Checkbox label="Sample Checkbox" description="Check this option" />, keywords: ['checkbox', 'check', 'toggle', 'boolean'] }
+      {
+        name: "Text Input",
+        component: <TextInput label="Sample Input" placeholder="Enter text" />,
+        keywords: ["text", "input", "field", "form"],
+      },
+      {
+        name: "Select",
+        component: <Select label="Sample Select" options={selectOptions} />,
+        keywords: ["select", "dropdown", "options", "choice"],
+      },
+      {
+        name: "Checkbox",
+        component: (
+          <Checkbox label="Sample Checkbox" description="Check this option" />
+        ),
+        keywords: ["checkbox", "check", "toggle", "boolean"],
+      },
     ],
     navigation: [
-      { name: 'Breadcrumb', component: <Breadcrumb items={breadcrumbItems} />, keywords: ['breadcrumb', 'navigation', 'path', 'hierarchy'] },
-      { name: 'Tabs', component: <Tabs tabs={tabsData} defaultTab={0} />, keywords: ['tabs', 'navigation', 'switch', 'toggle'] },
-      { name: 'Pagination', component: <Pagination currentPage={1} totalPages={5} maxVisiblePages={3} />, keywords: ['pagination', 'pages', 'navigation', 'paging'] }
-    ]
+      {
+        name: "Breadcrumb",
+        component: <Breadcrumb items={breadcrumbItems} />,
+        keywords: ["breadcrumb", "navigation", "path", "hierarchy"],
+      },
+      {
+        name: "Tabs",
+        component: <Tabs tabs={tabsData} defaultTab={0} />,
+        keywords: ["tabs", "navigation", "switch", "toggle"],
+      },
+      {
+        name: "Pagination",
+        component: (
+          <Pagination currentPage={1} totalPages={5} maxVisiblePages={3} />
+        ),
+        keywords: ["pagination", "pages", "navigation", "paging"],
+      },
+    ],
+    accordion: [
+      {
+        name: "Default Chevron Accordion",
+        component: <FAQAccordion accordionItem={generalFaqs} />,
+        keywords: ["accordion", "faq", "chevron", "question", "answer"],
+      },
+      {
+        name: "Plus/Minus Variant Accordion",
+        component: <FAQAccordion accordionItem={generalFaqs} variant="plus" />,
+        keywords: ["accordion", "faq", "plus", "minus", "question", "answer"],
+      },
+    ],
   };
 
   // Filter logic
   const getFilteredComponents = () => {
     let components = {};
-    
+
     // Apply type filter
-    if (filterType === 'all') {
+    if (filterType === "all") {
       components = allComponents;
     } else {
       components = { [filterType]: allComponents[filterType] };
     }
-    
+
     // Apply search filter
     if (searchTerm) {
       const filtered = {};
-      Object.keys(components).forEach(type => {
-        const matchedComponents = components[type].filter(comp =>
-          comp.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          comp.keywords.some(keyword => keyword.toLowerCase().includes(searchTerm.toLowerCase()))
+      Object.keys(components).forEach((type) => {
+        const matchedComponents = components[type].filter(
+          (comp) =>
+            comp.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            comp.keywords.some((keyword) =>
+              keyword.toLowerCase().includes(searchTerm.toLowerCase())
+            )
         );
         if (matchedComponents.length > 0) {
           filtered[type] = matchedComponents;
@@ -158,12 +294,15 @@ export default function Page() {
       });
       return filtered;
     }
-    
+
     return components;
   };
 
   const filteredComponents = getFilteredComponents();
-  const totalResults = Object.values(filteredComponents).reduce((total, components) => total + components.length, 0);
+  const totalResults = Object.values(filteredComponents).reduce(
+    (total, components) => total + components.length,
+    0
+  );
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-sky-50 via-indigo-50 to-pink-50 dark:from-[#1d1e26] dark:via-[#212936] dark:to-[#28243c] transition-colors duration-500">
@@ -179,7 +318,7 @@ export default function Page() {
             Beautiful, modern & responsive component demo – each below section
             is styled for clarity, vibrance, and accessibility.
           </p>
-          
+
           {/* Search Bar */}
           <div className="flex flex-col sm:flex-row gap-3 max-w-2xl w-full">
             <div className="relative flex-1">
@@ -193,7 +332,7 @@ export default function Page() {
               />
               {searchTerm && (
                 <button
-                  onClick={() => setSearchTerm('')}
+                  onClick={() => setSearchTerm("")}
                   className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
                 >
                   <X className="w-4 h-4" />
@@ -218,13 +357,14 @@ export default function Page() {
       </section>
 
       {/* Search Results Info */}
-      {(searchTerm || filterType !== 'all') && (
+      {(searchTerm || filterType !== "all") && (
         <div className="max-w-5xl mx-auto px-4 mb-8">
           <div className="bg-blue-50 dark:bg-blue-900/30 p-4 rounded-lg border border-blue-200 dark:border-blue-800">
             <p className="text-blue-800 dark:text-blue-200">
-              Found <span className="font-semibold">{totalResults}</span> component{totalResults !== 1 ? 's' : ''}
+              Found <span className="font-semibold">{totalResults}</span>{" "}
+              component{totalResults !== 1 ? "s" : ""}
               {searchTerm && ` matching "${searchTerm}"`}
-              {filterType !== 'all' && ` in ${filterType}`}
+              {filterType !== "all" && ` in ${filterType}`}
             </p>
           </div>
         </div>
@@ -234,7 +374,9 @@ export default function Page() {
       {totalResults === 0 && (
         <div className="max-w-5xl mx-auto px-4 text-center py-12">
           <div className="text-6xl mb-4">🔍</div>
-          <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">No components found</h3>
+          <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">
+            No components found
+          </h3>
         </div>
       )}
 
@@ -253,20 +395,20 @@ export default function Page() {
             <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {filteredComponents.buttons.map((item, index) => (
                 <div
-                className={`${
-                  theme === "dark"
-                    ? "bg-gray-800 text-gray-200"
-                    : "bg-gray-300 text-gray-900"
-                } shadow-md rounded-2xl p-5 flex flex-col items-center text-center border border-gray-100 hover:shadow-lg transition w-60`}
-              >
-                <div key={index} title={item.name}>
-                  {item.component}
+                  className={`${
+                    theme === "dark"
+                      ? "bg-gray-800 text-gray-200"
+                      : "bg-gray-300 text-gray-900"
+                  } shadow-md rounded-2xl p-5 flex flex-col items-center text-center border border-gray-100 hover:shadow-lg transition w-60`}
+                >
+                  <div key={index} title={item.name}>
+                    {item.component}
+                  </div>
+                  <div>
+                    <p className="text-sm mt-3">{item.desc}</p>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-sm mt-3">{item.desc}</p>
-                </div>
-              </div>
-              ))} 
+              ))}
             </div>
           </section>
         )}
@@ -308,7 +450,8 @@ export default function Page() {
                 </div>
               ))}
               {/* Show additional examples if all inputs are visible */}
-              {filteredComponents.inputs.length === allComponents.inputs.length && (
+              {filteredComponents.inputs.length ===
+                allComponents.inputs.length && (
                 <>
                   <TextInput
                     label="Email Address"
@@ -332,7 +475,6 @@ export default function Page() {
                     value={selectValue}
                     onChange={(e) => setSelectValue(e.target.value)}
                     required
-                    
                     className="text-gray-100 bg-gray-600 px-4 py-2"
                   />
                   <Checkbox
@@ -350,7 +492,7 @@ export default function Page() {
               )}
             </div>
           </section>
-        )} 
+        )}
 
         {/* Navigation Section */}
         {filteredComponents.navigation && (
@@ -359,16 +501,16 @@ export default function Page() {
             className="bg-gradient-to-br from-yellow-50 via-orange-50 to-pink-50 dark:from-[#3a3020] dark:via-[#412920] dark:to-[#16101a] border border-yellow-100 dark:border-yellow-900 shadow-xl rounded-2xl p-10"
           >
             <h2 className="relative text-2xl font-semibold mb-6 flex items-center justify-center gap-2 text-yellow-600 dark:text-yellow-200">
-              <span>Navigation Components ({filteredComponents.navigation.length})</span>
+              <span>
+                Navigation Components ({filteredComponents.navigation.length})
+              </span>
               <span className="absolute top-10 h-1 w-full bg-gradient-to-r from-yellow-300 to-pink-300 rounded-full block" />
             </h2>
             <div className="space-y-8">
               {filteredComponents.navigation.map((item, index) => (
                 <div key={index}>
                   <h3 className="text-lg font-medium mb-3">{item.name}</h3>
-                  <div title={item.name}>
-                    {item.component}
-                  </div>
+                  <div title={item.name}>{item.component}</div>
                 </div>
               ))}
             </div>
@@ -376,10 +518,8 @@ export default function Page() {
         )}
 
         {/* Feedback Section - Always show when no specific filter is applied */}
-        {(filterType === 'all' && !searchTerm) && (
-          <section
-            className="bg-white/90 dark:bg-gray-900/90 border border-blue-100 dark:border-blue-900 shadow-xl rounded-2xl p-10"
-          >
+        {filterType === "all" && !searchTerm && (
+          <section className="bg-white/90 dark:bg-gray-900/90 border border-blue-100 dark:border-blue-900 shadow-xl rounded-2xl p-10">
             <h2 className="relative text-2xl font-semibold mb-6 flex items-center justify-center gap-2 text-blue-700 dark:text-blue-200">
               <span>Feedback Components</span>
               <span className="absolute top-10 h-1 w-full bg-gradient-to-r from-blue-300 to-violet-300 rounded-full block" />
@@ -404,7 +544,32 @@ export default function Page() {
             </div>
           </section>
         )}
-        
+
+        {/* Accordion Section: Renders all accordion component variants in a vertical stack. */}
+        {/* Each accordion stretches across the section and is responsive for all screen sizes. */}
+        {filteredComponents.accordion && (
+          <section
+            id="accordion"
+            className="bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50 dark:from-[#23293b] dark:via-[#1e142e] dark:to-[#222849] border border-blue-100 dark:border-blue-900 shadow-xl rounded-2xl p-10"
+          >
+            <h2 className="relative text-2xl font-semibold mb-6 flex items-center justify-center gap-2 text-blue-700 dark:text-blue-200">
+              <span>
+                Accordion Components ({filteredComponents.accordion.length})
+              </span>
+              <span className="absolute top-10 h-1 w-full bg-gradient-to-r from-blue-300 to-indigo-300 rounded-full block" />
+            </h2>
+            <div className="flex flex-col gap-8 w-full">
+              {filteredComponents.accordion.map((item, index) => (
+                <div key={index} title={item.name} className="w-full">
+                  <h3 className="text-lg font-medium mb-3 text-white">
+                    {item.name}
+                  </h3>
+                  <div className="w-full">{item.component}</div>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
       </div>
     </div>
   );

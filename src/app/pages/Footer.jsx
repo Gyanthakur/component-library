@@ -1,10 +1,23 @@
 "use client";
-import { FaGithub, FaTwitter, FaLinkedin ,FaDiscord , FaYoutube } from "react-icons/fa";
+
+// import {
+//   FaGithub,
+//   FaTwitter,
+//   FaLinkedin,
+//   FaDiscord,
+//   FaYoutube,
+// } from "react-icons/fa";
+import { Github, Linkedin, Trash, Twitter, Youtube } from "lucide-react";
 import { useTheme } from "../context/ThemeContext";
 
 const FooterLink = ({ href, Icon, title }) => (
-  <a href={href} target="_blank" rel="noopener noreferrer" title={title} 
-              className="hover:text-blue-400 transition-colors">
+  <a
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
+    title={title}
+    className="hover:text-blue-400 transition-colors"
+  >
     <Icon />
   </a>
 );
@@ -14,17 +27,17 @@ const div = () => {
   const socialLinks = [
     {
       href: "https://github.com/Gyanthakur/component-library",
-      Icon: FaGithub,
+      Icon: Github,
       title: "GitHub",
     },
     {
       href: "https://www.linkedin.com/in/gyan-pratap-singh-275785236",
-      Icon: FaLinkedin,
+      Icon: Linkedin,
       title: "LinkedIn",
     },
-    { href: "https://x.com/gps_96169", Icon: FaTwitter, title: "Twitter" },
-    { href: "https://discord.com", Icon: FaDiscord, title: "Discord" },
-    { href: "https://youtube.com", Icon: FaYoutube, title: "YouTube" },
+    { href: "https://x.com/gps_96169", Icon: Twitter, title: "Twitter" },
+    { href: "https://discord.com", Icon: Trash, title: "Discord" },
+    { href: "https://youtube.com", Icon: Youtube, title: "YouTube" },
   ];
 
   return (
@@ -60,7 +73,7 @@ const div = () => {
               key={index}
               href={link.href}
               Icon={link.Icon}
-              title={link.title} 
+              title={link.title}
             />
           ))}
         </div>
