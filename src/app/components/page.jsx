@@ -1,8 +1,8 @@
 "use client";
-import React, { useState, useEffect } from 'react'
-import { Search, X } from 'lucide-react'
-import { useAnalytics } from '../context/AnalyticsContext'
-import { useTheme } from '../context/ThemeContext'
+import React, { useState, useEffect } from "react";
+import { Search, X } from "lucide-react";
+import { useAnalytics } from "../context/AnalyticsContext";
+import { useTheme } from "../context/ThemeContext";
 // Button Imports
 // import PrimaryButton from '@/components/buttons/PrimaryButton'
 // import SecondaryButton from '@/components/buttons/SecondaryButton'
@@ -55,6 +55,9 @@ export default function Page() {
   // Search and Filter State
   const [searchTerm, setSearchTerm] = useState("");
   const [filterType, setFilterType] = useState("all");
+
+  // Theme (fix: get darkMode from useTheme)
+  const { darkMode } = useTheme(); // <-- FIX: get darkMode from context
 
   // Inputs
   const [inputValue, setInputValue] = React.useState("");
@@ -111,8 +114,6 @@ export default function Page() {
         "Yes! We provide 24/7 customer support via email, live chat, and phone. Premium users get priority support with faster response times.",
     },
   ];
-
-
 
   // All components with search data
   const allComponents = {
@@ -208,9 +209,28 @@ export default function Page() {
       },
     ],
     inputs: [
-      { name: 'Text Input', component: <TextInput label="Sample Input" placeholder="Enter text" />, keywords: ['text', 'input', 'field', 'form'] },
-      { name: 'Select', component: <Select label="Sample Select" options={selectOptions} />, keywords: ['select', 'dropdown', 'options', 'choice'] },
-      { name: 'Checkbox', component: <Checkbox label="Sample Checkbox" description="Check this option" checked={false} onChange={() => {}} />, keywords: ['checkbox', 'check', 'toggle', 'boolean'] }
+      {
+        name: "Text Input",
+        component: <TextInput label="Sample Input" placeholder="Enter text" />,
+        keywords: ["text", "input", "field", "form"],
+      },
+      {
+        name: "Select",
+        component: <Select label="Sample Select" options={selectOptions} />,
+        keywords: ["select", "dropdown", "options", "choice"],
+      },
+      {
+        name: "Checkbox",
+        component: (
+          <Checkbox
+            label="Sample Checkbox"
+            description="Check this option"
+            checked={false}
+            onChange={() => {}}
+          />
+        ),
+        keywords: ["checkbox", "check", "toggle", "boolean"],
+      },
     ],
     navigation: [
       {
@@ -374,18 +394,17 @@ export default function Page() {
             <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {filteredComponents.buttons.map((item, index) => (
                 <div
-                key={index}
-                className={`${
-                  darkMode
-                    ? "bg-gray-800 text-gray-200"
-                    : "bg-gray-300 text-gray-900"
-                } shadow-md rounded-2xl p-5 flex flex-col items-center text-center border border-gray-100 hover:shadow-lg transition w-60`}
-              >
-                <div title={item.name}>
-                  {item.component}
-                </div>
-                <div>
-                  <p className="text-sm mt-3">{item.desc}</p>
+                  key={index}
+                  className={`${
+                    darkMode
+                      ? "bg-gray-800 text-gray-200"
+                      : "bg-gray-300 text-gray-900"
+                  } shadow-md rounded-2xl p-5 flex flex-col items-center text-center border border-gray-100 hover:shadow-lg transition w-60`}
+                >
+                  <div title={item.name}>{item.component}</div>
+                  <div>
+                    <p className="text-sm mt-3">{item.desc}</p>
+                  </div>
                 </div>
               ))}
             </div>
