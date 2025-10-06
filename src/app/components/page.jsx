@@ -2,35 +2,12 @@
  
 import React, { useState } from 'react'
 import { Search, X } from 'lucide-react' 
-// Button Imports
-// import PrimaryButton from '@/components/buttons/PrimaryButton'
-// import SecondaryButton from '@/components/buttons/SecondaryButton'
-// import GhostButton from '@/components/buttons/GhostButton'
-// import IconButton from '@/components/buttons/IconButton'
-// import OutlineButton from '@/components/buttons/OutlineButton'
-// import DangerButton from '@/components/buttons/DangerButton'
-// import SuccessButton from '@/components/buttons/SuccessButton'
-// // Cards
-// import SimpleCard from '@/components/cards/SimpleCard'
-// import ImageCard from '@/components/cards/ImageCard'
-// import FeatureCard from '@/components/cards/FeatureCard'
-// import PricingCard from '@/components/cards/PricingCard'
-// import DataCard from '@/components/cards/DataCard'
-// // Inputs
-// import TextInput from '@/components/inputs/TextInput'
-// import Select from '@/components/inputs/Select'
-// import Checkbox from '@/components/inputs/Checkbox'
-// // Nav
-// import Tabs from '@/components/navigation/Tabs'
-// import Breadcrumb from '@/components/navigation/Breadcrumb'
-// import Pagination from '@/components/navigation/Pagination'
 
 // button Imports
 import PrimaryButton from "./buttons/PrimaryButton";
 import SecondaryButton from "./buttons/SecondaryButton";
 import GhostButton from "./buttons/GhostButton";
 import IconButton from "./buttons/IconButton";
-
 import OutlineButton from "./buttons/OutlineButton";
 import DangerButton from "./buttons/DangerButton";
 import SuccessButton from "./buttons/SuccessButton";
@@ -55,20 +32,16 @@ import ProfileCardCustom from './cards/ProfileCardCustom';
 
 
 
+import { useTheme } from '../context/ThemeContext';
+
 export default function Page() {
+  // Theme from context
+  const { darkMode } = useTheme();
+  const theme = darkMode ? "dark" : "light";
+
   // Search and Filter State
   const [searchTerm, setSearchTerm] = useState('');
   const [filterType, setFilterType] = useState('all');
-
-  // Theme State
-  const [theme, setTheme] = React.useState("light");
-  React.useEffect(() => {
-    if (theme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [theme]);
 
   // Inputs
   const [inputValue, setInputValue] = React.useState("");
@@ -197,8 +170,6 @@ export default function Page() {
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-sky-50 via-indigo-50 to-pink-50 dark:from-[#1d1e26] dark:via-[#212936] dark:to-[#28243c] transition-colors duration-500">
-      {/* <ThemeToggle theme={theme} setTheme={setTheme} /> */}
-
       {/* Glassmorphism Hero Header */}
       <section className="relative max-w-5xl mx-auto px-4 mt-8 mb-16">
         <div className="backdrop-blur-md bg-white/70 dark:bg-gray-900/70 rounded-2xl shadow-2xl py-12 px-8 flex flex-col items-center gap-6 border border-gray-50 dark:border-gray-800">

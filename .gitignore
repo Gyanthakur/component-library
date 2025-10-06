@@ -39,3 +39,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Tailwind generated files
+dist/output.css
+src/styles/output.css
+
+# Or ignore all output.css files
+**/output.css
