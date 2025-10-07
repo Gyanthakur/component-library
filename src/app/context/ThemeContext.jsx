@@ -142,15 +142,48 @@ const ThemeContext = createContext();
 
 export function ThemeProvider({ children }) {
   const [darkMode, setDarkMode] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
-  // Sync theme class with html root element
+  // Load theme from localStorage on mount
   useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
+    try {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') {
+        setDarkMode(true);
+      } else if (savedTheme === 'light') {
+        setDarkMode(false);
+      } else {
+        // Check system preference
+        const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        setDarkMode(systemDark);
+      }
+    } catch (error) {
+      setDarkMode(false);
     }
-  }, [darkMode]);
+    setMounted(true);
+  }, []);
+
+  // Sync theme class with html root element and save to localStorage
+  useEffect(() => {
+    if (mounted) {
+      if (darkMode) {
+        document.documentElement.classList.add("dark");
+        localStorage.setItem('theme', 'dark');
+      } else {
+        document.documentElement.classList.remove("dark");
+        localStorage.setItem('theme', 'light');
+      }
+    }
+  }, [darkMode, mounted]);
+
+  // Prevent hydration mismatch - show children but don't apply theme yet
+  if (!mounted) {
+    return (
+      <ThemeContext.Provider value={{ darkMode: false, setDarkMode: () => {} }}>
+        {children}
+      </ThemeContext.Provider>
+    );
+  }
 
   return (
     <ThemeContext.Provider value={{ darkMode, setDarkMode }}>
