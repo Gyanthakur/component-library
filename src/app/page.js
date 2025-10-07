@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Link from "next/link";
+import { useRouter } from 'next/navigation';
 import { useTheme } from './context/ThemeContext';
 import { useAnalytics } from './context/AnalyticsContext';
 import PrimaryButton from './components/buttons/PrimaryButton';
@@ -12,6 +13,7 @@ import DataCard from './components/cards/DataCard';
 export default function HomePage() {
   const { darkMode, setDarkMode } = useTheme();
   const { trackComponentView } = useAnalytics();
+  const router = useRouter();
 
   // Track page view
   React.useEffect(() => {
@@ -84,14 +86,18 @@ export default function HomePage() {
               accessible UI elements optimized for React ecosystems.
             </p>
             <div className="space-x-6">
-              <PrimaryButton onClick={() => setDarkMode(!darkMode)}>
+              <PrimaryButton onClick={() => {
+                trackComponentView('ThemeToggle');
+                setDarkMode(!darkMode);
+              }}>
                 {darkMode ? "Switch to Light" : "Switch to Dark"}
               </PrimaryButton>
               <Link
-                href="#features"
-                className="inline-block px-6 py-3 rounded-lg font-semibold light:text-purple-700 dark:text-pink-400 hover:underline cursor-pointer"
+                href="/components"
+                className="inline-block px-6 py-3 rounded-lg font-semibold light:text-purple-700 dark:text-pink-400 hover:underline cursor-pointer transition-colors hover:bg-purple-100 dark:hover:bg-purple-900 rounded-lg"
+                onClick={() => trackComponentView('ExploreFeatures')}
               >
-                Explore Features
+                Explore Components
               </Link>
             </div>
           </div>
@@ -156,7 +162,11 @@ export default function HomePage() {
             {usageSteps.map(({ step, title, description, code }) => (
               <div
                 key={step}
-                className="rounded-xl p-8 light:bg-indigo-50 dark:bg-indigo-900 shadow-lg hover:shadow-xl transition"
+                className="rounded-xl p-8 light:bg-indigo-50 dark:bg-indigo-900 shadow-lg hover:shadow-xl transition cursor-pointer"
+                onClick={() => {
+                  navigator.clipboard.writeText(code);
+                  trackComponentView(`GettingStartedStep${step}`);
+                }}
               >
                 <div className="text-6xl font-extrabold text-purple-600 mb-6">
                   {step}
@@ -165,9 +175,16 @@ export default function HomePage() {
                 <p className="mb-6 light:text-gray-700 dark:text-gray-300">
                   {description}
                 </p>
-                <pre className="light:bg-purple-100 dark:bg-purple-800 light:text-purple-900 dark:text-purple-300 p-5 rounded-lg overflow-x-auto text-left text-sm">
-                  {code}
-                </pre>
+                <div className="relative group">
+                  <pre className="light:bg-purple-100 dark:bg-purple-800 light:text-purple-900 dark:text-purple-300 p-5 rounded-lg overflow-x-auto text-left text-sm">
+                    {code}
+                  </pre>
+                  <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span className="text-xs bg-purple-600 text-white px-2 py-1 rounded">
+                      Click to copy
+                    </span>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
@@ -178,7 +195,13 @@ export default function HomePage() {
           <h2 className="text-5xl font-extrabold mb-10">
             Ready to build stunning apps?
           </h2>
-          <PrimaryButton className="text-lg px-14 py-6">
+          <PrimaryButton
+            className="text-lg px-14 py-6"
+            onClick={() => {
+              trackComponentView('StartBuildingCTA');
+              router.push('/components');
+            }}
+          >
             Start Building Now
           </PrimaryButton>
         </section>

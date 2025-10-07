@@ -1,8 +1,8 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import { Search, X } from "lucide-react";
-import { useAnalytics } from "../context/AnalyticsContext";
-import { useTheme } from "../context/ThemeContext";
+import React, { useState, useEffect } from 'react'
+import { Search, X } from 'lucide-react'
+import { useAnalytics } from '../context/AnalyticsContext'
+import { useTheme } from '../context/ThemeContext'
 // Button Imports
 // import PrimaryButton from '@/components/buttons/PrimaryButton'
 // import SecondaryButton from '@/components/buttons/SecondaryButton'
@@ -64,9 +64,7 @@ export default function Page() {
   const [selectValue, setSelectValue] = React.useState("");
   const [checkboxValue, setCheckboxValue] = React.useState(false);
 
-  // Navigation
-  const [activeTab, setActiveTab] = React.useState(0);
-  const [currentPage, setCurrentPage] = React.useState(1);
+
 
   // Data
   const selectOptions = [
