@@ -3,6 +3,7 @@ import './globals.css'
 import { ThemeProvider } from './context/ThemeContext'
 import { AnalyticsProvider } from './context/AnalyticsContext'
 import Footer from './pages/Footer';
+import BackArrow from './components/navigation/BackArrow';
 
 export const metadata = {
   title: 'Open Source Component Library',
@@ -16,6 +17,7 @@ export default function RootLayout({ children }) {
         <ThemeProvider>
           <AnalyticsProvider>
             <div className="">
+              <BackArrow />
               <Navbar />
               <main className='max-w-7xl mx-auto'>
                 {children}
