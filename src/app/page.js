@@ -70,18 +70,15 @@ export default function HomePage() {
   ];
 
   return (
-    <div
-      className={`${darkMode ? "dark" : "light"
-        } transition-colors duration-700`}
-    >
-      <div className="min-h-screen bg-gradient-to-tr light:from-indigo-50 light:via-purple-100 light:to-pink-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-950 text-gray-900 dark:text-gray-100">
+    <div className="transition-colors duration-300">
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
         {/* Hero Section */}
         <section className="max-w-7xl mx-auto px-6 py-24 flex flex-col md:flex-row items-center gap-4">
           <div className="md:w-1/2 space-y-8 text-center md:text-left">
-            <h1 className="text-5xl font-extrabold bg-clip-text text-transparent light:bg-gradient-to-r light:from-purple-600 light:to-pink-500 dark:bg-gradient-to-r dark:from-pink-500 dark:to-purple-600 select-none">
+            <h1 className="text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-500 dark:from-pink-500 dark:to-purple-600 select-none">
               Build beautiful and performant React apps with ease
             </h1>
-            <p className="text-lg max-w-md mx-auto md:mx-0 light:text-gray-700 dark:text-gray-300">
+            <p className="text-lg max-w-md mx-auto md:mx-0 text-gray-700 dark:text-gray-300">
               Our component library empowers developers with customizable,
               accessible UI elements optimized for React ecosystems.
             </p>
@@ -94,7 +91,7 @@ export default function HomePage() {
               </PrimaryButton>
               <Link
                 href="/components"
-                className="inline-block px-6 py-3 rounded-lg font-semibold light:text-purple-700 dark:text-pink-400 hover:underline cursor-pointer transition-colors hover:bg-purple-100 dark:hover:bg-purple-900 rounded-lg"
+                className="inline-block px-6 py-3 rounded-lg font-semibold text-purple-700 dark:text-pink-400 hover:underline cursor-pointer transition-colors hover:bg-purple-100 dark:hover:bg-purple-900 rounded-lg"
                 onClick={() => trackComponentView('ExploreFeatures')}
               >
                 Explore Components
@@ -121,11 +118,11 @@ export default function HomePage() {
           {features.map(({ icon, title, description }) => (
             <div
               key={title}
-              className="light:bg-white dark:bg-gray-800 rounded-3xl p-10 shadow-lg hover:shadow-2xl transition-shadow cursor-default flex flex-col items-center space-y-8"
+              className="bg-white dark:bg-gray-800 rounded-3xl p-10 shadow-lg hover:shadow-2xl transition-shadow cursor-default flex flex-col items-center space-y-8"
             >
               <div className="text-7xl">{icon}</div>
               <h3 className="text-2xl font-bold">{title}</h3>
-              <p className="light:text-gray-600 dark:text-gray-400 max-w-xs">
+              <p className="text-gray-600 dark:text-gray-400 max-w-xs">
                 {description}
               </p>
             </div>
@@ -162,7 +159,7 @@ export default function HomePage() {
             {usageSteps.map(({ step, title, description, code }) => (
               <div
                 key={step}
-                className="rounded-xl p-8 light:bg-indigo-50 dark:bg-indigo-900 shadow-lg hover:shadow-xl transition cursor-pointer"
+                className="rounded-xl p-8 bg-indigo-50 dark:bg-indigo-900 shadow-lg hover:shadow-xl transition cursor-pointer"
                 onClick={() => {
                   navigator.clipboard.writeText(code);
                   trackComponentView(`GettingStartedStep${step}`);
@@ -172,11 +169,11 @@ export default function HomePage() {
                   {step}
                 </div>
                 <h3 className="font-semibold text-xl mb-4">{title}</h3>
-                <p className="mb-6 light:text-gray-700 dark:text-gray-300">
+                <p className="mb-6 text-gray-700 dark:text-gray-300">
                   {description}
                 </p>
                 <div className="relative group">
-                  <pre className="light:bg-purple-100 dark:bg-purple-800 light:text-purple-900 dark:text-purple-300 p-5 rounded-lg overflow-x-auto text-left text-sm">
+                  <pre className="bg-purple-100 dark:bg-purple-800 text-purple-900 dark:text-purple-300 p-5 rounded-lg overflow-x-auto text-left text-sm">
                     {code}
                   </pre>
                   <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">

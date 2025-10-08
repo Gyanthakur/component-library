@@ -1,27 +1,17 @@
 "use client";
 import React from 'react';
+import { useTheme } from '../../context/ThemeContext';
 
 const ThemeToggleButton = () => {
-  const [isDark, setIsDark] = React.useState(false);
-  const handleThemeToggle = () => setIsDark((prev) => !prev);
+  const { theme, toggleTheme } = useTheme();
+
   return (
     <button
-      onClick={handleThemeToggle}
-      style={{
-        background: isDark ? '#222' : '#fff',
-        color: isDark ? '#fff' : '#222',
-        border: '1px solid #ccc',
-        borderRadius: '999px',
-        padding: '0.5rem 1.5rem',
-        fontWeight: 600,
-        marginLeft: '1rem',
-        boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
-        cursor: 'pointer',
-        transition: 'all 0.2s',
-      }}
+      onClick={toggleTheme}
+      className="px-4 py-2 rounded-full font-semibold ml-4 transition-all duration-200 border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-700 shadow-sm hover:shadow-md"
       aria-label="Toggle theme"
     >
-      {isDark ? '🌙 Dark' : '☀️ Light'}
+      {theme === 'dark' ? '🌙 Dark' : '☀️ Light'}
     </button>
   );
 };

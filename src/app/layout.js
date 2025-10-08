@@ -1,5 +1,5 @@
 import Navbar from './pages/Navbar'
-import './globals.css'
+import '../styles/globals.css'
 import { ThemeProvider } from './context/ThemeContext'
 import { AnalyticsProvider } from './context/AnalyticsContext'
 import Footer from './pages/Footer';
@@ -12,15 +12,15 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="min-h-screen bg-theme-background text-theme-primary">
+      <body className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
         <ThemeProvider>
           <AnalyticsProvider>
             <div className="">
               <Navbar />
               <main className='max-w-7xl mx-auto'>
                 {children}
-              </main> 
-              <Footer/>
+              </main>
+              <Footer />
             </div>
           </AnalyticsProvider>
         </ThemeProvider>
