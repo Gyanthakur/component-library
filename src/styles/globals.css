@@ -10,18 +10,18 @@
   --color-text-secondary: #6b7280;
   --color-text-muted: #9ca3af;
   --color-text-heading: #000000;
-  
+
   --color-bg-base: #ffffff;
   --color-bg-surface: #ffffff;
   --color-bg-surface-hover: #f9fafb;
   --color-bg-elevated: #ffffff;
-  
+
   --color-border: #e5e7eb;
   --color-border-light: #f3f4f6;
-  
+
   --color-primary: #3b82f6;
   --color-primary-hover: #2563eb;
-  
+
   /* Shadows */
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
@@ -33,18 +33,18 @@
   --color-text-secondary: #d1d5db;
   --color-text-muted: #9ca3af;
   --color-text-heading: #ffffff;
-  
+
   --color-bg-base: #0f172a;
   --color-bg-surface: #1f2937;
   --color-bg-surface-hover: #374151;
   --color-bg-elevated: #1f2937;
-  
+
   --color-border: #374151;
   --color-border-light: #4b5563;
-  
+
   --color-primary: #2563eb;
   --color-primary-hover: #1d4ed8;
-  
+
   /* Darker shadows for dark mode */
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
@@ -54,17 +54,43 @@
    TYPOGRAPHY
    ============================================ */
 
+/* Base text color for both modes */
+body {
+  color: var(--color-text-primary);
+}
+
 .dark {
   color: var(--color-text-secondary);
 }
 
-/* Headings */
-h1, h2, h3, h4, h5, h6,
-.text-2xl, .text-xl, .text-lg {
+/* Headings - apply to both light and dark modes */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.text-2xl,
+.text-xl,
+.text-lg {
   color: var(--color-text-heading);
 }
 
-/* Override Tailwind gray classes in dark mode */
+/* Override Tailwind gray classes in both modes for consistency */
+.text-gray-900 {
+  color: var(--color-text-heading);
+}
+
+.text-gray-800,
+.text-gray-700,
+.text-gray-600 {
+  color: var(--color-text-primary);
+}
+
+.text-gray-500 {
+  color: var(--color-text-secondary);
+}
+
 .dark .text-gray-900,
 .dark .text-gray-800,
 .dark .text-gray-700,
@@ -76,6 +102,19 @@ h1, h2, h3, h4, h5, h6,
 /* ============================================
    BACKGROUNDS
    ============================================ */
+
+/* Override common Tailwind background classes for better theme support */
+.bg-gray-50 {
+  background-color: #f9fafb;
+}
+
+.bg-gray-100 {
+  background-color: #f3f4f6;
+}
+
+.bg-white {
+  background-color: #ffffff;
+}
 
 .dark .bg-gray-50,
 .dark .bg-gray-100 {
@@ -206,16 +245,16 @@ h1, h2, h3, h4, h5, h6,
 
 .bg-gradient-card {
   background-image: linear-gradient(
-    135deg, 
-    rgb(99 102 241 / 0.06), 
+    135deg,
+    rgb(99 102 241 / 0.06),
     rgb(56 189 248 / 0.04)
   );
 }
 
 .dark .bg-gradient-card {
   background-image: linear-gradient(
-    135deg, 
-    rgb(99 102 241 / 0.1), 
+    135deg,
+    rgb(99 102 241 / 0.1),
     rgb(56 189 248 / 0.08)
   );
 }

@@ -302,7 +302,7 @@ export default function Page() {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-sky-50 via-indigo-50 to-pink-50 dark:from-[#1d1e26] dark:via-[#212936] dark:to-[#28243c] transition-colors duration-500">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-500">
       {/* <ThemeToggle theme={theme} setTheme={setTheme} /> */}
 
       {/* Glassmorphism Hero Header */}
@@ -483,7 +483,7 @@ export default function Page() {
                     label="Disabled Option"
                     description="This option is disabled"
                     checked={false}
-                    onChange={() => {}}
+                    onChange={() => { }}
                     disabled
                   />
                 </>

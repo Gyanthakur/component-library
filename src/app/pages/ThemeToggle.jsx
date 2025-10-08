@@ -16,7 +16,7 @@ const ThemeToggle = () => {
   return (
     <button
       onClick={toggleTheme}
-      className="relative p-2 rounded-lg bg-theme-surface hover:bg-theme-surface-hover border-theme border transition-all duration-300 focus-theme group"
+      className="relative p-2.5 rounded-xl bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-600 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900 group shadow-sm hover:shadow-md"
       aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
       title={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
     >
@@ -24,33 +24,30 @@ const ThemeToggle = () => {
         {/* Sun Icon */}
         <Sun
           size={20}
-          className={`absolute inset-0 text-amber-500 transition-all duration-500 transform ${
-            theme === 'light'
+          className={`absolute inset-0 text-yellow-500 dark:text-amber-400 transition-all duration-500 transform ${theme === 'light'
               ? 'rotate-0 scale-100 opacity-100'
               : 'rotate-180 scale-0 opacity-0'
-          }`}
+            }`}
         />
-        
+
         {/* Moon Icon */}
         <Moon
           size={20}
-          className={`absolute inset-0 text-blue-400 transition-all duration-500 transform ${
-            theme === 'dark'
+          className={`absolute inset-0 text-slate-600 dark:text-blue-400 transition-all duration-500 transform ${theme === 'dark'
               ? 'rotate-0 scale-100 opacity-100'
               : '-rotate-180 scale-0 opacity-0'
-          }`}
+            }`}
         />
       </div>
-      
+
       {/* Hover effect background */}
-      <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-amber-400/20 to-blue-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-      
-      {/* Cool glow effect */}
-      <div className={`absolute inset-0 rounded-lg transition-all duration-300 ${
-        theme === 'dark' 
-          ? 'shadow-[0_0_20px_rgba(96,165,250,0.3)]' 
-          : 'shadow-[0_0_20px_rgba(245,158,11,0.3)]'
-      } opacity-0 group-hover:opacity-100`} />
+      <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-yellow-400/10 to-blue-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+      {/* Glow effect */}
+      <div className={`absolute inset-0 rounded-xl transition-all duration-300 ${theme === 'dark'
+          ? 'shadow-[0_0_15px_rgba(59,130,246,0.3)]'
+          : 'shadow-[0_0_15px_rgba(251,191,36,0.3)]'
+        } opacity-0 group-hover:opacity-100`} />
     </button>
   );
 };

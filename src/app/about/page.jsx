@@ -30,8 +30,8 @@ export default function AboutPage() {
     <div className="max-w-6xl mx-auto px-4 py-12 space-y-16">
       {/* Overview Section */}
       <section className="text-center">
-        <h1 className="text-4xl font-bold text-gray-900 mb-6">About MyLibrary</h1>
-        <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8">
+        <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">About MyLibrary</h1>
+        <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-8">
           MyLibrary is a comprehensive component library built with Next.js and Tailwind CSS,
           designed to provide developers with reusable, accessible, and beautifully designed UI components.
           Our goal is to accelerate development workflows and maintain design consistency across projects.
@@ -57,7 +57,7 @@ export default function AboutPage() {
         <div className="bg-blue-50 p-8 rounded-2xl">
           <div className="flex items-center mb-4">
             <Target className="w-6 h-6 text-blue-600 mr-3" />
-            <h2 className="text-2xl font-bold text-gray-900">Our Mission</h2>
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Our Mission</h2>
           </div>
           <p className="text-gray-700">
             To empower developers with a robust, flexible, and beautiful component library that
@@ -69,7 +69,7 @@ export default function AboutPage() {
         <div className="bg-green-50 p-8 rounded-2xl">
           <div className="flex items-center mb-4">
             <Rocket className="w-6 h-6 text-green-600 mr-3" />
-            <h2 className="text-2xl font-bold text-gray-900">Our Vision</h2>
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Our Vision</h2>
           </div>
           <p className="text-gray-700">
             To become the go-to component library for React developers, fostering a community
@@ -81,54 +81,54 @@ export default function AboutPage() {
 
       {/* Key Features */}
       <section>
-        <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Why Choose MyLibrary?</h2>
+        <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">Why Choose MyLibrary?</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
             <div className="bg-purple-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
               <Palette className="w-6 h-6 text-purple-600" />
             </div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Design System</h3>
-            <p className="text-gray-600">Consistent design tokens and theming system for cohesive user experiences.</p>
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Design System</h3>
+            <p className="text-gray-600 dark:text-gray-300">Consistent design tokens and theming system for cohesive user experiences.</p>
           </div>
 
           <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
             <div className="bg-blue-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
               <Shield className="w-6 h-6 text-blue-600" />
             </div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Accessibility First</h3>
-            <p className="text-gray-600">Built with WCAG 2.1 guidelines and keyboard navigation support.</p>
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Accessibility First</h3>
+            <p className="text-gray-600 dark:text-gray-300">Built with WCAG 2.1 guidelines and keyboard navigation support.</p>
           </div>
 
           <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
             <div className="bg-green-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
               <Zap className="w-6 h-6 text-green-600" />
             </div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Performance</h3>
-            <p className="text-gray-600">Optimized bundle size with tree-shaking and minimal dependencies.</p>
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Performance</h3>
+            <p className="text-gray-600 dark:text-gray-300">Optimized bundle size with tree-shaking and minimal dependencies.</p>
           </div>
 
           <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
             <div className="bg-orange-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
               <Code className="w-6 h-6 text-orange-600" />
             </div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Developer Experience</h3>
-            <p className="text-gray-600">TypeScript support, comprehensive documentation, and excellent IDE integration.</p>
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Developer Experience</h3>
+            <p className="text-gray-600 dark:text-gray-300">TypeScript support, comprehensive documentation, and excellent IDE integration.</p>
           </div>
 
           <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
             <div className="bg-pink-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
               <Heart className="w-6 h-6 text-pink-600" />
             </div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Community Driven</h3>
-            <p className="text-gray-600">Open source project with active community contributions and feedback.</p>
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Community Driven</h3>
+            <p className="text-gray-600 dark:text-gray-300">Open source project with active community contributions and feedback.</p>
           </div>
 
           <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
             <div className="bg-indigo-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
               <Users className="w-6 h-6 text-indigo-600" />
             </div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Flexible</h3>
-            <p className="text-gray-600">Customizable components that adapt to your design requirements.</p>
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Flexible</h3>
+            <p className="text-gray-600 dark:text-gray-300">Customizable components that adapt to your design requirements.</p>
           </div>
         </div>
       </section>
@@ -137,73 +137,73 @@ export default function AboutPage() {
       <section className="bg-gray-50 p-8 rounded-2xl">
         <div className="flex items-center justify-center mb-8">
           <Code className="w-8 h-8 text-blue-600 mr-3" />
-          <h2 className="text-3xl font-bold text-gray-900">Tech Stack</h2>
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Tech Stack</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          <div className="bg-white p-6 rounded-xl shadow-sm text-center">
+          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm text-center">
             <div className="bg-black w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center">
               <span className="text-white font-bold text-xl">N</span>
             </div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Next.js 14</h3>
-            <p className="text-sm text-gray-600">React framework with App Router</p>
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Next.js 14</h3>
+            <p className="text-sm text-gray-600 dark:text-gray-400">React framework with App Router</p>
           </div>
 
-          <div className="bg-white p-6 rounded-xl shadow-sm text-center">
+          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm text-center">
             <div className="bg-blue-500 w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center">
               <span className="text-white font-bold text-xl">R</span>
             </div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">React 18</h3>
-            <p className="text-sm text-gray-600">Component-based architecture</p>
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">React 18</h3>
+            <p className="text-sm text-gray-600 dark:text-gray-400">Component-based architecture</p>
           </div>
 
-          <div className="bg-white p-6 rounded-xl shadow-sm text-center">
+          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm text-center">
             <div className="bg-cyan-500 w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center">
               <span className="text-white font-bold text-xl">T</span>
             </div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Tailwind CSS</h3>
-            <p className="text-sm text-gray-600">Utility-first styling</p>
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Tailwind CSS</h3>
+            <p className="text-sm text-gray-600 dark:text-gray-400">Utility-first styling</p>
           </div>
 
-          <div className="bg-white p-6 rounded-xl shadow-sm text-center">
+          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm text-center">
             <div className="bg-blue-600 w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center">
               <span className="text-white font-bold text-xl">TS</span>
             </div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">TypeScript</h3>
-            <p className="text-sm text-gray-600">Type-safe development</p>
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">TypeScript</h3>
+            <p className="text-sm text-gray-600 dark:text-gray-400">Type-safe development</p>
           </div>
         </div>
 
         <div className="text-center">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">Additional Tools</h3>
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Additional Tools</h3>
           <div className="flex flex-wrap justify-center gap-3">
-            <span className="bg-white px-4 py-2 rounded-full text-sm text-gray-700 border">ESLint</span>
-            <span className="bg-white px-4 py-2 rounded-full text-sm text-gray-700 border">Prettier</span>
-            <span className="bg-white px-4 py-2 rounded-full text-sm text-gray-700 border">Lucide Icons</span>
-            <span className="bg-white px-4 py-2 rounded-full text-sm text-gray-700 border">PostCSS</span>
-            <span className="bg-white px-4 py-2 rounded-full text-sm text-gray-700 border">Git</span>
+            <span className="bg-white dark:bg-gray-700 px-4 py-2 rounded-full text-sm text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-600">ESLint</span>
+            <span className="bg-white dark:bg-gray-700 px-4 py-2 rounded-full text-sm text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-600">Prettier</span>
+            <span className="bg-white dark:bg-gray-700 px-4 py-2 rounded-full text-sm text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-600">Lucide Icons</span>
+            <span className="bg-white dark:bg-gray-700 px-4 py-2 rounded-full text-sm text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-600">PostCSS</span>
+            <span className="bg-white dark:bg-gray-700 px-4 py-2 rounded-full text-sm text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-600">Git</span>
           </div>
         </div>
       </section>
 
       {/* Getting Started Section */}
-      <section className="bg-gradient-to-r from-blue-50 to-indigo-50 p-8 rounded-2xl">
-        <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">Getting Started</h2>
+      <section className="bg-gray-50 dark:bg-gray-800 p-8 rounded-2xl">
+        <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6 text-center">Getting Started</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="text-center">
             <div className="bg-blue-600 text-white w-12 h-12 rounded-full mx-auto mb-4 flex items-center justify-center font-bold text-lg">1</div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Installation</h3>
-            <p className="text-gray-600 text-sm">Install the library via npm or copy components directly</p>
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Installation</h3>
+            <p className="text-gray-600 dark:text-gray-300 text-sm">Install the library via npm or copy components directly</p>
           </div>
           <div className="text-center">
             <div className="bg-blue-600 text-white w-12 h-12 rounded-full mx-auto mb-4 flex items-center justify-center font-bold text-lg">2</div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Import</h3>
-            <p className="text-gray-600 text-sm">Import the components you need in your React application</p>
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Import</h3>
+            <p className="text-gray-600 dark:text-gray-300 text-sm">Import the components you need in your React application</p>
           </div>
           <div className="text-center">
             <div className="bg-blue-600 text-white w-12 h-12 rounded-full mx-auto mb-4 flex items-center justify-center font-bold text-lg">3</div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Customize</h3>
-            <p className="text-gray-600 text-sm">Customize styles and behavior to match your design system</p>
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Customize</h3>
+            <p className="text-gray-600 dark:text-gray-300 text-sm">Customize styles and behavior to match your design system</p>
           </div>
         </div>
         <div className="text-center mt-6">
@@ -218,9 +218,9 @@ export default function AboutPage() {
         <div>
           <div className="flex items-center mb-6">
             <Github className="w-8 h-8 text-blue-600 mr-3" />
-            <h2 className="text-3xl font-bold text-gray-900">Contributing</h2>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Contributing</h2>
           </div>
-          <p className="text-gray-600 mb-6">
+          <p className="text-gray-600 dark:text-gray-300 mb-6">
             We welcome contributions from the community! Whether you're fixing bugs, adding new components,
             or improving documentation, your help makes MyLibrary better for everyone.
           </p>
@@ -231,7 +231,7 @@ export default function AboutPage() {
               </div>
               <div>
                 <h3 className="font-medium text-gray-900">Submit Issues</h3>
-                <p className="text-sm text-gray-600">Report bugs or request features on GitHub</p>
+                <p className="text-sm text-gray-600 dark:text-gray-400">Report bugs or request features on GitHub</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
@@ -240,7 +240,7 @@ export default function AboutPage() {
               </div>
               <div>
                 <h3 className="font-medium text-gray-900">Create Pull Requests</h3>
-                <p className="text-sm text-gray-600">Contribute code improvements and new features</p>
+                <p className="text-sm text-gray-600 dark:text-gray-400">Contribute code improvements and new features</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
@@ -249,7 +249,7 @@ export default function AboutPage() {
               </div>
               <div>
                 <h3 className="font-medium text-gray-900">Improve Documentation</h3>
-                <p className="text-sm text-gray-600">Help make our docs clearer and more comprehensive</p>
+                <p className="text-sm text-gray-600 dark:text-gray-400">Help make our docs clearer and more comprehensive</p>
               </div>
             </div>
           </div>
@@ -258,30 +258,30 @@ export default function AboutPage() {
         <div>
           <div className="flex items-center mb-6">
             <Heart className="w-8 h-8 text-red-500 mr-3" />
-            <h2 className="text-3xl font-bold text-gray-900">Community</h2>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Community</h2>
           </div>
-          <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-            <p className="text-gray-600 mb-6">
+          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+            <p className="text-gray-600 dark:text-gray-300 mb-6">
               Join our growing community of developers who are building amazing user interfaces with MyLibrary.
             </p>
             <div className="space-y-4">
               <div className="flex items-center justify-between">
-                <span className="text-gray-700">GitHub Stars</span>
-                <span className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-sm font-medium">1.2k+</span>
+                <span className="text-gray-700 dark:text-gray-300">GitHub Stars</span>
+                <span className="bg-yellow-100 dark:bg-yellow-900/50 text-yellow-800 dark:text-yellow-200 px-2 py-1 rounded text-sm font-medium">1.2k+</span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-gray-700">Contributors</span>
-                <span className="bg-green-100 text-green-800 px-2 py-1 rounded text-sm font-medium">25+</span>
+                <span className="text-gray-700 dark:text-gray-300">Contributors</span>
+                <span className="bg-green-100 dark:bg-green-900/50 text-green-800 dark:text-green-200 px-2 py-1 rounded text-sm font-medium">25+</span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-gray-700">Downloads</span>
-                <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm font-medium">10k+</span>
+                <span className="text-gray-700 dark:text-gray-300">Downloads</span>
+                <span className="bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 px-2 py-1 rounded text-sm font-medium">10k+</span>
               </div>
             </div>
-            <div className="mt-6 pt-6 border-t border-gray-100">
+            <div className="mt-6 pt-6 border-t border-gray-100 dark:border-gray-700">
               <div className="flex items-center">
-                <Users className="w-5 h-5 text-gray-500 mr-2" />
-                <span className="text-gray-700 text-sm">Built with ❤️ by the open source community</span>
+                <Users className="w-5 h-5 text-gray-500 dark:text-gray-400 mr-2" />
+                <span className="text-gray-700 dark:text-gray-300 text-sm">Built with ❤️ by the open source community</span>
               </div>
             </div>
           </div>
@@ -292,22 +292,22 @@ export default function AboutPage() {
       <section>
         <div className="flex items-center justify-center mb-8">
           <Users className="w-8 h-8 text-blue-600 mr-3" />
-          <h2 className="text-3xl font-bold text-gray-900">Our Contributors</h2>
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Our Contributors</h2>
         </div>
 
-        <p className="text-center text-gray-600 mb-8 max-w-2xl mx-auto">
+        <p className="text-center text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
           Thank you to all the amazing developers who have contributed to making this component library better!
         </p>
 
         {loading ? (
           <div className="text-center py-12">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
-            <p className="text-gray-600">Loading contributors...</p>
+            <p className="text-gray-600 dark:text-gray-300">Loading contributors...</p>
           </div>
         ) : error ? (
           <div className="text-center py-12">
-            <div className="bg-red-50 border border-red-200 rounded-lg p-6 max-w-md mx-auto">
-              <p className="text-red-600">{error}</p>
+            <div className="bg-red-50 dark:bg-red-900/50 border border-red-200 dark:border-red-800 rounded-lg p-6 max-w-md mx-auto">
+              <p className="text-red-600 dark:text-red-400">{error}</p>
             </div>
           </div>
         ) : (
@@ -316,7 +316,7 @@ export default function AboutPage() {
               {contributors.map((contributor) => (
                 <div
                   key={contributor.id}
-                  className="group bg-white p-4 rounded-xl shadow-sm border border-gray-100 hover:shadow-md hover:border-blue-200 transition-all duration-200 text-center"
+                  className="group bg-white dark:bg-gray-800 p-4 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-md hover:border-blue-200 dark:hover:border-blue-700 transition-all duration-200 text-center"
                 >
                   <div className="relative mb-3">
                     <img
