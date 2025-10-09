@@ -50,6 +50,11 @@ import Tabs from "./navigation/Tabs";
 import Breadcrumb from "./navigation/Breadcrumb";
 import Pagination from "./navigation/Pagination";
 import FAQAccordion from "./accordion/FAQAccordion";
+import UserCard from "@/app/components/cards/UserCard";
+import RainbowButton from "@/app/components/buttons/RainbowButton";
+//Backgrounds
+import InteractiveTiles from "./backgrounds/InteractiveTiles";
+
 
 export default function Page() {
   // Search and Filter State
@@ -230,6 +235,9 @@ export default function Page() {
         keywords: ["checkbox", "check", "toggle", "boolean"],
       },
     ],
+    backgrounds: [
+      { name: 'Interactive Tiles', component: <InteractiveTiles />, keywords: ['interactive', 'tiles', 'backgrounds', 'grid'], desc: 'Interactive tiles background' }
+    ],
     navigation: [
       {
         name: "Breadcrumb",
@@ -344,6 +352,7 @@ export default function Page() {
               >
                 <option value="all">All Components</option>
                 <option value="buttons">Buttons</option>
+                <option value="backgrounds">Backgrounds</option>
                 <option value="cards">Cards</option>
                 <option value="inputs">Inputs</option>
                 <option value="navigation">Navigation</option>
@@ -488,6 +497,27 @@ export default function Page() {
                   />
                 </>
               )}
+            </div>
+          </section>
+        )}
+
+        {/* Backgrounds Section */}
+        {filteredComponents.backgrounds && (
+          <section
+            id="backgrounds"
+            className="bg-white/90 w-full dark:bg-gray-900/90 border border-indigo-100 dark:border-indigo-900 shadow-xl rounded-2xl p-10"
+          >
+            <h2 className="relative text-2xl font-semibold mb-6 flex items-center justify-center gap-2 text-indigo-700 dark:text-indigo-200">
+              <span>Backgrounds ({filteredComponents.backgrounds.length})</span>
+              <span className="absolute top-10 h-1 w-full bg-gradient-to-r from-indigo-300 to-purple-300 rounded-full block" />
+            </h2>
+            <div className="max-w-3xl">
+              {filteredComponents.backgrounds.map((item, index) => (
+                  <div key={index} title={item.name} className="mb-6">
+                    {item.desc && <p className="mb-2 font-bold text-sm text-gray-600 dark:text-gray-300">{item.desc}</p>}
+                  {item.component}
+                </div>
+              ))}
             </div>
           </section>
         )}

@@ -108,6 +108,7 @@ const navLinks = [
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
   { href: "/components", label: "Components" },
+  { href: "/playground", label: "🎮 Playground" },
   { href: "/analytics", label: "Analytics" },
   { href: "/feedback", label: "Feedback" },
 ];

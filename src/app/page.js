@@ -96,6 +96,13 @@ export default function HomePage() {
               >
                 Explore Components
               </Link>
+              <Link
+                href="/playground"
+                className="inline-block px-6 py-3 rounded-lg font-semibold bg-gradient-to-r from-green-500 to-blue-500 text-white hover:from-green-600 hover:to-blue-600 transition-all transform hover:scale-105"
+                onClick={() => trackComponentView('PlaygroundAccess')}
+              >
+                🎮 Try Playground
+              </Link>
             </div>
           </div>
           <div className="md:w-1/2 max-w-lg mx-auto">
