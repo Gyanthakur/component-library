@@ -55,6 +55,12 @@ import RainbowButton from "@/app/components/buttons/RainbowButton";
 //Backgrounds
 import InteractiveTiles from "./backgrounds/InteractiveTiles";
 
+// form Input
+
+import { DatePicker } from "./FormInput/DatePicker";
+import { FileUpload } from "./FormInput/FileUpload";
+import { FormValidation } from "./FormInput/FormValidation";
+import { Slider } from "./FormInput/Slider";
 
 export default function Page() {
   // Search and Filter State
@@ -68,8 +74,6 @@ export default function Page() {
   const [inputValue, setInputValue] = React.useState("");
   const [selectValue, setSelectValue] = React.useState("");
   const [checkboxValue, setCheckboxValue] = React.useState(false);
-
-
 
   // Data
   const selectOptions = [
