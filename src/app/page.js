@@ -72,10 +72,11 @@ export default function HomePage() {
   return (
     <div className="transition-colors duration-300">
       <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+        
         {/* Hero Section */}
         <section className="max-w-7xl mx-auto px-6 py-24 flex flex-col md:flex-row items-center gap-4">
           <div className="md:w-1/2 space-y-8 text-center md:text-left">
-            <h1 className="text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-500 dark:from-pink-500 dark:to-purple-600 select-none">
+            <h1 className="text-5xl font-extrabold text-shadow-lg !text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-500 dark:from-pink-500 dark:to-purple-400 select-none">
               Build beautiful and performant React apps with ease
             </h1>
             <p className="text-lg max-w-md mx-auto md:mx-0 text-gray-700 dark:text-gray-300">
@@ -91,7 +92,7 @@ export default function HomePage() {
               </PrimaryButton>
               <Link
                 href="/components"
-                className="inline-block px-6 py-3 rounded-lg font-semibold text-purple-700 dark:text-pink-400 hover:underline cursor-pointer transition-colors hover:bg-purple-100 dark:hover:bg-purple-900 rounded-lg"
+                className="inline-block px-6 py-3 font-semibold text-purple-700 dark:text-pink-400 hover:underline cursor-pointer transition-colors hover:bg-purple-100 dark:hover:bg-purple-900 rounded-lg"
                 onClick={() => trackComponentView('ExploreFeatures')}
               >
                 Explore Components
@@ -105,12 +106,11 @@ export default function HomePage() {
               </Link>
             </div>
           </div>
-          <div className="md:w-1/2 max-w-lg mx-auto">
-
-            <div className="bg-gradient-to-br from-blue-400 via-purple-500 to-pink-500 rounded-3xl shadow-2xl w-full h-96 flex items-center justify-center">
+          <div className="relative md:w-1/2 max-w-lg mx-auto">
+            <div className="bg-gradient-to-br from-blue-400 via-purple-500 to-pink-500 rounded-3xl shadow-2xl w-full h-96 flex items-center justify-center bg-[length:200%_200%] gradient-shift">
               <div className="text-white text-center">
-                <div className="text-6xl mb-4">🎨</div>
-                <h3 className="text-2xl font-bold mb-2">Beautiful Components</h3>
+                <div className="text-6xl mb-4 animate-bounce">🎨</div>
+                <h3 className="text-2xl !text-gray-50 font-bold mb-2 transition-all duration-700 ease-out hover:scale-105">Beautiful Components</h3>
                 <p className="text-blue-100">Ready to use in your projects</p>
               </div>
             </div>

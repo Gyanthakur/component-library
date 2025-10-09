@@ -215,6 +215,10 @@ h6,
 .bg-theme-primary:hover {
   background-color: var(--color-primary-hover);
 }
+.bg-clip-text {
+  -webkit-background-clip: text;
+  background-clip: text;
+}
 
 .text-theme-primary-color {
   color: var(--color-primary);
@@ -227,6 +231,14 @@ h6,
 
 .shadow-theme-md {
   box-shadow: var(--shadow-md);
+}
+/* text shadow */
+.text-shadow-lg {
+  text-shadow: 2px 2px 8px rgba(87, 88, 88, 0.3);
+}
+.dark .text-shadow-lg {
+  text-shadow: 0px 4px 10px rgba(89, 127, 238, 0.3),
+    2px 2px 8px rgba(241, 30, 206, 0.3);
 }
 
 /* Focus styles */
@@ -277,4 +289,31 @@ button {
 /* Disable transitions on theme toggle to prevent flash */
 .theme-transitioning * {
   transition: none !important;
+}
+
+/* animations */
+.animation-pulseBg {
+  animation: pulseBg 4s ease-in-out infinite;
+}
+@keyframes pulseBg {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.2;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.5;
+  }
+}
+.gradient-shift{
+  animation: gradient 8s ease infinite;
+}
+@keyframes gradient{
+  0% , 100%{
+    background-position: 0% 50%;
+  }
+  50%{
+    background-position: 100% 50%;
+  }
 }
