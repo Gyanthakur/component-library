@@ -1,215 +1,30 @@
 "use client";
-import React from "react";
-import Link from "next/link";
-import { useRouter } from 'next/navigation';
-import { useTheme } from './context/ThemeContext';
-import { useAnalytics } from './context/AnalyticsContext';
-import PrimaryButton from './components/buttons/PrimaryButton';
-import SimpleCard from './components/cards/SimpleCard';
-import FeatureCard from './components/cards/FeatureCard';
-import PricingCard from './components/cards/PricingCard';
-import DataCard from './components/cards/DataCard';
+import { useState } from "react";
+import Modal from "./components/Modal";
 
-export default function HomePage() {
-  const { darkMode, setDarkMode } = useTheme();
-  const { trackComponentView } = useAnalytics();
-  const router = useRouter();
-
-  // Track page view
-  React.useEffect(() => {
-    trackComponentView('HomePage');
-  }, [trackComponentView]);
-
-  const features = [
-    {
-      icon: "🚀",
-      title: "Optimized for React",
-      description:
-        "Lightweight and fast components, designed specifically for React applications.",
-    },
-    {
-      icon: "🎨",
-      title: "Custom Themes",
-      description:
-        "Supports effortless customization with light, dark, and custom themes.",
-    },
-    {
-      icon: "⚙️",
-      title: "Flexible APIs",
-      description:
-        "Simple, intuitive props enabling full control over your components.",
-    },
-    {
-      icon: "📚",
-      title: "Well Documented",
-      description:
-        "Comprehensive, clear documentation to ease your development experience.",
-    },
-  ];
-
-  const usageSteps = [
-    {
-      step: 1,
-      title: "Add the Package",
-      description: "Install with npm or yarn for easy integration.",
-      code: "npm install my-components-library",
-    },
-    {
-      step: 2,
-      title: "Import Components",
-      description:
-        "Import only what you need from the library to keep bundles small.",
-      code: "import { Button, Card } from 'my-components-library';",
-    },
-    {
-      step: 3,
-      title: "Use Components",
-      description: "Apply components directly with easy-to-use props.",
-      code: "<Button variant='primary'>Click Me</Button>",
-    },
-  ];
+export default function Page() {
+  const [open, setOpen] = useState(false);
 
   return (
-    <div className="transition-colors duration-300">
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
-        
-        {/* Hero Section */}
-        <section className="max-w-7xl mx-auto px-6 py-24 flex flex-col md:flex-row items-center gap-4">
-          <div className="md:w-1/2 space-y-8 text-center md:text-left">
-            <h1 className="text-5xl font-extrabold text-shadow-lg !text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-500 dark:from-pink-500 dark:to-purple-400 select-none">
-              Build beautiful and performant React apps with ease
-            </h1>
-            <p className="text-lg max-w-md mx-auto md:mx-0 text-gray-700 dark:text-gray-300">
-              Our component library empowers developers with customizable,
-              accessible UI elements optimized for React ecosystems.
-            </p>
-            <div className="space-x-6">
-              <PrimaryButton onClick={() => {
-                trackComponentView('ThemeToggle');
-                setDarkMode(!darkMode);
-              }}>
-                {darkMode ? "Switch to Light" : "Switch to Dark"}
-              </PrimaryButton>
-              <Link
-                href="/components"
-                className="inline-block px-6 py-3 font-semibold text-purple-700 dark:text-pink-400 hover:underline cursor-pointer transition-colors hover:bg-purple-100 dark:hover:bg-purple-900 rounded-lg"
-                onClick={() => trackComponentView('ExploreFeatures')}
-              >
-                Explore Components
-              </Link>
-              <Link
-                href="/playground"
-                className="inline-block px-6 py-3 rounded-lg font-semibold bg-gradient-to-r from-green-500 to-blue-500 text-white hover:from-green-600 hover:to-blue-600 transition-all transform hover:scale-105"
-                onClick={() => trackComponentView('PlaygroundAccess')}
-              >
-                🎮 Try Playground
-              </Link>
-            </div>
-          </div>
-          <div className="relative md:w-1/2 max-w-lg mx-auto">
-            <div className="bg-gradient-to-br from-blue-400 via-purple-500 to-pink-500 rounded-3xl shadow-2xl w-full h-96 flex items-center justify-center bg-[length:200%_200%] gradient-shift">
-              <div className="text-white text-center">
-                <div className="text-6xl mb-4 animate-bounce">🎨</div>
-                <h3 className="text-2xl !text-gray-50 font-bold mb-2 transition-all duration-700 ease-out hover:scale-105">Beautiful Components</h3>
-                <p className="text-blue-100">Ready to use in your projects</p>
-              </div>
-            </div>
-          </div>
-        </section>
+    <div className="flex flex-col items-center justify-center min-h-screen p-6 bg-gray-100">
+      <h1 className="text-3xl font-bold mb-6">Test Modal Page</h1>
+      <button
+        onClick={() => setOpen(true)}
+        className="bg-blue-600 text-white px-4 py-2 rounded mb-6"
+      >
+        Open Modal
+      </button>
 
-        {/* Features Section */}
-        <section
-          id="features"
-          className="max-w-7xl mx-auto px-6 py-20 grid grid-cols-1 md:grid-cols-4 gap-16 text-center"
+      <Modal isOpen={open} onClose={() => setOpen(false)}>
+        <h2 className="text-xl font-semibold mb-4">Modal Title</h2>
+        <p>This is a test modal ✅</p>
+        <button
+          onClick={() => setOpen(false)}
+          className="mt-4 bg-red-500 text-white px-4 py-2 rounded"
         >
-          {features.map(({ icon, title, description }) => (
-            <div
-              key={title}
-              className="bg-white dark:bg-gray-800 rounded-3xl p-10 shadow-lg hover:shadow-2xl transition-shadow cursor-default flex flex-col items-center space-y-8"
-            >
-              <div className="text-7xl">{icon}</div>
-              <h3 className="text-2xl font-bold">{title}</h3>
-              <p className="text-gray-600 dark:text-gray-400 max-w-xs">
-                {description}
-              </p>
-            </div>
-          ))}
-        </section>
-
-        {/* Featured Components */}
-        <section className="max-w-7xl mx-auto px-6 py-20">
-          <h2 className="text-4xl font-extrabold mb-16 text-center">
-            Featured Components
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-20">
-            <SimpleCard
-              title="Simple Card"
-              description="Clean, minimal card with action support."
-            />
-            <FeatureCard
-              title="Feature Card"
-              description="Highlight your app’s features with style."
-            />
-            <PricingCard
-              plan="Pro"
-              price="$9/mo"
-              features={["10 projects", "Priority support", "Unlimited users"]}
-            />
-            <DataCard title="Active Projects" value="27" icon="📂" trend={8} />
-          </div>
-        </section>
-
-        {/* Usage Instructions */}
-        <section className="max-w-5xl mx-auto px-6 py-24 bg-white dark:bg-gray-900 rounded-3xl shadow-2xl text-center space-y-14">
-          <h2 className="text-4xl font-bold">Getting Started</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
-            {usageSteps.map(({ step, title, description, code }) => (
-              <div
-                key={step}
-                className="rounded-xl p-8 bg-indigo-50 dark:bg-indigo-900 shadow-lg hover:shadow-xl transition cursor-pointer"
-                onClick={() => {
-                  navigator.clipboard.writeText(code);
-                  trackComponentView(`GettingStartedStep${step}`);
-                }}
-              >
-                <div className="text-6xl font-extrabold text-purple-600 mb-6">
-                  {step}
-                </div>
-                <h3 className="font-semibold text-xl mb-4">{title}</h3>
-                <p className="mb-6 text-gray-700 dark:text-gray-300">
-                  {description}
-                </p>
-                <div className="relative group">
-                  <pre className="bg-purple-100 dark:bg-purple-800 text-purple-900 dark:text-purple-300 p-5 rounded-lg overflow-x-auto text-left text-sm">
-                    {code}
-                  </pre>
-                  <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <span className="text-xs bg-purple-600 text-white px-2 py-1 rounded">
-                      Click to copy
-                    </span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Call to Action */}
-        <section className="max-w-4xl mx-auto px-6 py-28 text-center">
-          <h2 className="text-5xl font-extrabold mb-10">
-            Ready to build stunning apps?
-          </h2>
-          <PrimaryButton
-            className="text-lg px-14 py-6"
-            onClick={() => {
-              trackComponentView('StartBuildingCTA');
-              router.push('/components');
-            }}
-          >
-            Start Building Now
-          </PrimaryButton>
-        </section>
-      </div>
+          Close
+        </button>
+      </Modal>
     </div>
   );
 }
