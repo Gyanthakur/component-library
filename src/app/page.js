@@ -118,7 +118,10 @@ export default function HomePage() {
         </section>
 
         {/* Features Section */}
-  <section id="features" className="max-w-[1600px] mx-auto px-6 lg:px-8 py-24 grid grid-cols-1 md:grid-cols-4 gap-12 text-center">
+        <section
+          id="features"
+          className="max-w-7xl mx-auto px-6 py-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-center"
+        >
           {features.map(({ icon, title, description }) => (
             <div
               key={title}
@@ -138,7 +141,7 @@ export default function HomePage() {
           <h2 className="text-4xl font-extrabold mb-16 text-center">
             Featured Components
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
             <SimpleCard
               title="Simple Card"
               description="Clean, minimal card with action support."

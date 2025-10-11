@@ -50,6 +50,7 @@ import Checkbox from "./inputs/Checkbox";
 import Tabs from "./navigation/Tabs";
 import Breadcrumb from "./navigation/Breadcrumb";
 import Pagination from "./navigation/Pagination";
+import GlassButton from "@/app/components/buttons/GlassButton";
 import UserCard from "@/app/components/cards/UserCard";
 import RainbowButton from "@/app/components/buttons/RainbowButton";
 //Backgrounds
@@ -63,6 +64,9 @@ import { DatePicker } from "./FormInput/DatePicker";
 import { FileUpload } from "./FormInput/FileUpload";
 import { FormValidation } from "./FormInput/FormValidation";
 import { Slider } from "./FormInput/Slider";
+
+// Avatar
+import { Avatar, AvatarGroup } from "./Avatar/Avatar";
 
 export default function Page() {
   // Search and Filter State
@@ -115,6 +119,31 @@ export default function Page() {
     { label: "Breadcrumb" },
   ];
 
+  // avatar
+  const users = [
+  {
+    src: "https://randomuser.me/api/portraits/women/68.jpg",
+    alt: "Alice",
+    online: true,
+  },
+  {
+    src: "https://randomuser.me/api/portraits/men/45.jpg",
+    alt: "Bob",
+    online: false,
+  },
+  {
+    src: "https://randomuser.me/api/portraits/men/32.jpg",
+    alt: "Charlie",
+    online: true,
+  },
+  {
+    src: "https://randomuser.me/api/portraits/women/12.jpg",
+    alt: "Dana",
+    online: false,
+  },
+];
+
+
   // All components with search data
   const allComponents = {
     buttons: [
@@ -165,6 +194,12 @@ export default function Page() {
         component: <RainbowButton>Rainbow</RainbowButton>,
         keywords: ["rainbow", "action", "colorful"],
         desc: "Used for call to actions",
+      },
+      { 
+        name: 'Glass Button', 
+        component: <GlassButton>Button</GlassButton>, 
+        keywords: ['glass', 'cta', 'action'], 
+        desc : "Used for any action"
       },
     ],
     cards: [
@@ -233,47 +268,6 @@ export default function Page() {
             description="Check this option"
             checked={false}
             onChange={() => {}}
-          />
-        ),
-        keywords: ["checkbox", "check", "toggle", "boolean"],
-      },
-
-      { name: 'Primary Button', component: <PrimaryButton>Primary</PrimaryButton>, keywords: ['primary', 'main', 'action', 'cta'], desc: "Used for Main Actions" },
-      { name: 'Secondary Button', component: <SecondaryButton>Secondary</SecondaryButton>, keywords: ['secondary', 'alternate'], desc: "Used for secondary Actions" },
-      { name: 'Ghost Button', component: <GhostButton>Ghost</GhostButton>, keywords: ['ghost', 'transparent', 'subtle'], desc: "Used for minimal actions" },
-      { name: 'Outline Button', component: <OutlineButton>Outline</OutlineButton>, keywords: ['outline', 'border', 'stroke'], desc: "Used for gives outline" },
-      { name: 'Danger Button', component: <DangerButton>Danger</DangerButton>, keywords: ['danger', 'error', 'delete', 'warning', 'red'], desc: "Used for destructive actions" },
-      { name: 'Success Button', component: <SuccessButton>Success</SuccessButton>, keywords: ['success', 'confirm', 'done', 'green'], desc: "Used for success actions" },
-      { name: 'Icon Button', component: <IconButton aria-label="star">★</IconButton>, keywords: ['icon', 'star', 'symbol'], desc: "Used for icons" },
-      { name: 'Rainbow Button', component: <RainbowButton>Rainbow</RainbowButton>, keywords: ['rainbow', 'action', 'colorful'], desc: "Used for call to actions" }
-    ],
-    cards: [
-      { name: 'Simple Card', component: <SimpleCard title="Simple Card" description="A minimal card with actions." />, keywords: ['simple', 'basic', 'minimal'] },
-      { name: 'Image Card', component: <ImageCard title="Image Card" description="Card with SVG image." />, keywords: ['image', 'picture', 'visual'] },
-      { name: 'Feature Card', component: <FeatureCard title="Feature Card" description="Highlight features and benefits." />, keywords: ['feature', 'highlight', 'benefit'] },
-      { name: 'Pricing Card', component: <PricingCard plan="Pro" price="$9/mo" features={["10 projects", "Priority support", "Unlimited users"]} />, keywords: ['pricing', 'plan', 'subscription', 'price'] },
-      { name: 'Data Card', component: <DataCard title="Active Projects" value="27" icon="📂" trend={8} />, keywords: ['data', 'stats', 'analytics', 'metrics'] },
-      { name: 'User Card', component: <UserCard avatar="https://i.pravatar.cc/150?img=3" name="Afonso Santos" email="afonso@example.com" role="Frontend Developer" onClick={() => alert('Card clicked!')}/>, keywords: ['user', 'profile', 'glass', 'avatar'] }
-    ],
-    inputs: [
-      {
-        name: "Text Input",
-        component: <TextInput label="Sample Input" placeholder="Enter text" />,
-        keywords: ["text", "input", "field", "form"],
-      },
-      {
-        name: "Select",
-        component: <Select label="Sample Select" options={selectOptions} />,
-        keywords: ["select", "dropdown", "options", "choice"],
-      },
-      {
-        name: "Checkbox",
-        component: (
-          <Checkbox
-            label="Sample Checkbox"
-            description="Check this option"
-            checked={false}
-            onChange={() => { }}
           />
         ),
         keywords: ["checkbox", "check", "toggle", "boolean"],
@@ -711,6 +705,34 @@ export default function Page() {
             </div>
           </section>
         )}
+
+        {users && users.length > 0 && (
+  <section
+    id="avatars"
+    className="bg-gradient-to-br from-sky-50 via-blue-50 to-indigo-50 dark:from-[#0f1a1b] dark:via-[#0a1a1a] dark:to-[#0a1a1a] border border-sky-100 dark:border-sky-900 shadow-xl rounded-2xl p-10"
+  >
+    <h2 className="relative text-2xl font-semibold mb-6 flex items-center justify-center gap-2 text-sky-600 dark:text-sky-200">
+      <span>Avatar Components ({users.length})</span>
+      <span className="absolute top-10 h-1 w-full bg-gradient-to-r from-sky-300 to-indigo-300 rounded-full block" />
+    </h2>
+
+    <div className="space-y-8">
+      {/* Single Avatars */}
+      <div className="flex flex-wrap gap-4">
+        {users.map((user, index) => (
+          <Avatar key={index} {...user} size="md" />
+        ))}
+      </div>
+
+      {/* Avatar Group */}
+      <div className="mt-6">
+        <h3 className="text-lg font-medium mb-3">Avatar Group</h3>
+        <AvatarGroup avatars={users} size="md" max={4} />
+      </div>
+    </div>
+  </section>
+)}
+
 
       </div>
     </div>
