@@ -31,8 +31,8 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white border-t border-gray-200 dark:border-gray-800 transition-all duration-300 mt-8">
-      <div className="max-w-7xl mx-auto px-6 py-12">
+    <footer className="bg-gray-100 dark:bg-gray-950 text-gray-900 dark:text-white border-t border-gray-200 dark:border-gray-800 transition-all duration-300 mt-8">
+  <div className="max-w-[1600px] mx-auto px-6 lg:px-8 py-14">
         <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-8">
           {/* Left Section */}
           <div className="text-center md:text-left max-w-md">
@@ -67,7 +67,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-gray-200 dark:border-gray-700 mt-8 pt-6 text-center">
+  <div className="border-t border-gray-200 dark:border-gray-800 mt-10 pt-6 text-center">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-sm text-gray-600 dark:text-gray-400">
               © {new Date().getFullYear()} MyLibrary Component Library. All rights reserved.

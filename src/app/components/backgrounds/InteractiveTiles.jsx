@@ -30,7 +30,7 @@ const InteractiveTiles = ({ className = "", rows = 4, cols = 10 }) => {
                 transition: { duration: 2 },
               }}
               key={`col-${i}-${j}`}
-              className="w-9 h-9 md:w-12 md:h-12 border-2 border-white dark:border-black bg-black dark:bg-white"
+              className="w-9 h-9 md:w-12 md:h-12 border-2 border-white dark:border-black bg-black text-white dark:bg-white dark:text-black"
             />
           ))}
         </motion.div>

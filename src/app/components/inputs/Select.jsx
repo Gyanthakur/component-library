@@ -9,18 +9,18 @@ export default function Select({
   return (
     <div className="w-full">
       {label && (
-        <label className="block text-gray-100 text-sm font-medium text-theme-primary mb-1">
+        <label className="block text-gray-800 text-sm font-medium mb-1">
           {label}
           {required && <span className="text-red-500 ml-1">*</span>}
         </label>
       )}
       <select
         className={`
-          w-full px-3 py-2 border rounded-md shadow-theme-sm bg-theme-surface text-theme-primary
+          w-full px-3 py-2 border rounded-md shadow-theme-sm bg-white text-gray-900
           focus-theme transition-all duration-200
           ${error 
             ? 'border-red-400 focus:ring-red-500 focus:border-red-500' 
-            : 'border-theme hover:border-theme-primary'
+            : 'border-gray-300 hover:border-gray-400'
           }
         `}
         {...props}

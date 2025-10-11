@@ -380,12 +380,12 @@ export default function Page() {
   );
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-500">
+  <div className="min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-50 dark:from-black dark:via-gray-950 dark:to-black transition-colors duration-500">
       {/* <ThemeToggle theme={theme} setTheme={setTheme} /> */}
 
       {/* Glassmorphism Hero Header */}
-      <section className="relative max-w-5xl mx-auto px-4 mt-8 mb-16">
-        <div className="backdrop-blur-md bg-white/70 dark:bg-gray-900/70 rounded-2xl shadow-2xl py-12 px-8 flex flex-col items-center gap-6 border border-gray-50 dark:border-gray-800">
+  <section className="relative max-w-[1500px] mx-auto px-6 lg:px-8 mt-10 mb-20">
+  <div className="backdrop-blur-md bg-white dark:bg-gray-900/80 rounded-2xl shadow-2xl py-14 px-10 flex flex-col items-center gap-7 border border-gray-200 dark:border-gray-800">
           <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-500 bg-clip-text text-transparent">
             React UI Playground
           </h1>
@@ -435,7 +435,7 @@ export default function Page() {
 
       {/* Search Results Info */}
       {(searchTerm || filterType !== "all") && (
-        <div className="max-w-5xl mx-auto px-4 mb-8">
+  <div className="max-w-[1500px] mx-auto px-6 lg:px-8 mb-10">
           <div className="bg-blue-50 dark:bg-blue-900/30 p-4 rounded-lg border border-blue-200 dark:border-blue-800">
             <p className="text-blue-800 dark:text-blue-200">
               Found <span className="font-semibold">{totalResults}</span>{" "}
@@ -458,25 +458,25 @@ export default function Page() {
       )}
 
       {/* Content Sections */}
-      <div className="max-w-5xl mx-auto px-4 space-y-16 pb-24">
+  <div className="max-w-[1500px] mx-auto px-6 lg:px-8 space-y-20 pb-28">
         {/* Buttons Section */}
         {filteredComponents.buttons && (
           <section
             id="buttons"
-            className="bg-white/90 dark:bg-gray-900/90 border border-blue-100 dark:border-blue-900 shadow-xl rounded-2xl p-10 transition-colors duration-300"
+            className="bg-white dark:bg-gray-900/80 border border-gray-200 dark:border-gray-800 shadow-xl rounded-2xl p-12 transition-colors duration-300"
           >
             <h2 className="relative text-2xl font-semibold mb-6 flex justify-center items-center gap-2 text-blue-700 dark:text-blue-200">
               <span>Buttons ({filteredComponents.buttons.length})</span>
               <span className="absolute top-10 h-1 w-full bg-gradient-to-r from-blue-400 to-fuchsia-400 rounded-full block" />
             </h2>
-            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredComponents.buttons.map((item, index) => (
                 <div
                   key={index}
                   className={`${darkMode
                       ? "bg-gray-800 text-gray-200"
                       : "bg-gray-300 text-gray-900"
-                    } shadow-md rounded-2xl p-5 flex flex-col items-center text-center border border-gray-100 hover:shadow-lg transition w-60`}
+                    } shadow-md rounded-2xl p-6 flex flex-col items-center text-center border border-gray-100 hover:shadow-lg transition w-64`}
                 >
                   <div title={item.name} className="mb-3">
                     {item.component}
@@ -494,7 +494,7 @@ export default function Page() {
         {filteredComponents.cards && (
           <section
             id="cards"
-            className="bg-gradient-to-br from-purple-50 via-pink-50 to-indigo-50 dark:from-[#23293b] dark:via-[#1e142e] dark:to-[#222849] border border-purple-100 dark:border-purple-900 shadow-xl rounded-2xl p-10"
+            className="bg-white dark:bg-gray-900/80 border border-gray-200 dark:border-gray-800 shadow-xl rounded-2xl p-10"
           >
             <h2 className="relative text-2xl font-semibold mb-6 flex justify-center items-center gap-2 text-purple-600 dark:text-fuchsia-200">
               <span>Cards ({filteredComponents.cards.length})</span>

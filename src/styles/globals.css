@@ -291,6 +291,13 @@ button {
   transition: none !important;
 }
 
+/* Ensure readable text on very dark backgrounds in light mode */
+:root .bg-black,
+:root .bg-gray-900,
+:root .bg-gray-800 {
+  color: #ffffff;
+}
+
 /* animations */
 .animation-pulseBg {
   animation: pulseBg 4s ease-in-out infinite;

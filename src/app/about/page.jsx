@@ -142,7 +142,7 @@ export default function AboutPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm text-center">
-            <div className="bg-black w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center">
+            <div className="bg-black text-white w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center">
               <span className="text-white font-bold text-xl">N</span>
             </div>
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Next.js 14</h3>

@@ -71,10 +71,10 @@ export default function HomePage() {
 
   return (
     <div className="transition-colors duration-300">
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+  <div className="min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 text-gray-900 dark:text-gray-100">
         
         {/* Hero Section */}
-        <section className="max-w-7xl mx-auto px-6 py-24 flex flex-col md:flex-row items-center gap-4">
+  <section className="max-w-[1600px] mx-auto px-6 lg:px-8 py-28 flex flex-col md:flex-row items-center gap-10">
           <div className="md:w-1/2 space-y-8 text-center md:text-left">
             <h1 className="text-5xl font-extrabold text-shadow-lg !text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-500 dark:from-pink-500 dark:to-purple-400 select-none">
               Build beautiful and performant React apps with ease
@@ -118,10 +118,7 @@ export default function HomePage() {
         </section>
 
         {/* Features Section */}
-        <section
-          id="features"
-          className="max-w-7xl mx-auto px-6 py-20 grid grid-cols-1 md:grid-cols-4 gap-16 text-center"
-        >
+  <section id="features" className="max-w-[1600px] mx-auto px-6 lg:px-8 py-24 grid grid-cols-1 md:grid-cols-4 gap-12 text-center">
           {features.map(({ icon, title, description }) => (
             <div
               key={title}
@@ -137,7 +134,7 @@ export default function HomePage() {
         </section>
 
         {/* Featured Components */}
-        <section className="max-w-7xl mx-auto px-6 py-20">
+  <section className="max-w-[1600px] mx-auto px-6 lg:px-8 py-24">
           <h2 className="text-4xl font-extrabold mb-16 text-center">
             Featured Components
           </h2>
@@ -160,7 +157,7 @@ export default function HomePage() {
         </section>
 
         {/* Usage Instructions */}
-        <section className="max-w-5xl mx-auto px-6 py-24 bg-white dark:bg-gray-900 rounded-3xl shadow-2xl text-center space-y-14">
+  <section className="max-w-5xl mx-auto px-6 lg:px-10 py-28 bg-white dark:bg-gray-900/80 rounded-3xl shadow-2xl backdrop-blur-lg text-center space-y-16 border border-gray-200 dark:border-gray-800">
           <h2 className="text-4xl font-bold">Getting Started</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
             {usageSteps.map(({ step, title, description, code }) => (
@@ -195,7 +192,7 @@ export default function HomePage() {
         </section>
 
         {/* Call to Action */}
-        <section className="max-w-4xl mx-auto px-6 py-28 text-center">
+  <section className="max-w-4xl mx-auto px-6 lg:px-8 py-32 text-center">
           <h2 className="text-5xl font-extrabold mb-10">
             Ready to build stunning apps?
           </h2>

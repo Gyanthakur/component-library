@@ -120,8 +120,8 @@ const Navbar = () => {
   const isActive = (path) => pathname === path;
 
   return (
-    <nav className="bg-white dark:bg-gray-900 backdrop-blur-xl sticky top-0 z-50 border-b border-gray-200 dark:border-gray-700 shadow-lg dark:shadow-gray-900/30 transition-all duration-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-8">
+  <nav className="bg-white dark:bg-gray-950/85 backdrop-blur-2xl sticky top-0 z-50 border-b border-gray-200 dark:border-gray-800 shadow-lg dark:shadow-gray-900/30 transition-all duration-300">
+  <div className="max-w-[1600px] mx-auto px-4 sm:px-8">
         <div className="flex justify-between h-16">
           {/* Logo */}
           <div className="flex items-center">
@@ -136,7 +136,7 @@ const Navbar = () => {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`relative px-4 py-2.5 rounded-xl transition-all duration-300 text-sm font-medium
+                className={`relative px-4 py-3 rounded-xl transition-all duration-300 text-base font-medium
                 ${isActive(link.href)
                     ? "text-blue-700 dark:text-blue-300"
                     : "text-gray-800 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100/50 dark:hover:bg-gray-800/50"
@@ -161,7 +161,7 @@ const Navbar = () => {
             <ThemeToggle />
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2.5 rounded-xl text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:ring-offset-2 dark:focus:ring-offset-gray-900"
+              className="p-3 rounded-xl text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:ring-offset-2 dark:focus:ring-offset-gray-900"
               aria-label="Open main menu"
             >
               {isOpen ? <X size={28} /> : <Menu size={28} />}
@@ -178,7 +178,7 @@ const Navbar = () => {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`block px-4 py-3 rounded-xl transition-all duration-200 font-medium
+                className={`block px-4 py-3 rounded-xl transition-all duration-200 font-medium text-base
                 ${isActive(link.href)
                     ? "bg-gradient-to-r from-blue-500 to-violet-500 text-white shadow-md font-semibold"
                     : "text-gray-800 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100/50 dark:hover:bg-gray-800/50"
