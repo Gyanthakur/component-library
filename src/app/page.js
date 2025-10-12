@@ -9,6 +9,7 @@ import SimpleCard from './components/cards/SimpleCard';
 import FeatureCard from './components/cards/FeatureCard';
 import PricingCard from './components/cards/PricingCard';
 import DataCard from './components/cards/DataCard';
+import { CopyButton } from '@/components/ui/shadcn-io/copy-button';
 
 export default function HomePage() {
   const { darkMode, setDarkMode } = useTheme();
@@ -166,11 +167,8 @@ export default function HomePage() {
             {usageSteps.map(({ step, title, description, code }) => (
               <div
                 key={step}
-                className="rounded-xl p-8 bg-indigo-50 dark:bg-indigo-900 shadow-lg hover:shadow-xl transition cursor-pointer"
-                onClick={() => {
-                  navigator.clipboard.writeText(code);
-                  trackComponentView(`GettingStartedStep${step}`);
-                }}
+                data-step={step}
+                className="rounded-xl p-8 bg-indigo-50 dark:bg-indigo-900 shadow-lg hover:shadow-xl transition"
               >
                 <div className="text-6xl font-extrabold text-purple-600 mb-6">
                   {step}
@@ -180,13 +178,22 @@ export default function HomePage() {
                   {description}
                 </p>
                 <div className="relative group">
-                  <pre className="bg-purple-100 dark:bg-purple-800 text-purple-900 dark:text-purple-300 p-5 rounded-lg overflow-x-auto text-left text-sm">
+                  <pre className="bg-purple-100 dark:bg-purple-800 text-purple-900 dark:text-purple-300 pt-8 pb-6 pl-2 pr-2 min-h-[80px] rounded-lg overflow-x-auto text-left text-sm flex items-end">
                     {code}
                   </pre>
-                  <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <span className="text-xs bg-purple-600 text-white px-2 py-1 rounded">
-                      Click to copy
-                    </span>
+                  <div className="absolute top-1 right-1 opacity-0 group-hover:opacity-70 transition-opacity duration-200 [&:has([data-copied='true'])]:opacity-70">
+                    <CopyButton 
+                      content={code}
+                      variant="ghost"
+                      size="sm"
+                      className="text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 hover:bg-indigo-100 dark:hover:bg-indigo-800"
+                      onCopyChange={(isCopied) => {
+                        const button = document.querySelector(`[data-step="${step}"] [data-slot="copy-button"]`);
+                        if (button) {
+                          button.setAttribute('data-copied', isCopied);
+                        }
+                      }}
+                    />
                   </div>
                 </div>
               </div>
