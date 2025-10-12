@@ -199,7 +199,12 @@ export default function HomePage() {
               </div>
             ))}
           </div>
-        </section>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
 
         {/* Call to Action */}
         <section className="max-w-4xl mx-auto px-6 py-28 text-center">

@@ -185,33 +185,67 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+{/* 🌟 Getting Started Section */}
+<section className="w-full overflow-x-hidden bg-gradient-to-b from-[#001E3C] to-[#012A63] text-white py-16 px-4 sm:px-8 md:px-12 rounded-3xl shadow-xl mt-12">
+  <div className="max-w-6xl mx-auto">
+    <h2 className="text-4xl font-extrabold mb-10 text-center tracking-wide">
+      🚀 Getting Started
+    </h2>
 
-      {/* Getting Started Section */}
-      <section className="bg-gray-50 dark:bg-gray-800 p-8 rounded-2xl">
-        <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6 text-center">Getting Started</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="text-center">
-            <div className="bg-blue-600 text-white w-12 h-12 rounded-full mx-auto mb-4 flex items-center justify-center font-bold text-lg">1</div>
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Installation</h3>
-            <p className="text-gray-600 dark:text-gray-300 text-sm">Install the library via npm or copy components directly</p>
-          </div>
-          <div className="text-center">
-            <div className="bg-blue-600 text-white w-12 h-12 rounded-full mx-auto mb-4 flex items-center justify-center font-bold text-lg">2</div>
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Import</h3>
-            <p className="text-gray-600 dark:text-gray-300 text-sm">Import the components you need in your React application</p>
-          </div>
-          <div className="text-center">
-            <div className="bg-blue-600 text-white w-12 h-12 rounded-full mx-auto mb-4 flex items-center justify-center font-bold text-lg">3</div>
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Customize</h3>
-            <p className="text-gray-600 dark:text-gray-300 text-sm">Customize styles and behavior to match your design system</p>
-          </div>
+    {/* Steps Grid */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      {/* Step 1 */}
+      <div className="bg-[#023E8A]/50 backdrop-blur-md rounded-2xl p-8 text-center shadow-lg hover:shadow-blue-600/40 transition-all duration-300 transform hover:-translate-y-2">
+        <div className="bg-[#0077B6] text-white w-14 h-14 rounded-full mx-auto mb-5 flex items-center justify-center text-xl font-bold shadow-md">
+          1
         </div>
-        <div className="text-center mt-6">
-          <a href="/components" className="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors">
-            View Components
-          </a>
+        <h3 className="text-xl font-semibold mb-3">Installation</h3>
+        <p className="text-gray-200 text-sm leading-relaxed">
+          Install the library via{" "}
+          <code className="bg-black/40 px-2 py-0.5 rounded">npm</code> or copy
+          ready-to-use components directly.
+        </p>
+      </div>
+
+      {/* Step 2 */}
+      <div className="bg-[#023E8A]/50 backdrop-blur-md rounded-2xl p-8 text-center shadow-lg hover:shadow-blue-600/40 transition-all duration-300 transform hover:-translate-y-2">
+        <div className="bg-[#0077B6] text-white w-14 h-14 rounded-full mx-auto mb-5 flex items-center justify-center text-xl font-bold shadow-md">
+          2
         </div>
-      </section>
+        <h3 className="text-xl font-semibold mb-3">Import</h3>
+        <p className="text-gray-200 text-sm leading-relaxed">
+          Import the components you need directly into your React project and
+          start building faster.
+        </p>
+      </div>
+
+      {/* Step 3 */}
+      <div className="bg-[#023E8A]/50 backdrop-blur-md rounded-2xl p-8 text-center shadow-lg hover:shadow-blue-600/40 transition-all duration-300 transform hover:-translate-y-2">
+        <div className="bg-[#0077B6] text-white w-14 h-14 rounded-full mx-auto mb-5 flex items-center justify-center text-xl font-bold shadow-md">
+          3
+        </div>
+        <h3 className="text-xl font-semibold mb-3">Customize</h3>
+        <p className="text-gray-200 text-sm leading-relaxed">
+          Tweak the design, colors, and behavior easily to match your own design
+          system.
+        </p>
+      </div>
+    </div>
+
+    {/* CTA Button */}
+    <div className="text-center mt-12">
+      <a
+        href="/components"
+        className="inline-block bg-[#0077B6] text-white px-8 py-3 rounded-xl font-medium hover:bg-[#0096C7] hover:shadow-lg hover:shadow-blue-500/30 transition-all duration-300"
+      >
+        View Components
+      </a>
+    </div>
+  </div>
+</section>
+
+
+     
 
       {/* Contribution Section */}
       <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
