@@ -68,6 +68,7 @@ import { DatePicker } from "./FormInput/DatePicker";
 import { FileUpload } from "./FormInput/FileUpload";
 import { FormValidation } from "./FormInput/FormValidation";
 import { Slider } from "./FormInput/Slider";
+import SignupPage from "./FormInput/SignupPage";
 import LoginForm from "./FormInput/LoginForm";
 
 // Avatar
@@ -785,6 +786,19 @@ export default function Page() {
                   ✅ Form Validation
                 </h3>
                 <FormValidation minLength={5} />
+              </div>
+
+              {/* Signup Page Card */}
+              <div className="p-6 bg-gradient-to-r from-green-50 to-green-100/80 dark:from-green-900 dark:to-green-700 text-green-900 dark:text-green-100 rounded-xl font-medium shadow-sm border border-green-200 dark:border-green-800">
+                <h3 className="text-lg font-semibold mb-2">
+                  📝 Signup Page
+                </h3>
+                <div className="scale-90 origin-top-left" style={{height: 'auto', maxHeight: '800px', overflow: 'visible'}}>
+                  <SignupPage 
+                    onSignup={(data) => console.log('Signup:', data)}
+                    onLogin={() => console.log('Navigate to login')}
+                  />
+                </div>
               </div>
 
               {/* Login Form Card */}
