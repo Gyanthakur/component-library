@@ -68,7 +68,7 @@ import { DatePicker } from "./FormInput/DatePicker";
 import { FileUpload } from "./FormInput/FileUpload";
 import { FormValidation } from "./FormInput/FormValidation";
 import { Slider } from "./FormInput/Slider";
-import SignupPage from "./FormInput/SignupPage";
+import LoginForm from "./FormInput/LoginForm";
 
 // Avatar
 import { Avatar, AvatarGroup } from "./Avatar/Avatar";
@@ -285,6 +285,20 @@ export default function Page() {
           />
         ),
         keywords: ["checkbox", "check", "toggle", "boolean"],
+      },
+      {
+        name: "Login Form",
+        component: (
+          <LoginForm 
+            variant="minimal"
+            showSocialLogin={true}
+            onLogin={(data) => console.log('Demo login:', data)}
+            onSignup={() => console.log('Demo signup clicked')}
+            onForgotPassword={() => console.log('Demo forgot password clicked')}
+          />
+        ),
+        keywords: ["login", "form", "authentication", "signin", "auth", "email", "password"],
+        desc: "Complete login form with validation and social login options"
       },
     ],
     backgrounds: [
@@ -773,15 +787,17 @@ export default function Page() {
                 <FormValidation minLength={5} />
               </div>
 
-              {/* Signup Page Card */}
-              <div className="p-6 bg-gradient-to-r from-green-50 to-green-100/80 dark:from-green-900 dark:to-green-700 text-green-900 dark:text-green-100 rounded-xl font-medium shadow-sm border border-green-200 dark:border-green-800">
+              {/* Login Form Card */}
+              <div className="p-6 bg-gradient-to-r from-purple-50 to-purple-100/80 dark:from-purple-900 dark:to-purple-700 text-purple-900 dark:text-purple-100 rounded-xl font-medium shadow-sm border border-purple-200 dark:border-purple-800">
                 <h3 className="text-lg font-semibold mb-2">
-                  📝 Signup Page
+                  🔐 Login Form
                 </h3>
-                <div className="scale-90 origin-top-left" style={{height: 'auto', maxHeight: '800px', overflow: 'visible'}}>
-                  <SignupPage 
-                    onSignup={(data) => console.log('Signup:', data)}
-                    onLogin={() => console.log('Navigate to login')}
+                <div className="mt-4">
+                  <LoginForm 
+                    variant="minimal"
+                    onLogin={(data) => console.log('Demo login:', data)}
+                    onSignup={() => console.log('Demo signup clicked')}
+                    onForgotPassword={() => console.log('Demo forgot password clicked')}
                   />
                 </div>
               </div>
