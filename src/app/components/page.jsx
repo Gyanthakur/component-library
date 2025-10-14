@@ -84,6 +84,7 @@ import Accordion from "./Accordion/index";
 import { HiOutlineRefresh } from "react-icons/hi";
 import { FaTrash } from "react-icons/fa";
 import SignupPage from "./FormInput/SignupPage";
+import Calendar from "./Calendar/Calendar";
 
 export default function Page() {
   // Search and Filter State
@@ -922,6 +923,21 @@ export default function Page() {
                   />
                 </div>
               </div>
+                {/* Calendar Component Card */}
+                <div className="p-6 bg-gradient-to-r from-indigo-50 to-indigo-100/80 dark:from-indigo-900 dark:to-indigo-700 text-indigo-900 dark:text-indigo-100 rounded-xl font-medium shadow-sm border border-indigo-200 dark:border-indigo-800">
+                  <h3 className="text-lg font-semibold mb-2">📅 Calendar</h3>
+                  <div className="mt-4">
+                    <Calendar
+                      events={[
+                        { date: new Date().toISOString().slice(0,10), label: 'Today Event', color: '#ef4444' },
+                        { date: (() => { const d = new Date(); d.setDate(d.getDate()+3); return d.toISOString().slice(0,10); })(), label: 'Meeting', color: '#10b981' },
+                        { date: (() => { const d = new Date(); d.setDate(d.getDate()+7); return d.toISOString().slice(0,10); })(), label: 'Release', color: '#6366f1' },
+                      ]}
+                      onSelectDate={(d) => console.log('Selected date', d.toDateString())}
+                      onMonthChange={(y,m) => console.log('Month changed', y, m)}
+                    />
+                  </div>
+                </div>
             </div>
           </section>
         )}
