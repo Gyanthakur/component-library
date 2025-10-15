@@ -1,0 +1,59 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact",
+    "components": "Components",
+    "playground": "🎮 Playground",
+    "analytics": "Analytics",
+    "feedback": "Feedback"
+  },
+  "theme": {
+    "toggle_light": "Switch to Light",
+    "toggle_dark": "Switch to Dark"
+  },
+  "homepage": {
+    "hero_title": "Build beautiful and performant React apps with ease",
+    "hero_description": "Our component library empowers developers with customizable, accessible UI elements optimized for React ecosystems.",
+    "explore_components": "Explore Components",
+    "try_playground": "🎮 Try Playground",
+    "beautiful_components": "Beautiful Components",
+    "ready_to_use": "Ready to use in your projects",
+    "features_title": "Optimized for React",
+    "features_description": "Lightweight and fast components, designed specifically for React applications.",
+    "themes_title": "Custom Themes",
+    "themes_description": "Supports effortless customization with light, dark, and custom themes.",
+    "apis_title": "Flexible APIs",
+    "apis_description": "Simple, intuitive props enabling full control over your components.",
+    "documentation_title": "Well Documented",
+    "documentation_description": "Comprehensive, clear documentation to ease your development experience.",
+    "featured_components": "Featured Components",
+    "simple_card_title": "Simple Card",
+    "simple_card_description": "Clean, minimal card with action support.",
+    "feature_card_title": "Feature Card",
+    "feature_card_description": "Highlight your app's features with style.",
+    "pricing_card_plan": "Pro",
+    "pricing_card_price": "$9/mo",
+    "pricing_card_features": ["10 projects", "Priority support", "Unlimited users"],
+    "data_card_title": "Active Projects",
+    "data_card_icon": "📂",
+    "data_card_trend": 8,
+    "getting_started": "Getting Started",
+    "getting_started_step_1_title": "Add the Package",
+    "getting_started_step_1_description": "Install with npm or yarn for easy integration.",
+    "getting_started_step_1_code": "npm install my-components-library",
+    "getting_started_step_2_title": "Import Components",
+    "getting_started_step_2_description": "Import only what you need from the library to keep bundles small.",
+    "getting_started_step_2_code": "import { Button, Card } from 'my-components-library';",
+    "getting_started_step_3_title": "Use Components",
+    "getting_started_step_3_description": "Apply components directly with easy-to-use props.",
+    "getting_started_step_3_code": "<Button variant='primary'>Click Me</Button>",
+    "cta_title": "Ready to build stunning apps?",
+    "cta_button": "Start Building Now"
+  },
+  "components": {
+    "alert": {
+      "dismiss": "Dismiss"
+    }
+  }
+}

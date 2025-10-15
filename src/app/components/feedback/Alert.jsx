@@ -1,3 +1,6 @@
+"use client";
+import { useTranslation } from '../../hooks/useTranslation';
+
 export default function Alert({ 
   type = "info", 
   title, 
@@ -60,7 +63,7 @@ export default function Alert({
                 onClick={onClose}
                 className={`inline-flex rounded-md p-1.5 focus-theme hover:bg-black hover:bg-opacity-10 dark:hover:bg-white dark:hover:bg-opacity-10 transition-all duration-200 ${currentStyle.iconColor}`}
               >
-                <span className="sr-only">Dismiss</span>
+                <span className="sr-only">{useTranslation().t('components.alert.dismiss')}</span>
                 <span className="text-lg">×</span>
               </button>
             </div>

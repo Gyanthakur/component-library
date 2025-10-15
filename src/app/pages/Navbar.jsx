@@ -102,6 +102,7 @@ import { Menu, X } from "lucide-react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import ThemeToggle from './ThemeToggle';
+import LanguageSwitcher from '../app/components/LanguageSwitcher';
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -150,14 +151,20 @@ const Navbar = () => {
               </Link>
             ))}
 
+            {/* Language Switcher */}
+            <div className="ml-2">
+              <LanguageSwitcher />
+            </div>
+            
             {/* Theme Toggle Button */}
-            <div className="ml-4">
+            <div className="ml-2">
               <ThemeToggle />
             </div>
           </div>
 
-          {/* Mobile Menu Button & Theme Toggle */}
+          {/* Mobile Menu Button, Language Switcher & Theme Toggle */}
           <div className="flex items-center space-x-2 lg:hidden">
+            <LanguageSwitcher />
             <ThemeToggle />
             <button
               onClick={() => setIsOpen(!isOpen)}

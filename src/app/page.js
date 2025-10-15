@@ -6,6 +6,8 @@ import Link from "next/link";
 import { useRouter } from 'next/navigation';
 import { useTheme } from './context/ThemeContext';
 import { useAnalytics } from './context/AnalyticsContext';
+import { useTranslation } from './hooks/useTranslation';
+import { getTranslatedFeatures, getTranslatedUsageSteps } from './utils/translations';
 import PrimaryButton from './components/buttons/PrimaryButton';
 import SimpleCard from './components/cards/SimpleCard';
 import FeatureCard from './components/cards/FeatureCard';
@@ -15,6 +17,7 @@ import DataCard from './components/cards/DataCard';
 export default function HomePage() {
   const { darkMode, setDarkMode } = useTheme();
   const { trackComponentView } = useAnalytics();
+  const { t, locale } = useTranslation();
   const router = useRouter();
 
   // Track page view
@@ -22,54 +25,8 @@ export default function HomePage() {
     trackComponentView('HomePage');
   }, [trackComponentView]);
 
-  const features = [
-    {
-      icon: "🚀",
-      title: "Optimized for React",
-      description:
-        "Lightweight and fast components, designed specifically for React applications.",
-    },
-    {
-      icon: "🎨",
-      title: "Custom Themes",
-      description:
-        "Supports effortless customization with light, dark, and custom themes.",
-    },
-    {
-      icon: "⚙️",
-      title: "Flexible APIs",
-      description:
-        "Simple, intuitive props enabling full control over your components.",
-    },
-    {
-      icon: "📚",
-      title: "Well Documented",
-      description:
-        "Comprehensive, clear documentation to ease your development experience.",
-    },
-  ];
-
-  const usageSteps = [
-    {
-      step: 1,
-      title: "Add the Package",
-      description: "Install with npm or yarn for easy integration.",
-      code: "npm install my-components-library",
-    },
-    {
-      step: 2,
-      title: "Import Components",
-      description:
-        "Import only what you need from the library to keep bundles small.",
-      code: "import { Button, Card } from 'my-components-library';",
-    },
-    {
-      step: 3,
-      title: "Use Components",
-      description: "Apply components directly with easy-to-use props.",
-      code: "<Button variant='primary'>Click Me</Button>",
-    },
-  ];
+  const features = getTranslatedFeatures(t);
+  const usageSteps = getTranslatedUsageSteps(t);
 
   return (
     <div className="transition-colors duration-300">
@@ -79,32 +36,31 @@ export default function HomePage() {
         <section className="max-w-7xl mx-auto px-6 py-24 flex flex-col md:flex-row items-center gap-4">
           <div className="md:w-1/2 space-y-8 text-center md:text-left">
             <h1 className="text-5xl font-extrabold text-shadow-lg !text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-500 dark:from-pink-500 dark:to-purple-400 select-none">
-              Build beautiful and performant React apps with ease
+              {t('homepage.hero_title')}
             </h1>
             <p className="text-lg max-w-md mx-auto md:mx-0 text-gray-700 dark:text-gray-300">
-              Our component library empowers developers with customizable,
-              accessible UI elements optimized for React ecosystems.
+              {t('homepage.hero_description')}
             </p>
             <div className="space-x-6">
               <PrimaryButton onClick={() => {
                 trackComponentView('ThemeToggle');
                 setDarkMode(!darkMode);
               }}>
-                {darkMode ? "Switch to Light" : "Switch to Dark"}
+                {darkMode ? t('theme.toggle_light') : t('theme.toggle_dark')}
               </PrimaryButton>
               <Link
                 href="/components"
                 className="inline-block px-6 py-3 font-semibold text-purple-700 dark:text-pink-400 hover:underline cursor-pointer transition-colors hover:bg-purple-100 dark:hover:bg-purple-900 rounded-lg"
                 onClick={() => trackComponentView('ExploreFeatures')}
               >
-                Explore Components
+                {t('homepage.explore_components')}
               </Link>
               <Link
                 href="/playground"
                 className="inline-block px-6 py-3 rounded-lg font-semibold bg-gradient-to-r from-green-500 to-blue-500 text-white hover:from-green-600 hover:to-blue-600 transition-all transform hover:scale-105"
                 onClick={() => trackComponentView('PlaygroundAccess')}
               >
-                🎮 Try Playground
+                {t('homepage.try_playground')}
               </Link>
             </div>
           </div>
@@ -112,8 +68,8 @@ export default function HomePage() {
             <div className="bg-gradient-to-br from-blue-400 via-purple-500 to-pink-500 rounded-3xl shadow-2xl w-full h-96 flex items-center justify-center bg-[length:200%_200%] gradient-shift">
               <div className="text-white text-center">
                 <div className="text-6xl mb-4 animate-bounce">🎨</div>
-                <h3 className="text-2xl !text-gray-50 font-bold mb-2 transition-all duration-700 ease-out hover:scale-105">Beautiful Components</h3>
-                <p className="text-blue-100">Ready to use in your projects</p>
+                <h3 className="text-2xl !text-gray-50 font-bold mb-2 transition-all duration-700 ease-out hover:scale-105">{t('homepage.beautiful_components')}</h3>
+                <p className="text-blue-100">{t('homepage.ready_to_use')}</p>
               </div>
             </div>
           </div>
@@ -141,30 +97,30 @@ export default function HomePage() {
         {/* Featured Components */}
         <section className="max-w-7xl mx-auto px-6 py-20">
           <h2 className="text-4xl font-extrabold mb-16 text-center">
-            Featured Components
+            {t('homepage.featured_components')}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
             <SimpleCard
-              title="Simple Card"
-              description="Clean, minimal card with action support."
+              title={t('homepage.simple_card_title')}
+              description={t('homepage.simple_card_description')}
             />
             <FeatureCard
-              title="Feature Card"
-              description="Highlight your app’s features with style."
+              title={t('homepage.feature_card_title')}
+              description={t('homepage.feature_card_description')}
             />
             <PricingCard
-              plan="Pro"
-              price="$9/mo"
-              features={["10 projects", "Priority support", "Unlimited users"]}
+              plan={t('homepage.pricing_card_plan')}
+              price={t('homepage.pricing_card_price')}
+              features={[t('homepage.pricing_card_features.0'), t('homepage.pricing_card_features.1'), t('homepage.pricing_card_features.2')]}
             />
-            <DataCard title="Active Projects" value="27" icon="📂" trend={8} />
+            <DataCard title={t('homepage.data_card_title')} value="27" icon={t('homepage.data_card_icon')} trend={t('homepage.data_card_trend')} />
           </div>
         </section>
 
         {/* Usage Instructions */}
         <section className="max-w-5xl mx-auto px-6 py-8 bg-theme-surface rounded-3xl shadow-theme-md text-center space-y-10">
           <h2 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">
-            Getting Started
+            {t('homepage.getting_started')}
           </h2>
           <div className="flex flex-col gap-4 max-w-3xl mx-auto">
             {usageSteps.map(({ step, title, description, code }) => (
@@ -207,7 +163,7 @@ export default function HomePage() {
         {/* Call to Action */}
         <section className="max-w-4xl mx-auto px-6 py-28 text-center">
           <h2 className="text-5xl font-extrabold mb-10">
-            Ready to build stunning apps?
+            {t('homepage.cta_title')}
           </h2>
           <PrimaryButton
             className="text-lg px-14 py-6"
@@ -216,7 +172,7 @@ export default function HomePage() {
               router.push('/components');
             }}
           >
-            Start Building Now
+            {t('homepage.cta_button')}
           </PrimaryButton>
         </section>
       </div>
