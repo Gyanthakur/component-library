@@ -1,5 +1,6 @@
 import React from "react";
 import { cn } from "../utils/utils";
+import PropTypes from 'prop-types';
 
 // Variant and size classes (reusable for badge, tag, chip)
 const variantClasses = {
@@ -82,6 +83,29 @@ export const Badge = ({
   );
 };
 
+// PropTypes for Badge component
+Badge.propTypes = {
+  children: PropTypes.node.isRequired,
+  variant: PropTypes.oneOf(['primary', 'success', 'warning', 'danger', 'neutral']),
+  size: PropTypes.oneOf(['sm', 'md', 'lg']),
+  pill: PropTypes.bool,
+  onClose: PropTypes.func,
+  className: PropTypes.string,
+  icon: PropTypes.node,
+  count: PropTypes.number,
+};
+
+// DefaultProps for Badge component
+Badge.defaultProps = {
+  variant: 'neutral',
+  size: 'md',
+  pill: false,
+  onClose: undefined,
+  className: '',
+  icon: undefined,
+  count: undefined,
+};
+
 export const Chip = ({
   children,
   variant = "neutral",
@@ -111,4 +135,21 @@ export const Chip = ({
       )}
     </span>
   );
+};
+
+// PropTypes for Chip component
+Chip.propTypes = {
+  children: PropTypes.node.isRequired,
+  variant: PropTypes.oneOf(['primary', 'success', 'warning', 'danger', 'neutral']),
+  icon: PropTypes.node,
+  onRemove: PropTypes.func,
+  className: PropTypes.string,
+};
+
+// DefaultProps for Chip component
+Chip.defaultProps = {
+  variant: 'neutral',
+  icon: undefined,
+  onRemove: undefined,
+  className: '',
 };
