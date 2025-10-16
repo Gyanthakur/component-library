@@ -1,8 +1,10 @@
+// ...existing code...
 import Navbar from "./pages/Navbar";
 import "../styles/globals.css";
 import { ThemeProvider } from "./context/ThemeContext";
 import { AnalyticsProvider } from "./context/AnalyticsContext";
 import Footer from "./pages/Footer";
+import BackToTopButton from "./components/navigation/BackToTopButton";
 
 export const metadata = {
   title: "Open Source Component Library",
@@ -29,8 +31,12 @@ export default function RootLayout({ children }) {
                  <div className="absolute top-28 left-10/12 w-28 h-28 rounded-full bg-gradient-to-r from-purple-500 to-pink-500  opacity-70 animation-pulseBg"></div>
               </div>
               </div>
-              <main className="max-w-7xl mx-auto">{children}</main>
+              <main className="max-w-7xl mx-auto">{children}
+                
+              </main>
               <Footer />
+              {/* Back to top button rendered globally so it's always in the DOM */}
+              <BackToTopButton />
             </div>
           </AnalyticsProvider>
         </ThemeProvider>
@@ -38,3 +44,4 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+// ...existing code...
