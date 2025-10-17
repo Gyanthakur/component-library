@@ -4,6 +4,7 @@ import { ThemeProvider } from "./context/ThemeContext";
 import { AnalyticsProvider } from "./context/AnalyticsContext";
 import { I18nProvider } from "./context/I18nContext";
 import Footer from "./pages/Footer";
+import BackToTopButton from "./components/navigation/BackToTopButton";
 
 export const metadata = {
   title: "Open Source Component Library",
@@ -37,6 +38,7 @@ export default function RootLayout({ children }) {
             </AnalyticsProvider>
           </ThemeProvider>
         </I18nProvider>
+         <BackToTopButton />
       </body>
     </html>
   );
