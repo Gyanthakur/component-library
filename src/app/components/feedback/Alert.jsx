@@ -1,3 +1,6 @@
+"use client";
+import { useTranslation } from '../../hooks/useTranslation';
+
 export default function Alert({ 
   type = "info", 
   title, 
@@ -6,6 +9,8 @@ export default function Alert({
   dismissible = false,
   icon = true
 }) {
+  const { t } = useTranslation();
+  
   const alertStyles = {
     success: {
       container: "bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-800 text-green-800 dark:text-green-200",
@@ -60,7 +65,7 @@ export default function Alert({
                 onClick={onClose}
                 className={`inline-flex rounded-md p-1.5 focus-theme hover:bg-black hover:bg-opacity-10 dark:hover:bg-white dark:hover:bg-opacity-10 transition-all duration-200 ${currentStyle.iconColor}`}
               >
-                <span className="sr-only">Dismiss</span>
+                <span className="sr-only">{t('components.alert.dismiss')}</span>
                 <span className="text-lg">×</span>
               </button>
             </div>

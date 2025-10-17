@@ -1,5 +1,5 @@
 "use client";
-import React, { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useState, useEffect, useCallback } from "react";
 
 const AnalyticsContext = createContext();
 
@@ -40,7 +40,7 @@ export function AnalyticsProvider({ children }) {
   }, [analytics]);
 
   // Track component view - memoized to prevent infinite loops
-  const trackComponentView = React.useCallback((componentName) => {
+  const trackComponentView = useCallback((componentName) => {
     const today = new Date().toISOString().split('T')[0];
     
     setAnalytics(prev => ({
@@ -61,7 +61,7 @@ export function AnalyticsProvider({ children }) {
   }, []);
 
   // Track component copy - memoized to prevent infinite loops
-  const trackComponentCopy = React.useCallback((componentName) => {
+  const trackComponentCopy = useCallback((componentName) => {
     const today = new Date().toISOString().split('T')[0];
     
     setAnalytics(prev => ({
@@ -82,7 +82,7 @@ export function AnalyticsProvider({ children }) {
   }, []);
 
   // Get popular components - memoized
-  const getPopularComponents = React.useCallback((limit = 5) => {
+  const getPopularComponents = useCallback((limit = 5) => {
     const components = Object.entries(analytics.componentViews)
       .map(([name, views]) => ({
         name,
@@ -96,7 +96,7 @@ export function AnalyticsProvider({ children }) {
   }, [analytics.componentViews, analytics.componentCopies]);
 
   // Get recent stats (last 7 days) - memoized
-  const getRecentStats = React.useCallback(() => {
+  const getRecentStats = useCallback(() => {
     const last7Days = [];
     const today = new Date();
     
@@ -116,7 +116,7 @@ export function AnalyticsProvider({ children }) {
   }, [analytics.dailyStats]);
 
   // Export analytics data - memoized
-  const exportAnalytics = React.useCallback(() => {
+  const exportAnalytics = useCallback(() => {
     const exportData = {
       ...analytics,
       exportedAt: new Date().toISOString(),

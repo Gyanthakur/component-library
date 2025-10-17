@@ -1,5 +1,5 @@
 "use client";
-import React from 'react';
+import { useState } from 'react';
 import PrimaryButton from './../components/buttons/PrimaryButton';
 import SecondaryButton from './../components/buttons/SecondaryButton';
 import OutlineButton from './../components/buttons/OutlineButton';
@@ -10,12 +10,12 @@ import Badge from './../components/feedback/Badge';
 import ProgressBar from './../components/feedback/ProgressBar';
 
 export default function FeedbackPage() {
-  const [feedback, setFeedback] = React.useState('');
-  const [rating, setRating] = React.useState('');
-  const [category, setCategory] = React.useState('');
-  const [email, setEmail] = React.useState('');
-  const [showSuccess, setShowSuccess] = React.useState(false);
-  const [showError, setShowError] = React.useState(false);
+  const [feedback, setFeedback] = useState('');
+  const [rating, setRating] = useState('');
+  const [category, setCategory] = useState('');
+  const [email, setEmail] = useState('');
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [showError, setShowError] = useState(false);
 
   const categoryOptions = [
     { value: 'bug', label: 'Bug Report' },
@@ -227,18 +227,33 @@ export default function FeedbackPage() {
             {/* Contact Info */}
             <div className="bg-white rounded-lg shadow-sm border p-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                Other Ways to Reach Us
+                    Other Ways to Reach Us
               </h3>
               <div className="space-y-3">
-                <OutlineButton className="w-full justify-center">
+                <a
+                  href="mailto:gps.96169@gmail.com"
+                  className="w-full inline-flex justify-center px-4 py-2 border border-gray-200 rounded-md text-sm font-medium text-theme-secondary hover:bg-gray-50"
+                >
                   📧 Email Support
-                </OutlineButton>
-                <OutlineButton className="w-full justify-center">
+                </a>
+
+                <a
+                  href="https://discord.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex justify-center px-4 py-2 border border-gray-200 rounded-md text-sm font-medium text-theme-secondary hover:bg-gray-50"
+                >
                   💬 Discord Community
-                </OutlineButton>
-                <OutlineButton className="w-full justify-center">
+                </a>
+
+                <a
+                  href="https://github.com/Gyanthakur/component-library"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex justify-center px-4 py-2 border border-gray-200 rounded-md text-sm font-medium text-theme-secondary hover:bg-gray-50"
+                >
                   🐙 GitHub Issues
-                </OutlineButton>
+                </a>
               </div>
             </div>
           </div>

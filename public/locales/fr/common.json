@@ -1,0 +1,59 @@
+{
+  "navigation": {
+    "home": "Accueil",
+    "about": "À propos",
+    "contact": "Contact",
+    "components": "Composants",
+    "playground": "🎮 Bac à sable",
+    "analytics": "Analytique",
+    "feedback": "Retour d'information"
+  },
+  "theme": {
+    "toggle_light": "Passer en mode clair",
+    "toggle_dark": "Passer en mode sombre"
+  },
+  "homepage": {
+    "hero_title": "Créez des applications React belles et performantes facilement",
+    "hero_description": "Notre bibliothèque de composants permet aux développeurs de disposer d'éléments d'interface personnalisables et accessibles optimisés pour les écosystèmes React.",
+    "explore_components": "Explorer les composants",
+    "try_playground": "🎮 Essayer le bac à sable",
+    "beautiful_components": "Composants magnifiques",
+    "ready_to_use": "Prêt à l'emploi dans vos projets",
+    "features_title": "Optimisé pour React",
+    "features_description": "Composants légers et rapides, conçus spécifiquement pour les applications React.",
+    "themes_title": "Thèmes personnalisés",
+    "themes_description": "Prend en charge une personnalisation sans effort avec des thèmes clairs, sombres et personnalisés.",
+    "apis_title": "APIs flexibles",
+    "apis_description": "Props simples et intuitifs permettant un contrôle total sur vos composants.",
+    "documentation_title": "Bien documenté",
+    "documentation_description": "Documentation complète et claire pour faciliter votre expérience de développement.",
+    "featured_components": "Composants vedettes",
+    "simple_card_title": "Carte simple",
+    "simple_card_description": "Carte épurée et minimaliste avec prise en charge des actions.",
+    "feature_card_title": "Carte de fonctionnalités",
+    "feature_card_description": "Mettez en valeur les fonctionnalités de votre application avec style.",
+    "pricing_card_plan": "Pro",
+    "pricing_card_price": "$9/mois",
+    "pricing_card_features": ["10 projets", "Support prioritaire", "Utilisateurs illimités"],
+    "data_card_title": "Projets actifs",
+    "data_card_icon": "📂",
+    "data_card_trend": 8,
+    "getting_started": "Premiers pas",
+    "getting_started_step_1_title": "Ajouter le paquet",
+    "getting_started_step_1_description": "Installez avec npm ou yarn pour une intégration facile.",
+    "getting_started_step_1_code": "npm install my-components-library",
+    "getting_started_step_2_title": "Importer des composants",
+    "getting_started_step_2_description": "Importez uniquement ce dont vous avez besoin depuis la bibliothèque pour garder les bundles légers.",
+    "getting_started_step_2_code": "import { Button, Card } from 'my-components-library';",
+    "getting_started_step_3_title": "Utiliser des composants",
+    "getting_started_step_3_description": "Appliquez directement les composants avec des props faciles à utiliser.",
+    "getting_started_step_3_code": "<Button variant='primary'>Cliquez-moi</Button>",
+    "cta_title": "Prêt à créer des applications époustouflantes ?",
+    "cta_button": "Commencer à construire maintenant"
+  },
+  "components": {
+    "alert": {
+      "dismiss": "Rejeter"
+    }
+  }
+}

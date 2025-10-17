@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { 
   Settings, 
   Eye, 
@@ -40,9 +40,11 @@ import DataCard from '../cards/DataCard';
 import TextInput from '../inputs/TextInput';
 import Select from '../inputs/Select';
 import Checkbox from '../inputs/Checkbox';
+import { useToast } from '../feedback/Toast';
 
 export default function ComponentPlayground() {
   // Component Selection
+  const {addToast, ToastContainer} = useToast();
   const [selectedComponent, setSelectedComponent] = useState('button');
   const [selectedVariant, setSelectedVariant] = useState('primary');
   
@@ -199,9 +201,11 @@ export default function ComponentPlayground() {
     const code = generateCode();
     try {
       await navigator.clipboard.writeText(code);
+      addToast('Code copied to clipboard!', 'success', 2000);
       setCopiedCode('✅ Copied!');
       setTimeout(() => setCopiedCode(''), 2000);
     } catch (err) {
+      addToast('Failed to copy code.', 'error', 4000);
       setCopiedCode('❌ Failed to copy');
       setTimeout(() => setCopiedCode(''), 2000);
     }
@@ -965,6 +969,7 @@ export default function ComponentPlayground() {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 }

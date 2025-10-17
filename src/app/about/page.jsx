@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Code, Users, Heart, Github, Star, Target, Zap, Shield, Palette, Rocket, ExternalLink } from 'lucide-react';
 import FetchContributors from '../fetchData/fetchContributers';
 

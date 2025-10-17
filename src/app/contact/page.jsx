@@ -1,6 +1,6 @@
 
 "use client"
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Mail, Phone, MapPin, Send, Github, Twitter, Linkedin } from 'lucide-react';
 
 

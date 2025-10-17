@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Search, SparklesIcon, X } from "lucide-react";
 
 import { useAnalytics } from "../context/AnalyticsContext";
@@ -105,9 +105,9 @@ export default function Page() {
   }, []); // Empty dependency array to run only once
 
   // Inputs
-  const [inputValue, setInputValue] = React.useState("");
-  const [selectValue, setSelectValue] = React.useState("");
-  const [checkboxValue, setCheckboxValue] = React.useState(false);
+  const [inputValue, setInputValue] = useState("");
+  const [selectValue, setSelectValue] = useState("");
+  const [checkboxValue, setCheckboxValue] = useState(false);
 
   // Data
   const selectOptions = [
