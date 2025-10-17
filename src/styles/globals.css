@@ -279,6 +279,11 @@ button {
   cursor: pointer;
 }
 
+select option {
+  background-color: #1f2937; /* gray-800 */
+  color: #f9fafb; /* gray-50 */
+}
+
 /* Smooth transitions for theme switching */
 * {
   transition-property: background-color, border-color, color, fill, stroke;
@@ -317,3 +322,5 @@ button {
     background-position: 100% 50%;
   }
 }
+
+
