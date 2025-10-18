@@ -267,7 +267,7 @@ export default function Page() {
       title="Smart Card"
       description="A modern card with gradient background, hover effects, and optional footer."
       footer={<PrimaryButton>Action</PrimaryButton>}
-      imageSrc="https://i0.wp.com/picjumbo.com/wp-content/uploads/beautiful-nature-mountain-scenery-with-flowers-free-photo.jpg?w=2210&quality=70"
+      imageSrc="https://tse2.mm.bing.net/th/id/OIP.JRfh9R3XUoRd3vhgT3rEFwHaEn?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3"
     />
   ),
   keywords: ["smart", "gradient", "card", "hover", "footer", "image"],
