@@ -45,6 +45,7 @@ import ImageCard from "./cards/ImageCard";
 import FeatureCard from "./cards/FeatureCard";
 import PricingCard from "./cards/PricingCard";
 import DataCard from "./cards/DataCard";
+import SmartCard from "./cards/SmartCard";
 // Inputs
 import TextInput from "./inputs/TextInput";
 import Select from "./inputs/Select";
@@ -259,6 +260,19 @@ export default function Page() {
         ),
         keywords: ["simple", "basic", "minimal"],
       },
+      {
+  name: "Smart Card",
+  component: (
+    <SmartCard
+      title="Smart Card"
+      description="A modern card with gradient background, hover effects, and optional footer."
+      footer={<PrimaryButton>Action</PrimaryButton>}
+      imageSrc="https://i0.wp.com/picjumbo.com/wp-content/uploads/beautiful-nature-mountain-scenery-with-flowers-free-photo.jpg?w=2210&quality=70"
+    />
+  ),
+  keywords: ["smart", "gradient", "card", "hover", "footer", "image"],
+},
+
       {
         name: "Image Card",
         component: (
