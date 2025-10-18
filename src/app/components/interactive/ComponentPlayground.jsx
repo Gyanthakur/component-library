@@ -23,7 +23,9 @@ import {
   List,
   FileText,
   Info,
-  Sparkles
+  Sparkles,
+  Heart,
+  Star
 } from 'lucide-react';
 import PrimaryButton from '../buttons/PrimaryButton';
 import SecondaryButton from '../buttons/SecondaryButton';
@@ -47,45 +49,49 @@ export default function ComponentPlayground() {
   const {addToast, ToastContainer} = useToast();
   const [selectedComponent, setSelectedComponent] = useState('button');
   const [selectedVariant, setSelectedVariant] = useState('primary');
-  
+
   // Button States
   const [buttonText, setButtonText] = useState('Click Me');
   const [buttonSize, setButtonSize] = useState('medium');
   const [buttonDisabled, setButtonDisabled] = useState(false);
   const [buttonLoading, setButtonLoading] = useState(false);
-  
+
   // Card States
   const [cardTitle, setCardTitle] = useState('Sample Card');
   const [cardDescription, setCardDescription] = useState('This is a sample card description');
   const [cardImage, setCardImage] = useState('https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400');
-  
+
   // Input States
   const [inputLabel, setInputLabel] = useState('Sample Input');
   const [inputPlaceholder, setInputPlaceholder] = useState('Enter text here...');
   const [inputRequired, setInputRequired] = useState(false);
   const [inputError, setInputError] = useState('');
-  
+
   // Pricing Card States
   const [pricingPlan, setPricingPlan] = useState('Pro');
   const [pricingPrice, setPricingPrice] = useState('$9/mo');
   const [pricingFeatures, setPricingFeatures] = useState(['10 projects', 'Priority support', 'Unlimited users']);
-  
+
   // User Card States
   const [userName, setUserName] = useState('John Doe');
   const [userEmail, setUserEmail] = useState('john@example.com');
   const [userRole, setUserRole] = useState('Software Engineer');
   const [userAvatar, setUserAvatar] = useState('https://i.pravatar.cc/150?img=1');
-  
+
   // Data Card States
   const [dataTitle, setDataTitle] = useState('Active Projects');
   const [dataValue, setDataValue] = useState('27');
   const [dataIcon, setDataIcon] = useState('📂');
   const [dataTrend, setDataTrend] = useState(8);
-  
+
   // UI States
   const [copiedCode, setCopiedCode] = useState('');
   const [previewMode, setPreviewMode] = useState('light');
   const [showCode, setShowCode] = useState(true);
+
+  // Favorites System
+  const [favorites, setFavorites] = useState([]);
+  const [showFavorites, setShowFavorites] = useState(false);
 
   // Component variants mapping
   const componentVariants = {
@@ -118,8 +124,8 @@ export default function ComponentPlayground() {
     if (!variant) return '';
 
     if (selectedComponent === 'button') {
-      const sizeClass = buttonSize === 'small' ? 'px-3 py-1 text-sm' : 
-                       buttonSize === 'large' ? 'px-6 py-3 text-lg' : 'px-4 py-2';
+      const sizeClass = buttonSize === 'small' ? 'px-3 py-1 text-sm' :
+        buttonSize === 'large' ? 'px-6 py-3 text-lg' : 'px-4 py-2';
       return `<${variant.component.name} 
   onClick={() => alert('Button clicked!')}
   ${buttonDisabled ? 'disabled' : ''}
@@ -128,8 +134,8 @@ export default function ComponentPlayground() {
 >
   ${buttonText}
 </${variant.component.name}>`;
-    } 
-    
+    }
+
     else if (selectedComponent === 'card') {
       if (selectedVariant === 'simple') {
         return `<SimpleCard 
@@ -164,7 +170,7 @@ export default function ComponentPlayground() {
 />`;
       }
     }
-    
+
     else if (selectedComponent === 'input') {
       if (selectedVariant === 'text') {
         return `<TextInput 
@@ -192,7 +198,7 @@ export default function ComponentPlayground() {
 />`;
       }
     }
-    
+
     return '';
   };
 
@@ -261,7 +267,7 @@ export default function ComponentPlayground() {
       ];
       setCardTitle(titles[Math.floor(Math.random() * titles.length)]);
       setCardDescription(descriptions[Math.floor(Math.random() * descriptions.length)]);
-      
+
       if (selectedVariant === 'user') {
         const names = ['Alice Johnson', 'Bob Smith', 'Carol Davis', 'David Wilson', 'Emma Brown'];
         const roles = ['Frontend Developer', 'Backend Engineer', 'UI/UX Designer', 'Product Manager', 'DevOps Engineer'];
@@ -269,7 +275,7 @@ export default function ComponentPlayground() {
         setUserRole(roles[Math.floor(Math.random() * roles.length)]);
         setUserAvatar(`https://i.pravatar.cc/150?img=${Math.floor(Math.random() * 70) + 1}`);
       }
-      
+
       if (selectedVariant === 'data') {
         const dataTitles = ['Total Users', 'Revenue', 'Active Sessions', 'Conversion Rate', 'Growth Rate'];
         const dataValues = ['1,234', '$45.6K', '89%', '12.5%', '+23%'];
@@ -291,6 +297,62 @@ export default function ComponentPlayground() {
     }
   }, [selectedComponent]);
 
+  // Load favorites from localStorage on mount
+  useEffect(() => {
+    try {
+      const savedFavorites = localStorage.getItem('componentFavorites');
+      if (savedFavorites) {
+        setFavorites(JSON.parse(savedFavorites));
+      }
+    } catch (error) {
+      console.error('Error loading favorites:', error);
+    }
+  }, []);
+
+  // Save favorites to localStorage whenever favorites change
+  useEffect(() => {
+    try {
+      localStorage.setItem('componentFavorites', JSON.stringify(favorites));
+    } catch (error) {
+      console.error('Error saving favorites:', error);
+    }
+  }, [favorites]);
+
+  // Favorites functionality
+  const toggleFavorite = (componentType, variantKey) => {
+    const favoriteId = `${componentType}-${variantKey}`;
+    const variant = componentVariants[componentType]?.[variantKey];
+
+    if (!variant) return;
+
+    setFavorites(prev => {
+      const existingIndex = prev.findIndex(fav => fav.id === favoriteId);
+
+      if (existingIndex >= 0) {
+        // Remove from favorites
+        return prev.filter(fav => fav.id !== favoriteId);
+      } else {
+        // Add to favorites
+        return [...prev, {
+          id: favoriteId,
+          componentType,
+          variantKey,
+          name: variant.name,
+          addedAt: new Date().toISOString()
+        }];
+      }
+    });
+  };
+
+  const isFavorite = (componentType, variantKey) => {
+    const favoriteId = `${componentType}-${variantKey}`;
+    return favorites.some(fav => fav.id === favoriteId);
+  };
+
+  const clearAllFavorites = () => {
+    setFavorites([]);
+  };
+
   // Render current component
   const renderComponent = () => {
     const variant = componentVariants[selectedComponent]?.[selectedVariant];
@@ -302,8 +364,8 @@ export default function ComponentPlayground() {
     };
 
     if (selectedComponent === 'button') {
-      const sizeClass = buttonSize === 'small' ? 'px-3 py-1 text-sm' : 
-                       buttonSize === 'large' ? 'px-6 py-3 text-lg' : 'px-4 py-2';
+      const sizeClass = buttonSize === 'small' ? 'px-3 py-1 text-sm' :
+        buttonSize === 'large' ? 'px-6 py-3 text-lg' : 'px-4 py-2';
       return (
         <Component
           {...commonProps}
@@ -313,8 +375,8 @@ export default function ComponentPlayground() {
           {buttonLoading ? '⏳ Loading...' : buttonText}
         </Component>
       );
-    } 
-    
+    }
+
     else if (selectedComponent === 'card') {
       if (selectedVariant === 'simple') {
         return <Component title={cardTitle} description={cardDescription} />;
@@ -328,22 +390,22 @@ export default function ComponentPlayground() {
         return <Component title={dataTitle} value={dataValue} icon={dataIcon} trend={dataTrend} />;
       }
     }
-    
+
     else if (selectedComponent === 'input') {
       if (selectedVariant === 'text') {
         return <Component label={inputLabel} placeholder={inputPlaceholder} required={inputRequired} error={inputError || undefined} />;
       } else if (selectedVariant === 'select') {
-        return <Component 
-          label={inputLabel} 
+        return <Component
+          label={inputLabel}
           required={inputRequired}
           options={[
             { value: 'option1', label: 'Option 1' },
             { value: 'option2', label: 'Option 2' },
             { value: 'option3', label: 'Option 3' }
-          ]} 
+          ]}
         />;
       } else if (selectedVariant === 'checkbox') {
-        return <Component label={inputLabel} description="Check this option" checked={false} onChange={() => {}} />;
+        return <Component label={inputLabel} description="Check this option" checked={false} onChange={() => { }} />;
       }
     }
 
@@ -368,7 +430,7 @@ export default function ComponentPlayground() {
 
       {/* Top Controls */}
       <div className="mb-8 bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
-        <div className="grid md:grid-cols-3 gap-4">
+        <div className="grid md:grid-cols-4 gap-4">
           {/* Component Type */}
           <div>
             <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
@@ -412,23 +474,36 @@ export default function ComponentPlayground() {
             <div className="flex gap-2">
               <button
                 onClick={() => setPreviewMode('light')}
-                className={`px-3 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2 ${
-                  previewMode === 'light' ? 'bg-yellow-500 text-white' : 'bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300'
-                }`}
+                className={`px-3 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2 ${previewMode === 'light' ? 'bg-yellow-500 text-white' : 'bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300'
+                  }`}
               >
                 <Sun className="w-4 h-4" />
                 Light
               </button>
               <button
                 onClick={() => setPreviewMode('dark')}
-                className={`px-3 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2 ${
-                  previewMode === 'dark' ? 'bg-gray-800 text-white' : 'bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300'
-                }`}
+                className={`px-3 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2 ${previewMode === 'dark' ? 'bg-gray-800 text-white' : 'bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300'
+                  }`}
               >
                 <Moon className="w-4 h-4" />
                 Dark
               </button>
             </div>
+          </div>
+
+          {/* Favorites Toggle */}
+          <div>
+            <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
+              My Favorites ({favorites.length})
+            </label>
+            <button
+              onClick={() => setShowFavorites(!showFavorites)}
+              className={`w-full px-3 py-2 rounded-lg text-sm font-medium transition-all flex items-center justify-center gap-2 ${showFavorites ? 'bg-pink-500 text-white' : 'bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300'
+                }`}
+            >
+              <Heart className={`w-4 h-4 ${showFavorites ? 'fill-current' : ''}`} />
+              {showFavorites ? 'Hide Favorites' : 'Show Favorites'}
+            </button>
           </div>
         </div>
       </div>
@@ -476,7 +551,7 @@ export default function ComponentPlayground() {
                     placeholder="Enter button text"
                   />
                 </div>
-                
+
                 <div>
                   <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
                     Button Size
@@ -486,11 +561,10 @@ export default function ComponentPlayground() {
                       <button
                         key={size}
                         onClick={() => setButtonSize(size)}
-                        className={`px-3 py-1 rounded-lg text-sm font-medium transition-all ${
-                          buttonSize === size
+                        className={`px-3 py-1 rounded-lg text-sm font-medium transition-all ${buttonSize === size
                             ? 'bg-blue-500 text-white'
                             : 'bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-500'
-                        }`}
+                          }`}
                       >
                         {size.charAt(0).toUpperCase() + size.slice(1)}
                       </button>
@@ -534,7 +608,7 @@ export default function ComponentPlayground() {
                     placeholder="Enter card title"
                   />
                 </div>
-                
+
                 <div>
                   <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
                     Card Description
@@ -701,7 +775,7 @@ export default function ComponentPlayground() {
                     placeholder="Enter input label"
                   />
                 </div>
-                
+
                 {selectedVariant === 'text' && (
                   <>
                     <div>
@@ -766,7 +840,7 @@ export default function ComponentPlayground() {
                 {copiedCode || 'Copy Code'}
               </button>
             </div>
-            
+
             {showCode && (
               <div className="relative">
                 <pre className="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg text-sm overflow-x-auto border border-gray-200 dark:border-gray-700">
@@ -800,12 +874,11 @@ export default function ComponentPlayground() {
           </div>
 
           {/* Preview Container */}
-          <div 
-            className={`min-h-[400px] rounded-lg p-8 flex items-center justify-center transition-all duration-300 ${
-              previewMode === 'dark' 
-                ? 'bg-gray-900 border border-gray-700' 
+          <div
+            className={`min-h-[400px] rounded-lg p-8 flex items-center justify-center transition-all duration-300 ${previewMode === 'dark'
+                ? 'bg-gray-900 border border-gray-700'
                 : 'bg-gray-50 border border-gray-200'
-            }`}
+              }`}
           >
             <div className={previewMode === 'dark' ? 'dark' : ''}>
               <div className="w-full max-w-sm">
@@ -835,13 +908,24 @@ export default function ComponentPlayground() {
                 Reset
               </div>
             </SecondaryButton>
-            
+
             <SuccessButton onClick={randomizeValues}>
               <div className="flex items-center gap-2">
                 <Shuffle className="w-4 h-4" />
                 Randomize
               </div>
             </SuccessButton>
+
+            <button
+              onClick={() => toggleFavorite(selectedComponent, selectedVariant)}
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2 ${isFavorite(selectedComponent, selectedVariant)
+                  ? 'bg-pink-500 text-white hover:bg-pink-600'
+                  : 'bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300 hover:bg-pink-100 dark:hover:bg-pink-900/50'
+                }`}
+            >
+              <Heart className={`w-4 h-4 ${isFavorite(selectedComponent, selectedVariant) ? 'fill-current' : ''}`} />
+              {isFavorite(selectedComponent, selectedVariant) ? 'Remove Favorite' : 'Add Favorite'}
+            </button>
 
             <button
               onClick={copyCode}
@@ -854,6 +938,76 @@ export default function ComponentPlayground() {
         </div>
       </div>
 
+      {/* Favorites Section */}
+      {showFavorites && (
+        <div className="mt-12 bg-gradient-to-br from-pink-50 to-rose-50 dark:from-pink-900/20 dark:to-rose-900/20 rounded-xl p-6 shadow-lg border border-pink-200 dark:border-pink-800">
+          <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center gap-2">
+              <Heart className="w-5 h-5 text-pink-500 fill-current" />
+              <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
+                My Favorite Components ({favorites.length})
+              </h2>
+            </div>
+            {favorites.length > 0 && (
+              <button
+                onClick={clearAllFavorites}
+                className="px-3 py-1 text-sm text-pink-600 dark:text-pink-400 hover:text-pink-800 dark:hover:text-pink-300 transition-colors"
+              >
+                Clear All
+              </button>
+            )}
+          </div>
+
+          {favorites.length === 0 ? (
+            <div className="text-center py-12">
+              <Heart className="w-12 h-12 text-gray-300 dark:text-gray-600 mx-auto mb-4" />
+              <p className="text-gray-500 dark:text-gray-400 mb-2">No favorite components yet</p>
+              <p className="text-sm text-gray-400 dark:text-gray-500">Click the heart icon on any component to add it to your favorites</p>
+            </div>
+          ) : (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+              {favorites.map((favorite) => {
+                const variant = componentVariants[favorite.componentType]?.[favorite.variantKey];
+                if (!variant) return null;
+
+                return (
+                  <div
+                    key={favorite.id}
+                    className="p-4 bg-white dark:bg-gray-800 rounded-lg border border-pink-200 dark:border-pink-700 hover:border-pink-300 dark:hover:border-pink-600 transition-colors cursor-pointer"
+                    onClick={() => {
+                      setSelectedComponent(favorite.componentType);
+                      setSelectedVariant(favorite.variantKey);
+                      setShowFavorites(false);
+                    }}
+                  >
+                    <div className="flex items-center justify-between mb-2">
+                      <h3 className="font-medium text-sm text-gray-900 dark:text-white">
+                        {favorite.name}
+                      </h3>
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          toggleFavorite(favorite.componentType, favorite.variantKey);
+                        }}
+                        className="text-pink-500 hover:text-pink-600 transition-colors"
+                      >
+                        <Heart className="w-4 h-4 fill-current" />
+                      </button>
+                    </div>
+                    <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">
+                      {favorite.componentType.charAt(0).toUpperCase() + favorite.componentType.slice(1)} Component
+                    </p>
+                    <p className="text-xs text-gray-400 dark:text-gray-500">
+                      Added {new Date(favorite.addedAt).toLocaleDateString()}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </div>
+      )}
+
       {/* All Variants Showcase */}
       <div className="mt-12 bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
         <div className="flex items-center gap-2 mb-6">
@@ -864,7 +1018,7 @@ export default function ComponentPlayground() {
             All {selectedComponent.charAt(0).toUpperCase() + selectedComponent.slice(1)} Variants
           </h2>
         </div>
-        
+
         <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {Object.entries(componentVariants[selectedComponent] || {}).map(([key, variant]) => (
             <div key={key} className="text-center p-4 border border-gray-200 dark:border-gray-600 rounded-lg hover:border-blue-500 dark:hover:border-blue-400 transition-colors">
@@ -909,19 +1063,34 @@ export default function ComponentPlayground() {
                   )}
                   {selectedComponent === 'input' && (
                     <div className="scale-90 origin-center">
-                      <variant.component 
-                        label={variant.name} 
+                      <variant.component
+                        label={variant.name}
                         placeholder="Preview"
                         {...(key === 'select' ? { options: [{ value: 'opt1', label: 'Option 1' }] } : {})}
-                        {...(key === 'checkbox' ? { checked: false, onChange: () => {} } : {})}
+                        {...(key === 'checkbox' ? { checked: false, onChange: () => { } } : {})}
                       />
                     </div>
                   )}
                 </div>
               </div>
-              <h3 className="font-medium text-sm text-gray-900 dark:text-white mb-1">
-                {variant.name}
-              </h3>
+              <div className="flex items-center justify-between mb-1">
+                <h3 className="font-medium text-sm text-gray-900 dark:text-white">
+                  {variant.name}
+                </h3>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    toggleFavorite(selectedComponent, key);
+                  }}
+                  className={`p-1 rounded-full transition-all hover:scale-110 ${isFavorite(selectedComponent, key)
+                      ? 'text-pink-500 hover:text-pink-600'
+                      : 'text-gray-400 hover:text-pink-500'
+                    }`}
+                  title={isFavorite(selectedComponent, key) ? 'Remove from favorites' : 'Add to favorites'}
+                >
+                  <Heart className={`w-4 h-4 ${isFavorite(selectedComponent, key) ? 'fill-current' : ''}`} />
+                </button>
+              </div>
               <p className="text-xs text-gray-500 dark:text-gray-400">
                 Click to customize
               </p>
@@ -962,10 +1131,10 @@ export default function ComponentPlayground() {
           </div>
           <div className="text-center">
             <div className="flex items-center justify-center mb-2">
-              <Sparkles className="w-6 h-6 opacity-80" />
+              <Heart className="w-6 h-6 opacity-80" />
             </div>
-            <div className="text-2xl font-bold">∞</div>
-            <div className="text-sm opacity-80">Customizations</div>
+            <div className="text-2xl font-bold">{favorites.length}</div>
+            <div className="text-sm opacity-80">Favorites</div>
           </div>
         </div>
       </div>
