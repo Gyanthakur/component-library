@@ -14,6 +14,7 @@ const navLinks = [
   { href: "/playground", label: "🎮 Playground" },
   { href: "/analytics", label: "Analytics" },
   { href: "/feedback", label: "Feedback" },
+  { href: "/settings", label: "Settings" },
 ];
 
 const Navbar = () => {
