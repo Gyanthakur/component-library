@@ -34,6 +34,7 @@ import SecondaryButton from "./buttons/SecondaryButton";
 import GhostButton from "./buttons/GhostButton";
 import IconButton from "./buttons/IconButton";
 import NeonButton from "./buttons/NeonButton";
+import GradientButton from "./buttons/GradientButton";
 
 import OutlineButton from "./buttons/OutlineButton";
 import DangerButton from "./buttons/DangerButton";
@@ -184,6 +185,12 @@ export default function Page() {
         keywords: ["primary", "main", "action", "cta"],
         desc: "Used for Main Actions",
       },
+       {
+    name: "Gradient Button",
+    component: <GradientButton>Gradient</GradientButton>,
+    keywords: ["gradient", "colorful", "bright", "cta"],
+    desc: "Vibrant gradient button with hover scaling and loading spinner",
+  },
 {
   name: "Neon Button",
   component: <NeonButton>Neon</NeonButton>,
