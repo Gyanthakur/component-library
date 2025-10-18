@@ -20,7 +20,7 @@ export default function GradientButton({
         transform hover:scale-105 active:scale-95
         ${disabled 
           ? 'bg-gray-400 dark:bg-gray-600 text-gray-200 cursor-not-allowed' 
-          : 'bg-gradient-to-r from-blue-500 to-red-500 hover:from-blue-600 hover:to-red-600 dark:from-yellow-600 dark:to-green-700 text-white hover:shadow-md'
+          : 'bg-gradient-to-r from-blue-500 to-red-500 hover:from-blue-600 hover:to-red-600 dark:from-yellow-600 dark:to-red-700 text-white hover:shadow-md'
         }
         ${className}
       `}
