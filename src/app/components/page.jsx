@@ -49,6 +49,7 @@ import DataCard from "./cards/DataCard";
 import TextInput from "./inputs/TextInput";
 import Select from "./inputs/Select";
 import Checkbox from "./inputs/Checkbox";
+import PasswordInput from "./inputs/PasswordInput";
 // Nav
 import Tabs from "./navigation/Tabs";
 import Breadcrumb from "./navigation/Breadcrumb";
@@ -300,6 +301,12 @@ export default function Page() {
         component: <TextInput label="Sample Input" placeholder="Enter text" />,
         keywords: ["text", "input", "field", "form"],
       },
+      {
+  name: "Password Input",
+  component: <PasswordInput value="" onChange={() => {}} placeholder="Enter password" />,
+  keywords: ["password", "input", "field", "form", "show", "hide"],
+},
+
       {
         name: "Select",
         component: <Select label="Sample Select" options={selectOptions} />,
