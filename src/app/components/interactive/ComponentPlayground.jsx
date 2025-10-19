@@ -1,17 +1,17 @@
 "use client";
-import { useState, useEffect } from 'react';
-import { 
-  Settings, 
-  Eye, 
-  Code, 
-  Copy, 
-  RotateCcw, 
-  Shuffle, 
-  Sun, 
-  Moon, 
-  MousePointer, 
-  Square, 
-  Type, 
+import { useState, useEffect } from "react";
+import {
+  Settings,
+  Eye,
+  Code,
+  Copy,
+  RotateCcw,
+  Shuffle,
+  Sun,
+  Moon,
+  MousePointer,
+  Square,
+  Type,
   Palette,
   Zap,
   BarChart3,
@@ -25,68 +25,79 @@ import {
   Info,
   Sparkles,
   Heart,
-  Star
-} from 'lucide-react';
-import PrimaryButton from '../buttons/PrimaryButton';
-import SecondaryButton from '../buttons/SecondaryButton';
-import DangerButton from '../buttons/DangerButton';
-import SuccessButton from '../buttons/SuccessButton';
-import GhostButton from '../buttons/GhostButton';
-import OutlineButton from '../buttons/OutlineButton';
-import RainbowButton from '../buttons/RainbowButton';
-import SimpleCard from '../cards/SimpleCard';
-import FeatureCard from '../cards/FeatureCard';
-import PricingCard from '../cards/PricingCard';
-import UserCard from '../cards/UserCard';
-import DataCard from '../cards/DataCard';
-import TextInput from '../inputs/TextInput';
-import Select from '../inputs/Select';
-import Checkbox from '../inputs/Checkbox';
-import { useToast } from '../feedback/Toast';
+  Star,
+} from "lucide-react";
+import PrimaryButton from "../buttons/PrimaryButton";
+import SecondaryButton from "../buttons/SecondaryButton";
+import DangerButton from "../buttons/DangerButton";
+import SuccessButton from "../buttons/SuccessButton";
+import GhostButton from "../buttons/GhostButton";
+import OutlineButton from "../buttons/OutlineButton";
+import RainbowButton from "../buttons/RainbowButton";
+import SimpleCard from "../cards/SimpleCard";
+import FeatureCard from "../cards/FeatureCard";
+import PricingCard from "../cards/PricingCard";
+import UserCard from "../cards/UserCard";
+import DataCard from "../cards/DataCard";
+import TextInput from "../inputs/TextInput";
+import Select from "../inputs/Select";
+import Checkbox from "../inputs/Checkbox";
+import { useToast } from "../feedback/Toast";
 
 export default function ComponentPlayground() {
   // Component Selection
-  const {addToast, ToastContainer} = useToast();
-  const [selectedComponent, setSelectedComponent] = useState('button');
-  const [selectedVariant, setSelectedVariant] = useState('primary');
+  const { addToast, ToastContainer } = useToast();
+  const [selectedComponent, setSelectedComponent] = useState("button");
+  const [selectedVariant, setSelectedVariant] = useState("primary");
 
   // Button States
-  const [buttonText, setButtonText] = useState('Click Me');
-  const [buttonSize, setButtonSize] = useState('medium');
+  const [buttonText, setButtonText] = useState("Click Me");
+  const [buttonSize, setButtonSize] = useState("medium");
   const [buttonDisabled, setButtonDisabled] = useState(false);
   const [buttonLoading, setButtonLoading] = useState(false);
 
   // Card States
-  const [cardTitle, setCardTitle] = useState('Sample Card');
-  const [cardDescription, setCardDescription] = useState('This is a sample card description');
-  const [cardImage, setCardImage] = useState('https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400');
+  const [cardTitle, setCardTitle] = useState("Sample Card");
+  const [cardDescription, setCardDescription] = useState(
+    "This is a sample card description"
+  );
+  const [cardImage, setCardImage] = useState(
+    "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400"
+  );
 
   // Input States
-  const [inputLabel, setInputLabel] = useState('Sample Input');
-  const [inputPlaceholder, setInputPlaceholder] = useState('Enter text here...');
+  const [inputLabel, setInputLabel] = useState("Sample Input");
+  const [inputPlaceholder, setInputPlaceholder] =
+    useState("Enter text here...");
   const [inputRequired, setInputRequired] = useState(false);
-  const [inputError, setInputError] = useState('');
+  const [inputError, setInputError] = useState("");
 
   // Pricing Card States
-  const [pricingPlan, setPricingPlan] = useState('Pro');
-  const [pricingPrice, setPricingPrice] = useState('$9/mo');
-  const [pricingFeatures, setPricingFeatures] = useState(['10 projects', 'Priority support', 'Unlimited users']);
+  const [pricingPlan, setPricingPlan] = useState("Pro");
+  const [pricingPrice, setPricingPrice] = useState("$9/mo");
+  const [pricingFeatures, setPricingFeatures] = useState([
+    "10 projects",
+    "Priority support",
+    "Unlimited users",
+  ]);
 
   // User Card States
-  const [userName, setUserName] = useState('John Doe');
-  const [userEmail, setUserEmail] = useState('john@example.com');
-  const [userRole, setUserRole] = useState('Software Engineer');
-  const [userAvatar, setUserAvatar] = useState('https://i.pravatar.cc/150?img=1');
+  const [userName, setUserName] = useState("John Doe");
+  const [userEmail, setUserEmail] = useState("john@example.com");
+  const [userRole, setUserRole] = useState("Software Engineer");
+  const [userAvatar, setUserAvatar] = useState(
+    "https://i.pravatar.cc/150?img=1"
+  );
 
   // Data Card States
-  const [dataTitle, setDataTitle] = useState('Active Projects');
-  const [dataValue, setDataValue] = useState('27');
-  const [dataIcon, setDataIcon] = useState('📂');
+  const [dataTitle, setDataTitle] = useState("Active Projects");
+  const [dataValue, setDataValue] = useState("27");
+  const [dataIcon, setDataIcon] = useState("📂");
   const [dataTrend, setDataTrend] = useState(8);
 
   // UI States
-  const [copiedCode, setCopiedCode] = useState('');
-  const [previewMode, setPreviewMode] = useState('light');
+  const [copiedCode, setCopiedCode] = useState("");
+  const [previewMode, setPreviewMode] = useState("light");
   const [showCode, setShowCode] = useState(true);
 
   // Favorites System
@@ -96,64 +107,66 @@ export default function ComponentPlayground() {
   // Component variants mapping
   const componentVariants = {
     button: {
-      primary: { component: PrimaryButton, name: 'Primary Button' },
-      secondary: { component: SecondaryButton, name: 'Secondary Button' },
-      danger: { component: DangerButton, name: 'Danger Button' },
-      success: { component: SuccessButton, name: 'Success Button' },
-      ghost: { component: GhostButton, name: 'Ghost Button' },
-      outline: { component: OutlineButton, name: 'Outline Button' },
-      rainbow: { component: RainbowButton, name: 'Rainbow Button' }
+      primary: { component: PrimaryButton, name: "Primary Button" },
+      secondary: { component: SecondaryButton, name: "Secondary Button" },
+      danger: { component: DangerButton, name: "Danger Button" },
+      success: { component: SuccessButton, name: "Success Button" },
+      ghost: { component: GhostButton, name: "Ghost Button" },
+      outline: { component: OutlineButton, name: "Outline Button" },
+      rainbow: { component: RainbowButton, name: "Rainbow Button" },
     },
     card: {
-      simple: { component: SimpleCard, name: 'Simple Card' },
-      feature: { component: FeatureCard, name: 'Feature Card' },
-      pricing: { component: PricingCard, name: 'Pricing Card' },
-      user: { component: UserCard, name: 'User Card' },
-      data: { component: DataCard, name: 'Data Card' }
+      simple: { component: SimpleCard, name: "Simple Card" },
+      feature: { component: FeatureCard, name: "Feature Card" },
+      pricing: { component: PricingCard, name: "Pricing Card" },
+      user: { component: UserCard, name: "User Card" },
+      data: { component: DataCard, name: "Data Card" },
     },
     input: {
-      text: { component: TextInput, name: 'Text Input' },
-      select: { component: Select, name: 'Select Dropdown' },
-      checkbox: { component: Checkbox, name: 'Checkbox' }
-    }
+      text: { component: TextInput, name: "Text Input" },
+      select: { component: Select, name: "Select Dropdown" },
+      checkbox: { component: Checkbox, name: "Checkbox" },
+    },
   };
 
   // Generate code based on current settings
   const generateCode = () => {
     const variant = componentVariants[selectedComponent]?.[selectedVariant];
-    if (!variant) return '';
+    if (!variant) return "";
 
-    if (selectedComponent === 'button') {
-      const sizeClass = buttonSize === 'small' ? 'px-3 py-1 text-sm' :
-        buttonSize === 'large' ? 'px-6 py-3 text-lg' : 'px-4 py-2';
+    if (selectedComponent === "button") {
+      const sizeClass =
+        buttonSize === "small"
+          ? "px-3 py-1 text-sm"
+          : buttonSize === "large"
+          ? "px-6 py-3 text-lg"
+          : "px-4 py-2";
       return `<${variant.component.name} 
   onClick={() => alert('Button clicked!')}
-  ${buttonDisabled ? 'disabled' : ''}
-  ${buttonLoading ? 'loading' : ''}
+  ${buttonDisabled ? "disabled" : ""}
+  ${buttonLoading ? "loading" : ""}
   className="${sizeClass}"
 >
   ${buttonText}
 </${variant.component.name}>`;
-    }
-
-    else if (selectedComponent === 'card') {
-      if (selectedVariant === 'simple') {
+    } else if (selectedComponent === "card") {
+      if (selectedVariant === "simple") {
         return `<SimpleCard 
   title="${cardTitle}"
   description="${cardDescription}"
 />`;
-      } else if (selectedVariant === 'feature') {
+      } else if (selectedVariant === "feature") {
         return `<FeatureCard 
   title="${cardTitle}"
   description="${cardDescription}"
 />`;
-      } else if (selectedVariant === 'pricing') {
+      } else if (selectedVariant === "pricing") {
         return `<PricingCard 
   plan="${pricingPlan}"
   price="${pricingPrice}"
   features={${JSON.stringify(pricingFeatures)}}
 />`;
-      } else if (selectedVariant === 'user') {
+      } else if (selectedVariant === "user") {
         return `<UserCard 
   name="${userName}"
   email="${userEmail}"
@@ -161,7 +174,7 @@ export default function ComponentPlayground() {
   avatar="${userAvatar}"
   onClick={() => alert('User card clicked!')}
 />`;
-      } else if (selectedVariant === 'data') {
+      } else if (selectedVariant === "data") {
         return `<DataCard 
   title="${dataTitle}"
   value="${dataValue}"
@@ -169,17 +182,15 @@ export default function ComponentPlayground() {
   trend={${dataTrend}}
 />`;
       }
-    }
-
-    else if (selectedComponent === 'input') {
-      if (selectedVariant === 'text') {
+    } else if (selectedComponent === "input") {
+      if (selectedVariant === "text") {
         return `<TextInput 
   label="${inputLabel}"
   placeholder="${inputPlaceholder}"
-  ${inputRequired ? 'required' : ''}
-  ${inputError ? `error="${inputError}"` : ''}
+  ${inputRequired ? "required" : ""}
+  ${inputError ? `error="${inputError}"` : ""}
 />`;
-      } else if (selectedVariant === 'select') {
+      } else if (selectedVariant === "select") {
         return `<Select 
   label="${inputLabel}"
   options={[
@@ -187,9 +198,9 @@ export default function ComponentPlayground() {
     { value: 'option2', label: 'Option 2' },
     { value: 'option3', label: 'Option 3' }
   ]}
-  ${inputRequired ? 'required' : ''}
+  ${inputRequired ? "required" : ""}
 />`;
-      } else if (selectedVariant === 'checkbox') {
+      } else if (selectedVariant === "checkbox") {
         return `<Checkbox 
   label="${inputLabel}"
   description="Check this option"
@@ -199,7 +210,7 @@ export default function ComponentPlayground() {
       }
     }
 
-    return '';
+    return "";
   };
 
   // Copy code to clipboard
@@ -207,79 +218,122 @@ export default function ComponentPlayground() {
     const code = generateCode();
     try {
       await navigator.clipboard.writeText(code);
-      addToast('Code copied to clipboard!', 'success', 2000);
-      setCopiedCode('✅ Copied!');
-      setTimeout(() => setCopiedCode(''), 2000);
+      addToast("Code copied to clipboard!", "success", 2000);
+      setCopiedCode("✅ Copied!");
+      setTimeout(() => setCopiedCode(""), 2000);
     } catch (err) {
-      addToast('Failed to copy code.', 'error', 4000);
-      setCopiedCode('❌ Failed to copy');
-      setTimeout(() => setCopiedCode(''), 2000);
+      addToast("Failed to copy code.", "error", 4000);
+      setCopiedCode("❌ Failed to copy");
+      setTimeout(() => setCopiedCode(""), 2000);
     }
   };
 
   // Reset to defaults
   const resetToDefaults = () => {
-    if (selectedComponent === 'button') {
-      setButtonText('Click Me');
-      setButtonSize('medium');
+    if (selectedComponent === "button") {
+      setButtonText("Click Me");
+      setButtonSize("medium");
       setButtonDisabled(false);
       setButtonLoading(false);
-    } else if (selectedComponent === 'card') {
-      setCardTitle('Sample Card');
-      setCardDescription('This is a sample card description');
-      setCardImage('https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400');
-      setPricingPlan('Pro');
-      setPricingPrice('$9/mo');
-      setPricingFeatures(['10 projects', 'Priority support', 'Unlimited users']);
-      setUserName('John Doe');
-      setUserEmail('john@example.com');
-      setUserRole('Software Engineer');
-      setUserAvatar('https://i.pravatar.cc/150?img=1');
-      setDataTitle('Active Projects');
-      setDataValue('27');
-      setDataIcon('📂');
+    } else if (selectedComponent === "card") {
+      setCardTitle("Sample Card");
+      setCardDescription("This is a sample card description");
+      setCardImage(
+        "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400"
+      );
+      setPricingPlan("Pro");
+      setPricingPrice("$9/mo");
+      setPricingFeatures([
+        "10 projects",
+        "Priority support",
+        "Unlimited users",
+      ]);
+      setUserName("John Doe");
+      setUserEmail("john@example.com");
+      setUserRole("Software Engineer");
+      setUserAvatar("https://i.pravatar.cc/150?img=1");
+      setDataTitle("Active Projects");
+      setDataValue("27");
+      setDataIcon("📂");
       setDataTrend(8);
-    } else if (selectedComponent === 'input') {
-      setInputLabel('Sample Input');
-      setInputPlaceholder('Enter text here...');
+    } else if (selectedComponent === "input") {
+      setInputLabel("Sample Input");
+      setInputPlaceholder("Enter text here...");
       setInputRequired(false);
-      setInputError('');
+      setInputError("");
     }
   };
 
   // Randomize values
   const randomizeValues = () => {
-    if (selectedComponent === 'button') {
-      const texts = ['Get Started', 'Learn More', 'Sign Up Now', 'Download', 'Subscribe', 'Join Us', 'Try Free', 'Contact Us'];
-      const sizes = ['small', 'medium', 'large'];
+    if (selectedComponent === "button") {
+      const texts = [
+        "Get Started",
+        "Learn More",
+        "Sign Up Now",
+        "Download",
+        "Subscribe",
+        "Join Us",
+        "Try Free",
+        "Contact Us",
+      ];
+      const sizes = ["small", "medium", "large"];
       setButtonText(texts[Math.floor(Math.random() * texts.length)]);
       setButtonSize(sizes[Math.floor(Math.random() * sizes.length)]);
       setButtonDisabled(Math.random() > 0.7);
       setButtonLoading(Math.random() > 0.8);
-    } else if (selectedComponent === 'card') {
-      const titles = ['Amazing Feature', 'Premium Service', 'New Product', 'Special Offer', 'Latest Update'];
+    } else if (selectedComponent === "card") {
+      const titles = [
+        "Amazing Feature",
+        "Premium Service",
+        "New Product",
+        "Special Offer",
+        "Latest Update",
+      ];
       const descriptions = [
-        'Discover incredible features that will transform your workflow',
-        'Experience premium quality with our professional services',
-        'Introducing our latest product with cutting-edge technology',
-        'Limited time offer with exclusive benefits for you',
-        'Stay updated with the latest improvements and features'
+        "Discover incredible features that will transform your workflow",
+        "Experience premium quality with our professional services",
+        "Introducing our latest product with cutting-edge technology",
+        "Limited time offer with exclusive benefits for you",
+        "Stay updated with the latest improvements and features",
       ];
       setCardTitle(titles[Math.floor(Math.random() * titles.length)]);
-      setCardDescription(descriptions[Math.floor(Math.random() * descriptions.length)]);
+      setCardDescription(
+        descriptions[Math.floor(Math.random() * descriptions.length)]
+      );
 
-      if (selectedVariant === 'user') {
-        const names = ['Alice Johnson', 'Bob Smith', 'Carol Davis', 'David Wilson', 'Emma Brown'];
-        const roles = ['Frontend Developer', 'Backend Engineer', 'UI/UX Designer', 'Product Manager', 'DevOps Engineer'];
+      if (selectedVariant === "user") {
+        const names = [
+          "Alice Johnson",
+          "Bob Smith",
+          "Carol Davis",
+          "David Wilson",
+          "Emma Brown",
+        ];
+        const roles = [
+          "Frontend Developer",
+          "Backend Engineer",
+          "UI/UX Designer",
+          "Product Manager",
+          "DevOps Engineer",
+        ];
         setUserName(names[Math.floor(Math.random() * names.length)]);
         setUserRole(roles[Math.floor(Math.random() * roles.length)]);
-        setUserAvatar(`https://i.pravatar.cc/150?img=${Math.floor(Math.random() * 70) + 1}`);
+        setUserAvatar(
+          `https://i.pravatar.cc/150?img=${Math.floor(Math.random() * 70) + 1}`
+        );
       }
 
-      if (selectedVariant === 'data') {
-        const dataTitles = ['Total Users', 'Revenue', 'Active Sessions', 'Conversion Rate', 'Growth Rate'];
-        const dataValues = ['1,234', '$45.6K', '89%', '12.5%', '+23%'];
-        const dataIcons = ['👥', '💰', '📊', '📈', '🚀'];
+      if (selectedVariant === "data") {
+        const dataTitles = [
+          "Total Users",
+          "Revenue",
+          "Active Sessions",
+          "Conversion Rate",
+          "Growth Rate",
+        ];
+        const dataValues = ["1,234", "$45.6K", "89%", "12.5%", "+23%"];
+        const dataIcons = ["👥", "💰", "📊", "📈", "🚀"];
         const randomIndex = Math.floor(Math.random() * dataTitles.length);
         setDataTitle(dataTitles[randomIndex]);
         setDataValue(dataValues[randomIndex]);
@@ -300,21 +354,21 @@ export default function ComponentPlayground() {
   // Load favorites from localStorage on mount
   useEffect(() => {
     try {
-      const savedFavorites = localStorage.getItem('componentFavorites');
+      const savedFavorites = localStorage.getItem("componentFavorites");
       if (savedFavorites) {
         setFavorites(JSON.parse(savedFavorites));
       }
     } catch (error) {
-      console.error('Error loading favorites:', error);
+      console.error("Error loading favorites:", error);
     }
   }, []);
 
   // Save favorites to localStorage whenever favorites change
   useEffect(() => {
     try {
-      localStorage.setItem('componentFavorites', JSON.stringify(favorites));
+      localStorage.setItem("componentFavorites", JSON.stringify(favorites));
     } catch (error) {
-      console.error('Error saving favorites:', error);
+      console.error("Error saving favorites:", error);
     }
   }, [favorites]);
 
@@ -325,28 +379,31 @@ export default function ComponentPlayground() {
 
     if (!variant) return;
 
-    setFavorites(prev => {
-      const existingIndex = prev.findIndex(fav => fav.id === favoriteId);
+    setFavorites((prev) => {
+      const existingIndex = prev.findIndex((fav) => fav.id === favoriteId);
 
       if (existingIndex >= 0) {
         // Remove from favorites
-        return prev.filter(fav => fav.id !== favoriteId);
+        return prev.filter((fav) => fav.id !== favoriteId);
       } else {
         // Add to favorites
-        return [...prev, {
-          id: favoriteId,
-          componentType,
-          variantKey,
-          name: variant.name,
-          addedAt: new Date().toISOString()
-        }];
+        return [
+          ...prev,
+          {
+            id: favoriteId,
+            componentType,
+            variantKey,
+            name: variant.name,
+            addedAt: new Date().toISOString(),
+          },
+        ];
       }
     });
   };
 
   const isFavorite = (componentType, variantKey) => {
     const favoriteId = `${componentType}-${variantKey}`;
-    return favorites.some(fav => fav.id === favoriteId);
+    return favorites.some((fav) => fav.id === favoriteId);
   };
 
   const clearAllFavorites = () => {
@@ -360,52 +417,91 @@ export default function ComponentPlayground() {
 
     const Component = variant.component;
     const commonProps = {
-      onClick: () => alert(`${variant.name} clicked!`)
+      onClick: () => alert(`${variant.name} clicked!`),
     };
 
-    if (selectedComponent === 'button') {
-      const sizeClass = buttonSize === 'small' ? 'px-3 py-1 text-sm' :
-        buttonSize === 'large' ? 'px-6 py-3 text-lg' : 'px-4 py-2';
+    if (selectedComponent === "button") {
+      const sizeClass =
+        buttonSize === "small"
+          ? "px-3 py-1 text-sm"
+          : buttonSize === "large"
+          ? "px-6 py-3 text-lg"
+          : "px-4 py-2";
       return (
         <Component
           {...commonProps}
           disabled={buttonDisabled}
-          className={`${sizeClass} ${buttonLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
+          className={`${sizeClass} ${
+            buttonLoading ? "opacity-50 cursor-not-allowed" : ""
+          }`}
         >
-          {buttonLoading ? '⏳ Loading...' : buttonText}
+          {buttonLoading ? "⏳ Loading..." : buttonText}
         </Component>
       );
-    }
-
-    else if (selectedComponent === 'card') {
-      if (selectedVariant === 'simple') {
+    } else if (selectedComponent === "card") {
+      if (selectedVariant === "simple") {
         return <Component title={cardTitle} description={cardDescription} />;
-      } else if (selectedVariant === 'feature') {
+      } else if (selectedVariant === "feature") {
         return <Component title={cardTitle} description={cardDescription} />;
-      } else if (selectedVariant === 'pricing') {
-        return <Component plan={pricingPlan} price={pricingPrice} features={pricingFeatures} />;
-      } else if (selectedVariant === 'user') {
-        return <Component name={userName} email={userEmail} role={userRole} avatar={userAvatar} onClick={commonProps.onClick} />;
-      } else if (selectedVariant === 'data') {
-        return <Component title={dataTitle} value={dataValue} icon={dataIcon} trend={dataTrend} />;
+      } else if (selectedVariant === "pricing") {
+        return (
+          <Component
+            plan={pricingPlan}
+            price={pricingPrice}
+            features={pricingFeatures}
+          />
+        );
+      } else if (selectedVariant === "user") {
+        return (
+          <Component
+            name={userName}
+            email={userEmail}
+            role={userRole}
+            avatar={userAvatar}
+            onClick={commonProps.onClick}
+          />
+        );
+      } else if (selectedVariant === "data") {
+        return (
+          <Component
+            title={dataTitle}
+            value={dataValue}
+            icon={dataIcon}
+            trend={dataTrend}
+          />
+        );
       }
-    }
-
-    else if (selectedComponent === 'input') {
-      if (selectedVariant === 'text') {
-        return <Component label={inputLabel} placeholder={inputPlaceholder} required={inputRequired} error={inputError || undefined} />;
-      } else if (selectedVariant === 'select') {
-        return <Component
-          label={inputLabel}
-          required={inputRequired}
-          options={[
-            { value: 'option1', label: 'Option 1' },
-            { value: 'option2', label: 'Option 2' },
-            { value: 'option3', label: 'Option 3' }
-          ]}
-        />;
-      } else if (selectedVariant === 'checkbox') {
-        return <Component label={inputLabel} description="Check this option" checked={false} onChange={() => { }} />;
+    } else if (selectedComponent === "input") {
+      if (selectedVariant === "text") {
+        return (
+          <Component
+            label={inputLabel}
+            placeholder={inputPlaceholder}
+            required={inputRequired}
+            error={inputError || undefined}
+          />
+        );
+      } else if (selectedVariant === "select") {
+        return (
+          <Component
+            label={inputLabel}
+            required={inputRequired}
+            options={[
+              { value: "option1", label: "Option 1" },
+              { value: "option2", label: "Option 2" },
+              { value: "option3", label: "Option 3" },
+            ]}
+          />
+        );
+      } else if (selectedVariant === "checkbox") {
+        return (
+          <Component
+            label={inputLabel}
+            description="Check this option"
+            checked={false}
+            onChange={() => {}}
+          />
+        );
       }
     }
 
@@ -415,11 +511,11 @@ export default function ComponentPlayground() {
   return (
     <div className="max-w-7xl mx-auto p-6">
       <div className="text-center mb-8">
-        <div className="flex items-center justify-center gap-3 mb-4">
+        <div className="flex lg:flex-row flex-col items-center justify-center gap-3 mb-4">
           <div className="p-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl">
             <Palette className="w-8 h-8 text-white" />
           </div>
-          <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          <h1 className="md:text-4xl text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
             Advanced Component Playground
           </h1>
         </div>
@@ -460,9 +556,13 @@ export default function ComponentPlayground() {
               onChange={(e) => setSelectedVariant(e.target.value)}
               className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
             >
-              {Object.entries(componentVariants[selectedComponent] || {}).map(([key, variant]) => (
-                <option key={key} value={key}>{variant.name}</option>
-              ))}
+              {Object.entries(componentVariants[selectedComponent] || {}).map(
+                ([key, variant]) => (
+                  <option key={key} value={key}>
+                    {variant.name}
+                  </option>
+                )
+              )}
             </select>
           </div>
 
@@ -473,17 +573,23 @@ export default function ComponentPlayground() {
             </label>
             <div className="flex gap-2">
               <button
-                onClick={() => setPreviewMode('light')}
-                className={`px-3 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2 ${previewMode === 'light' ? 'bg-yellow-500 text-white' : 'bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300'
-                  }`}
+                onClick={() => setPreviewMode("light")}
+                className={`px-3 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2 ${
+                  previewMode === "light"
+                    ? "bg-yellow-500 text-white"
+                    : "bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300"
+                }`}
               >
                 <Sun className="w-4 h-4" />
                 Light
               </button>
               <button
-                onClick={() => setPreviewMode('dark')}
-                className={`px-3 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2 ${previewMode === 'dark' ? 'bg-gray-800 text-white' : 'bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300'
-                  }`}
+                onClick={() => setPreviewMode("dark")}
+                className={`px-3 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2 ${
+                  previewMode === "dark"
+                    ? "bg-gray-800 text-white"
+                    : "bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300"
+                }`}
               >
                 <Moon className="w-4 h-4" />
                 Dark
@@ -498,27 +604,32 @@ export default function ComponentPlayground() {
             </label>
             <button
               onClick={() => setShowFavorites(!showFavorites)}
-              className={`w-full px-3 py-2 rounded-lg text-sm font-medium transition-all flex items-center justify-center gap-2 ${showFavorites ? 'bg-pink-500 text-white' : 'bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300'
-                }`}
+              className={`w-full px-3 py-2 rounded-lg text-sm font-medium transition-all flex items-center justify-center gap-2 ${
+                showFavorites
+                  ? "bg-pink-500 text-white"
+                  : "bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300"
+              }`}
             >
-              <Heart className={`w-4 h-4 ${showFavorites ? 'fill-current' : ''}`} />
-              {showFavorites ? 'Hide Favorites' : 'Show Favorites'}
+              <Heart
+                className={`w-4 h-4 ${showFavorites ? "fill-current" : ""}`}
+              />
+              {showFavorites ? "Hide Favorites" : "Show Favorites"}
             </button>
           </div>
         </div>
       </div>
 
-      <div className="grid lg:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Controls Panel */}
         <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
-          <div className="flex justify-between items-center mb-6">
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-6">
             <div className="flex items-center gap-2">
               <Settings className="w-5 h-5 text-blue-500" />
-              <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
+              <h2 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white">
                 Customization Controls
               </h2>
             </div>
-            <div className="flex gap-2">
+            <div className="flex flex-wrap gap-2">
               <button
                 onClick={resetToDefaults}
                 className="px-3 py-1 bg-gray-500 text-white rounded-lg text-sm hover:bg-gray-600 transition-colors flex items-center gap-1"
@@ -539,7 +650,7 @@ export default function ComponentPlayground() {
           {/* Dynamic Controls Based on Component */}
           <div className="space-y-6">
             {/* Button Controls */}
-            {selectedComponent === 'button' && (
+            {selectedComponent === "button" && (
               <>
                 <div>
                   <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
@@ -557,14 +668,15 @@ export default function ComponentPlayground() {
                     Button Size
                   </label>
                   <div className="flex gap-2">
-                    {['small', 'medium', 'large'].map(size => (
+                    {["small", "medium", "large"].map((size) => (
                       <button
                         key={size}
                         onClick={() => setButtonSize(size)}
-                        className={`px-3 py-1 rounded-lg text-sm font-medium transition-all ${buttonSize === size
-                            ? 'bg-blue-500 text-white'
-                            : 'bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-500'
-                          }`}
+                        className={`px-3 py-1 rounded-lg text-sm font-medium transition-all ${
+                          buttonSize === size
+                            ? "bg-blue-500 text-white"
+                            : "bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-500"
+                        }`}
                       >
                         {size.charAt(0).toUpperCase() + size.slice(1)}
                       </button>
@@ -580,7 +692,9 @@ export default function ComponentPlayground() {
                       onChange={(e) => setButtonDisabled(e.target.checked)}
                       className="mr-2"
                     />
-                    <span className="text-sm text-gray-700 dark:text-gray-300">Disabled</span>
+                    <span className="text-sm text-gray-700 dark:text-gray-300">
+                      Disabled
+                    </span>
                   </label>
                   <label className="flex items-center">
                     <input
@@ -589,14 +703,16 @@ export default function ComponentPlayground() {
                       onChange={(e) => setButtonLoading(e.target.checked)}
                       className="mr-2"
                     />
-                    <span className="text-sm text-gray-700 dark:text-gray-300">Loading</span>
+                    <span className="text-sm text-gray-700 dark:text-gray-300">
+                      Loading
+                    </span>
                   </label>
                 </div>
               </>
             )}
 
             {/* Card Controls */}
-            {selectedComponent === 'card' && (
+            {selectedComponent === "card" && (
               <>
                 <div>
                   <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
@@ -623,7 +739,7 @@ export default function ComponentPlayground() {
                 </div>
 
                 {/* Pricing Card Specific Controls */}
-                {selectedVariant === 'pricing' && (
+                {selectedVariant === "pricing" && (
                   <>
                     <div className="grid grid-cols-2 gap-4">
                       <div>
@@ -652,8 +768,12 @@ export default function ComponentPlayground() {
                         Features (comma separated)
                       </label>
                       <TextInput
-                        value={pricingFeatures.join(', ')}
-                        onChange={(e) => setPricingFeatures(e.target.value.split(', ').filter(f => f.trim()))}
+                        value={pricingFeatures.join(", ")}
+                        onChange={(e) =>
+                          setPricingFeatures(
+                            e.target.value.split(", ").filter((f) => f.trim())
+                          )
+                        }
                         placeholder="Feature 1, Feature 2, Feature 3"
                       />
                     </div>
@@ -661,7 +781,7 @@ export default function ComponentPlayground() {
                 )}
 
                 {/* User Card Specific Controls */}
-                {selectedVariant === 'user' && (
+                {selectedVariant === "user" && (
                   <>
                     <div className="grid grid-cols-2 gap-4">
                       <div>
@@ -709,7 +829,7 @@ export default function ComponentPlayground() {
                 )}
 
                 {/* Data Card Specific Controls */}
-                {selectedVariant === 'data' && (
+                {selectedVariant === "data" && (
                   <>
                     <div className="grid grid-cols-2 gap-4">
                       <div>
@@ -751,7 +871,9 @@ export default function ComponentPlayground() {
                         <input
                           type="number"
                           value={dataTrend}
-                          onChange={(e) => setDataTrend(parseInt(e.target.value) || 0)}
+                          onChange={(e) =>
+                            setDataTrend(parseInt(e.target.value) || 0)
+                          }
                           className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
                           placeholder="8"
                         />
@@ -763,7 +885,7 @@ export default function ComponentPlayground() {
             )}
 
             {/* Input Controls */}
-            {selectedComponent === 'input' && (
+            {selectedComponent === "input" && (
               <>
                 <div>
                   <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
@@ -776,7 +898,7 @@ export default function ComponentPlayground() {
                   />
                 </div>
 
-                {selectedVariant === 'text' && (
+                {selectedVariant === "text" && (
                   <>
                     <div>
                       <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
@@ -809,7 +931,9 @@ export default function ComponentPlayground() {
                       onChange={(e) => setInputRequired(e.target.checked)}
                       className="mr-2"
                     />
-                    <span className="text-sm text-gray-700 dark:text-gray-300">Required</span>
+                    <span className="text-sm text-gray-700 dark:text-gray-300">
+                      Required
+                    </span>
                   </label>
                 </div>
               </>
@@ -818,8 +942,8 @@ export default function ComponentPlayground() {
 
           {/* Code Section */}
           <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-600">
-            <div className="flex justify-between items-center mb-4">
-              <div className="flex items-center gap-2">
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-4">
+              <div className="flex items-center gap-2 flex-wrap">
                 <Code className="w-4 h-4 text-gray-500" />
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                   Generated Code
@@ -829,22 +953,22 @@ export default function ComponentPlayground() {
                   className="px-2 py-1 bg-gray-500 text-white rounded text-xs hover:bg-gray-600 transition-colors flex items-center gap-1"
                 >
                   <Eye className="w-3 h-3" />
-                  {showCode ? 'Hide' : 'Show'}
+                  {showCode ? "Hide" : "Show"}
                 </button>
               </div>
               <button
                 onClick={copyCode}
-                className="px-4 py-2 bg-green-500 text-white rounded-lg text-sm hover:bg-green-600 transition-colors flex items-center gap-2"
+                className="px-4 py-2 bg-green-500 w-fit text-white rounded-lg text-sm hover:bg-green-600 transition-colors flex items-center gap-2"
               >
                 <Copy className="w-4 h-4" />
-                {copiedCode || 'Copy Code'}
+                {copiedCode || "Copy Code"}
               </button>
             </div>
 
             {showCode && (
               <div className="relative">
-                <pre className="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg text-sm overflow-x-auto border border-gray-200 dark:border-gray-700">
-                  <code className="text-gray-800 dark:text-gray-200 font-mono">
+                <pre className="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg text-xs sm:text-sm overflow-x-auto border border-gray-200 dark:border-gray-700">
+                  <code className="text-gray-800 dark:text-gray-200 font-mono break-all">
                     {generateCode()}
                   </code>
                 </pre>
@@ -860,10 +984,10 @@ export default function ComponentPlayground() {
 
         {/* Preview Panel */}
         <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
-          <div className="flex justify-between items-center mb-6">
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-6">
             <div className="flex items-center gap-2">
               <Eye className="w-5 h-5 text-green-500" />
-              <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
+              <h2 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white">
                 Live Preview
               </h2>
             </div>
@@ -875,42 +999,63 @@ export default function ComponentPlayground() {
 
           {/* Preview Container */}
           <div
-            className={`min-h-[400px] rounded-lg p-8 flex items-center justify-center transition-all duration-300 ${previewMode === 'dark'
-                ? 'bg-gray-900 border border-gray-700'
-                : 'bg-gray-50 border border-gray-200'
-              }`}
+            className={`min-h-[300px] sm:min-h-[400px] rounded-lg p-4 sm:p-8 flex items-center justify-center transition-all duration-300 ${
+              previewMode === "dark"
+                ? "bg-gray-900 border border-gray-700"
+                : "bg-gray-50 border border-gray-200"
+            }`}
           >
-            <div className={previewMode === 'dark' ? 'dark' : ''}>
-              <div className="w-full max-w-sm">
-                {renderComponent()}
-              </div>
+            <div className={previewMode === "dark" ? "dark" : ""}>
+              <div className="w-full max-w-sm mx-auto">{renderComponent()}</div>
             </div>
           </div>
 
           {/* Component Info */}
-          <div className="mt-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
+          <div className="mt-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800 text-sm">
             <div className="flex items-center gap-2 mb-2">
               <Info className="w-4 h-4 text-blue-600 dark:text-blue-400" />
-              <span className="text-blue-600 dark:text-blue-400 font-medium">Component Info</span>
+              <span className="text-blue-600 dark:text-blue-400 font-medium">
+                Component Info
+              </span>
             </div>
-            <div className="text-sm text-blue-800 dark:text-blue-300">
-              <p><strong>Type:</strong> {selectedComponent.charAt(0).toUpperCase() + selectedComponent.slice(1)}</p>
-              <p><strong>Variant:</strong> {componentVariants[selectedComponent]?.[selectedVariant]?.name}</p>
-              <p><strong>Interactive:</strong> {selectedComponent === 'button' ? 'Yes (Click to test)' : selectedComponent === 'card' && selectedVariant === 'user' ? 'Yes (Click to test)' : 'Display only'}</p>
+            <div className="space-y-1 text-blue-800 dark:text-blue-300">
+              <p>
+                <strong>Type:</strong>{" "}
+                {selectedComponent.charAt(0).toUpperCase() +
+                  selectedComponent.slice(1)}
+              </p>
+              <p>
+                <strong>Variant:</strong>{" "}
+                {componentVariants[selectedComponent]?.[selectedVariant]?.name}
+              </p>
+              <p>
+                <strong>Interactive:</strong>{" "}
+                {selectedComponent === "button"
+                  ? "Yes (Click to test)"
+                  : selectedComponent === "card" && selectedVariant === "user"
+                  ? "Yes (Click to test)"
+                  : "Display only"}
+              </p>
             </div>
           </div>
 
           {/* Quick Actions */}
-          <div className="mt-6 flex gap-3 flex-wrap">
-            <SecondaryButton onClick={resetToDefaults}>
-              <div className="flex items-center gap-2">
+          <div className="mt-6 flex flex-wrap gap-3">
+            <SecondaryButton
+              onClick={resetToDefaults}
+              className="flex-1 sm:flex-none"
+            >
+              <div className="flex items-center justify-center gap-2">
                 <RotateCcw className="w-4 h-4" />
                 Reset
               </div>
             </SecondaryButton>
 
-            <SuccessButton onClick={randomizeValues}>
-              <div className="flex items-center gap-2">
+            <SuccessButton
+              onClick={randomizeValues}
+              className="flex-1 sm:flex-none"
+            >
+              <div className="flex items-center justify-center gap-2">
                 <Shuffle className="w-4 h-4" />
                 Randomize
               </div>
@@ -918,18 +1063,27 @@ export default function ComponentPlayground() {
 
             <button
               onClick={() => toggleFavorite(selectedComponent, selectedVariant)}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2 ${isFavorite(selectedComponent, selectedVariant)
-                  ? 'bg-pink-500 text-white hover:bg-pink-600'
-                  : 'bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300 hover:bg-pink-100 dark:hover:bg-pink-900/50'
-                }`}
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all flex-1 sm:flex-none flex items-center justify-center gap-2 ${
+                isFavorite(selectedComponent, selectedVariant)
+                  ? "bg-pink-500 text-white hover:bg-pink-600"
+                  : "bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300 hover:bg-pink-100 dark:hover:bg-pink-900/50"
+              }`}
             >
-              <Heart className={`w-4 h-4 ${isFavorite(selectedComponent, selectedVariant) ? 'fill-current' : ''}`} />
-              {isFavorite(selectedComponent, selectedVariant) ? 'Remove Favorite' : 'Add Favorite'}
+              <Heart
+                className={`w-4 h-4 ${
+                  isFavorite(selectedComponent, selectedVariant)
+                    ? "fill-current"
+                    : ""
+                }`}
+              />
+              {isFavorite(selectedComponent, selectedVariant)
+                ? "Remove Favorite"
+                : "Add Favorite"}
             </button>
 
             <button
               onClick={copyCode}
-              className="px-4 py-2 bg-purple-500 text-white rounded-lg text-sm hover:bg-purple-600 transition-colors flex items-center gap-2"
+              className="px-4 py-2 bg-purple-500 text-white rounded-lg text-sm hover:bg-purple-600 transition-colors flex-1 sm:flex-none flex items-center justify-center gap-2"
             >
               <Copy className="w-4 h-4" />
               Copy Code
@@ -961,13 +1115,21 @@ export default function ComponentPlayground() {
           {favorites.length === 0 ? (
             <div className="text-center py-12">
               <Heart className="w-12 h-12 text-gray-300 dark:text-gray-600 mx-auto mb-4" />
-              <p className="text-gray-500 dark:text-gray-400 mb-2">No favorite components yet</p>
-              <p className="text-sm text-gray-400 dark:text-gray-500">Click the heart icon on any component to add it to your favorites</p>
+              <p className="text-gray-500 dark:text-gray-400 mb-2">
+                No favorite components yet
+              </p>
+              <p className="text-sm text-gray-400 dark:text-gray-500">
+                Click the heart icon on any component to add it to your
+                favorites
+              </p>
             </div>
           ) : (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
               {favorites.map((favorite) => {
-                const variant = componentVariants[favorite.componentType]?.[favorite.variantKey];
+                const variant =
+                  componentVariants[favorite.componentType]?.[
+                    favorite.variantKey
+                  ];
                 if (!variant) return null;
 
                 return (
@@ -987,7 +1149,10 @@ export default function ComponentPlayground() {
                       <button
                         onClick={(e) => {
                           e.stopPropagation();
-                          toggleFavorite(favorite.componentType, favorite.variantKey);
+                          toggleFavorite(
+                            favorite.componentType,
+                            favorite.variantKey
+                          );
                         }}
                         className="text-pink-500 hover:text-pink-600 transition-colors"
                       >
@@ -995,7 +1160,9 @@ export default function ComponentPlayground() {
                       </button>
                     </div>
                     <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">
-                      {favorite.componentType.charAt(0).toUpperCase() + favorite.componentType.slice(1)} Component
+                      {favorite.componentType.charAt(0).toUpperCase() +
+                        favorite.componentType.slice(1)}{" "}
+                      Component
                     </p>
                     <p className="text-xs text-gray-400 dark:text-gray-500">
                       Added {new Date(favorite.addedAt).toLocaleDateString()}
@@ -1011,91 +1178,146 @@ export default function ComponentPlayground() {
       {/* All Variants Showcase */}
       <div className="mt-12 bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
         <div className="flex items-center gap-2 mb-6">
-          {selectedComponent === 'button' && <Square className="w-5 h-5 text-purple-500" />}
-          {selectedComponent === 'card' && <FileText className="w-5 h-5 text-purple-500" />}
-          {selectedComponent === 'input' && <Type className="w-5 h-5 text-purple-500" />}
+          {selectedComponent === "button" && (
+            <Square className="w-5 h-5 text-purple-500" />
+          )}
+          {selectedComponent === "card" && (
+            <FileText className="w-5 h-5 text-purple-500" />
+          )}
+          {selectedComponent === "input" && (
+            <Type className="w-5 h-5 text-purple-500" />
+          )}
           <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
-            All {selectedComponent.charAt(0).toUpperCase() + selectedComponent.slice(1)} Variants
+            All{" "}
+            {selectedComponent.charAt(0).toUpperCase() +
+              selectedComponent.slice(1)}{" "}
+            Variants
           </h2>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {Object.entries(componentVariants[selectedComponent] || {}).map(([key, variant]) => (
-            <div key={key} className="text-center p-4 border border-gray-200 dark:border-gray-600 rounded-lg hover:border-blue-500 dark:hover:border-blue-400 transition-colors">
-              <div className="mb-3 flex justify-center">
-                <div
-                  onClick={() => setSelectedVariant(key)}
-                  className={`cursor-pointer transition-all ${selectedVariant === key ? 'ring-2 ring-blue-500 ring-offset-2 dark:ring-offset-gray-800 rounded-lg' : ''}`}
-                >
-                  {/* Render mini version of each variant */}
-                  {selectedComponent === 'button' && (
-                    <variant.component onClick={(e) => {
-                      e.stopPropagation();
-                      setSelectedVariant(key);
-                    }}>
-                      {variant.name.split(' ')[0]}
-                    </variant.component>
-                  )}
-                  {selectedComponent === 'card' && key === 'simple' && (
-                    <div className="scale-75 origin-center">
-                      <variant.component title="Sample" description="Preview" />
-                    </div>
-                  )}
-                  {selectedComponent === 'card' && key === 'feature' && (
-                    <div className="scale-75 origin-center">
-                      <variant.component title="Feature" description="Preview" />
-                    </div>
-                  )}
-                  {selectedComponent === 'card' && key === 'pricing' && (
-                    <div className="scale-75 origin-center">
-                      <variant.component plan="Pro" price="$9" features={['Feature 1']} />
-                    </div>
-                  )}
-                  {selectedComponent === 'card' && key === 'user' && (
-                    <div className="scale-75 origin-center">
-                      <variant.component name="John" email="john@example.com" role="Developer" avatar="https://i.pravatar.cc/150?img=1" />
-                    </div>
-                  )}
-                  {selectedComponent === 'card' && key === 'data' && (
-                    <div className="scale-75 origin-center">
-                      <variant.component title="Users" value="123" icon="👥" trend={5} />
-                    </div>
-                  )}
-                  {selectedComponent === 'input' && (
-                    <div className="scale-90 origin-center">
-                      <variant.component
-                        label={variant.name}
-                        placeholder="Preview"
-                        {...(key === 'select' ? { options: [{ value: 'opt1', label: 'Option 1' }] } : {})}
-                        {...(key === 'checkbox' ? { checked: false, onChange: () => { } } : {})}
-                      />
-                    </div>
-                  )}
-                </div>
-              </div>
-              <div className="flex items-center justify-between mb-1">
-                <h3 className="font-medium text-sm text-gray-900 dark:text-white">
-                  {variant.name}
-                </h3>
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    toggleFavorite(selectedComponent, key);
-                  }}
-                  className={`p-1 rounded-full transition-all hover:scale-110 ${isFavorite(selectedComponent, key)
-                      ? 'text-pink-500 hover:text-pink-600'
-                      : 'text-gray-400 hover:text-pink-500'
+          {Object.entries(componentVariants[selectedComponent] || {}).map(
+            ([key, variant]) => (
+              <div
+                key={key}
+                className="text-center p-4 border border-gray-200 dark:border-gray-600 rounded-lg hover:border-blue-500 dark:hover:border-blue-400 transition-colors"
+              >
+                <div className="mb-3 flex justify-center">
+                  <div
+                    onClick={() => setSelectedVariant(key)}
+                    className={`cursor-pointer transition-all ${
+                      selectedVariant === key
+                        ? "ring-2 ring-blue-500 ring-offset-2 dark:ring-offset-gray-800 rounded-lg"
+                        : ""
                     }`}
-                  title={isFavorite(selectedComponent, key) ? 'Remove from favorites' : 'Add to favorites'}
-                >
-                  <Heart className={`w-4 h-4 ${isFavorite(selectedComponent, key) ? 'fill-current' : ''}`} />
-                </button>
+                  >
+                    {/* Render mini version of each variant */}
+                    {selectedComponent === "button" && (
+                      <variant.component
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setSelectedVariant(key);
+                        }}
+                      >
+                        {variant.name.split(" ")[0]}
+                      </variant.component>
+                    )}
+                    {selectedComponent === "card" && key === "simple" && (
+                      <div className="scale-75 origin-center">
+                        <variant.component
+                          title="Sample"
+                          description="Preview"
+                        />
+                      </div>
+                    )}
+                    {selectedComponent === "card" && key === "feature" && (
+                      <div className="scale-75 origin-center">
+                        <variant.component
+                          title="Feature"
+                          description="Preview"
+                        />
+                      </div>
+                    )}
+                    {selectedComponent === "card" && key === "pricing" && (
+                      <div className="scale-75 origin-center">
+                        <variant.component
+                          plan="Pro"
+                          price="$9"
+                          features={["Feature 1"]}
+                        />
+                      </div>
+                    )}
+                    {selectedComponent === "card" && key === "user" && (
+                      <div className="scale-75 origin-center">
+                        <variant.component
+                          name="John"
+                          email="john@example.com"
+                          role="Developer"
+                          avatar="https://i.pravatar.cc/150?img=1"
+                        />
+                      </div>
+                    )}
+                    {selectedComponent === "card" && key === "data" && (
+                      <div className="scale-75 origin-center">
+                        <variant.component
+                          title="Users"
+                          value="123"
+                          icon="👥"
+                          trend={5}
+                        />
+                      </div>
+                    )}
+                    {selectedComponent === "input" && (
+                      <div className="scale-90 origin-center">
+                        <variant.component
+                          label={variant.name}
+                          placeholder="Preview"
+                          {...(key === "select"
+                            ? {
+                                options: [{ value: "opt1", label: "Option 1" }],
+                              }
+                            : {})}
+                          {...(key === "checkbox"
+                            ? { checked: false, onChange: () => {} }
+                            : {})}
+                        />
+                      </div>
+                    )}
+                  </div>
+                </div>
+                <div className="flex items-center justify-between mb-1">
+                  <h3 className="font-medium text-sm text-gray-900 dark:text-white">
+                    {variant.name}
+                  </h3>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      toggleFavorite(selectedComponent, key);
+                    }}
+                    className={`p-1 rounded-full transition-all hover:scale-110 ${
+                      isFavorite(selectedComponent, key)
+                        ? "text-pink-500 hover:text-pink-600"
+                        : "text-gray-400 hover:text-pink-500"
+                    }`}
+                    title={
+                      isFavorite(selectedComponent, key)
+                        ? "Remove from favorites"
+                        : "Add to favorites"
+                    }
+                  >
+                    <Heart
+                      className={`w-4 h-4 ${
+                        isFavorite(selectedComponent, key) ? "fill-current" : ""
+                      }`}
+                    />
+                  </button>
+                </div>
+                <p className="text-xs text-gray-500 dark:text-gray-400">
+                  Click to customize
+                </p>
               </div>
-              <p className="text-xs text-gray-500 dark:text-gray-400">
-                Click to customize
-              </p>
-            </div>
-          ))}
+            )
+          )}
         </div>
       </div>
 
@@ -1103,30 +1325,34 @@ export default function ComponentPlayground() {
       <div className="mt-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl p-6 text-white">
         <div className="flex items-center gap-2 mb-4">
           <BarChart3 className="w-5 h-5" />
-          <h2 className="text-xl font-semibold">
-            Playground Stats
-          </h2>
+          <h2 className="text-xl font-semibold">Playground Stats</h2>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <div className="text-center">
             <div className="flex items-center justify-center mb-2">
               <MousePointer className="w-6 h-6 opacity-80" />
             </div>
-            <div className="text-2xl font-bold">{Object.keys(componentVariants.button).length}</div>
+            <div className="text-2xl font-bold">
+              {Object.keys(componentVariants.button).length}
+            </div>
             <div className="text-sm opacity-80">Button Types</div>
           </div>
           <div className="text-center">
             <div className="flex items-center justify-center mb-2">
               <CreditCard className="w-6 h-6 opacity-80" />
             </div>
-            <div className="text-2xl font-bold">{Object.keys(componentVariants.card).length}</div>
+            <div className="text-2xl font-bold">
+              {Object.keys(componentVariants.card).length}
+            </div>
             <div className="text-sm opacity-80">Card Types</div>
           </div>
           <div className="text-center">
             <div className="flex items-center justify-center mb-2">
               <Type className="w-6 h-6 opacity-80" />
             </div>
-            <div className="text-2xl font-bold">{Object.keys(componentVariants.input).length}</div>
+            <div className="text-2xl font-bold">
+              {Object.keys(componentVariants.input).length}
+            </div>
             <div className="text-sm opacity-80">Input Types</div>
           </div>
           <div className="text-center">
