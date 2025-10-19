@@ -1,11 +1,24 @@
 @import "tailwindcss";
 
-
-
 .theme-loading {
   animation: theme-pulse 1s ease-in-out infinite;
 }
 
+/* Mobile menu animation */
+@keyframes fade-in-down {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-down {
+  animation: fade-in-down 0.3s ease-out;
+}
 
 /* hide scrollbar */
 ::-webkit-scrollbar {
