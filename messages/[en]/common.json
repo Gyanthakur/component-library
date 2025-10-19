@@ -1,0 +1,11 @@
+{
+     "navigation": {
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact",
+    "components": "Components",
+    "playground": "🎮 Playground",
+    "analytics": "Analytics",
+    "feedback": "Feedback"
+  }
+}

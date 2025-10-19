@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import ThemeToggle from './ThemeToggle';
 import LanguageSwitcher from '../components/LanguageSwitcher';
+import { useTranslations } from "next-intl";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -21,6 +22,8 @@ const navLinks = [
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
+
+  const t = useTranslations('common.navigation')
 
   const isActive = (path) => pathname === path;
 
@@ -48,7 +51,7 @@ const Navbar = () => {
                   }`}
                 tabIndex={0}
               >
-                <span>{link.label}</span>
+                <span>{t(link.label.toLowerCase())}</span>
                 {isActive(link.href) && (
                   <span className="absolute left-2 right-2 -bottom-1 h-[3px] rounded-full bg-gradient-to-r from-blue-500 to-violet-500 dark:from-blue-400 dark:to-violet-400"></span>
                 )}
