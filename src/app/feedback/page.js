@@ -232,7 +232,7 @@ export default function FeedbackPage() {
               <div className="space-y-3">
                 <a
                   href="mailto:gps.96169@gmail.com"
-                  className="w-full inline-flex justify-center px-4 py-2 border border-gray-200 rounded-md text-sm font-medium text-theme-secondary hover:bg-gray-50"
+                  className="w-full inline-flex justify-center px-4 py-2 border border-gray-200 rounded-md text-sm font-medium text-theme-secondary hover:scale-106"
                 >
                   📧 Email Support
                 </a>
@@ -241,7 +241,7 @@ export default function FeedbackPage() {
                   href="https://discord.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full inline-flex justify-center px-4 py-2 border border-gray-200 rounded-md text-sm font-medium text-theme-secondary hover:bg-gray-50"
+                  className="w-full inline-flex justify-center px-4 py-2 border border-gray-200 rounded-md text-sm font-medium text-theme-secondary hover:scale-106"
                 >
                   💬 Discord Community
                 </a>
@@ -250,7 +250,7 @@ export default function FeedbackPage() {
                   href="https://github.com/Gyanthakur/component-library"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full inline-flex justify-center px-4 py-2 border border-gray-200 rounded-md text-sm font-medium text-theme-secondary hover:bg-gray-50"
+                  className="w-full inline-flex justify-center px-4 py-2 border border-gray-200 rounded-md text-sm font-medium text-theme-secondary hover:scale-106"
                 >
                   🐙 GitHub Issues
                 </a>
