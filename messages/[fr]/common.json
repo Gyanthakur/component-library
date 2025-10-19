@@ -1,0 +1,12 @@
+
+{
+    "navigation": {
+    "home": "Accueil",
+    "about": "À propos",
+    "contact": "Contact",
+    "components": "Composants",
+    "playground": "🎮 Bac à sable",
+    "analytics": "Analytique",
+    "feedback": "Retour d'information"
+  }
+}

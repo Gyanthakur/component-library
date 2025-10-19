@@ -1,0 +1,11 @@
+{
+    "navigation": {
+    "home": "Inicio",
+    "about": "Acerca de",
+    "contact": "Contacto",
+    "components": "Componentes",
+    "playground": "🎮 Zona de juegos",
+    "analytics": "Analíticas",
+    "feedback": "Retroalimentación"
+  }
+}

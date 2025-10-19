@@ -3,7 +3,7 @@ import { getRequestConfig } from "next-intl/server";
 import { cookies } from "next/headers";
 
 // Define which locales you support
-const supportedLocales = ["en", "fr"] as const;
+const supportedLocales = ["en", "fr","es","hi"] as const;
 type Locale = (typeof supportedLocales)[number];
 
 // Build a static import map for all translations
@@ -13,9 +13,19 @@ const messagesMap: Record<
 > = {
   en: {
     homepage: () => import("../../messages/[en]/homepage.json"),
+    common: () => import("../../messages/[en]/common.json"),
   },
   fr: {
     homepage: () => import("../../messages/[fr]/homepage.json"),
+    common: () => import("../../messages/[fr]/common.json"),  
+  },
+  es: {
+    homepage: () => import("../../messages/[es]/homepage.json"),
+    common: () => import("../../messages/[es]/common.json"),
+  },
+  hi: {
+    homepage: () => import("../../messages/[hi]/homepage.json"),
+    common: () => import("../../messages/[hi]/common.json"),
   }
 };
 
