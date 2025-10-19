@@ -23,23 +23,23 @@ export const getTranslatedNavLinks = (t) => [
 export const getTranslatedFeatures = (t) => [
   {
     icon: "🚀",
-    title: t('homepage.features_title'),
-    description: t('homepage.features_description'),
+    title: t('features_title'),
+    description: t('features_description'),
   },
   {
     icon: "🎨",
-    title: t('homepage.themes_title'),
-    description: t('homepage.themes_description'),
+    title: t('themes_title'),
+    description: t('themes_description'),
   },
   {
     icon: "⚙️",
-    title: t('homepage.apis_title'),
-    description: t('homepage.apis_description'),
+    title: t('apis_title'),
+    description: t('apis_description'),
   },
   {
     icon: "📚",
-    title: t('homepage.documentation_title'),
-    description: t('homepage.documentation_description'),
+    title: t('documentation_title'),
+    description: t('documentation_description'),
   },
 ];
 
@@ -51,21 +51,21 @@ export const getTranslatedFeatures = (t) => [
 export const getTranslatedUsageSteps = (t) => [
   {
     step: 1,
-    title: t('homepage.getting_started_step_1_title'),
-    description: t('homepage.getting_started_step_1_description'),
-    code: t('homepage.getting_started_step_1_code'),
+    title: t('getting_started_step_one_title'),
+    description: t('getting_started_step_one_description'),
+    code: t('getting_started_step_one_code'),
   },
   {
     step: 2,
-    title: t('homepage.getting_started_step_2_title'),
-    description: t('homepage.getting_started_step_2_description'),
-    code: t('homepage.getting_started_step_2_code'),
+    title: t('getting_started_step_2_title'),
+    description: t('getting_started_step_2_description'),
+    code: t('getting_started_step_two_code'),
   },
   {
     step: 3,
-    title: t('homepage.getting_started_step_3_title'),
-    description: t('homepage.getting_started_step_3_description'),
-    code: t('homepage.getting_started_step_3_code'),
+    title: t('getting_started_step_3_title'),
+    description: t('getting_started_step_3_description'),
+    code: t('getting_started_step_3_code'),
   },
 ];
 
@@ -75,7 +75,7 @@ export const getTranslatedUsageSteps = (t) => [
  * @returns {Array} translated features
  */
 export const getTranslatedPricingFeatures = (t) => [
-  t('homepage.pricing_card_features.0'),
-  t('homepage.pricing_card_features.1'),
-  t('homepage.pricing_card_features.2'),
+  t('pricing_card_features.0'),
+  t('pricing_card_features.1'),
+  t('pricing_card_features.2'),
 ];
