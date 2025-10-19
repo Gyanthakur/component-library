@@ -21,6 +21,7 @@
     "motion": "^12.23.22",
     "next": "15.5.4",
     "next-i18next": "^15.3.0",
+    "next-intl": "^4.3.12",
     "react": "19.1.0",
     "react-chartjs-2": "^5.3.0",
     "react-dom": "19.1.0",

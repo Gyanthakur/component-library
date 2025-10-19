@@ -5,16 +5,30 @@ import { AnalyticsProvider } from "./context/AnalyticsContext";
 import { I18nProvider } from "./context/I18nContext";
 import Footer from "./pages/Footer";
 import BackToTopButton from "./components/navigation/BackToTopButton";
+import {NextIntlClientProvider} from 'next-intl';
+import { getLocale, getMessages } from 'next-intl/server';
 
 export const metadata = {
   title: "Open Source Component Library",
   description: "Demo of reusable components (Buttons & Cards)",
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const locale = await getLocale();
+  const dir = getDirection(locale);
+
+  const messages = await getMessages(locale);
+  
+  function getDirection(locale) {
+    const rtlLanguages = ['ar', 'he', 'fa', 'ur'];
+    return rtlLanguages.includes(locale) ? 'rtl' : 'ltr';
+  }
   return (
-    <html lang="en">
+
+
+    <html lang={locale} dir={dir}>
       <body className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+        <NextIntlClientProvider messages={messages} locale={locale}>
         <I18nProvider>
           <ThemeProvider>
             <AnalyticsProvider>
@@ -39,6 +53,7 @@ export default function RootLayout({ children }) {
           </ThemeProvider>
         </I18nProvider>
          <BackToTopButton />
+        </NextIntlClientProvider>
       </body>
     </html>
   );
