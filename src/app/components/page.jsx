@@ -4,6 +4,7 @@ import { Search, SparklesIcon, X } from "lucide-react";
 
 import { useAnalytics } from "../context/AnalyticsContext";
 import { useTheme } from "../context/ThemeContext";
+
 // Button Imports
 // import PrimaryButton from '@/components/buttons/PrimaryButton'
 // import SecondaryButton from '@/components/buttons/SecondaryButton'
@@ -32,6 +33,8 @@ import PrimaryButton from "./buttons/PrimaryButton";
 import SecondaryButton from "./buttons/SecondaryButton";
 import GhostButton from "./buttons/GhostButton";
 import IconButton from "./buttons/IconButton";
+import NeonButton from "./buttons/NeonButton";
+import GradientButton from "./buttons/GradientButton";
 
 import OutlineButton from "./buttons/OutlineButton";
 import DangerButton from "./buttons/DangerButton";
@@ -42,10 +45,12 @@ import ImageCard from "./cards/ImageCard";
 import FeatureCard from "./cards/FeatureCard";
 import PricingCard from "./cards/PricingCard";
 import DataCard from "./cards/DataCard";
+import SmartCard from "./cards/SmartCard";
 // Inputs
 import TextInput from "./inputs/TextInput";
 import Select from "./inputs/Select";
 import Checkbox from "./inputs/Checkbox";
+import PasswordInput from "./inputs/PasswordInput";
 // Nav
 import Tabs from "./navigation/Tabs";
 import Breadcrumb from "./navigation/Breadcrumb";
@@ -182,6 +187,19 @@ export default function Page() {
         keywords: ["primary", "main", "action", "cta"],
         desc: "Used for Main Actions",
       },
+       {
+    name: "Gradient Button",
+    component: <GradientButton>Gradient</GradientButton>,
+    keywords: ["gradient", "colorful", "bright", "cta"],
+    desc: "Vibrant gradient button with hover scaling and loading spinner",
+  },
+{
+  name: "Neon Button",
+  component: <NeonButton>Neon</NeonButton>,
+  keywords: ["neon", "glow", "bright", "futuristic"],
+  desc: "Glowing futuristic button with loading spinner and hover scaling",
+},
+
       {
         name: "Secondary Button",
         component: <SecondaryButton>Secondary</SecondaryButton>,
@@ -243,6 +261,19 @@ export default function Page() {
         keywords: ["simple", "basic", "minimal"],
       },
       {
+  name: "Smart Card",
+  component: (
+    <SmartCard
+      title="Smart Card"
+      description="A modern card with gradient background, hover effects, and optional footer."
+      footer={<PrimaryButton>Action</PrimaryButton>}
+      imageSrc="https://tse2.mm.bing.net/th/id/OIP.JRfh9R3XUoRd3vhgT3rEFwHaEn?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3"
+    />
+  ),
+  keywords: ["smart", "gradient", "card", "hover", "footer", "image"],
+},
+
+      {
         name: "Image Card",
         component: (
           <ImageCard title="Image Card" description="Card with SVG image." />
@@ -284,6 +315,12 @@ export default function Page() {
         component: <TextInput label="Sample Input" placeholder="Enter text" />,
         keywords: ["text", "input", "field", "form"],
       },
+      {
+  name: "Password Input",
+  component: <PasswordInput value="" onChange={() => {}} placeholder="Enter password" />,
+  keywords: ["password", "input", "field", "form", "show", "hide"],
+},
+
       {
         name: "Select",
         component: <Select label="Sample Select" options={selectOptions} />,

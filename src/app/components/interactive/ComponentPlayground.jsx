@@ -98,6 +98,10 @@ export default function ComponentPlayground() {
   const [previewMode, setPreviewMode] = useState("light");
   const [showCode, setShowCode] = useState(true);
 
+  // Favorites System
+  const [favorites, setFavorites] = useState([]);
+  const [showFavorites, setShowFavorites] = useState(false);
+
   // Component variants mapping
   const componentVariants = {
     button: {
@@ -345,6 +349,65 @@ export default function ComponentPlayground() {
     }
   }, [selectedComponent]);
 
+  // Load favorites from localStorage on mount
+  useEffect(() => {
+    try {
+      const savedFavorites = localStorage.getItem("componentFavorites");
+      if (savedFavorites) {
+        setFavorites(JSON.parse(savedFavorites));
+      }
+    } catch (error) {
+      console.error("Error loading favorites:", error);
+    }
+  }, []);
+
+  // Save favorites to localStorage whenever favorites change
+  useEffect(() => {
+    try {
+      localStorage.setItem("componentFavorites", JSON.stringify(favorites));
+    } catch (error) {
+      console.error("Error saving favorites:", error);
+    }
+  }, [favorites]);
+
+  // Favorites functionality
+  const toggleFavorite = (componentType, variantKey) => {
+    const favoriteId = `${componentType}-${variantKey}`;
+    const variant = componentVariants[componentType]?.[variantKey];
+
+    if (!variant) return;
+
+    setFavorites((prev) => {
+      const existingIndex = prev.findIndex((fav) => fav.id === favoriteId);
+
+      if (existingIndex >= 0) {
+        // Remove from favorites
+        return prev.filter((fav) => fav.id !== favoriteId);
+      } else {
+        // Add to favorites
+        return [
+          ...prev,
+          {
+            id: favoriteId,
+            componentType,
+            variantKey,
+            name: variant.name,
+            addedAt: new Date().toISOString(),
+          },
+        ];
+      }
+    });
+  };
+
+  const isFavorite = (componentType, variantKey) => {
+    const favoriteId = `${componentType}-${variantKey}`;
+    return favorites.some((fav) => fav.id === favoriteId);
+  };
+
+  const clearAllFavorites = () => {
+    setFavorites([]);
+  };
+
   // Render current component
   const renderComponent = () => {
     const variant = componentVariants[selectedComponent]?.[selectedVariant];
@@ -446,11 +509,11 @@ export default function ComponentPlayground() {
   return (
     <div className="max-w-7xl mx-auto p-6">
       <div className="text-center mb-8">
-        <div className="flex items-center justify-center gap-3 mb-4">
+        <div className="flex lg:flex-row flex-col items-center justify-center gap-3 mb-4">
           <div className="p-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl">
             <Palette className="w-8 h-8 text-white" />
           </div>
-          <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          <h1 className="md:text-4xl text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
             Advanced Component Playground
           </h1>
         </div>
@@ -461,7 +524,7 @@ export default function ComponentPlayground() {
 
       {/* Top Controls */}
       <div className="mb-8 bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
-        <div className="grid md:grid-cols-3 gap-4">
+        <div className="grid md:grid-cols-4 gap-4">
           {/* Component Type */}
           <div>
             <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
@@ -531,20 +594,40 @@ export default function ComponentPlayground() {
               </button>
             </div>
           </div>
+
+          {/* Favorites Toggle */}
+          <div>
+            <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
+              My Favorites ({favorites.length})
+            </label>
+            <button
+              onClick={() => setShowFavorites(!showFavorites)}
+              className={`w-full px-3 py-2 rounded-lg text-sm font-medium transition-all flex items-center justify-center gap-2 ${
+                showFavorites
+                  ? "bg-pink-500 text-white"
+                  : "bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300"
+              }`}
+            >
+              <Heart
+                className={`w-4 h-4 ${showFavorites ? "fill-current" : ""}`}
+              />
+              {showFavorites ? "Hide Favorites" : "Show Favorites"}
+            </button>
+          </div>
         </div>
       </div>
 
-      <div className="grid lg:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Controls Panel */}
         <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
-          <div className="flex justify-between items-center mb-6">
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-6">
             <div className="flex items-center gap-2">
               <Settings className="w-5 h-5 text-blue-500" />
-              <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
+              <h2 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white">
                 Customization Controls
               </h2>
             </div>
-            <div className="flex gap-2">
+            <div className="flex flex-wrap gap-2">
               <button
                 onClick={resetToDefaults}
                 className="px-3 py-1 bg-gray-500 text-white rounded-lg text-sm hover:bg-gray-600 transition-colors flex items-center gap-1"
@@ -857,8 +940,8 @@ export default function ComponentPlayground() {
 
           {/* Code Section */}
           <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-600">
-            <div className="flex justify-between items-center mb-4">
-              <div className="flex items-center gap-2">
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-4">
+              <div className="flex items-center gap-2 flex-wrap">
                 <Code className="w-4 h-4 text-gray-500" />
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                   Generated Code
@@ -873,7 +956,7 @@ export default function ComponentPlayground() {
               </div>
               <button
                 onClick={copyCode}
-                className="px-4 py-2 bg-green-500 text-white rounded-lg text-sm hover:bg-green-600 transition-colors flex items-center gap-2"
+                className="px-4 py-2 bg-green-500 w-fit text-white rounded-lg text-sm hover:bg-green-600 transition-colors flex items-center gap-2"
               >
                 <Copy className="w-4 h-4" />
                 {copiedCode || "Copy Code"}
@@ -882,8 +965,8 @@ export default function ComponentPlayground() {
 
             {showCode && (
               <div className="relative">
-                <pre className="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg text-sm overflow-x-auto border border-gray-200 dark:border-gray-700">
-                  <code className="text-gray-800 dark:text-gray-200 font-mono">
+                <pre className="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg text-xs sm:text-sm overflow-x-auto border border-gray-200 dark:border-gray-700">
+                  <code className="text-gray-800 dark:text-gray-200 font-mono break-all">
                     {generateCode()}
                   </code>
                 </pre>
@@ -899,10 +982,10 @@ export default function ComponentPlayground() {
 
         {/* Preview Panel */}
         <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
-          <div className="flex justify-between items-center mb-6">
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-6">
             <div className="flex items-center gap-2">
               <Eye className="w-5 h-5 text-green-500" />
-              <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
+              <h2 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white">
                 Live Preview
               </h2>
             </div>
@@ -926,7 +1009,7 @@ export default function ComponentPlayground() {
           </div>
 
           {/* Component Info */}
-          <div className="mt-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
+          <div className="mt-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800 text-sm">
             <div className="flex items-center gap-2 mb-2">
               <Info className="w-4 h-4 text-blue-600 dark:text-blue-400" />
               <span className="text-blue-600 dark:text-blue-400 font-medium">
@@ -955,9 +1038,12 @@ export default function ComponentPlayground() {
           </div>
 
           {/* Quick Actions */}
-          <div className="mt-6 flex gap-3 flex-wrap">
-            <SecondaryButton onClick={resetToDefaults}>
-              <div className="flex items-center gap-2">
+          <div className="mt-6 flex flex-wrap gap-3">
+            <SecondaryButton
+              onClick={resetToDefaults}
+              className="flex-1 sm:flex-none"
+            >
+              <div className="flex items-center justify-center gap-2">
                 <RotateCcw className="w-4 h-4" />
                 Reset
               </div>
@@ -971,8 +1057,28 @@ export default function ComponentPlayground() {
             </SuccessButton>
 
             <button
+              onClick={() => toggleFavorite(selectedComponent, selectedVariant)}
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all flex-1 sm:flex-none flex items-center justify-center gap-2 ${
+                isFavorite(selectedComponent, selectedVariant)
+                  ? "bg-pink-500 text-white hover:bg-pink-600"
+                  : "bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300 hover:bg-pink-100 dark:hover:bg-pink-900/50"
+              }`}
+            >
+              <Heart
+                className={`w-4 h-4 ${
+                  isFavorite(selectedComponent, selectedVariant)
+                    ? "fill-current"
+                    : ""
+                }`}
+              />
+              {isFavorite(selectedComponent, selectedVariant)
+                ? "Remove Favorite"
+                : "Add Favorite"}
+            </button>
+
+            <button
               onClick={copyCode}
-              className="px-4 py-2 bg-purple-500 text-white rounded-lg text-sm hover:bg-purple-600 transition-colors flex items-center gap-2"
+              className="px-4 py-2 bg-purple-500 text-white rounded-lg text-sm hover:bg-purple-600 transition-colors flex-1 sm:flex-none flex items-center justify-center gap-2"
             >
               <Copy className="w-4 h-4" />
               Copy Code
@@ -980,6 +1086,89 @@ export default function ComponentPlayground() {
           </div>
         </div>
       </div>
+
+      {/* Favorites Section */}
+      {showFavorites && (
+        <div className="mt-12 bg-gradient-to-br from-pink-50 to-rose-50 dark:from-pink-900/20 dark:to-rose-900/20 rounded-xl p-6 shadow-lg border border-pink-200 dark:border-pink-800">
+          <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center gap-2">
+              <Heart className="w-5 h-5 text-pink-500 fill-current" />
+              <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
+                My Favorite Components ({favorites.length})
+              </h2>
+            </div>
+            {favorites.length > 0 && (
+              <button
+                onClick={clearAllFavorites}
+                className="px-3 py-1 text-sm text-pink-600 dark:text-pink-400 hover:text-pink-800 dark:hover:text-pink-300 transition-colors"
+              >
+                Clear All
+              </button>
+            )}
+          </div>
+
+          {favorites.length === 0 ? (
+            <div className="text-center py-12">
+              <Heart className="w-12 h-12 text-gray-300 dark:text-gray-600 mx-auto mb-4" />
+              <p className="text-gray-500 dark:text-gray-400 mb-2">
+                No favorite components yet
+              </p>
+              <p className="text-sm text-gray-400 dark:text-gray-500">
+                Click the heart icon on any component to add it to your
+                favorites
+              </p>
+            </div>
+          ) : (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+              {favorites.map((favorite) => {
+                const variant =
+                  componentVariants[favorite.componentType]?.[
+                    favorite.variantKey
+                  ];
+                if (!variant) return null;
+
+                return (
+                  <div
+                    key={favorite.id}
+                    className="p-4 bg-white dark:bg-gray-800 rounded-lg border border-pink-200 dark:border-pink-700 hover:border-pink-300 dark:hover:border-pink-600 transition-colors cursor-pointer"
+                    onClick={() => {
+                      setSelectedComponent(favorite.componentType);
+                      setSelectedVariant(favorite.variantKey);
+                      setShowFavorites(false);
+                    }}
+                  >
+                    <div className="flex items-center justify-between mb-2">
+                      <h3 className="font-medium text-sm text-gray-900 dark:text-white">
+                        {favorite.name}
+                      </h3>
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          toggleFavorite(
+                            favorite.componentType,
+                            favorite.variantKey
+                          );
+                        }}
+                        className="text-pink-500 hover:text-pink-600 transition-colors"
+                      >
+                        <Heart className="w-4 h-4 fill-current" />
+                      </button>
+                    </div>
+                    <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">
+                      {favorite.componentType.charAt(0).toUpperCase() +
+                        favorite.componentType.slice(1)}{" "}
+                      Component
+                    </p>
+                    <p className="text-xs text-gray-400 dark:text-gray-500">
+                      Added {new Date(favorite.addedAt).toLocaleDateString()}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </div>
+      )}
 
       {/* All Variants Showcase */}
       <div className="mt-12 bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
@@ -1139,10 +1328,10 @@ export default function ComponentPlayground() {
           </div>
           <div className="text-center">
             <div className="flex items-center justify-center mb-2">
-              <Sparkles className="w-6 h-6 opacity-80" />
+              <Heart className="w-6 h-6 opacity-80" />
             </div>
-            <div className="text-2xl font-bold">∞</div>
-            <div className="text-sm opacity-80">Customizations</div>
+            <div className="text-2xl font-bold">{favorites.length}</div>
+            <div className="text-sm opacity-80">Favorites</div>
           </div>
         </div>
       </div>
