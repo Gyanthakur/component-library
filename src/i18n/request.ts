@@ -14,18 +14,22 @@ const messagesMap: Record<
   en: {
     homepage: () => import("../../messages/[en]/homepage.json"),
     common: () => import("../../messages/[en]/common.json"),
+    about: () => import("../../messages/[en]/about.json"),
   },
   fr: {
     homepage: () => import("../../messages/[fr]/homepage.json"),
-    common: () => import("../../messages/[fr]/common.json"),  
+    common: () => import("../../messages/[fr]/common.json"),
+    about: () => import("../../messages/[fr]/about.json"),  
   },
   es: {
     homepage: () => import("../../messages/[es]/homepage.json"),
     common: () => import("../../messages/[es]/common.json"),
+    about: () => import("../../messages/[es]/about.json"),
   },
   hi: {
     homepage: () => import("../../messages/[hi]/homepage.json"),
     common: () => import("../../messages/[hi]/common.json"),
+    about: () => import("../../messages/[hi]/about.json"),
   }
 };
 

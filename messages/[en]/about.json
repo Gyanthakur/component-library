@@ -1,0 +1,129 @@
+{
+  "title": "About MyLibrary",
+  "description": "MyLibrary is a comprehensive component library built with Next.js and Tailwind CSS, designed to provide developers with reusable, accessible, and beautifully designed UI components. Our goal is to accelerate development workflows and maintain design consistency across projects.",
+  "overview": {
+    "components": "20+ Components",
+    "typescript": "TypeScript Ready",
+    "performance": "Performance Optimized"
+  },
+  "mission": {
+    "title": "Our Mission",
+    "description": "To empower developers with a robust, flexible, and beautiful component library that reduces development time while maintaining high-quality user experiences. We believe in making web development more efficient and enjoyable."
+  },
+  "vision": {
+    "title": "Our Vision",
+    "description": "To become the go-to component library for React developers, fostering a community where innovation meets practicality. We envision a world where building beautiful UIs is accessible to developers of all skill levels."
+  },
+  "features": {
+    "title": "Why Choose MyLibrary?",
+    "designSystem": {
+      "title": "Design System",
+      "description": "Consistent design tokens and theming system for cohesive user experiences."
+    },
+    "accessibility": {
+      "title": "Accessibility First",
+      "description": "Built with WCAG 2.1 guidelines and keyboard navigation support."
+    },
+    "performance": {
+      "title": "Performance",
+      "description": "Optimized bundle size with tree-shaking and minimal dependencies."
+    },
+    "devExperience": {
+      "title": "Developer Experience",
+      "description": "TypeScript support, comprehensive documentation, and excellent IDE integration."
+    },
+    "community": {
+      "title": "Community Driven",
+      "description": "Open source project with active community contributions and feedback."
+    },
+    "flexible": {
+      "title": "Flexible",
+      "description": "Customizable components that adapt to your design requirements."
+    }
+  },
+  "techStack": {
+    "title": "Tech Stack",
+    "nextjs": {
+      "title": "Next.js 14",
+      "description": "React framework with App Router"
+    },
+    "react": {
+      "title": "React 18",
+      "description": "Component-based architecture"
+    },
+    "tailwind": {
+      "title": "Tailwind CSS",
+      "description": "Utility-first styling"
+    },
+    "typescript": {
+      "title": "TypeScript",
+      "description": "Type-safe development"
+    },
+    "additionalTools": {
+      "title": "Additional Tools",
+      "eslint": "ESLint",
+      "prettier": "Prettier",
+      "lucide": "Lucide Icons",
+      "postcss": "PostCSS",
+      "git": "Git"
+    }
+  },
+  "gettingStarted": {
+    "title": "🚀 Getting Started",
+    "installation": {
+      "title": "Installation",
+      "description": "Install the library via npm or copy ready-to-use components directly."
+    },
+    "import": {
+      "title": "Import",
+      "description": "Import the components you need directly into your React project and start building faster."
+    },
+    "customize": {
+      "title": "Customize",
+      "description": "Tweak the design, colors, and behavior easily to match your own design system."
+    },
+    "cta": "View Components"
+  },
+  "contributing": {
+    "title": "Contributing",
+    "description": "We welcome contributions from the community! Whether you're fixing bugs, adding new components, or improving documentation, your help makes MyLibrary better for everyone.",
+    "submitIssues": {
+      "title": "Submit Issues",
+      "description": "Report bugs or request features on GitHub"
+    },
+    "pullRequests": {
+      "title": "Create Pull Requests",
+      "description": "Contribute code improvements and new features"
+    },
+    "documentation": {
+      "title": "Improve Documentation",
+      "description": "Help make our docs clearer and more comprehensive"
+    }
+  },
+  "community": {
+    "title": "Community",
+    "description": "Join our growing community of developers who are building amazing user interfaces with MyLibrary.",
+    "githubStars": "GitHub Stars",
+    "contributors": "Contributors",
+    "downloads": "Downloads",
+    "builtWithLove": "Built with ❤️ by the open source community"
+  },
+  "contributors": {
+    "title": "Our Contributors",
+    "thankYou": "Thank you to all the amazing developers who have contributed to making this component library better!",
+    "loading": "Loading contributors...",
+    "contributorsError": "Failed to load contributors",
+    "avatarAlt": "{login}'s avatar",
+    "contributions": "{count} contribution{count, plural, one {} other {s}}",
+    "profile": "Profile",
+    "join": "Want to join our contributors? Check out our ",
+    "githubRepo": "GitHub repository",
+    "getStarted": " to get started!"
+  },
+  "license": {
+    "title": "Open Source & Free",
+    "description": "MyLibrary is released under the MIT License, making it free to use for both personal and commercial projects.",
+    "github": "View on GitHub",
+    "contact": "Get in Touch"
+  }
+}
