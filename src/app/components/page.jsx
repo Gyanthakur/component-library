@@ -69,6 +69,8 @@ import ALertManager from "./alert/ALertManager";
 import Loader from "./loaders/Loader";
 // form Input
 
+
+
 import { DatePicker } from "./FormInput/DatePicker";
 import { FileUpload } from "./FormInput/FileUpload";
 import { FormValidation } from "./FormInput/FormValidation";
@@ -739,6 +741,25 @@ export default function Page() {
             </div>
           </section>
         )}
+{/* Racing Section */}
+<div className="relative w-full py-16 px-6 flex flex-col items-center justify-center 
+  bg-gradient-to-r from-purple-500 via-pink-500 to-orange-400
+  rounded-3xl shadow-2xl overflow-hidden my-16">
+
+  {/* Glassy overlay */}
+  <div className="absolute inset-0 bg-white/10 backdrop-blur-lg rounded-3xl border border-white/20"></div>
+
+  {/* Content */}
+  <div className="relative z-10 w-full max-w-5xl mx-auto text-center space-y-8">
+    <h2 className="text-4xl font-extrabold text-white drop-shadow-lg">
+      🏁 Game Section
+    </h2>
+
+    <section className="max-w-5xl mx-auto px-4">
+      {/* <Test /> */}
+    </section>
+  </div>
+</div>
 
         {/* Cards Section */}
         {filteredComponents.cards && (

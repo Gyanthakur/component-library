@@ -12,8 +12,10 @@ const navLinks = [
   { href: "/contact", label: "Contact" },
   { href: "/components", label: "Components" },
   { href: "/playground", label: "🎮 Playground" },
+  { href: "/game", label: "🎮 Game" },
   { href: "/analytics", label: "Analytics" },
   { href: "/feedback", label: "Feedback" },
+  {href: "/racing", label: "🏁 Racing Game" },
 ];
 
 const Navbar = () => {
