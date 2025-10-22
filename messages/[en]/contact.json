@@ -1,0 +1,78 @@
+{
+  "header": {
+    "title": "Get in Touch",
+    "description": "Have questions about our component library? Want to contribute or report a bug? We'd love to hear from you!"
+  },
+  "form": {
+    "title": "Send us a Message",
+    "success": "Thank you for your message! We'll get back to you soon.",
+    "error": "Sorry, there was an error sending your message. Please try again.",
+    "sending": "Sending...",
+    "send": "Send Message",
+    "fields": {
+      "name": {
+        "label": "Full Name *",
+        "placeholder": "Enter your full name"
+      },
+      "email": {
+        "label": "Email Address *",
+        "placeholder": "your.email@example.com"
+      },
+      "subject": {
+        "label": "Subject *",
+        "placeholder": "Select a subject",
+        "options": {
+          "bugReport": "Bug Report",
+          "featureRequest": "Feature Request",
+          "documentation": "Documentation",
+          "contribution": "Contribution",
+          "support": "General Support",
+          "other": "Other"
+        }
+      },
+      "message": {
+        "label": "Message *",
+        "placeholder": "Tell us how we can help you..."
+      }
+    }
+  },
+  "errors": {
+    "nameRequired": "Name is required",
+    "emailRequired": "Email is required",
+    "emailInvalid": "Please enter a valid email address",
+    "subjectRequired": "Subject is required",
+    "messageRequired": "Message is required",
+    "messageLength": "Message must be at least 10 characters long"
+  },
+  "info": {
+    "title": "Contact Information",
+    "email": {
+      "title": "Email"
+    },
+    "github": {
+      "title": "GitHub"
+    },
+    "linktree": {
+      "title": "Linktree",
+      "description": "Check out our Linktree for all our social links:"
+    }
+  },
+  "social": {
+    "title": "Follow Us"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "q1": {
+      "title": "How can I contribute to the library?",
+      "description": "Check out our CONTRIBUTING.md file for guidelines on how to contribute components, report bugs, or suggest improvements."
+    },
+    "q2": {
+      "title": "Is this library free to use?",
+      "description": "Yes! This component library is open source and free to use in both personal and commercial projects."
+    },
+    "q3": {
+      "title": "How do I report a bug?",
+      "description": "You can report bugs through our GitHub issues page or by using the contact form above with \"Bug Report\" as the subject."
+    }
+  }
+}
