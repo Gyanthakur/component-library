@@ -69,8 +69,8 @@ import ALertManager from "./alert/ALertManager";
 import Loader from "./loaders/Loader";
 // form Input
 
-// game 
-import Test from "./game/Racing"
+
+
 import { DatePicker } from "./FormInput/DatePicker";
 import { FileUpload } from "./FormInput/FileUpload";
 import { FormValidation } from "./FormInput/FormValidation";
@@ -756,7 +756,7 @@ export default function Page() {
     </h2>
 
     <section className="max-w-5xl mx-auto px-4">
-      <Test />
+      {/* <Test /> */}
     </section>
   </div>
 </div>
