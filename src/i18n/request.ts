@@ -15,21 +15,25 @@ const messagesMap: Record<
     homepage: () => import("../../messages/[en]/homepage.json"),
     common: () => import("../../messages/[en]/common.json"),
     about: () => import("../../messages/[en]/about.json"),
+    contact: () => import("../../messages/[en]/contact.json"),
   },
   fr: {
     homepage: () => import("../../messages/[fr]/homepage.json"),
     common: () => import("../../messages/[fr]/common.json"),
-    about: () => import("../../messages/[fr]/about.json"),  
+    about: () => import("../../messages/[fr]/about.json"),
+    contact: () => import("../../messages/[fr]/contact.json"),
   },
   es: {
     homepage: () => import("../../messages/[es]/homepage.json"),
     common: () => import("../../messages/[es]/common.json"),
     about: () => import("../../messages/[es]/about.json"),
+    contact: () => import("../../messages/[es]/contact.json"),
   },
   hi: {
     homepage: () => import("../../messages/[hi]/homepage.json"),
     common: () => import("../../messages/[hi]/common.json"),
     about: () => import("../../messages/[hi]/about.json"),
+    contact: () => import("../../messages/[hi]/contact.json"),
   }
 };
 
