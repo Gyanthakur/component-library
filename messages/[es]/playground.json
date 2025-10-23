@@ -1,3 +1,219 @@
 {
-    
+  "title": "Zona avanzada de componentes",
+  "subtitle": "¡Personaliza componentes en tiempo real y exporta código listo para producción!",
+  
+  "controls": {
+    "componentType": "Tipo de componente",
+    "variant": "Variante",
+    "previewMode": "Modo de vista previa",
+    "myFavorites": "Mis favoritos ({count})",
+    "customizationControls": "Controles de personalización",
+    "reset": "Restablecer",
+    "random": "Aleatorio",
+    "showFavorites": "Mostrar favoritos",
+    "hideFavorites": "Ocultar favoritos"
+  },
+  
+  "componentTypes": {
+    "buttons": "Botones",
+    "cards": "Tarjetas",
+    "inputs": "Entradas"
+  },
+  
+  "buttonVariants": {
+    "primary": "Botón principal",
+    "secondary": "Botón secundario",
+    "danger": "Botón de peligro",
+    "success": "Botón de éxito",
+    "ghost": "Botón fantasma",
+    "outline": "Botón con borde",
+    "rainbow": "Botón arcoíris"
+  },
+  
+  "cardVariants": {
+    "simple": "Tarjeta simple",
+    "feature": "Tarjeta de función",
+    "pricing": "Tarjeta de precios",
+    "user": "Tarjeta de usuario",
+    "data": "Tarjeta de datos"
+  },
+  
+  "inputVariants": {
+    "text": "Entrada de texto",
+    "select": "Menú desplegable",
+    "checkbox": "Casilla de verificación"
+  },
+  
+  "buttonControls": {
+    "buttonText": "Texto del botón",
+    "buttonSize": "Tamaño del botón",
+    "sizes": {
+      "small": "Pequeño",
+      "medium": "Mediano",
+      "large": "Grande"
+    },
+    "disabled": "Desactivado",
+    "loading": "Cargando",
+    "loadingText": "⏳ Cargando..."
+  },
+  
+  "cardControls": {
+    "cardTitle": "Título de la tarjeta",
+    "cardDescription": "Descripción de la tarjeta",
+    "cardTitlePlaceholder": "Introduce el título de la tarjeta",
+    "cardDescriptionPlaceholder": "Introduce la descripción de la tarjeta"
+  },
+  
+  "pricingControls": {
+    "planName": "Nombre del plan",
+    "price": "Precio",
+    "features": "Características (separadas por comas)",
+    "planPlaceholder": "por ejemplo, Pro",
+    "pricePlaceholder": "por ejemplo, $9/mes",
+    "featuresPlaceholder": "Característica 1, Característica 2, Característica 3"
+  },
+  
+  "userCardControls": {
+    "userName": "Nombre del usuario",
+    "email": "Correo electrónico",
+    "role": "Rol",
+    "avatarUrl": "URL del avatar",
+    "userNamePlaceholder": "John Doe",
+    "emailPlaceholder": "john@example.com",
+    "rolePlaceholder": "Ingeniero de software",
+    "avatarPlaceholder": "https://i.pravatar.cc/150?img=1"
+  },
+  
+  "dataCardControls": {
+    "dataTitle": "Título de datos",
+    "value": "Valor",
+    "icon": "Icono (Emoji)",
+    "trend": "Tendencia (%)",
+    "dataTitlePlaceholder": "Proyectos activos",
+    "valuePlaceholder": "27",
+    "iconPlaceholder": "📂",
+    "trendPlaceholder": "8"
+  },
+  
+  "inputControls": {
+    "label": "Etiqueta",
+    "placeholder": "Texto del marcador de posición",
+    "errorMessage": "Mensaje de error (opcional)",
+    "required": "Requerido",
+    "labelPlaceholder": "Introduce la etiqueta del campo",
+    "placeholderPlaceholder": "Introduce el texto del marcador",
+    "errorPlaceholder": "Introduce el mensaje de error"
+  },
+  
+  "codeSection": {
+    "generatedCode": "Código generado",
+    "show": "Mostrar",
+    "hide": "Ocultar",
+    "copyCode": "Copiar código",
+    "copied": "✅ ¡Copiado!",
+    "failedToCopy": "❌ Error al copiar",
+    "language": "React JSX"
+  },
+  
+  "preview": {
+    "livePreview": "Vista previa en vivo",
+    "componentInfo": "Información del componente",
+    "type": "Tipo",
+    "variant": "Variante",
+    "interactive": "Interactivo",
+    "clickToTest": "Sí (Haz clic para probar)",
+    "displayOnly": "Solo mostrar",
+    "light": "Claro",
+    "dark": "Oscuro"
+  },
+  
+  "favorites": {
+    "title": "Mis componentes favoritos ({count})",
+    "clearAll": "Borrar todo",
+    "noFavorites": "Aún no hay componentes favoritos",
+    "noFavoritesDesc": "Haz clic en el ícono del corazón en cualquier componente para agregarlo a tus favoritos",
+    "addFavorite": "Agregar a favoritos",
+    "removeFavorite": "Eliminar de favoritos",
+    "addedDate": "Añadido el {date}",
+    "componentSuffix": "Componente",
+    "addToFavorites": "Agregar a favoritos",
+    "removeFromFavorites": "Eliminar de favoritos"
+  },
+  
+  "showcase": {
+    "allVariants": "Todas las variantes de {type}",
+    "clickToCustomize": "Haz clic para personalizar",
+    "preview": "Vista previa",
+    "sample": "Ejemplo"
+  },
+  
+  "stats": {
+    "title": "Estadísticas del playground",
+    "buttonTypes": "Tipos de botones",
+    "cardTypes": "Tipos de tarjetas",
+    "inputTypes": "Tipos de entradas",
+    "favorites": "Favoritos"
+  },
+  
+  "actions": {
+    "randomize": "Aleatorizar",
+    "reset": "Restablecer",
+    "copyCode": "Copiar código"
+  },
+  
+  "defaultValues": {
+    "buttonText": "Haz clic aquí",
+    "cardTitle": "Tarjeta de ejemplo",
+    "cardDescription": "Esta es una descripción de ejemplo de una tarjeta",
+    "inputLabel": "Campo de ejemplo",
+    "inputPlaceholder": "Escribe algo aquí...",
+    "checkboxDescription": "Marca esta opción",
+    "selectOptions": {
+      "option1": "Opción 1",
+      "option2": "Opción 2",
+      "option3": "Opción 3"
+    }
+  },
+  
+  "randomValues": {
+    "buttonTexts": ["Comenzar", "Aprender más", "Regístrate ahora", "Descargar", "Suscribirse", "Únete", "Prueba gratis", "Contáctanos"],
+    "cardTitles": ["Función increíble", "Servicio premium", "Nuevo producto", "Oferta especial", "Última actualización"],
+    "cardDescriptions": [
+      "Descubre funciones increíbles que transformarán tu flujo de trabajo",
+      "Experimenta calidad premium con nuestros servicios profesionales",
+      "Presentamos nuestro último producto con tecnología de punta",
+      "Oferta por tiempo limitado con beneficios exclusivos para ti",
+      "Mantente actualizado con las últimas mejoras y características"
+    ],
+    "userNames": ["Alice Johnson", "Bob Smith", "Carol Davis", "David Wilson", "Emma Brown"],
+    "userRoles": ["Desarrollador frontend", "Ingeniero backend", "Diseñador UI/UX", "Gerente de producto", "Ingeniero DevOps"],
+    "dataTitles": ["Usuarios totales", "Ingresos", "Sesiones activas", "Tasa de conversión", "Tasa de crecimiento"],
+    "dataValues": ["1,234", "$45.6K", "89%", "12.5%", "+23%"],
+    "dataIcons": ["👥", "💰", "📊", "📈", "🚀"]
+  },
+  
+  "pricing": {
+    "defaultPlan": "Pro",
+    "defaultPrice": "$9/mes",
+    "defaultFeatures": ["10 proyectos", "Soporte prioritario", "Usuarios ilimitados"]
+  },
+  
+  "userData": {
+    "defaultName": "John Doe",
+    "defaultEmail": "john@example.com",
+    "defaultRole": "Ingeniero de software"
+  },
+  
+  "dataCard": {
+    "defaultTitle": "Proyectos activos",
+    "defaultValue": "27",
+    "defaultIcon": "📂",
+    "defaultTrend": 8
+  },
+  
+  "messages": {
+    "codeCopied": "¡Código copiado al portapapeles!",
+    "copyFailed": "Error al copiar el código.",
+    "clickAlert": "¡{component} clicado!"
+  }
 }

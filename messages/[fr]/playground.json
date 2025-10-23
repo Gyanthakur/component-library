@@ -1,3 +1,219 @@
 {
-    
+  "title": "Aire de jeu avancée des composants",
+  "subtitle": "Personnalisez les composants en temps réel et exportez du code prêt pour la production !",
+  
+  "controls": {
+    "componentType": "Type de composant",
+    "variant": "Variante",
+    "previewMode": "Mode d’aperçu",
+    "myFavorites": "Mes favoris ({count})",
+    "customizationControls": "Contrôles de personnalisation",
+    "reset": "Réinitialiser",
+    "random": "Aléatoire",
+    "showFavorites": "Afficher les favoris",
+    "hideFavorites": "Masquer les favoris"
+  },
+  
+  "componentTypes": {
+    "buttons": "Boutons",
+    "cards": "Cartes",
+    "inputs": "Champs de saisie"
+  },
+  
+  "buttonVariants": {
+    "primary": "Bouton principal",
+    "secondary": "Bouton secondaire",
+    "danger": "Bouton de danger",
+    "success": "Bouton de succès",
+    "ghost": "Bouton fantôme",
+    "outline": "Bouton contour",
+    "rainbow": "Bouton arc-en-ciel"
+  },
+  
+  "cardVariants": {
+    "simple": "Carte simple",
+    "feature": "Carte de fonctionnalité",
+    "pricing": "Carte de tarification",
+    "user": "Carte utilisateur",
+    "data": "Carte de données"
+  },
+  
+  "inputVariants": {
+    "text": "Champ de texte",
+    "select": "Menu déroulant",
+    "checkbox": "Case à cocher"
+  },
+  
+  "buttonControls": {
+    "buttonText": "Texte du bouton",
+    "buttonSize": "Taille du bouton",
+    "sizes": {
+      "small": "Petit",
+      "medium": "Moyen",
+      "large": "Grand"
+    },
+    "disabled": "Désactivé",
+    "loading": "Chargement",
+    "loadingText": "⏳ Chargement..."
+  },
+  
+  "cardControls": {
+    "cardTitle": "Titre de la carte",
+    "cardDescription": "Description de la carte",
+    "cardTitlePlaceholder": "Entrez le titre de la carte",
+    "cardDescriptionPlaceholder": "Entrez la description de la carte"
+  },
+  
+  "pricingControls": {
+    "planName": "Nom du plan",
+    "price": "Prix",
+    "features": "Fonctionnalités (séparées par des virgules)",
+    "planPlaceholder": "ex : Pro",
+    "pricePlaceholder": "ex : 9€/mois",
+    "featuresPlaceholder": "Fonction 1, Fonction 2, Fonction 3"
+  },
+  
+  "userCardControls": {
+    "userName": "Nom de l’utilisateur",
+    "email": "E-mail",
+    "role": "Rôle",
+    "avatarUrl": "URL de l’avatar",
+    "userNamePlaceholder": "John Doe",
+    "emailPlaceholder": "john@example.com",
+    "rolePlaceholder": "Ingénieur logiciel",
+    "avatarPlaceholder": "https://i.pravatar.cc/150?img=1"
+  },
+  
+  "dataCardControls": {
+    "dataTitle": "Titre des données",
+    "value": "Valeur",
+    "icon": "Icône (Émoji)",
+    "trend": "Tendance (%)",
+    "dataTitlePlaceholder": "Projets actifs",
+    "valuePlaceholder": "27",
+    "iconPlaceholder": "📂",
+    "trendPlaceholder": "8"
+  },
+  
+  "inputControls": {
+    "label": "Étiquette",
+    "placeholder": "Texte de l’espace réservé",
+    "errorMessage": "Message d’erreur (optionnel)",
+    "required": "Obligatoire",
+    "labelPlaceholder": "Entrez l’étiquette du champ",
+    "placeholderPlaceholder": "Entrez le texte de l’espace réservé",
+    "errorPlaceholder": "Entrez le message d’erreur"
+  },
+  
+  "codeSection": {
+    "generatedCode": "Code généré",
+    "show": "Afficher",
+    "hide": "Masquer",
+    "copyCode": "Copier le code",
+    "copied": "✅ Copié !",
+    "failedToCopy": "❌ Échec de la copie",
+    "language": "React JSX"
+  },
+  
+  "preview": {
+    "livePreview": "Aperçu en direct",
+    "componentInfo": "Informations sur le composant",
+    "type": "Type",
+    "variant": "Variante",
+    "interactive": "Interactif",
+    "clickToTest": "Oui (Cliquez pour tester)",
+    "displayOnly": "Affichage uniquement",
+    "light": "Clair",
+    "dark": "Sombre"
+  },
+  
+  "favorites": {
+    "title": "Mes composants favoris ({count})",
+    "clearAll": "Tout effacer",
+    "noFavorites": "Aucun composant favori pour le moment",
+    "noFavoritesDesc": "Cliquez sur l’icône de cœur d’un composant pour l’ajouter à vos favoris",
+    "addFavorite": "Ajouter aux favoris",
+    "removeFavorite": "Supprimer des favoris",
+    "addedDate": "Ajouté le {date}",
+    "componentSuffix": "Composant",
+    "addToFavorites": "Ajouter aux favoris",
+    "removeFromFavorites": "Retirer des favoris"
+  },
+  
+  "showcase": {
+    "allVariants": "Toutes les variantes de {type}",
+    "clickToCustomize": "Cliquez pour personnaliser",
+    "preview": "Aperçu",
+    "sample": "Exemple"
+  },
+  
+  "stats": {
+    "title": "Statistiques de l’aire de jeu",
+    "buttonTypes": "Types de boutons",
+    "cardTypes": "Types de cartes",
+    "inputTypes": "Types de champs de saisie",
+    "favorites": "Favoris"
+  },
+  
+  "actions": {
+    "randomize": "Aléatoire",
+    "reset": "Réinitialiser",
+    "copyCode": "Copier le code"
+  },
+  
+  "defaultValues": {
+    "buttonText": "Cliquez-moi",
+    "cardTitle": "Carte d’exemple",
+    "cardDescription": "Ceci est une description d’exemple de carte",
+    "inputLabel": "Champ d’exemple",
+    "inputPlaceholder": "Entrez du texte ici...",
+    "checkboxDescription": "Cochez cette option",
+    "selectOptions": {
+      "option1": "Option 1",
+      "option2": "Option 2",
+      "option3": "Option 3"
+    }
+  },
+  
+  "randomValues": {
+    "buttonTexts": ["Commencer", "En savoir plus", "Inscrivez-vous maintenant", "Télécharger", "S’abonner", "Rejoignez-nous", "Essai gratuit", "Contactez-nous"],
+    "cardTitles": ["Fonctionnalité incroyable", "Service premium", "Nouveau produit", "Offre spéciale", "Dernière mise à jour"],
+    "cardDescriptions": [
+      "Découvrez des fonctionnalités incroyables qui transformeront votre flux de travail",
+      "Profitez d’une qualité premium grâce à nos services professionnels",
+      "Découvrez notre dernier produit avec une technologie de pointe",
+      "Offre à durée limitée avec des avantages exclusifs pour vous",
+      "Restez à jour avec les dernières améliorations et fonctionnalités"
+    ],
+    "userNames": ["Alice Johnson", "Bob Smith", "Carol Davis", "David Wilson", "Emma Brown"],
+    "userRoles": ["Développeur frontend", "Ingénieur backend", "Designer UI/UX", "Chef de produit", "Ingénieur DevOps"],
+    "dataTitles": ["Utilisateurs totaux", "Revenus", "Sessions actives", "Taux de conversion", "Taux de croissance"],
+    "dataValues": ["1 234", "45,6 K€", "89%", "12,5%", "+23%"],
+    "dataIcons": ["👥", "💰", "📊", "📈", "🚀"]
+  },
+  
+  "pricing": {
+    "defaultPlan": "Pro",
+    "defaultPrice": "9€/mois",
+    "defaultFeatures": ["10 projets", "Support prioritaire", "Utilisateurs illimités"]
+  },
+  
+  "userData": {
+    "defaultName": "John Doe",
+    "defaultEmail": "john@example.com",
+    "defaultRole": "Ingénieur logiciel"
+  },
+  
+  "dataCard": {
+    "defaultTitle": "Projets actifs",
+    "defaultValue": "27",
+    "defaultIcon": "📂",
+    "defaultTrend": 8
+  },
+  
+  "messages": {
+    "codeCopied": "Code copié dans le presse-papiers !",
+    "copyFailed": "Échec de la copie du code.",
+    "clickAlert": "{component} cliqué !"
+  }
 }
