@@ -1,3 +1,38 @@
 {
-    
+  "header": {
+    "title": "Panel de análisis de componentes",
+    "description": "Supervisa el uso de componentes, el rendimiento y la participación de los usuarios",
+    "export": "Exportar datos"
+  },
+  "overview": {
+    "totalViews": "Vistas totales",
+    "totalCopies": "Copias totales",
+    "componentsUsed": "Componentes utilizados",
+    "sessionTime": "Tiempo de sesión"
+  },
+  "popular": {
+    "title": "Componentes más populares"
+  },
+  "recent": {
+    "title": "Actividad de los últimos 7 días",
+    "today": "Hoy"
+  },
+  "performance": {
+    "title": "Información de rendimiento",
+    "avgViews": "Promedio de vistas por componente",
+    "copyRate": "Tasa de copias",
+    "viewsWeek": "Vistas esta semana"
+  },
+  "actions": {
+    "title": "Acciones rápidas",
+    "viewComponents": "Ver componentes",
+    "export": "Exportar análisis",
+    "reset": "Restablecer datos"
+  },
+  "modal": {
+    "title": "Restablecer datos analíticos",
+    "message": "Esto eliminará permanentemente todos los datos analíticos, incluidas las vistas, las copias y la información de la sesión. Esta acción no se puede deshacer.",
+    "confirm": "Restablecer datos",
+    "cancel": "Cancelar"
+  }
 }
