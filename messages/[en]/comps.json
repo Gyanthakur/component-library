@@ -1,0 +1,350 @@
+{
+  "hero": {
+    "title": "React UI Playground",
+    "description": "Beautiful, modern & responsive component demo – each below section is styled for clarity, vibrance, and accessibility."
+  },
+  "search": {
+    "placeholder": "Search components (buttons, cards, primary, etc.)",
+    "results": "Found {count} component{count, plural, one {} other {s}}{search, select, '' {} other { matching \"{search}\"}}{filter, select, all {} other { in {filter}}}",
+    "noResults": "No components found"
+  },
+  "filter": {
+    "all": "All Components",
+    "buttons": "Buttons",
+    "backgrounds": "Backgrounds",
+    "cards": "Cards",
+    "inputs": "Inputs",
+    "navigation": "Navigation",
+    "badges": "Badges"
+  },
+  "selectOptions": {
+    "option1": "Option 1",
+    "option2": "Option 2",
+    "option3": "Option 3"
+  },
+  "tabs": {
+    "dashboard": "Dashboard",
+    "dashboardContent": "Dashboard content goes here...",
+    "analytics": "Analytics",
+    "analyticsContent": "Analytics content goes here...",
+    "settings": "Settings",
+    "settingsContent": "Settings content goes here..."
+  },
+  "breadcrumb": {
+    "home": "Home",
+    "components": "Components",
+    "navigation": "Navigation",
+    "breadcrumb": "Breadcrumb"
+  },
+  "buttons": {
+    "primary": {
+      "name": "Primary Button",
+      "label": "Primary",
+      "keywords": ["primary", "main", "action", "cta"],
+      "desc": "Used for Main Actions"
+    },
+    "gradient": {
+      "name": "Gradient Button",
+      "label": "Gradient",
+      "keywords": ["gradient", "colorful", "bright", "cta"],
+      "desc": "Vibrant gradient button with hover scaling and loading spinner"
+    },
+    "neon": {
+      "name": "Neon Button",
+      "label": "Neon",
+      "keywords": ["neon", "glow", "bright", "futuristic"],
+      "desc": "Glowing futuristic button with loading spinner and hover scaling"
+    },
+    "secondary": {
+      "name": "Secondary Button",
+      "label": "Secondary",
+      "keywords": ["secondary", "alternate"],
+      "desc": "Used for secondary Actions"
+    },
+    "ghost": {
+      "name": "Ghost Button",
+      "label": "Ghost",
+      "keywords": ["ghost", "transparent", "subtle"],
+      "desc": "Used for minimal actions"
+    },
+    "outline": {
+      "name": "Outline Button",
+      "label": "Outline",
+      "keywords": ["outline", "border", "stroke"],
+      "desc": "Used for gives outline"
+    },
+    "danger": {
+      "name": "Danger Button",
+      "label": "Danger",
+      "keywords": ["danger", "error", "delete", "warning", "red"],
+      "desc": "Used for destructive actions"
+    },
+    "success": {
+      "name": "Success Button",
+      "label": "Success",
+      "keywords": ["success", "confirm", "done", "green"],
+      "desc": "Used for success actions"
+    },
+    "icon": {
+      "name": "Icon Button",
+      "label": "Icon",
+      "keywords": ["icon", "star", "symbol"],
+      "desc": "Used for icons"
+    },
+    "rainbow": {
+      "name": "Rainbow Button",
+      "label": "Rainbow",
+      "keywords": ["rainbow", "action", "colorful"],
+      "desc": "Used for call to actions"
+    },
+    "glass": {
+      "name": "Glass Button",
+      "label": "Button",
+      "keywords": ["glass", "cta", "action"],
+      "desc": "Used for any action"
+    }
+  },
+  "cards": {
+    "simple": {
+      "name": "Simple Card",
+      "title": "Simple Card",
+      "description": "A minimal card with actions.",
+      "keywords": ["simple", "basic", "minimal"]
+    },
+    "smart": {
+      "name": "Smart Card",
+      "title": "Smart Card",
+      "description": "A modern card with gradient background, hover effects, and optional footer.",
+      "footer": "Action",
+      "keywords": ["smart", "gradient", "card", "hover", "footer", "image"]
+    },
+    "image": {
+      "name": "Image Card",
+      "title": "Image Card",
+      "description": "Card with SVG image.",
+      "keywords": ["image", "picture", "visual"]
+    },
+    "feature": {
+      "name": "Feature Card",
+      "title": "Feature Card",
+      "description": "Highlight features and benefits.",
+      "keywords": ["feature", "highlight", "benefit"]
+    },
+    "pricing": {
+      "name": "Pricing Card",
+      "plan": "Pro",
+      "price": "$9/mo",
+      "features": ["10 projects", "Priority support", "Unlimited users"],
+      "keywords": ["pricing", "plan", "subscription", "price"]
+    },
+    "data": {
+      "name": "Data Card",
+      "title": "Active Projects",
+      "keywords": ["data", "stats", "analytics", "metrics"]
+    }
+  },
+  "utility": {
+    "alert": {
+      "name": "MinimalAlert",
+      "keywords": ["alert", "popup"]
+    },
+    "loaders": {
+      "name": "Loaders",
+      "simple": "Simple Loader",
+      "dual": "Dual Loader",
+      "dots": "Dots Loader",
+      "bar": "Bar Loader",
+      "keywords": ["spinner", "loader", "loading"]
+    },
+    "tooltips": {
+      "name": "Tooltips",
+      "simple": "Simple ToolTip",
+      "animated": "Animated ToolTip",
+      "refreshText": "Click to refresh",
+      "deleteText": "Delete item",
+      "keywords": ["tooltip", "popups"]
+    }
+  },
+  "inputs": {
+    "text": {
+      "name": "Text Input",
+      "label": "Sample Input",
+      "placeholder": "Enter text",
+      "keywords": ["text", "input", "field", "form"]
+    },
+    "password": {
+      "name": "Password Input",
+      "placeholder": "Enter password",
+      "keywords": ["password", "input", "field", "form", "show", "hide"],
+      "label": "Password",
+      "error": "Invalid password"
+    },
+    "select": {
+      "name": "Select",
+      "label": "Sample Select",
+      "keywords": ["select", "dropdown", "options", "choice"]
+    },
+    "checkbox": {
+      "name": "Checkbox",
+      "label": "Sample Checkbox",
+      "description": "Check this option",
+      "keywords": ["checkbox", "check", "toggle", "boolean"]
+    },
+    "loginForm": {
+      "name": "Login Form",
+      "keywords": ["login", "form", "authentication", "signin", "auth", "email", "password"],
+      "desc": "Complete login form with validation and social login options"
+    },
+    "calendar": {
+      "name": "Calendar",
+      "keywords": ["calendar", "date", "schedule", "month", "events"],
+      "desc": "Accessible, responsive month-view calendar with event indicators"
+    },
+    "emailAddress": {
+      "label": "Email Address",
+      "placeholder": "Enter your email",
+      "helperText": "We'll never share your email.",
+      "required": "Required"
+    },
+    
+    "chooseOption": {
+      "label": "Choose an option"
+    },
+    "termsConditions": {
+      "label": "Accept Terms",
+      "description": "You must accept terms and conditions"
+    },
+    "disabledOption": {
+      "label": "Disabled Option",
+      "description": "This option is disabled"
+    }
+  },
+  "backgrounds": {
+    "interactiveTiles": {
+      "name": "Interactive Tiles",
+      "keywords": ["interactive", "tiles", "backgrounds", "grid"],
+      "desc": "Interactive tiles background"
+    }
+  },
+  "navigation": {
+    "breadcrumb": {
+      "name": "Breadcrumb",
+      "keywords": ["breadcrumb", "navigation", "path", "hierarchy"]
+    },
+    "tabs": {
+      "name": "Tabs",
+      "keywords": ["tabs", "navigation", "switch", "toggle"]
+    },
+    "pagination": {
+      "name": "Pagination",
+      "keywords": ["pagination", "pages", "navigation", "paging"]
+    }
+  },
+  "badges": {
+    "badge": {
+      "name": "Badge",
+      "primary": "Primary",
+      "success": "Success",
+      "warning": "Warning",
+      "danger": "Danger",
+      "closable": "Closable",
+      "withIcon": "With Icon",
+      "notifications": "Notifications",
+      "keywords": ["badge", "tag", "label", "status", "indicator"],
+      "desc": "Used for status indicators and labels"
+    },
+    "chip": {
+      "name": "Chip",
+      "primary": "Primary Chip",
+      "success": "Success",
+      "warning": "Warning",
+      "danger": "Danger",
+      "closable": "Closable",
+      "withIcon": "With Icon",
+      "keywords": ["chip", "tag", "label", "filter", "category"],
+      "desc": "Used for filters, categories, and removable tags"
+    }
+  },
+  "sections": {
+    "buttons": "Buttons",
+    "cards": "Cards",
+    "inputs": "Inputs",
+    "backgrounds": "Backgrounds",
+    "utility": "Utility",
+    "navigation": "Navigation",
+    "badges": "Badges",
+    "avatars": "Avatars",
+    "accordion": "Accordion",
+    "feedback": "Feedback",
+    "formHelper": "Form Helpers"
+  },
+  "avatars": {
+    "group": "Avatar Group"
+  },
+  "feedback": {
+    "success": "Success feedback message",
+    "error": "Error feedback message",
+    "warning": "Warning feedback message",
+    "info": "Info feedback message"
+  },
+  "formHelper": {
+    "datePicker": {
+      "title": "Date Picker",
+      "label": "Pick a date"
+    },
+    "slider": {
+      "title": "Slider"
+    },
+    "fileUpload": {
+      "title": "File Upload"
+    },
+    "formValidation": {
+      "title": "Form Validation"
+    },
+    "loginForm": {
+      "title": "Login Form"
+    },
+    "signupPage": {
+      "title": "Signup Page"
+    },
+    "otpVerification": {
+      "title": "OTP Verification",
+      "tryCode": "Try code 123456"
+    }
+  },
+  "accordion": {
+    "basic": {
+      "title": "Basic Accordion",
+      "items": [
+        { "title": "Section 1", "content": "Content for section 1" },
+        { "title": "Section 2", "content": "Content for section 2" },
+        { "title": "Section 3", "content": "Content for section 3" },
+        { "title": "Section 4", "content": "Content for section 4" }
+      ]
+    },
+    "multiple": {
+      "title": "Multiple Open Accordion",
+      "items": [
+        { "title": "Section 1", "content": "Content for section 1" },
+        { "title": "Section 2", "content": "Content for section 2" },
+        { "title": "Section 3", "content": "Content for section 3" },
+        { "title": "Section 4", "content": "Content for section 4" }
+      ]
+    },
+    "minimal": {
+      "title": "Minimal Accordion",
+      "items": [
+        { "title": "Section 1", "content": "Content for section 1" },
+        { "title": "Section 2", "content": "Content for section 2" },
+        { "title": "Section 3", "content": "Content for section 3" }
+      ]
+    },
+    "alwaysOpen": {
+      "title": "Always Open Accordion",
+      "items": [
+        { "title": "Section 1", "content": "Content for section 1" },
+        { "title": "Section 2", "content": "Content for section 2" }
+      ]
+    }
+  }
+}
