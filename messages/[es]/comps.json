@@ -1,0 +1,226 @@
+{
+  "hero": {
+    "title": "React UI Playground",
+    "description": "Demostración de componentes moderna, hermosa y responsiva – cada sección está diseñada para claridad, viveza y accesibilidad."
+  },
+  "search": {
+    "placeholder": "Buscar componentes (botones, tarjetas, principal, etc.)",
+    "results": "Encontrados {count} componente{count, plural, one {} other {s}}{search, select, '' {} other { que coinciden con \"{search}\"}}{filter, select, all {} other { en {filter}}}",
+    "noResults": "No se encontraron componentes"
+  },
+  "filter": {
+    "all": "Todos los Componentes",
+    "buttons": "Botones",
+    "backgrounds": "Fondos",
+    "cards": "Tarjetas",
+    "inputs": "Entradas",
+    "navigation": "Navegación",
+    "badges": "Insignias"
+  },
+  "selectOptions": {
+    "option1": "Opción 1",
+    "option2": "Opción 2",
+    "option3": "Opción 3"
+  },
+  "tabs": {
+    "dashboard": "Panel",
+    "dashboardContent": "El contenido del panel va aquí...",
+    "analytics": "Analítica",
+    "analyticsContent": "El contenido de analítica va aquí...",
+    "settings": "Configuraciones",
+    "settingsContent": "El contenido de configuraciones va aquí..."
+  },
+  "breadcrumb": {
+    "home": "Inicio",
+    "components": "Componentes",
+    "navigation": "Navegación",
+    "breadcrumb": "Miga de pan"
+  },
+  "buttons": {
+    "primary": {
+      "name": "Botón Principal",
+      "label": "Principal",
+      "keywords": ["principal", "acción", "cta"],
+      "desc": "Usado para acciones principales"
+    },
+    "gradient": {
+      "name": "Botón Gradiente",
+      "label": "Gradiente",
+      "keywords": ["gradiente", "colorido", "brillante", "cta"],
+      "desc": "Botón vibrante con gradiente y spinner de carga"
+    },
+    "neon": {
+      "name": "Botón Neón",
+      "label": "Neón",
+      "keywords": ["neón", "brillo", "futurista"],
+      "desc": "Botón futurista brillante con spinner de carga"
+    },
+    "secondary": {
+      "name": "Botón Secundario",
+      "label": "Secundario",
+      "keywords": ["secundario", "alternativo"],
+      "desc": "Usado para acciones secundarias"
+    },
+    "ghost": {
+      "name": "Botón Fantasma",
+      "label": "Fantasma",
+      "keywords": ["fantasma", "transparente", "sutil"],
+      "desc": "Usado para acciones mínimas"
+    },
+    "outline": {
+      "name": "Botón de Contorno",
+      "label": "Contorno",
+      "keywords": ["contorno", "borde"],
+      "desc": "Usado para dar contorno"
+    },
+    "danger": {
+      "name": "Botón de Peligro",
+      "label": "Peligro",
+      "keywords": ["peligro", "error", "eliminar", "advertencia", "rojo"],
+      "desc": "Usado para acciones destructivas"
+    },
+    "success": {
+      "name": "Botón de Éxito",
+      "label": "Éxito",
+      "keywords": ["éxito", "confirmar", "hecho", "verde"],
+      "desc": "Usado para acciones exitosas"
+    },
+    "icon": {
+      "name": "Botón de Ícono",
+      "label": "Ícono",
+      "keywords": ["ícono", "estrella", "símbolo"],
+      "desc": "Usado para íconos"
+    },
+    "rainbow": {
+      "name": "Botón Arcoíris",
+      "label": "Arcoíris",
+      "keywords": ["arcoíris", "acción", "colorido"],
+      "desc": "Usado para llamadas a la acción"
+    },
+    "glass": {
+      "name": "Botón de Vidrio",
+      "label": "Botón",
+      "keywords": ["vidrio", "cta", "acción"],
+      "desc": "Usado para cualquier acción"
+    }
+  },
+  "cards": {
+    "simple": {
+      "name": "Tarjeta Simple",
+      "title": "Tarjeta Simple",
+      "description": "Una tarjeta mínima con acciones.",
+      "keywords": ["simple", "básico", "mínimo"]
+    },
+    "smart": {
+      "name": "Tarjeta Inteligente",
+      "title": "Tarjeta Inteligente",
+      "description": "Tarjeta moderna con fondo de gradiente, efectos hover y pie de página opcional.",
+      "footer": "Acción",
+      "keywords": ["inteligente", "gradiente", "tarjeta", "hover", "pie", "imagen"]
+    },
+    "image": {
+      "name": "Tarjeta de Imagen",
+      "title": "Tarjeta de Imagen",
+      "description": "Tarjeta con imagen SVG.",
+      "keywords": ["imagen", "foto", "visual"]
+    },
+    "feature": {
+      "name": "Tarjeta de Característica",
+      "title": "Tarjeta de Característica",
+      "description": "Resalta características y beneficios.",
+      "keywords": ["característica", "resaltar", "beneficio"]
+    },
+    "pricing": {
+      "name": "Tarjeta de Precios",
+      "plan": "Pro",
+      "price": "$9/mes",
+      "features": ["10 proyectos", "Soporte prioritario", "Usuarios ilimitados"],
+      "keywords": ["precio", "plan", "suscripción", "costo"]
+    },
+    "data": {
+      "name": "Tarjeta de Datos",
+      "title": "Proyectos Activos",
+      "keywords": ["datos", "estadísticas", "analítica", "métricas"]
+    }
+  },
+  "inputs": {
+    "text": {
+      "name": "Entrada de Texto",
+      "label": "Entrada de Muestra",
+      "placeholder": "Ingrese texto",
+      "keywords": ["texto", "entrada", "campo", "formulario"]
+    },
+    "password": {
+      "name": "Entrada de Contraseña",
+      "placeholder": "Ingrese contraseña",
+      "keywords": ["contraseña", "entrada", "campo", "formulario", "mostrar", "ocultar"]
+    },
+    "select": {
+      "name": "Seleccionar",
+      "label": "Selección de Muestra",
+      "keywords": ["seleccionar", "desplegable", "opciones", "elección"]
+    },
+    "checkbox": {
+      "name": "Casilla de Verificación",
+      "label": "Casilla de Muestra",
+      "description": "Marque esta opción",
+      "keywords": ["casilla", "verificar", "alternar", "booleano"]
+    },
+    "loginForm": {
+      "name": "Formulario de Inicio de Sesión",
+      "keywords": ["inicio de sesión", "formulario", "autenticación", "correo", "contraseña"],
+      "desc": "Formulario completo de inicio de sesión con validación y opciones sociales"
+    },
+    "calendar": {
+      "name": "Calendario",
+      "keywords": ["calendario", "fecha", "agenda", "mes", "eventos"],
+      "desc": "Calendario mensual accesible y responsivo con indicadores de eventos"
+    }
+  },
+  "backgrounds": {
+    "interactiveTiles": {
+      "name": "Baldosas Interactivas",
+      "keywords": ["interactivo", "baldosas", "fondos", "cuadrícula"],
+      "desc": "Fondo de baldosas interactivas"
+    }
+  },
+  "navigation": {
+    "breadcrumb": {
+      "name": "Miga de pan",
+      "keywords": ["miga de pan", "navegación", "ruta", "jerarquía"]
+    },
+    "tabs": {
+      "name": "Pestañas",
+      "keywords": ["pestañas", "navegación", "cambiar", "alternar"]
+    },
+    "pagination": {
+      "name": "Paginación",
+      "keywords": ["paginación", "páginas", "navegación", "paginado"]
+    }
+  },
+  "badges": {
+    "badge": {
+      "name": "Insignia",
+      "primary": "Principal",
+      "success": "Éxito",
+      "warning": "Advertencia",
+      "danger": "Peligro",
+      "closable": "Cerrable",
+      "withIcon": "Con Ícono",
+      "notifications": "Notificaciones",
+      "keywords": ["insignia", "etiqueta", "estado", "indicador"],
+      "desc": "Usado para indicadores de estado y etiquetas"
+    },
+    "chip": {
+      "name": "Chip",
+      "primary": "Chip Principal",
+      "success": "Éxito",
+      "warning": "Advertencia",
+      "danger": "Peligro",
+      "closable": "Cerrable",
+      "withIcon": "Con Ícono",
+      "keywords": ["chip", "etiqueta", "filtro", "categoría"],
+      "desc": "Usado para filtros, categorías y etiquetas removibles"
+    }
+  }
+}
