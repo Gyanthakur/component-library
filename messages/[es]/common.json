@@ -7,5 +7,24 @@
     "playground": "🎮 Zona de juegos",
     "analytics": "Analíticas",
     "feedback": "Retroalimentación"
+  },
+  
+  "footer": {
+    "brand": "MiBiblioteca",
+    "subtitle": "Biblioteca de Componentes",
+    "description": "Una biblioteca de componentes de código abierto basada en Next.js + Tailwind CSS con componentes de interfaz listos para usar. Perfecta para que los desarrolladores aprendan, practiquen y contribuyan durante Hacktoberfest y más allá.",
+    "followUs": "Síguenos",
+    "social": {
+      "github": "GitHub",
+      "linkedin": "LinkedIn",
+      "twitter": "Twitter",
+      "discord": "Discord",
+      "youtube": "YouTube"
+    },
+    "madeWith": "Hecho con",
+    "hacktoberfest": "para Hacktoberfest",
+    "copyright": "Biblioteca de Componentes MiBiblioteca. Todos los derechos reservados."
   }
+
+
 }
