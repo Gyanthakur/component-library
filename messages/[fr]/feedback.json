@@ -1,0 +1,86 @@
+{
+  "header": {
+    "title": "Nous apprécions vos retours",
+    "description": "Aidez-nous à améliorer MyLibrary en partageant vos réflexions, en signalant des bugs ou en suggérant de nouvelles fonctionnalités."
+  },
+  "alert": {
+    "success": {
+      "title": "Merci !",
+      "message": "Votre retour a été soumis avec succès. Nous l'examinerons bientôt."
+    },
+    "error": {
+      "title": "Erreur",
+      "message": "Veuillez remplir tous les champs obligatoires avant de soumettre."
+    }
+  },
+  "form": {
+    "title": "Partagez vos retours",
+    "categoryLabel": "Catégorie de retour *",
+    "ratingLabel": "Note générale",
+    "emailLabel": "Email (facultatif)",
+    "emailPlaceholder": "votre.email@exemple.com",
+    "emailHelper": "Nous l'utiliserons uniquement pour un suivi de vos retours",
+    "feedbackLabel": "Votre retour *",
+    "feedbackPlaceholder": "Parlez-nous de votre expérience, signalez un bug ou suggérez des améliorations...",
+    "submit": "Soumettre les retours",
+    "clear": "Effacer le formulaire"
+  },
+  "category": {
+    "bug": "Signalement de bug",
+    "feature": "Demande de fonctionnalité",
+    "improvement": "Suggestion d'amélioration",
+    "general": "Retour général"
+  },
+  "rating": {
+    "5": "⭐⭐⭐⭐⭐ Excellent",
+    "4": "⭐⭐⭐⭐ Bon",
+    "3": "⭐⭐⭐ Moyen",
+    "2": "⭐⭐ Pauvre",
+    "1": "⭐ Très pauvre"
+  },
+  "sidebar": {
+    "stats": {
+      "title": "Statistiques de la communauté",
+      "totalComponents": "Composants totaux",
+      "githubStars": "Étoiles GitHub",
+      "contributors": "Contributeurs",
+      "issuesResolved": "Problèmes résolus"
+    },
+    "progress": {
+      "title": "Progrès du développement",
+      "buttons": "Composants de boutons",
+      "cards": "Composants de cartes",
+      "forms": "Composants de formulaires",
+      "navigation": "Navigation"
+    },
+    "contact": {
+      "title": "Autres façons de nous contacter",
+      "email": "📧 Support par email",
+      "discord": "💬 Communauté Discord",
+      "github": "🐙 Problèmes GitHub"
+    }
+  },
+  "recent": {
+    "title": "Retours récents de la communauté",
+    "items": [
+      {
+        "name": "Alex",
+        "time": "Il y a 2 jours",
+        "category": "Fonctionnalité",
+        "feedback": "J'adore les nouvelles variantes de boutons ! Pouvons-nous avoir un état de chargement pour les boutons ?"
+      },
+      {
+        "name": "Sarah",
+        "time": "Il y a 1 semaine",
+        "category": "Bug",
+        "feedback": "Problème d'espacement du composant carte sur les appareils mobiles. Résolu dans la dernière mise à jour !"
+      },
+      {
+        "name": "Mike",
+        "time": "Il y a 2 semaines",
+        "category": "Général",
+        "feedback": "Excellente documentation et exemples. L'intégration devient super facile !"
+      }
+    ]
+  }
+}

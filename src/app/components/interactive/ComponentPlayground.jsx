@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import { useTranslations } from 'next-intl';
 import {
   Settings,
   Eye,
@@ -45,54 +46,54 @@ import Checkbox from "../inputs/Checkbox";
 import { useToast } from "../feedback/Toast";
 
 export default function ComponentPlayground() {
+  // Translations
+  const t = useTranslations('playground');
+  
   // Component Selection
   const { addToast, ToastContainer } = useToast();
   const [selectedComponent, setSelectedComponent] = useState("button");
   const [selectedVariant, setSelectedVariant] = useState("primary");
 
   // Button States
-  const [buttonText, setButtonText] = useState("Click Me");
+  const [buttonText, setButtonText] = useState(t('defaultValues.buttonText'));
   const [buttonSize, setButtonSize] = useState("medium");
   const [buttonDisabled, setButtonDisabled] = useState(false);
   const [buttonLoading, setButtonLoading] = useState(false);
 
   // Card States
-  const [cardTitle, setCardTitle] = useState("Sample Card");
-  const [cardDescription, setCardDescription] = useState(
-    "This is a sample card description"
-  );
+  const [cardTitle, setCardTitle] = useState(t('defaultValues.cardTitle'));
+  const [cardDescription, setCardDescription] = useState(t('defaultValues.cardDescription'));
   const [cardImage, setCardImage] = useState(
     "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400"
   );
 
   // Input States
-  const [inputLabel, setInputLabel] = useState("Sample Input");
-  const [inputPlaceholder, setInputPlaceholder] =
-    useState("Enter text here...");
+  const [inputLabel, setInputLabel] = useState(t('defaultValues.inputLabel'));
+  const [inputPlaceholder, setInputPlaceholder] = useState(t('defaultValues.inputPlaceholder'));
   const [inputRequired, setInputRequired] = useState(false);
   const [inputError, setInputError] = useState("");
 
   // Pricing Card States
-  const [pricingPlan, setPricingPlan] = useState("Pro");
-  const [pricingPrice, setPricingPrice] = useState("$9/mo");
+  const [pricingPlan, setPricingPlan] = useState(t('pricing.defaultPlan'));
+  const [pricingPrice, setPricingPrice] = useState(t('pricing.defaultPrice'));
   const [pricingFeatures, setPricingFeatures] = useState([
-    "10 projects",
-    "Priority support",
-    "Unlimited users",
+    t('pricing.defaultFeatures.0'),
+    t('pricing.defaultFeatures.1'),
+    t('pricing.defaultFeatures.2'),
   ]);
 
   // User Card States
-  const [userName, setUserName] = useState("John Doe");
-  const [userEmail, setUserEmail] = useState("john@example.com");
-  const [userRole, setUserRole] = useState("Software Engineer");
+  const [userName, setUserName] = useState(t('userData.defaultName'));
+  const [userEmail, setUserEmail] = useState(t('userData.defaultEmail'));
+  const [userRole, setUserRole] = useState(t('userData.defaultRole'));
   const [userAvatar, setUserAvatar] = useState(
     "https://i.pravatar.cc/150?img=1"
   );
 
   // Data Card States
-  const [dataTitle, setDataTitle] = useState("Active Projects");
-  const [dataValue, setDataValue] = useState("27");
-  const [dataIcon, setDataIcon] = useState("📂");
+  const [dataTitle, setDataTitle] = useState(t('dataCard.defaultTitle'));
+  const [dataValue, setDataValue] = useState(t('dataCard.defaultValue'));
+  const [dataIcon, setDataIcon] = useState(t('dataCard.defaultIcon'));
   const [dataTrend, setDataTrend] = useState(8);
 
   // UI States
@@ -104,28 +105,28 @@ export default function ComponentPlayground() {
   const [favorites, setFavorites] = useState([]);
   const [showFavorites, setShowFavorites] = useState(false);
 
-  // Component variants mapping
+  // Component variants mapping with translations
   const componentVariants = {
     button: {
-      primary: { component: PrimaryButton, name: "Primary Button" },
-      secondary: { component: SecondaryButton, name: "Secondary Button" },
-      danger: { component: DangerButton, name: "Danger Button" },
-      success: { component: SuccessButton, name: "Success Button" },
-      ghost: { component: GhostButton, name: "Ghost Button" },
-      outline: { component: OutlineButton, name: "Outline Button" },
-      rainbow: { component: RainbowButton, name: "Rainbow Button" },
+      primary: { component: PrimaryButton, name: t('buttonVariants.primary') },
+      secondary: { component: SecondaryButton, name: t('buttonVariants.secondary') },
+      danger: { component: DangerButton, name: t('buttonVariants.danger') },
+      success: { component: SuccessButton, name: t('buttonVariants.success') },
+      ghost: { component: GhostButton, name: t('buttonVariants.ghost') },
+      outline: { component: OutlineButton, name: t('buttonVariants.outline') },
+      rainbow: { component: RainbowButton, name: t('buttonVariants.rainbow') },
     },
     card: {
-      simple: { component: SimpleCard, name: "Simple Card" },
-      feature: { component: FeatureCard, name: "Feature Card" },
-      pricing: { component: PricingCard, name: "Pricing Card" },
-      user: { component: UserCard, name: "User Card" },
-      data: { component: DataCard, name: "Data Card" },
+      simple: { component: SimpleCard, name: t('cardVariants.simple') },
+      feature: { component: FeatureCard, name: t('cardVariants.feature') },
+      pricing: { component: PricingCard, name: t('cardVariants.pricing') },
+      user: { component: UserCard, name: t('cardVariants.user') },
+      data: { component: DataCard, name: t('cardVariants.data') },
     },
     input: {
-      text: { component: TextInput, name: "Text Input" },
-      select: { component: Select, name: "Select Dropdown" },
-      checkbox: { component: Checkbox, name: "Checkbox" },
+      text: { component: TextInput, name: t('inputVariants.text') },
+      select: { component: Select, name: t('inputVariants.select') },
+      checkbox: { component: Checkbox, name: t('inputVariants.checkbox') },
     },
   };
 
@@ -194,16 +195,16 @@ export default function ComponentPlayground() {
         return `<Select 
   label="${inputLabel}"
   options={[
-    { value: 'option1', label: 'Option 1' },
-    { value: 'option2', label: 'Option 2' },
-    { value: 'option3', label: 'Option 3' }
+    { value: 'option1', label: '${t('defaultValues.selectOptions.option1')}' },
+    { value: 'option2', label: '${t('defaultValues.selectOptions.option2')}' },
+    { value: 'option3', label: '${t('defaultValues.selectOptions.option3')}' }
   ]}
   ${inputRequired ? "required" : ""}
 />`;
       } else if (selectedVariant === "checkbox") {
         return `<Checkbox 
   label="${inputLabel}"
-  description="Check this option"
+  description="${t('defaultValues.checkboxDescription')}"
   checked={false}
   onChange={() => {}}
 />`;
@@ -218,12 +219,12 @@ export default function ComponentPlayground() {
     const code = generateCode();
     try {
       await navigator.clipboard.writeText(code);
-      addToast("Code copied to clipboard!", "success", 2000);
-      setCopiedCode("✅ Copied!");
+      addToast(t('messages.codeCopied'), "success", 2000);
+      setCopiedCode(t('codeSection.copied'));
       setTimeout(() => setCopiedCode(""), 2000);
     } catch (err) {
-      addToast("Failed to copy code.", "error", 4000);
-      setCopiedCode("❌ Failed to copy");
+      addToast(t('messages.copyFailed'), "error", 4000);
+      setCopiedCode(t('codeSection.failedToCopy'));
       setTimeout(() => setCopiedCode(""), 2000);
     }
   };
@@ -231,34 +232,34 @@ export default function ComponentPlayground() {
   // Reset to defaults
   const resetToDefaults = () => {
     if (selectedComponent === "button") {
-      setButtonText("Click Me");
+      setButtonText(t('defaultValues.buttonText'));
       setButtonSize("medium");
       setButtonDisabled(false);
       setButtonLoading(false);
     } else if (selectedComponent === "card") {
-      setCardTitle("Sample Card");
-      setCardDescription("This is a sample card description");
+      setCardTitle(t('defaultValues.cardTitle'));
+      setCardDescription(t('defaultValues.cardDescription'));
       setCardImage(
         "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400"
       );
-      setPricingPlan("Pro");
-      setPricingPrice("$9/mo");
+      setPricingPlan(t('pricing.defaultPlan'));
+      setPricingPrice(t('pricing.defaultPrice'));
       setPricingFeatures([
-        "10 projects",
-        "Priority support",
-        "Unlimited users",
+        t('pricing.defaultFeatures.0'),
+        t('pricing.defaultFeatures.1'),
+        t('pricing.defaultFeatures.2'),
       ]);
-      setUserName("John Doe");
-      setUserEmail("john@example.com");
-      setUserRole("Software Engineer");
+      setUserName(t('userData.defaultName'));
+      setUserEmail(t('userData.defaultEmail'));
+      setUserRole(t('userData.defaultRole'));
       setUserAvatar("https://i.pravatar.cc/150?img=1");
-      setDataTitle("Active Projects");
-      setDataValue("27");
-      setDataIcon("📂");
-      setDataTrend(8);
+      setDataTitle(t('dataCard.defaultTitle'));
+      setDataValue(t('dataCard.defaultValue'));
+      setDataIcon(t('dataCard.defaultIcon'));
+      setDataTrend(parseInt(t('dataCard.defaultTrend')));
     } else if (selectedComponent === "input") {
-      setInputLabel("Sample Input");
-      setInputPlaceholder("Enter text here...");
+      setInputLabel(t('defaultValues.inputLabel'));
+      setInputPlaceholder(t('defaultValues.inputPlaceholder'));
       setInputRequired(false);
       setInputError("");
     }
@@ -268,14 +269,14 @@ export default function ComponentPlayground() {
   const randomizeValues = () => {
     if (selectedComponent === "button") {
       const texts = [
-        "Get Started",
-        "Learn More",
-        "Sign Up Now",
-        "Download",
-        "Subscribe",
-        "Join Us",
-        "Try Free",
-        "Contact Us",
+        t('randomValues.buttonTexts.0'),
+        t('randomValues.buttonTexts.1'),
+        t('randomValues.buttonTexts.2'),
+        t('randomValues.buttonTexts.3'),
+        t('randomValues.buttonTexts.4'),
+        t('randomValues.buttonTexts.5'),
+        t('randomValues.buttonTexts.6'),
+        t('randomValues.buttonTexts.7'),
       ];
       const sizes = ["small", "medium", "large"];
       setButtonText(texts[Math.floor(Math.random() * texts.length)]);
@@ -284,18 +285,18 @@ export default function ComponentPlayground() {
       setButtonLoading(Math.random() > 0.8);
     } else if (selectedComponent === "card") {
       const titles = [
-        "Amazing Feature",
-        "Premium Service",
-        "New Product",
-        "Special Offer",
-        "Latest Update",
+        t('randomValues.cardTitles.0'),
+        t('randomValues.cardTitles.1'),
+        t('randomValues.cardTitles.2'),
+        t('randomValues.cardTitles.3'),
+        t('randomValues.cardTitles.4'),
       ];
       const descriptions = [
-        "Discover incredible features that will transform your workflow",
-        "Experience premium quality with our professional services",
-        "Introducing our latest product with cutting-edge technology",
-        "Limited time offer with exclusive benefits for you",
-        "Stay updated with the latest improvements and features",
+        t('randomValues.cardDescriptions.0'),
+        t('randomValues.cardDescriptions.1'),
+        t('randomValues.cardDescriptions.2'),
+        t('randomValues.cardDescriptions.3'),
+        t('randomValues.cardDescriptions.4'),
       ];
       setCardTitle(titles[Math.floor(Math.random() * titles.length)]);
       setCardDescription(
@@ -304,18 +305,18 @@ export default function ComponentPlayground() {
 
       if (selectedVariant === "user") {
         const names = [
-          "Alice Johnson",
-          "Bob Smith",
-          "Carol Davis",
-          "David Wilson",
-          "Emma Brown",
+          t('randomValues.userNames.0'),
+          t('randomValues.userNames.1'),
+          t('randomValues.userNames.2'),
+          t('randomValues.userNames.3'),
+          t('randomValues.userNames.4'),
         ];
         const roles = [
-          "Frontend Developer",
-          "Backend Engineer",
-          "UI/UX Designer",
-          "Product Manager",
-          "DevOps Engineer",
+          t('randomValues.userRoles.0'),
+          t('randomValues.userRoles.1'),
+          t('randomValues.userRoles.2'),
+          t('randomValues.userRoles.3'),
+          t('randomValues.userRoles.4'),
         ];
         setUserName(names[Math.floor(Math.random() * names.length)]);
         setUserRole(roles[Math.floor(Math.random() * roles.length)]);
@@ -326,14 +327,26 @@ export default function ComponentPlayground() {
 
       if (selectedVariant === "data") {
         const dataTitles = [
-          "Total Users",
-          "Revenue",
-          "Active Sessions",
-          "Conversion Rate",
-          "Growth Rate",
+          t('randomValues.dataTitles.0'),
+          t('randomValues.dataTitles.1'),
+          t('randomValues.dataTitles.2'),
+          t('randomValues.dataTitles.3'),
+          t('randomValues.dataTitles.4'),
         ];
-        const dataValues = ["1,234", "$45.6K", "89%", "12.5%", "+23%"];
-        const dataIcons = ["👥", "💰", "📊", "📈", "🚀"];
+        const dataValues = [
+          t('randomValues.dataValues.0'),
+          t('randomValues.dataValues.1'),
+          t('randomValues.dataValues.2'),
+          t('randomValues.dataValues.3'),
+          t('randomValues.dataValues.4'),
+        ];
+        const dataIcons = [
+          t('randomValues.dataIcons.0'),
+          t('randomValues.dataIcons.1'),
+          t('randomValues.dataIcons.2'),
+          t('randomValues.dataIcons.3'),
+          t('randomValues.dataIcons.4'),
+        ];
         const randomIndex = Math.floor(Math.random() * dataTitles.length);
         setDataTitle(dataTitles[randomIndex]);
         setDataValue(dataValues[randomIndex]);
@@ -417,7 +430,7 @@ export default function ComponentPlayground() {
 
     const Component = variant.component;
     const commonProps = {
-      onClick: () => alert(`${variant.name} clicked!`),
+      onClick: () => alert(t('messages.clickAlert', { component: variant.name })),
     };
 
     if (selectedComponent === "button") {
@@ -435,7 +448,7 @@ export default function ComponentPlayground() {
             buttonLoading ? "opacity-50 cursor-not-allowed" : ""
           }`}
         >
-          {buttonLoading ? "⏳ Loading..." : buttonText}
+          {buttonLoading ? t('buttonControls.loadingText') : buttonText}
         </Component>
       );
     } else if (selectedComponent === "card") {
@@ -487,9 +500,9 @@ export default function ComponentPlayground() {
             label={inputLabel}
             required={inputRequired}
             options={[
-              { value: "option1", label: "Option 1" },
-              { value: "option2", label: "Option 2" },
-              { value: "option3", label: "Option 3" },
+              { value: "option1", label: t('defaultValues.selectOptions.option1') },
+              { value: "option2", label: t('defaultValues.selectOptions.option2') },
+              { value: "option3", label: t('defaultValues.selectOptions.option3') },
             ]}
           />
         );
@@ -497,7 +510,7 @@ export default function ComponentPlayground() {
         return (
           <Component
             label={inputLabel}
-            description="Check this option"
+            description={t('defaultValues.checkboxDescription')}
             checked={false}
             onChange={() => {}}
           />
@@ -516,11 +529,11 @@ export default function ComponentPlayground() {
             <Palette className="w-8 h-8 text-white" />
           </div>
           <h1 className="md:text-4xl text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-            Advanced Component Playground
+            {t('title')}
           </h1>
         </div>
         <p className="text-lg text-gray-600 dark:text-gray-300">
-          Customize components in real-time and export production-ready code!
+          {t('subtitle')}
         </p>
       </div>
 
@@ -530,7 +543,7 @@ export default function ComponentPlayground() {
           {/* Component Type */}
           <div>
             <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
-              Component Type
+              {t('controls.componentType')}
             </label>
             <div className="relative">
               <MousePointer className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
@@ -539,9 +552,9 @@ export default function ComponentPlayground() {
                 onChange={(e) => setSelectedComponent(e.target.value)}
                 className="w-full pl-10 pr-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
               >
-                <option value="button">Buttons</option>
-                <option value="card">Cards</option>
-                <option value="input">Inputs</option>
+                <option value="button">{t('componentTypes.buttons')}</option>
+                <option value="card">{t('componentTypes.cards')}</option>
+                <option value="input">{t('componentTypes.inputs')}</option>
               </select>
             </div>
           </div>
@@ -549,7 +562,7 @@ export default function ComponentPlayground() {
           {/* Component Variant */}
           <div>
             <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
-              Variant
+              {t('controls.variant')}
             </label>
             <select
               value={selectedVariant}
@@ -569,7 +582,7 @@ export default function ComponentPlayground() {
           {/* Preview Mode */}
           <div>
             <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
-              Preview Mode
+              {t('controls.previewMode')}
             </label>
             <div className="flex gap-2">
               <button
@@ -581,7 +594,7 @@ export default function ComponentPlayground() {
                 }`}
               >
                 <Sun className="w-4 h-4" />
-                Light
+                {t('preview.light')}
               </button>
               <button
                 onClick={() => setPreviewMode("dark")}
@@ -592,7 +605,7 @@ export default function ComponentPlayground() {
                 }`}
               >
                 <Moon className="w-4 h-4" />
-                Dark
+                {t('preview.dark')}
               </button>
             </div>
           </div>
@@ -600,7 +613,7 @@ export default function ComponentPlayground() {
           {/* Favorites Toggle */}
           <div>
             <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
-              My Favorites ({favorites.length})
+              {t('controls.myFavorites', { count: favorites.length })}
             </label>
             <button
               onClick={() => setShowFavorites(!showFavorites)}
@@ -613,7 +626,7 @@ export default function ComponentPlayground() {
               <Heart
                 className={`w-4 h-4 ${showFavorites ? "fill-current" : ""}`}
               />
-              {showFavorites ? "Hide Favorites" : "Show Favorites"}
+              {showFavorites ? t('controls.hideFavorites') : t('controls.showFavorites')}
             </button>
           </div>
         </div>
@@ -626,7 +639,7 @@ export default function ComponentPlayground() {
             <div className="flex items-center gap-2">
               <Settings className="w-5 h-5 text-blue-500" />
               <h2 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white">
-                Customization Controls
+                {t('controls.customizationControls')}
               </h2>
             </div>
             <div className="flex flex-wrap gap-2">
@@ -635,14 +648,14 @@ export default function ComponentPlayground() {
                 className="px-3 py-1 bg-gray-500 text-white rounded-lg text-sm hover:bg-gray-600 transition-colors flex items-center gap-1"
               >
                 <RotateCcw className="w-3 h-3" />
-                Reset
+                {t('controls.reset')}
               </button>
               <button
                 onClick={randomizeValues}
                 className="px-3 py-1 bg-purple-500 text-white rounded-lg text-sm hover:bg-purple-600 transition-colors flex items-center gap-1"
               >
                 <Shuffle className="w-3 h-3" />
-                Random
+                {t('controls.random')}
               </button>
             </div>
           </div>
@@ -654,18 +667,18 @@ export default function ComponentPlayground() {
               <>
                 <div>
                   <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
-                    Button Text
+                    {t('buttonControls.buttonText')}
                   </label>
                   <TextInput
                     value={buttonText}
                     onChange={(e) => setButtonText(e.target.value)}
-                    placeholder="Enter button text"
+                    placeholder={t('defaultValues.buttonText')}
                   />
                 </div>
 
                 <div>
                   <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
-                    Button Size
+                    {t('buttonControls.buttonSize')}
                   </label>
                   <div className="flex gap-2">
                     {["small", "medium", "large"].map((size) => (
@@ -678,7 +691,7 @@ export default function ComponentPlayground() {
                             : "bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-500"
                         }`}
                       >
-                        {size.charAt(0).toUpperCase() + size.slice(1)}
+                        {t(`buttonControls.sizes.${size}`)}
                       </button>
                     ))}
                   </div>
@@ -693,7 +706,7 @@ export default function ComponentPlayground() {
                       className="mr-2"
                     />
                     <span className="text-sm text-gray-700 dark:text-gray-300">
-                      Disabled
+                      {t('buttonControls.disabled')}
                     </span>
                   </label>
                   <label className="flex items-center">
@@ -704,7 +717,7 @@ export default function ComponentPlayground() {
                       className="mr-2"
                     />
                     <span className="text-sm text-gray-700 dark:text-gray-300">
-                      Loading
+                      {t('buttonControls.loading')}
                     </span>
                   </label>
                 </div>
@@ -716,23 +729,23 @@ export default function ComponentPlayground() {
               <>
                 <div>
                   <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
-                    Card Title
+                    {t('cardControls.cardTitle')}
                   </label>
                   <TextInput
                     value={cardTitle}
                     onChange={(e) => setCardTitle(e.target.value)}
-                    placeholder="Enter card title"
+                    placeholder={t('cardControls.cardTitlePlaceholder')}
                   />
                 </div>
 
                 <div>
                   <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
-                    Card Description
+                    {t('cardControls.cardDescription')}
                   </label>
                   <textarea
                     value={cardDescription}
                     onChange={(e) => setCardDescription(e.target.value)}
-                    placeholder="Enter card description"
+                    placeholder={t('cardControls.cardDescriptionPlaceholder')}
                     rows={3}
                     className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
                   />
@@ -744,28 +757,28 @@ export default function ComponentPlayground() {
                     <div className="grid grid-cols-2 gap-4">
                       <div>
                         <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
-                          Plan Name
+                          {t('pricingControls.planName')}
                         </label>
                         <TextInput
                           value={pricingPlan}
                           onChange={(e) => setPricingPlan(e.target.value)}
-                          placeholder="e.g., Pro"
+                          placeholder={t('pricingControls.planPlaceholder')}
                         />
                       </div>
                       <div>
                         <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
-                          Price
+                          {t('pricingControls.price')}
                         </label>
                         <TextInput
                           value={pricingPrice}
                           onChange={(e) => setPricingPrice(e.target.value)}
-                          placeholder="e.g., $9/mo"
+                          placeholder={t('pricingControls.pricePlaceholder')}
                         />
                       </div>
                     </div>
                     <div>
                       <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
-                        Features (comma separated)
+                        {t('pricingControls.features')}
                       </label>
                       <TextInput
                         value={pricingFeatures.join(", ")}
@@ -774,7 +787,7 @@ export default function ComponentPlayground() {
                             e.target.value.split(", ").filter((f) => f.trim())
                           )
                         }
-                        placeholder="Feature 1, Feature 2, Feature 3"
+                        placeholder={t('pricingControls.featuresPlaceholder')}
                       />
                     </div>
                   </>
@@ -786,43 +799,43 @@ export default function ComponentPlayground() {
                     <div className="grid grid-cols-2 gap-4">
                       <div>
                         <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
-                          User Name
+                          {t('userCardControls.userName')}
                         </label>
                         <TextInput
                           value={userName}
                           onChange={(e) => setUserName(e.target.value)}
-                          placeholder="John Doe"
+                          placeholder={t('userCardControls.userNamePlaceholder')}
                         />
                       </div>
                       <div>
                         <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
-                          Email
+                          {t('userCardControls.email')}
                         </label>
                         <TextInput
                           value={userEmail}
                           onChange={(e) => setUserEmail(e.target.value)}
-                          placeholder="john@example.com"
+                          placeholder={t('userCardControls.emailPlaceholder')}
                         />
                       </div>
                     </div>
                     <div>
                       <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
-                        Role
+                        {t('userCardControls.role')}
                       </label>
                       <TextInput
                         value={userRole}
                         onChange={(e) => setUserRole(e.target.value)}
-                        placeholder="Software Engineer"
+                        placeholder={t('userCardControls.rolePlaceholder')}
                       />
                     </div>
                     <div>
                       <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
-                        Avatar URL
+                        {t('userCardControls.avatarUrl')}
                       </label>
                       <TextInput
                         value={userAvatar}
                         onChange={(e) => setUserAvatar(e.target.value)}
-                        placeholder="https://i.pravatar.cc/150?img=1"
+                        placeholder={t('userCardControls.avatarPlaceholder')}
                       />
                     </div>
                   </>
@@ -834,39 +847,39 @@ export default function ComponentPlayground() {
                     <div className="grid grid-cols-2 gap-4">
                       <div>
                         <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
-                          Data Title
+                          {t('dataCardControls.dataTitle')}
                         </label>
                         <TextInput
                           value={dataTitle}
                           onChange={(e) => setDataTitle(e.target.value)}
-                          placeholder="Active Projects"
+                          placeholder={t('dataCardControls.dataTitlePlaceholder')}
                         />
                       </div>
                       <div>
                         <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
-                          Value
+                          {t('dataCardControls.value')}
                         </label>
                         <TextInput
                           value={dataValue}
                           onChange={(e) => setDataValue(e.target.value)}
-                          placeholder="27"
+                          placeholder={t('dataCardControls.valuePlaceholder')}
                         />
                       </div>
                     </div>
                     <div className="grid grid-cols-2 gap-4">
                       <div>
                         <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
-                          Icon (Emoji)
+                          {t('dataCardControls.icon')}
                         </label>
                         <TextInput
                           value={dataIcon}
                           onChange={(e) => setDataIcon(e.target.value)}
-                          placeholder="📂"
+                          placeholder={t('dataCardControls.iconPlaceholder')}
                         />
                       </div>
                       <div>
                         <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
-                          Trend (%)
+                          {t('dataCardControls.trend')}
                         </label>
                         <input
                           type="number"
@@ -875,7 +888,7 @@ export default function ComponentPlayground() {
                             setDataTrend(parseInt(e.target.value) || 0)
                           }
                           className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
-                          placeholder="8"
+                          placeholder={t('dataCardControls.trendPlaceholder')}
                         />
                       </div>
                     </div>
@@ -889,12 +902,12 @@ export default function ComponentPlayground() {
               <>
                 <div>
                   <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
-                    Label
+                    {t('inputControls.label')}
                   </label>
                   <TextInput
                     value={inputLabel}
                     onChange={(e) => setInputLabel(e.target.value)}
-                    placeholder="Enter input label"
+                    placeholder={t('inputControls.labelPlaceholder')}
                   />
                 </div>
 
@@ -902,22 +915,22 @@ export default function ComponentPlayground() {
                   <>
                     <div>
                       <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
-                        Placeholder
+                        {t('inputControls.placeholder')}
                       </label>
                       <TextInput
                         value={inputPlaceholder}
                         onChange={(e) => setInputPlaceholder(e.target.value)}
-                        placeholder="Enter placeholder text"
+                        placeholder={t('inputControls.placeholderPlaceholder')}
                       />
                     </div>
                     <div>
                       <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
-                        Error Message (optional)
+                        {t('inputControls.errorMessage')}
                       </label>
                       <TextInput
                         value={inputError}
                         onChange={(e) => setInputError(e.target.value)}
-                        placeholder="Enter error message"
+                        placeholder={t('inputControls.errorPlaceholder')}
                       />
                     </div>
                   </>
@@ -932,7 +945,7 @@ export default function ComponentPlayground() {
                       className="mr-2"
                     />
                     <span className="text-sm text-gray-700 dark:text-gray-300">
-                      Required
+                      {t('inputControls.required')}
                     </span>
                   </label>
                 </div>
@@ -946,14 +959,14 @@ export default function ComponentPlayground() {
               <div className="flex items-center gap-2 flex-wrap">
                 <Code className="w-4 h-4 text-gray-500" />
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                  Generated Code
+                  {t('codeSection.generatedCode')}
                 </label>
                 <button
                   onClick={() => setShowCode(!showCode)}
                   className="px-2 py-1 bg-gray-500 text-white rounded text-xs hover:bg-gray-600 transition-colors flex items-center gap-1"
                 >
                   <Eye className="w-3 h-3" />
-                  {showCode ? "Hide" : "Show"}
+                  {showCode ? t('codeSection.hide') : t('codeSection.show')}
                 </button>
               </div>
               <button
@@ -961,7 +974,7 @@ export default function ComponentPlayground() {
                 className="px-4 py-2 bg-green-500 w-fit text-white rounded-lg text-sm hover:bg-green-600 transition-colors flex items-center gap-2"
               >
                 <Copy className="w-4 h-4" />
-                {copiedCode || "Copy Code"}
+                {copiedCode || t('codeSection.copyCode')}
               </button>
             </div>
 
@@ -974,7 +987,7 @@ export default function ComponentPlayground() {
                 </pre>
                 <div className="absolute top-2 right-2">
                   <span className="bg-blue-500 text-white px-2 py-1 rounded text-xs">
-                    React JSX
+                    {t('codeSection.language')}
                   </span>
                 </div>
               </div>
@@ -988,7 +1001,7 @@ export default function ComponentPlayground() {
             <div className="flex items-center gap-2">
               <Eye className="w-5 h-5 text-green-500" />
               <h2 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white">
-                Live Preview
+                {t('preview.livePreview')}
               </h2>
             </div>
             <div className="text-sm text-gray-500 dark:text-gray-400 flex items-center gap-1">
@@ -1015,26 +1028,25 @@ export default function ComponentPlayground() {
             <div className="flex items-center gap-2 mb-2">
               <Info className="w-4 h-4 text-blue-600 dark:text-blue-400" />
               <span className="text-blue-600 dark:text-blue-400 font-medium">
-                Component Info
+                {t('preview.componentInfo')}
               </span>
             </div>
             <div className="space-y-1 text-blue-800 dark:text-blue-300">
               <p>
-                <strong>Type:</strong>{" "}
-                {selectedComponent.charAt(0).toUpperCase() +
-                  selectedComponent.slice(1)}
-              </p>
-              <p>
-                <strong>Variant:</strong>{" "}
+                <strong>{t('preview.type')}:</strong>{" "}
                 {componentVariants[selectedComponent]?.[selectedVariant]?.name}
               </p>
               <p>
-                <strong>Interactive:</strong>{" "}
+                <strong>{t('preview.variant')}:</strong>{" "}
+                {componentVariants[selectedComponent]?.[selectedVariant]?.name}
+              </p>
+              <p>
+                <strong>{t('preview.interactive')}:</strong>{" "}
                 {selectedComponent === "button"
-                  ? "Yes (Click to test)"
+                  ? t('preview.clickToTest')
                   : selectedComponent === "card" && selectedVariant === "user"
-                  ? "Yes (Click to test)"
-                  : "Display only"}
+                  ? t('preview.clickToTest')
+                  : t('preview.displayOnly')}
               </p>
             </div>
           </div>
@@ -1047,7 +1059,7 @@ export default function ComponentPlayground() {
             >
               <div className="flex items-center justify-center gap-2">
                 <RotateCcw className="w-4 h-4" />
-                Reset
+                {t('actions.reset')}
               </div>
             </SecondaryButton>
 
@@ -1057,7 +1069,7 @@ export default function ComponentPlayground() {
             >
               <div className="flex items-center justify-center gap-2">
                 <Shuffle className="w-4 h-4" />
-                Randomize
+                {t('actions.randomize')}
               </div>
             </SuccessButton>
 
@@ -1077,8 +1089,8 @@ export default function ComponentPlayground() {
                 }`}
               />
               {isFavorite(selectedComponent, selectedVariant)
-                ? "Remove Favorite"
-                : "Add Favorite"}
+                ? t('favorites.removeFavorite')
+                : t('favorites.addFavorite')}
             </button>
 
             <button
@@ -1086,7 +1098,7 @@ export default function ComponentPlayground() {
               className="px-4 py-2 bg-purple-500 text-white rounded-lg text-sm hover:bg-purple-600 transition-colors flex-1 sm:flex-none flex items-center justify-center gap-2"
             >
               <Copy className="w-4 h-4" />
-              Copy Code
+              {t('actions.copyCode')}
             </button>
           </div>
         </div>
@@ -1099,7 +1111,7 @@ export default function ComponentPlayground() {
             <div className="flex items-center gap-2">
               <Heart className="w-5 h-5 text-pink-500 fill-current" />
               <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
-                My Favorite Components ({favorites.length})
+                {t('favorites.title', { count: favorites.length })}
               </h2>
             </div>
             {favorites.length > 0 && (
@@ -1107,7 +1119,7 @@ export default function ComponentPlayground() {
                 onClick={clearAllFavorites}
                 className="px-3 py-1 text-sm text-pink-600 dark:text-pink-400 hover:text-pink-800 dark:hover:text-pink-300 transition-colors"
               >
-                Clear All
+                {t('favorites.clearAll')}
               </button>
             )}
           </div>
@@ -1116,11 +1128,10 @@ export default function ComponentPlayground() {
             <div className="text-center py-12">
               <Heart className="w-12 h-12 text-gray-300 dark:text-gray-600 mx-auto mb-4" />
               <p className="text-gray-500 dark:text-gray-400 mb-2">
-                No favorite components yet
+                {t('favorites.noFavorites')}
               </p>
               <p className="text-sm text-gray-400 dark:text-gray-500">
-                Click the heart icon on any component to add it to your
-                favorites
+                {t('favorites.noFavoritesDesc')}
               </p>
             </div>
           ) : (
@@ -1160,12 +1171,10 @@ export default function ComponentPlayground() {
                       </button>
                     </div>
                     <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">
-                      {favorite.componentType.charAt(0).toUpperCase() +
-                        favorite.componentType.slice(1)}{" "}
-                      Component
+                      {t(`componentTypes.${favorite.componentType}`)} {t('favorites.componentSuffix')}
                     </p>
                     <p className="text-xs text-gray-400 dark:text-gray-500">
-                      Added {new Date(favorite.addedAt).toLocaleDateString()}
+                      {t('favorites.addedDate', { date: new Date(favorite.addedAt).toLocaleDateString() })}
                     </p>
                   </div>
                 );
@@ -1187,7 +1196,7 @@ export default function ComponentPlayground() {
           {selectedComponent === "input" && (
             <Type className="w-5 h-5 text-purple-500" />
           )}
-          <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
+         <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
             All{" "}
             {selectedComponent.charAt(0).toUpperCase() +
               selectedComponent.slice(1)}{" "}
@@ -1225,8 +1234,8 @@ export default function ComponentPlayground() {
                     {selectedComponent === "card" && key === "simple" && (
                       <div className="scale-75 origin-center">
                         <variant.component
-                          title="Sample"
-                          description="Preview"
+                          title={t('showcase.sample')}
+                          description={t('showcase.preview')}
                         />
                       </div>
                     )}
@@ -1234,7 +1243,7 @@ export default function ComponentPlayground() {
                       <div className="scale-75 origin-center">
                         <variant.component
                           title="Feature"
-                          description="Preview"
+                          description={t('showcase.preview')}
                         />
                       </div>
                     )}
@@ -1271,10 +1280,10 @@ export default function ComponentPlayground() {
                       <div className="scale-90 origin-center">
                         <variant.component
                           label={variant.name}
-                          placeholder="Preview"
+                          placeholder={t('showcase.preview')}
                           {...(key === "select"
                             ? {
-                                options: [{ value: "opt1", label: "Option 1" }],
+                                options: [{ value: "opt1", label: t('defaultValues.selectOptions.option1') }],
                               }
                             : {})}
                           {...(key === "checkbox"
@@ -1301,8 +1310,8 @@ export default function ComponentPlayground() {
                     }`}
                     title={
                       isFavorite(selectedComponent, key)
-                        ? "Remove from favorites"
-                        : "Add to favorites"
+                        ? t('favorites.removeFromFavorites')
+                        : t('favorites.addToFavorites')
                     }
                   >
                     <Heart
@@ -1313,7 +1322,7 @@ export default function ComponentPlayground() {
                   </button>
                 </div>
                 <p className="text-xs text-gray-500 dark:text-gray-400">
-                  Click to customize
+                  {t('showcase.clickToCustomize')}
                 </p>
               </div>
             )
@@ -1325,7 +1334,7 @@ export default function ComponentPlayground() {
       <div className="mt-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl p-6 text-white">
         <div className="flex items-center gap-2 mb-4">
           <BarChart3 className="w-5 h-5" />
-          <h2 className="text-xl font-semibold">Playground Stats</h2>
+          <h2 className="text-xl font-semibold">{t('stats.title')}</h2>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <div className="text-center">
@@ -1335,7 +1344,7 @@ export default function ComponentPlayground() {
             <div className="text-2xl font-bold">
               {Object.keys(componentVariants.button).length}
             </div>
-            <div className="text-sm opacity-80">Button Types</div>
+            <div className="text-sm opacity-80">{t('stats.buttonTypes')}</div>
           </div>
           <div className="text-center">
             <div className="flex items-center justify-center mb-2">
@@ -1344,7 +1353,7 @@ export default function ComponentPlayground() {
             <div className="text-2xl font-bold">
               {Object.keys(componentVariants.card).length}
             </div>
-            <div className="text-sm opacity-80">Card Types</div>
+            <div className="text-sm opacity-80">{t('stats.cardTypes')}</div>
           </div>
           <div className="text-center">
             <div className="flex items-center justify-center mb-2">
@@ -1353,14 +1362,14 @@ export default function ComponentPlayground() {
             <div className="text-2xl font-bold">
               {Object.keys(componentVariants.input).length}
             </div>
-            <div className="text-sm opacity-80">Input Types</div>
+            <div className="text-sm opacity-80">{t('stats.inputTypes')}</div>
           </div>
           <div className="text-center">
             <div className="flex items-center justify-center mb-2">
               <Heart className="w-6 h-6 opacity-80" />
             </div>
             <div className="text-2xl font-bold">{favorites.length}</div>
-            <div className="text-sm opacity-80">Favorites</div>
+            <div className="text-sm opacity-80">{t('stats.favorites')}</div>
           </div>
         </div>
       </div>

@@ -17,6 +17,9 @@ const messagesMap: Record<
     about: () => import("../../messages/[en]/about.json"),
     contact: () => import("../../messages/[en]/contact.json"),
     comps: () => import("../../messages/[en]/comps.json"),
+    playground:()=>import("../../messages/[en]/playground.json"),
+    analytics:()=>import("../../messages/[en]/analytics.json"),
+    feedback:()=>import("../../messages/[en]/feedback.json"),
   },
   fr: {
     homepage: () => import("../../messages/[fr]/homepage.json"),
@@ -24,6 +27,9 @@ const messagesMap: Record<
     about: () => import("../../messages/[fr]/about.json"),
     contact: () => import("../../messages/[fr]/contact.json"),
     comps: () => import("../../messages/[fr]/comps.json"),
+    playground:()=>import("../../messages/[fr]/playground.json"),
+    analytics:()=>import("../../messages/[fr]/analytics.json"),
+    feedback:()=>import("../../messages/[fr]/feedback.json"),
   },
   es: {
     homepage: () => import("../../messages/[es]/homepage.json"),
@@ -31,6 +37,9 @@ const messagesMap: Record<
     about: () => import("../../messages/[es]/about.json"),
     contact: () => import("../../messages/[es]/contact.json"),
     comps: () => import("../../messages/[es]/comps.json"),
+    playground:()=>import("../../messages/[es]/playground.json"),
+    analytics:()=>import("../../messages/[es]/analytics.json"),
+    feedback:()=>import("../../messages/[es]/feedback.json"),
   },
   hi: {
     homepage: () => import("../../messages/[hi]/homepage.json"),
@@ -38,6 +47,9 @@ const messagesMap: Record<
     about: () => import("../../messages/[hi]/about.json"),
     contact: () => import("../../messages/[hi]/contact.json"),
     comps: () => import("../../messages/[hi]/comps.json"),
+    playground:()=>import("../../messages/[hi]/playground.json"),
+    analytics:()=>import("../../messages/[hi]/analytics.json"),
+    feedback:()=>import("../../messages/[hi]/feedback.json"),
   }
 };
 

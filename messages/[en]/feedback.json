@@ -1,0 +1,86 @@
+{
+  "header": {
+    "title": "We Value Your Feedback",
+    "description": "Help us improve MyLibrary by sharing your thoughts, reporting bugs, or suggesting new features."
+  },
+  "alert": {
+    "success": {
+      "title": "Thank you!",
+      "message": "Your feedback has been submitted successfully. We'll review it soon."
+    },
+    "error": {
+      "title": "Error",
+      "message": "Please fill in all required fields before submitting."
+    }
+  },
+  "form": {
+    "title": "Share Your Feedback",
+    "categoryLabel": "Feedback Category *",
+    "ratingLabel": "Overall Rating",
+    "emailLabel": "Email (Optional)",
+    "emailPlaceholder": "your.email@example.com",
+    "emailHelper": "We'll only use this to follow up on your feedback",
+    "feedbackLabel": "Your Feedback *",
+    "feedbackPlaceholder": "Tell us about your experience, report a bug, or suggest improvements...",
+    "submit": "Submit Feedback",
+    "clear": "Clear Form"
+  },
+  "category": {
+    "bug": "Bug Report",
+    "feature": "Feature Request",
+    "improvement": "Improvement Suggestion",
+    "general": "General Feedback"
+  },
+  "rating": {
+    "5": "⭐⭐⭐⭐⭐ Excellent",
+    "4": "⭐⭐⭐⭐ Good",
+    "3": "⭐⭐⭐ Average",
+    "2": "⭐⭐ Poor",
+    "1": "⭐ Very Poor"
+  },
+  "sidebar": {
+    "stats": {
+      "title": "Community Stats",
+      "totalComponents": "Total Components",
+      "githubStars": "GitHub Stars",
+      "contributors": "Contributors",
+      "issuesResolved": "Issues Resolved"
+    },
+    "progress": {
+      "title": "Development Progress",
+      "buttons": "Button Components",
+      "cards": "Card Components",
+      "forms": "Form Components",
+      "navigation": "Navigation"
+    },
+    "contact": {
+      "title": "Other Ways to Reach Us",
+      "email": "📧 Email Support",
+      "discord": "💬 Discord Community",
+      "github": "🐙 GitHub Issues"
+    }
+  },
+  "recent": {
+    "title": "Recent Community Feedback",
+    "items": [
+      {
+        "name": "Alex",
+        "time": "2 days ago",
+        "category": "Feature",
+        "feedback": "Love the new button variants! Could we get a loading state for buttons?"
+      },
+      {
+        "name": "Sarah",
+        "time": "1 week ago",
+        "category": "Bug",
+        "feedback": "Card component spacing issue on mobile devices. Fixed in latest update!"
+      },
+      {
+        "name": "Mike",
+        "time": "2 weeks ago",
+        "category": "General",
+        "feedback": "Excellent documentation and examples. Makes integration super easy!"
+      }
+    ]
+  }
+}

@@ -1,0 +1,219 @@
+{
+  "title": "Advanced Component Playground",
+  "subtitle": "Customize components in real-time and export production-ready code!",
+  
+  "controls": {
+    "componentType": "Component Type",
+    "variant": "Variant",
+    "previewMode": "Preview Mode",
+    "myFavorites": "My Favorites ({count})",
+    "customizationControls": "Customization Controls",
+    "reset": "Reset",
+    "random": "Random",
+    "showFavorites": "Show Favorites",
+    "hideFavorites": "Hide Favorites"
+  },
+  
+  "componentTypes": {
+    "buttons": "Buttons",
+    "cards": "Cards",
+    "inputs": "Inputs"
+  },
+  
+  "buttonVariants": {
+    "primary": "Primary Button",
+    "secondary": "Secondary Button",
+    "danger": "Danger Button",
+    "success": "Success Button",
+    "ghost": "Ghost Button",
+    "outline": "Outline Button",
+    "rainbow": "Rainbow Button"
+  },
+  
+  "cardVariants": {
+    "simple": "Simple Card",
+    "feature": "Feature Card",
+    "pricing": "Pricing Card",
+    "user": "User Card",
+    "data": "Data Card"
+  },
+  
+  "inputVariants": {
+    "text": "Text Input",
+    "select": "Select Dropdown",
+    "checkbox": "Checkbox"
+  },
+  
+  "buttonControls": {
+    "buttonText": "Button Text",
+    "buttonSize": "Button Size",
+    "sizes": {
+      "small": "Small",
+      "medium": "Medium",
+      "large": "Large"
+    },
+    "disabled": "Disabled",
+    "loading": "Loading",
+    "loadingText": "⏳ Loading..."
+  },
+  
+  "cardControls": {
+    "cardTitle": "Card Title",
+    "cardDescription": "Card Description",
+    "cardTitlePlaceholder": "Enter card title",
+    "cardDescriptionPlaceholder": "Enter card description"
+  },
+  
+  "pricingControls": {
+    "planName": "Plan Name",
+    "price": "Price",
+    "features": "Features (comma separated)",
+    "planPlaceholder": "e.g., Pro",
+    "pricePlaceholder": "e.g., $9/mo",
+    "featuresPlaceholder": "Feature 1, Feature 2, Feature 3"
+  },
+  
+  "userCardControls": {
+    "userName": "User Name",
+    "email": "Email",
+    "role": "Role",
+    "avatarUrl": "Avatar URL",
+    "userNamePlaceholder": "John Doe",
+    "emailPlaceholder": "john@example.com",
+    "rolePlaceholder": "Software Engineer",
+    "avatarPlaceholder": "https://i.pravatar.cc/150?img=1"
+  },
+  
+  "dataCardControls": {
+    "dataTitle": "Data Title",
+    "value": "Value",
+    "icon": "Icon (Emoji)",
+    "trend": "Trend (%)",
+    "dataTitlePlaceholder": "Active Projects",
+    "valuePlaceholder": "27",
+    "iconPlaceholder": "📂",
+    "trendPlaceholder": "8"
+  },
+  
+  "inputControls": {
+    "label": "Label",
+    "placeholder": "Placeholder",
+    "errorMessage": "Error Message (optional)",
+    "required": "Required",
+    "labelPlaceholder": "Enter input label",
+    "placeholderPlaceholder": "Enter placeholder text",
+    "errorPlaceholder": "Enter error message"
+  },
+  
+  "codeSection": {
+    "generatedCode": "Generated Code",
+    "show": "Show",
+    "hide": "Hide",
+    "copyCode": "Copy Code",
+    "copied": "✅ Copied!",
+    "failedToCopy": "❌ Failed to copy",
+    "language": "React JSX"
+  },
+  
+  "preview": {
+    "livePreview": "Live Preview",
+    "componentInfo": "Component Info",
+    "type": "Type",
+    "variant": "Variant",
+    "interactive": "Interactive",
+    "clickToTest": "Yes (Click to test)",
+    "displayOnly": "Display only",
+    "light": "Light",
+    "dark": "Dark"
+  },
+  
+  "favorites": {
+    "title": "My Favorite Components ({count})",
+    "clearAll": "Clear All",
+    "noFavorites": "No favorite components yet",
+    "noFavoritesDesc": "Click the heart icon on any component to add it to your favorites",
+    "addFavorite": "Add Favorite",
+    "removeFavorite": "Remove Favorite",
+    "addedDate": "Added {date}",
+    "componentSuffix": "Component",
+    "addToFavorites": "Add to favorites",
+    "removeFromFavorites": "Remove from favorites"
+  },
+  
+  "showcase": {
+    "allVariants": "All {type} Variants",
+    "clickToCustomize": "Click to customize",
+    "preview": "Preview",
+    "sample": "Sample"
+  },
+  
+  "stats": {
+    "title": "Playground Stats",
+    "buttonTypes": "Button Types",
+    "cardTypes": "Card Types",
+    "inputTypes": "Input Types",
+    "favorites": "Favorites"
+  },
+  
+  "actions": {
+    "randomize": "Randomize",
+    "reset": "Reset",
+    "copyCode": "Copy Code"
+  },
+  
+  "defaultValues": {
+    "buttonText": "Click Me",
+    "cardTitle": "Sample Card",
+    "cardDescription": "This is a sample card description",
+    "inputLabel": "Sample Input",
+    "inputPlaceholder": "Enter text here...",
+    "checkboxDescription": "Check this option",
+    "selectOptions": {
+      "option1": "Option 1",
+      "option2": "Option 2",
+      "option3": "Option 3"
+    }
+  },
+  
+  "randomValues": {
+    "buttonTexts": ["Get Started", "Learn More", "Sign Up Now", "Download", "Subscribe", "Join Us", "Try Free", "Contact Us"],
+    "cardTitles": ["Amazing Feature", "Premium Service", "New Product", "Special Offer", "Latest Update"],
+    "cardDescriptions": [
+      "Discover incredible features that will transform your workflow",
+      "Experience premium quality with our professional services",
+      "Introducing our latest product with cutting-edge technology",
+      "Limited time offer with exclusive benefits for you",
+      "Stay updated with the latest improvements and features"
+    ],
+    "userNames": ["Alice Johnson", "Bob Smith", "Carol Davis", "David Wilson", "Emma Brown"],
+    "userRoles": ["Frontend Developer", "Backend Engineer", "UI/UX Designer", "Product Manager", "DevOps Engineer"],
+    "dataTitles": ["Total Users", "Revenue", "Active Sessions", "Conversion Rate", "Growth Rate"],
+    "dataValues": ["1,234", "$45.6K", "89%", "12.5%", "+23%"],
+    "dataIcons": ["👥", "💰", "📊", "📈", "🚀"]
+  },
+  
+  "pricing": {
+    "defaultPlan": "Pro",
+    "defaultPrice": "$9/mo",
+    "defaultFeatures": ["10 projects", "Priority support", "Unlimited users"]
+  },
+  
+  "userData": {
+    "defaultName": "John Doe",
+    "defaultEmail": "john@example.com",
+    "defaultRole": "Software Engineer"
+  },
+  
+  "dataCard": {
+    "defaultTitle": "Active Projects",
+    "defaultValue": "27",
+    "defaultIcon": "📂",
+    "defaultTrend": 8
+  },
+  
+  "messages": {
+    "codeCopied": "Code copied to clipboard!",
+    "copyFailed": "Failed to copy code.",
+    "clickAlert": "{component} clicked!"
+  }
+}
