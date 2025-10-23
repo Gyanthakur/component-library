@@ -1,0 +1,38 @@
+{
+  "header": {
+    "title": "Component Analytics Dashboard",
+    "description": "Track component usage, performance, and user engagement",
+    "export": "Export Data"
+  },
+  "overview": {
+    "totalViews": "Total Views",
+    "totalCopies": "Total Copies",
+    "componentsUsed": "Components Used",
+    "sessionTime": "Session Time"
+  },
+  "popular": {
+    "title": "Most Popular Components"
+  },
+  "recent": {
+    "title": "Last 7 Days Activity",
+    "today": "Today"
+  },
+  "performance": {
+    "title": "Performance Insights",
+    "avgViews": "Avg Views per Component",
+    "copyRate": "Copy Rate",
+    "viewsWeek": "Views This Week"
+  },
+  "actions": {
+    "title": "Quick Actions",
+    "viewComponents": "View Components",
+    "export": "Export Analytics",
+    "reset": "Reset Data"
+  },
+  "modal": {
+    "title": "Reset Analytics Data",
+    "message": "This will permanently delete all analytics data including views, copies, and session information. This action cannot be undone.",
+    "confirm": "Reset Data",
+    "cancel": "Cancel"
+  }
+}
