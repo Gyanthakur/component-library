@@ -54,7 +54,7 @@ export default function AboutPage() {
 
       {/* Mission & Vision */}
       <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div className="bg-blue-50 p-8 rounded-2xl">
+        <div className="bg-blue-50/70 border-gray-100 p-8 rounded-2xl hover:scale-103 hover:shadow-2xsm transition-all duration-300 ease-in-out backdrop-blur-sm">
           <div className="flex items-center mb-4">
             <Target className="w-6 h-6 text-blue-600 mr-3" />
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Our Mission</h2>
@@ -66,7 +66,7 @@ export default function AboutPage() {
           </p>
         </div>
 
-        <div className="bg-green-50 p-8 rounded-2xl">
+        <div className="bg-green-50/70 border-grey-100 p-8 rounded-2xl hover:scale-103 hover:shadow-2xsm transition-all duration-300 ease-in-out backdrop-blur-sm">
           <div className="flex items-center mb-4">
             <Rocket className="w-6 h-6 text-green-600 mr-3" />
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Our Vision</h2>
@@ -83,7 +83,7 @@ export default function AboutPage() {
       <section>
         <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">Why Choose MyLibrary?</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+          <div className="bg-white/3 p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-sm transition-all duration-300 ease-in-out backdrop-blur-sm">
             <div className="bg-purple-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
               <Palette className="w-6 h-6 text-purple-600" />
             </div>
@@ -91,7 +91,7 @@ export default function AboutPage() {
             <p className="text-gray-600 dark:text-gray-300">Consistent design tokens and theming system for cohesive user experiences.</p>
           </div>
 
-          <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+          <div className="bg-white/3 p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-sm transition-all duration-300 ease-in-out backdrop-blur-sm">
             <div className="bg-blue-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
               <Shield className="w-6 h-6 text-blue-600" />
             </div>
@@ -99,7 +99,7 @@ export default function AboutPage() {
             <p className="text-gray-600 dark:text-gray-300">Built with WCAG 2.1 guidelines and keyboard navigation support.</p>
           </div>
 
-          <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+          <div className="bg-white/3 p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-sm transition-all duration-300 ease-in-out backdrop-blur-sm">
             <div className="bg-green-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
               <Zap className="w-6 h-6 text-green-600" />
             </div>
@@ -107,7 +107,7 @@ export default function AboutPage() {
             <p className="text-gray-600 dark:text-gray-300">Optimized bundle size with tree-shaking and minimal dependencies.</p>
           </div>
 
-          <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+          <div className="bg-white/3 p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-sm transition-all duration-300 ease-in-out backdrop-blur-sm">
             <div className="bg-orange-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
               <Code className="w-6 h-6 text-orange-600" />
             </div>
@@ -115,7 +115,7 @@ export default function AboutPage() {
             <p className="text-gray-600 dark:text-gray-300">TypeScript support, comprehensive documentation, and excellent IDE integration.</p>
           </div>
 
-          <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+          <div className="bg-white/3 p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-sm transition-all duration-300 ease-in-out backdrop-blur-sm">
             <div className="bg-pink-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
               <Heart className="w-6 h-6 text-pink-600" />
             </div>
@@ -123,7 +123,7 @@ export default function AboutPage() {
             <p className="text-gray-600 dark:text-gray-300">Open source project with active community contributions and feedback.</p>
           </div>
 
-          <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+          <div className="bg-white/3 p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-sm transition-all duration-300 ease-in-out backdrop-blur-sm">
             <div className="bg-indigo-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
               <Users className="w-6 h-6 text-indigo-600" />
             </div>
@@ -134,40 +134,40 @@ export default function AboutPage() {
       </section>
 
       {/* Tech Stack Section */}
-      <section className="bg-gray-50 p-8 rounded-2xl">
+      <section className="bg-gray-50 p-8 rounded-2xl ">
         <div className="flex items-center justify-center mb-8">
           <Code className="w-8 h-8 text-blue-600 mr-3" />
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Tech Stack</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm text-center">
+          <div className="bg-white/10 dark:bg-gray-800 p-6 rounded-xl shadow-sm text-center hover:scale-103 hover:shadow-2xsm transition-all duration-300 ease-in-out backdrop-blur-sm">
             <div className="bg-black w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center">
-              <span className="text-white font-bold text-xl">N</span>
+              <span className="!text-white font-bold text-xl">N</span>
             </div>
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Next.js 14</h3>
             <p className="text-sm text-gray-600 dark:text-gray-400">React framework with App Router</p>
           </div>
 
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm text-center">
+          <div className="bg-white/10 dark:bg-gray-800 p-6 rounded-xl shadow-sm text-center hover:scale-103 hover:shadow-2xsm transition-all duration-300 ease-in-out backdrop-blur-sm">
             <div className="bg-blue-500 w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center">
-              <span className="text-white font-bold text-xl">R</span>
+              <span className="!text-white font-bold text-xl">R</span>
             </div>
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">React 18</h3>
             <p className="text-sm text-gray-600 dark:text-gray-400">Component-based architecture</p>
           </div>
 
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm text-center">
+          <div className="bg-white/10 dark:bg-gray-800 p-6 rounded-xl shadow-sm text-center hover:scale-103 hover:shadow-2xsm transition-all duration-300 ease-in-out backdrop-blur-sm">
             <div className="bg-cyan-500 w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center">
-              <span className="text-white font-bold text-xl">T</span>
+              <span className="!text-white font-bold text-xl">T</span>
             </div>
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Tailwind CSS</h3>
             <p className="text-sm text-gray-600 dark:text-gray-400">Utility-first styling</p>
           </div>
 
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm text-center">
+          <div className="bg-white/10 dark:bg-gray-800 p-6 rounded-xl shadow-sm text-center  hover:scale-103 hover:shadow-2xsm transition-all duration-300 ease-in-out backdrop-blur-sm">
             <div className="bg-blue-600 w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center">
-              <span className="text-white font-bold text-xl">TS</span>
+              <span className="!text-white font-bold text-xl">TS</span>
             </div>
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">TypeScript</h3>
             <p className="text-sm text-gray-600 dark:text-gray-400">Type-safe development</p>
@@ -185,8 +185,10 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      
 {/* 🌟 Getting Started Section */}
-<section className="w-full overflow-x-hidden bg-gradient-to-b from-[#001E3C] to-[#012A63] text-white py-16 px-4 sm:px-8 md:px-12 rounded-3xl shadow-xl mt-12">
+<section className="w-full overflow-x-hidden bg-white dark:bg-gradient-to-b from-blue-800 to-blue-900 text-white py-16 px-4 sm:px-8 md:px-12 rounded-3xl shadow-xl mt-12">
   <div className="max-w-6xl mx-auto">
     <h2 className="text-4xl font-extrabold mb-10 text-center tracking-wide">
       🚀 Getting Started
@@ -195,37 +197,37 @@ export default function AboutPage() {
     {/* Steps Grid */}
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
       {/* Step 1 */}
-      <div className="bg-[#023E8A]/50 backdrop-blur-md rounded-2xl p-8 text-center shadow-lg hover:shadow-blue-600/40 transition-all duration-300 transform hover:-translate-y-2">
-        <div className="bg-[#0077B6] text-white w-14 h-14 rounded-full mx-auto mb-5 flex items-center justify-center text-xl font-bold shadow-md">
+      <div className="bg-white/20 dark:bg-blue-800/20 backdrop-blur-md rounded-2xl p-8 text-center shadow-lg dark:hover:shadow-blue-600/40 transition-all duration-300 transform hover:scale-101 border border-gray-200 dark:border-blue-800/40">
+        <div className="bg-gray-200 dark:bg-blue-700 text-gray-900 dark:text-gray-600  w-14 h-14 rounded-full mx-auto mb-5 flex items-center justify-center text-xl font-bold shadow-md">
           1
         </div>
-        <h3 className="text-xl font-semibold mb-3">Installation</h3>
-        <p className="text-gray-200 text-sm leading-relaxed">
+        <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-white">Installation</h3>
+        <p className="text-gray-700 dark:text-gray-200 text-sm leading-relaxed">
           Install the library via{" "}
-          <code className="bg-black/40 px-2 py-0.5 rounded">npm</code> or copy
+          <code className="bg-gray-200 dark:bg-black/40 text-gray-900 dark:text-white px-2 py-0.5 rounded">npm</code> or copy
           ready-to-use components directly.
         </p>
       </div>
 
       {/* Step 2 */}
-      <div className="bg-[#023E8A]/50 backdrop-blur-md rounded-2xl p-8 text-center shadow-lg hover:shadow-blue-600/40 transition-all duration-300 transform hover:-translate-y-2">
-        <div className="bg-[#0077B6] text-white w-14 h-14 rounded-full mx-auto mb-5 flex items-center justify-center text-xl font-bold shadow-md">
+      <div className="bg-white/20 dark:bg-blue-800/20 backdrop-blur-md rounded-2xl p-8 text-center shadow-lg dark:hover:shadow-blue-600/40 transition-all duration-300 transform hover:scale-101 border border-gray-200 dark:border-blue-800/40">
+        <div className="bg-gray-200 dark:bg-blue-700 text-gray-900 dark:text-gray-600 w-14 h-14 rounded-full mx-auto mb-5 flex items-center justify-center text-xl font-bold shadow-md">
           2
         </div>
-        <h3 className="text-xl font-semibold mb-3">Import</h3>
-        <p className="text-gray-200 text-sm leading-relaxed">
+        <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-white">Import</h3>
+        <p className="text-gray-700 dark:text-gray-200 text-sm leading-relaxed">
           Import the components you need directly into your React project and
           start building faster.
         </p>
       </div>
 
       {/* Step 3 */}
-      <div className="bg-[#023E8A]/50 backdrop-blur-md rounded-2xl p-8 text-center shadow-lg hover:shadow-blue-600/40 transition-all duration-300 transform hover:-translate-y-2">
-        <div className="bg-[#0077B6] text-white w-14 h-14 rounded-full mx-auto mb-5 flex items-center justify-center text-xl font-bold shadow-md">
+      <div className="bg-white/20 dark:bg-blue-800/20 backdrop-blur-md rounded-2xl p-8 text-center shadow-lg dark:hover:shadow-blue-600/40 transition-all duration-300 transform hover:scale-101 border border-gray-200 dark:border-blue-800/40">
+        <div className="bg-gray-200 dark:bg-blue-700 text-gray-900 dark:text-gray-600 w-14 h-14 rounded-full mx-auto mb-5 flex items-center justify-center text-xl font-bold shadow-md">
           3
         </div>
-        <h3 className="text-xl font-semibold mb-3">Customize</h3>
-        <p className="text-gray-200 text-sm leading-relaxed">
+        <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-white">Customize</h3>
+        <p className="text-gray-700 dark:text-gray-200 text-sm leading-relaxed">
           Tweak the design, colors, and behavior easily to match your own design
           system.
         </p>
@@ -254,36 +256,38 @@ export default function AboutPage() {
             <Github className="w-8 h-8 text-blue-600 mr-3" />
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Contributing</h2>
           </div>
-          <p className="text-gray-600 dark:text-gray-300 mb-6">
-            We welcome contributions from the community! Whether you're fixing bugs, adding new components,
-            or improving documentation, your help makes MyLibrary better for everyone.
-          </p>
-          <div className="space-y-4">
-            <div className="flex items-start gap-3">
-              <div className="bg-green-100 p-1 rounded">
-                <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+          <div className="bg-white/10 dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 backdrop-blur-sm">
+            <p className="text-gray-600 dark:text-gray-300 mb-6">
+              We welcome contributions from the community! Whether you're fixing bugs, adding new components,
+              or improving documentation, your help makes MyLibrary better for everyone.
+            </p>
+            <div className="space-y-4">
+              <div className="flex items-start gap-3">
+                <div className="bg-green-100 p-1 rounded">
+                  <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                </div>
+                <div>
+                  <h3 className="font-medium text-gray-900">Submit Issues</h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">Report bugs or request features on GitHub</p>
+                </div>
               </div>
-              <div>
-                <h3 className="font-medium text-gray-900">Submit Issues</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400">Report bugs or request features on GitHub</p>
+              <div className="flex items-start gap-3">
+                <div className="bg-blue-100 p-1 rounded">
+                  <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                </div>
+                <div>
+                  <h3 className="font-medium text-gray-900">Create Pull Requests</h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">Contribute code improvements and new features</p>
+                </div>
               </div>
-            </div>
-            <div className="flex items-start gap-3">
-              <div className="bg-blue-100 p-1 rounded">
-                <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-              </div>
-              <div>
-                <h3 className="font-medium text-gray-900">Create Pull Requests</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400">Contribute code improvements and new features</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-3">
-              <div className="bg-purple-100 p-1 rounded">
-                <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-              </div>
-              <div>
-                <h3 className="font-medium text-gray-900">Improve Documentation</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400">Help make our docs clearer and more comprehensive</p>
+              <div className="flex items-start gap-3">
+                <div className="bg-purple-100 p-1 rounded">
+                  <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                </div>
+                <div>
+                  <h3 className="font-medium text-gray-900">Improve Documentation</h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">Help make our docs clearer and more comprehensive</p>
+                </div>
               </div>
             </div>
           </div>
@@ -294,7 +298,7 @@ export default function AboutPage() {
             <Heart className="w-8 h-8 text-red-500 mr-3" />
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Community</h2>
           </div>
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+          <div className="bg-white/10 dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 backdrop-blur-sm">
             <p className="text-gray-600 dark:text-gray-300 mb-6">
               Join our growing community of developers who are building amazing user interfaces with MyLibrary.
             </p>
