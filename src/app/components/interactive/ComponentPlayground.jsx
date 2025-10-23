@@ -25,8 +25,6 @@ import {
   FileText,
   Info,
   Sparkles,
-  Heart,
-  Star,
 } from "lucide-react";
 import PrimaryButton from "../buttons/PrimaryButton";
 import SecondaryButton from "../buttons/SecondaryButton";
@@ -567,7 +565,7 @@ export default function ComponentPlayground() {
             <select
               value={selectedVariant}
               onChange={(e) => setSelectedVariant(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-500 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-gray-100 dark:focus:ring-blue-400 dark:hover:bg-gray-700"
             >
               {Object.entries(componentVariants[selectedComponent] || {}).map(
                 ([key, variant]) => (
@@ -590,7 +588,7 @@ export default function ComponentPlayground() {
                 className={`px-3 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2 ${
                   previewMode === "light"
                     ? "bg-yellow-500 text-white"
-                    : "bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300"
+                    : "bg-gray-500 dark:bg-gray-700 text-gray-800 dark:text-gray-100 hover:bg-gray-600 dark:hover:bg-gray-600"
                 }`}
               >
                 <Sun className="w-4 h-4" />
@@ -600,8 +598,8 @@ export default function ComponentPlayground() {
                 onClick={() => setPreviewMode("dark")}
                 className={`px-3 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2 ${
                   previewMode === "dark"
-                    ? "bg-gray-800 text-white"
-                    : "bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300"
+                    ? "bg-gray-700 text-white"
+                    : "bg-gray-500 dark:bg-gray-700 text-gray-800 dark:text-gray-100 hover:bg-gray-600 dark:hover:bg-gray-600"
                 }`}
               >
                 <Moon className="w-4 h-4" />
@@ -688,7 +686,7 @@ export default function ComponentPlayground() {
                         className={`px-3 py-1 rounded-lg text-sm font-medium transition-all ${
                           buttonSize === size
                             ? "bg-blue-500 text-white"
-                            : "bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-500"
+                            : "bg-gray-500 dark:bg-gray-700 text-gray-800 dark:text-gray-100 hover:bg-gray-600 dark:hover:bg-gray-600"
                         }`}
                       >
                         {t(`buttonControls.sizes.${size}`)}
@@ -1012,14 +1010,14 @@ export default function ComponentPlayground() {
 
           {/* Preview Container */}
           <div
-            className={`min-h-[300px] sm:min-h-[400px] rounded-lg p-4 sm:p-8 flex items-center justify-center transition-all duration-300 ${
+            className={`min-h-[400px] rounded-lg p-8 flex items-center justify-center transition-all duration-300 ${
               previewMode === "dark"
                 ? "bg-gray-900 border border-gray-700"
                 : "bg-gray-50 border border-gray-200"
             }`}
           >
             <div className={previewMode === "dark" ? "dark" : ""}>
-              <div className="w-full max-w-sm mx-auto">{renderComponent()}</div>
+              <div className="w-full max-w-sm">{renderComponent()}</div>
             </div>
           </div>
 
@@ -1031,7 +1029,7 @@ export default function ComponentPlayground() {
                 {t('preview.componentInfo')}
               </span>
             </div>
-            <div className="space-y-1 text-blue-800 dark:text-blue-300">
+            <div className="text-sm text-blue-800 dark:text-blue-300">
               <p>
                 <strong>{t('preview.type')}:</strong>{" "}
                 {componentVariants[selectedComponent]?.[selectedVariant]?.name}
@@ -1063,11 +1061,8 @@ export default function ComponentPlayground() {
               </div>
             </SecondaryButton>
 
-            <SuccessButton
-              onClick={randomizeValues}
-              className="flex-1 sm:flex-none"
-            >
-              <div className="flex items-center justify-center gap-2">
+            <SuccessButton onClick={randomizeValues}>
+              <div className="flex items-center gap-2">
                 <Shuffle className="w-4 h-4" />
                 {t('actions.randomize')}
               </div>
@@ -1294,33 +1289,9 @@ export default function ComponentPlayground() {
                     )}
                   </div>
                 </div>
-                <div className="flex items-center justify-between mb-1">
-                  <h3 className="font-medium text-sm text-gray-900 dark:text-white">
-                    {variant.name}
-                  </h3>
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      toggleFavorite(selectedComponent, key);
-                    }}
-                    className={`p-1 rounded-full transition-all hover:scale-110 ${
-                      isFavorite(selectedComponent, key)
-                        ? "text-pink-500 hover:text-pink-600"
-                        : "text-gray-400 hover:text-pink-500"
-                    }`}
-                    title={
-                      isFavorite(selectedComponent, key)
-                        ? t('favorites.removeFromFavorites')
-                        : t('favorites.addToFavorites')
-                    }
-                  >
-                    <Heart
-                      className={`w-4 h-4 ${
-                        isFavorite(selectedComponent, key) ? "fill-current" : ""
-                      }`}
-                    />
-                  </button>
-                </div>
+                <h3 className="font-medium text-sm text-gray-900 dark:text-white mb-1">
+                  {variant.name}
+                </h3>
                 <p className="text-xs text-gray-500 dark:text-gray-400">
                   {t('showcase.clickToCustomize')}
                 </p>
