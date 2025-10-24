@@ -200,7 +200,7 @@ export default function AboutPage() {
 
     <div className="dark:bg-gray-800 bg-white p-4 rounded-lg shadow-sm text-center hover:shadow-md transition">
       <div className="dark:bg-white mb-4 mt-1 w-10 h-10 rounded-full mx-auto flex items-center bg-purple justify-center ">
-        <img src="/logos/lucide-dark.svg" alt="Lucid" className="w-10 h-10 "/>
+        <img src="/logos/lucide.svg" alt="Lucid" className="w-10 h-10 "/>
       </div>
       <h4 className="text-base font-medium text-gray-800 dark:text-gray-200 mb-1">
         Lucide Icons
