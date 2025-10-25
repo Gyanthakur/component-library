@@ -6,7 +6,8 @@
     "components": "Componentes",
     "playground": "🎮 Zona de juegos",
     "analytics": "Analíticas",
-    "feedback": "Retroalimentación"
+    "feedback": "Retroalimentación",
+    "game": "🎮 Juego"
   },
   "theme": {
     "toggle_light": "Cambiar a modo claro",

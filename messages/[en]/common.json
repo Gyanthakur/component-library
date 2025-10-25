@@ -6,7 +6,10 @@
     "components": "Components",
     "playground": "🎮 Playground",
     "analytics": "Analytics",
-    "feedback": "Feedback"
+    "feedback": "Feedback",
+    "game":"🎮 Game",
+    "racing game":"🏁 Racing Game",
+    "fun": "Fun"
   },
   "footer": {
     "brand": "MyLibrary",

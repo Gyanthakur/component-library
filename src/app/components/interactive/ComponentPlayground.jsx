@@ -25,6 +25,7 @@ import {
   FileText,
   Info,
   Sparkles,
+  Heart
 } from "lucide-react";
 import PrimaryButton from "../buttons/PrimaryButton";
 import SecondaryButton from "../buttons/SecondaryButton";

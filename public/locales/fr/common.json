@@ -6,7 +6,8 @@
     "components": "Composants",
     "playground": "🎮 Bac à sable",
     "analytics": "Analytique",
-    "feedback": "Retour d'information"
+    "feedback": "Retour d'information",
+    "game": "🎮 Jeu"
   },
   "theme": {
     "toggle_light": "Passer en mode clair",

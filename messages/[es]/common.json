@@ -6,7 +6,10 @@
     "components": "Componentes",
     "playground": "🎮 Zona de juegos",
     "analytics": "Analíticas",
-    "feedback": "Retroalimentación"
+    "feedback": "Retroalimentación",
+    "game": "🎮 Juego",
+    "racing game": "🏁 Juego de carreras",
+    "fun": "Diversión"
   },
   
   "footer": {

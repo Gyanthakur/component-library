@@ -7,7 +7,10 @@
     "components": "Composants",
     "playground": "🎮 Bac à sable",
     "analytics": "Analytique",
-    "feedback": "Retour d'information"
+    "feedback": "Retour d'information",
+    "game": "🎮 Jeu",
+    "racing game": "🏁 Jeu de courses",
+    "fun": "Amusement"
   },
   "footer": {
     "brand": "MaBibliothèque",
