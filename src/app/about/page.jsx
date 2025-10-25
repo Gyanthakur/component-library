@@ -142,48 +142,91 @@ export default function AboutPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm text-center">
-            <div className="bg-black w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center">
-              <span className="text-white font-bold text-xl">N</span>
+            <div className="dark:bg-white w-14 h-14 rounded-full mx-auto mb-4 flex items-center justify-center">
+              <img src="/logos/nextjs.svg" alt="Next.js" className="w-14 h-14" />
             </div>
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Next.js 14</h3>
             <p className="text-sm text-gray-600 dark:text-gray-400">React framework with App Router</p>
           </div>
 
           <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm text-center">
-            <div className="bg-blue-500 w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center">
-              <span className="text-white font-bold text-xl">R</span>
+            <div className="w-14 h-14 mx-auto mb-4 flex items-center justify-center">
+              <img src="/logos/react.svg" alt="React" className="w-14 h-14" />
             </div>
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">React 18</h3>
             <p className="text-sm text-gray-600 dark:text-gray-400">Component-based architecture</p>
           </div>
 
           <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm text-center">
-            <div className="bg-cyan-500 w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center">
-              <span className="text-white font-bold text-xl">T</span>
+            <div className=" w-14 h-14 rounded-full mx-auto mb-4 flex items-center justify-center">
+              <img src="/logos/tailwind.svg" alt="Tailwind CSS" className="w-14 h-14" />
             </div>
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Tailwind CSS</h3>
             <p className="text-sm text-gray-600 dark:text-gray-400">Utility-first styling</p>
           </div>
 
           <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm text-center">
-            <div className="bg-blue-600 w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center">
-              <span className="text-white font-bold text-xl">TS</span>
+            <div className=" w-14 h-14 rounded-full mx-auto mb-4 flex items-center justify-center">
+              <img src="/logos/typescript.svg" alt="TypeScript" className="w-14 h-14" />
             </div>
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">TypeScript</h3>
             <p className="text-sm text-gray-600 dark:text-gray-400">Type-safe development</p>
           </div>
         </div>
 
-        <div className="text-center">
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Additional Tools</h3>
-          <div className="flex flex-wrap justify-center gap-3">
-            <span className="bg-white dark:bg-gray-700 px-4 py-2 rounded-full text-sm text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-600">ESLint</span>
-            <span className="bg-white dark:bg-gray-700 px-4 py-2 rounded-full text-sm text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-600">Prettier</span>
-            <span className="bg-white dark:bg-gray-700 px-4 py-2 rounded-full text-sm text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-600">Lucide Icons</span>
-            <span className="bg-white dark:bg-gray-700 px-4 py-2 rounded-full text-sm text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-600">PostCSS</span>
-            <span className="bg-white dark:bg-gray-700 px-4 py-2 rounded-full text-sm text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-600">Git</span>
-          </div>
-        </div>
+        <section className="mt-10">
+  <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">
+    Additional Tools
+  </h2>
+
+  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+    <div className="dark:bg-gray-800 bg-white p-4 rounded-lg shadow-sm text-center hover:shadow-md transition">
+      <div className="w-12 h-12 rounded-full mx-auto mb-3 flex items-center justify-center ">
+        <img src="/logos/eslint.svg" alt="ESLint" className="w-8 h-8" />
+      </div>
+      <h4 className="text-base font-medium text-gray-800 dark:text-gray-200 mb-1">
+        ESLint
+      </h4>
+    </div>
+
+    <div className="dark:bg-gray-800 bg-white p-4 rounded-lg shadow-sm text-center hover:shadow-md transition">
+      <div className="w-12 h-12 rounded-full mx-auto mb-3 flex items-center justify-center ">
+        <img src="/logos/prettier.svg" alt="Prettier" className="w-8 h-8" />
+      </div>
+      <h4 className="text-base font-medium text-gray-800 dark:text-gray-200 mb-1">
+        Prettier
+      </h4>
+    </div>
+
+    <div className="dark:bg-gray-800 bg-white p-4 rounded-lg shadow-sm text-center hover:shadow-md transition">
+      <div className="dark:bg-white mb-4 mt-1 w-10 h-10 rounded-full mx-auto flex items-center bg-purple justify-center ">
+        <img src="/logos/lucide.svg" alt="Lucid" className="w-10 h-10 "/>
+      </div>
+      <h4 className="text-base font-medium text-gray-800 dark:text-gray-200 mb-1">
+        Lucide Icons
+      </h4>
+    </div>
+
+    <div className="dark:bg-gray-800 bg-white p-4 rounded-lg shadow-sm text-center hover:shadow-md transition">
+      <div className="w-12 h-12 rounded-full mx-auto mb-3 flex items-center justify-center ">
+        <img src="/logos/postcss.svg" alt="PostCSS" className="w-8 h-8" />
+      </div>
+      <h4 className="text-base font-medium text-gray-800 dark:text-gray-200 mb-1">
+        PostCSS
+      </h4>
+    </div>
+
+    <div className="dark:bg-gray-800 bg-white p-4 rounded-sm shadow-md text-center hover:shadow-md transition">
+      <div className="w-12 h-12 rounded-full mx-auto mb-3 flex items-center justify-center">
+        <img src="/logos/git.svg" alt="Git" className="w-8 h-8" />
+      </div>
+      <h4 className="text-base font-medium text-gray-800 dark:text-gray-200 mb-1">
+        Git
+      </h4>
+    </div>
+
+  </div>
+</section>
       </section>
 {/* 🌟 Getting Started Section */}
 <section className="w-full overflow-x-hidden bg-gradient-to-b from-[#001E3C] to-[#012A63] text-white py-16 px-4 sm:px-8 md:px-12 rounded-3xl shadow-xl mt-12">
