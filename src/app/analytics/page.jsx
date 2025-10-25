@@ -1,11 +1,13 @@
 "use client";
 import React, { useState, useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 import { useAnalytics } from '../context/AnalyticsContext';
 import { BarChart3, TrendingUp, Eye, Copy, Download, Calendar, Award, Activity } from 'lucide-react';
 import ConfirmationModal from '../components/ConfirmationModal';
 import PopularityChart from '../components/PopularityChart';
 
 export default function AnalyticsPage() {
+  const t = useTranslations('analytics');
   const { analytics, getPopularComponents, getRecentStats, exportAnalytics } = useAnalytics();
   const [showResetModal, setShowResetModal] = useState(false);
   const [isDarkTheme, setIsDarkTheme] = useState(false);
@@ -14,7 +16,7 @@ export default function AnalyticsPage() {
   const recentStats = getRecentStats();
 
   // Detect dark theme
-  useEffect(() => {
+useEffect(() => {
     const checkDarkTheme = () => {
       const isDark = document.documentElement.classList.contains('dark') ||
                     window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -66,10 +68,10 @@ export default function AnalyticsPage() {
           <div className="flex items-center justify-between">
             <div>
               <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
-                Component Analytics Dashboard
+                {t('header.title')}
               </h1>
               <p className="text-gray-600 dark:text-gray-300">
-                Track component usage, performance, and user engagement
+                {t('header.description')}
               </p>
             </div>
             <button
@@ -77,7 +79,7 @@ export default function AnalyticsPage() {
               className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
             >
               <Download size={16} />
-              Export Data
+              {t('header.export')}
             </button>
           </div>
         </div>
@@ -87,7 +89,7 @@ export default function AnalyticsPage() {
           <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm border dark:border-gray-700">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-600 dark:text-gray-400">Total Views</p>
+                <p className="text-sm text-gray-600 dark:text-gray-400">{t('overview.totalViews')}</p>
                 <p className="text-2xl font-bold text-gray-900 dark:text-white">
                   {analytics.totalViews.toLocaleString()}
                 </p>
@@ -101,7 +103,7 @@ export default function AnalyticsPage() {
           <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm border dark:border-gray-700">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-600 dark:text-gray-400">Total Copies</p>
+                <p className="text-sm text-gray-600 dark:text-gray-400">{t('overview.totalCopies')}</p>
                 <p className="text-2xl font-bold text-gray-900 dark:text-white">
                   {analytics.totalCopies.toLocaleString()}
                 </p>
@@ -115,7 +117,7 @@ export default function AnalyticsPage() {
           <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm border dark:border-gray-700">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-600 dark:text-gray-400">Components Used</p>
+                <p className="text-sm text-gray-600 dark:text-gray-400">{t('overview.componentsUsed')}</p>
                 <p className="text-2xl font-bold text-gray-900 dark:text-white">
                   {uniqueComponents}
                 </p>
@@ -129,7 +131,7 @@ export default function AnalyticsPage() {
           <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm border dark:border-gray-700">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-600 dark:text-gray-400">Session Time</p>
+                <p className="text-sm text-gray-600 dark:text-gray-400">{t('overview.sessionTime')}</p>
                 <p className="text-2xl font-bold text-gray-900 dark:text-white">
                   {sessionDuration}m
                 </p>
@@ -148,7 +150,7 @@ export default function AnalyticsPage() {
             <div className="flex items-center gap-2 mb-6">
               <TrendingUp className="w-5 h-5 text-blue-600 dark:text-blue-400" />
               <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
-                Most Popular Components
+                {t('popular.title')}
               </h2>
             </div>
             
@@ -160,7 +162,7 @@ export default function AnalyticsPage() {
             <div className="flex items-center gap-2 mb-6">
               <Calendar className="w-5 h-5 text-green-600 dark:text-green-400" />
               <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
-                Last 7 Days Activity
+                {t('recent.title')}
               </h2>
             </div>
             
@@ -173,7 +175,7 @@ export default function AnalyticsPage() {
                   <div key={day.date} className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
                     <div>
                       <p className={`font-medium ${isToday ? 'text-blue-600 dark:text-blue-400' : 'text-gray-900 dark:text-white'}`}>
-                        {isToday ? 'Today' : date.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' })}
+                        {isToday ? t('recent.today') : date.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' })}
                       </p>
                     </div>
                     <div className="flex items-center gap-4 text-sm">
@@ -196,7 +198,7 @@ export default function AnalyticsPage() {
         {/* Performance Insights */}
         <div className="mt-8 bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm border dark:border-gray-700">
           <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">
-            Performance Insights
+            {t('performance.title')}
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -205,7 +207,7 @@ export default function AnalyticsPage() {
                 {avgViewsPerComponent}
               </p>
               <p className="text-sm text-gray-600 dark:text-gray-400">
-                Avg Views per Component
+                {t('performance.avgViews')}
               </p>
             </div>
             
@@ -214,7 +216,7 @@ export default function AnalyticsPage() {
                 {analytics.totalCopies > 0 ? Math.round((analytics.totalCopies / analytics.totalViews) * 100) : 0}%
               </p>
               <p className="text-sm text-gray-600 dark:text-gray-400">
-                Copy Rate
+                {t('performance.copyRate')}
               </p>
             </div>
             
@@ -223,7 +225,7 @@ export default function AnalyticsPage() {
                 {recentStats.reduce((sum, day) => sum + day.views, 0)}
               </p>
               <p className="text-sm text-gray-600 dark:text-gray-400">
-                Views This Week
+                {t('performance.viewsWeek')}
               </p>
             </div>
           </div>
@@ -232,26 +234,26 @@ export default function AnalyticsPage() {
         {/* Quick Actions */}
         <div className="mt-8 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 p-6 rounded-lg border dark:border-gray-700">
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
-            Quick Actions
+            {t('actions.title')}
           </h3>
           <div className="flex flex-wrap gap-3">
             <button
               onClick={() => window.location.href = '/components'}
               className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
             >
-              View Components
+              {t('actions.viewComponents')}
             </button>
             <button
               onClick={exportAnalytics}
               className="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
             >
-              Export Analytics
+              {t('actions.export')}
             </button>
             <button
               onClick={() => setShowResetModal(true)}
               className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors"
             >
-              Reset Data
+              {t('actions.reset')}
             </button>
           </div>
         </div>
@@ -261,10 +263,10 @@ export default function AnalyticsPage() {
           isOpen={showResetModal}
           onClose={() => setShowResetModal(false)}
           onConfirm={handleResetData}
-          title="Reset Analytics Data"
-          message="This will permanently delete all analytics data including views, copies, and session information. This action cannot be undone."
-          confirmText="Reset Data"
-          cancelText="Cancel"
+          title={t('modal.title')}
+          message={t('modal.message')}
+          confirmText={t('modal.confirm')}
+          cancelText={t('modal.cancel')}
           variant="danger"
         />
       </div>

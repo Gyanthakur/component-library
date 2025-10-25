@@ -1,0 +1,350 @@
+{
+  "hero": {
+    "title": "Terrain de jeu UI React",
+    "description": "Démonstration de composants beaux, modernes et réactifs – chaque section ci-dessous est stylisée pour la clarté, la vibrance et l'accessibilité."
+  },
+  "search": {
+    "placeholder": "Rechercher des composants (boutons, cartes, principal, etc.)",
+    "results": "Trouvé {count} composant{count, plural, one {} other {s}}{search, select, '' {} other { correspondant à \"{search}\"}}{filter, select, all {} other { dans {filter}}}",
+    "noResults": "Aucun composant trouvé"
+  },
+  "filter": {
+    "all": "Tous les composants",
+    "buttons": "Boutons",
+    "backgrounds": "Arrière-plans",
+    "cards": "Cartes",
+    "inputs": "Entrées",
+    "navigation": "Navigation",
+    "badges": "Badges"
+  },
+  "selectOptions": {
+    "option1": "Option 1",
+    "option2": "Option 2",
+    "option3": "Option 3"
+  },
+  "tabs": {
+    "dashboard": "Tableau de bord",
+    "dashboardContent": "Le contenu du tableau de bord va ici...",
+    "analytics": "Analyse",
+    "analyticsContent": "Le contenu des analyses va ici...",
+    "settings": "Paramètres",
+    "settingsContent": "Le contenu des paramètres va ici..."
+  },
+  "breadcrumb": {
+    "home": "Accueil",
+    "components": "Composants",
+    "navigation": "Navigation",
+    "breadcrumb": "Fil d'Ariane"
+  },
+  "buttons": {
+    "primary": {
+      "name": "Bouton principal",
+      "label": "Principal",
+      "keywords": ["principal", "principal", "action", "cta"],
+      "desc": "Utilisé pour les actions principales"
+    },
+    "gradient": {
+      "name": "Bouton dégradé",
+      "label": "Dégradé",
+      "keywords": ["dégradé", "coloré", "vibrant", "cta"],
+      "desc": "Bouton dégradé vibrant avec mise à l'échelle au survol et indicateur de chargement"
+    },
+    "neon": {
+      "name": "Bouton Néon",
+      "label": "Néon",
+      "keywords": ["néon", "lueur", "vif", "futuriste"],
+      "desc": "Bouton futuriste lumineux avec indicateur de chargement et mise à l'échelle au survol"
+    },
+    "secondary": {
+      "name": "Bouton secondaire",
+      "label": "Secondaire",
+      "keywords": ["secondaire", "alternatif"],
+      "desc": "Utilisé pour les actions secondaires"
+    },
+    "ghost": {
+      "name": "Bouton Ghost",
+      "label": "Ghost",
+      "keywords": ["ghost", "transparent", "subtil"],
+      "desc": "Utilisé pour des actions minimales"
+    },
+    "outline": {
+      "name": "Bouton Outline",
+      "label": "Outline",
+      "keywords": ["outline", "bordure", "contour"],
+      "desc": "Utilisé pour donner un contour"
+    },
+    "danger": {
+      "name": "Bouton Danger",
+      "label": "Danger",
+      "keywords": ["danger", "erreur", "supprimer", "avertissement", "rouge"],
+      "desc": "Utilisé pour des actions destructrices"
+    },
+    "success": {
+      "name": "Bouton de succès",
+      "label": "Succès",
+      "keywords": ["succès", "confirmer", "terminé", "vert"],
+      "desc": "Utilisé pour les actions de succès"
+    },
+    "icon": {
+      "name": "Bouton icône",
+      "label": "Icône",
+      "keywords": ["icône", "étoile", "symbole"],
+      "desc": "Utilisé pour des icônes"
+    },
+    "rainbow": {
+      "name": "Bouton Arc-en-ciel",
+      "label": "Arc-en-ciel",
+      "keywords": ["arc-en-ciel", "action", "coloré"],
+      "desc": "Utilisé pour des appels à l'action"
+    },
+    "glass": {
+      "name": "Bouton en verre",
+      "label": "Bouton",
+      "keywords": ["verre", "cta", "action"],
+      "desc": "Utilisé pour toute action"
+    }
+  },
+  "cards": {
+    "simple": {
+      "name": "Carte simple",
+      "title": "Carte simple",
+      "description": "Une carte minimale avec des actions.",
+      "keywords": ["simple", "de base", "minimal"]
+    },
+    "smart": {
+      "name": "Carte intelligente",
+      "title": "Carte intelligente",
+      "description": "Une carte moderne avec fond dégradé, effets au survol et pied de page optionnel.",
+      "footer": "Action",
+      "keywords": ["intelligent", "dégradé", "carte", "survol", "pied de page", "image"]
+    },
+    "image": {
+      "name": "Carte d'image",
+      "title": "Carte d'image",
+      "description": "Carte avec image SVG.",
+      "keywords": ["image", "photo", "visuel"]
+    },
+    "feature": {
+      "name": "Carte de fonctionnalités",
+      "title": "Carte de fonctionnalités",
+      "description": "Mettez en valeur les caractéristiques et avantages.",
+      "keywords": ["fonctionnalité", "mettre en valeur", "avantage"]
+    },
+    "pricing": {
+      "name": "Carte de prix",
+      "plan": "Pro",
+      "price": "$9/mois",
+      "features": ["10 projets", "Support prioritaire", "Utilisateurs illimités"],
+      "keywords": ["tarification", "plan", "abonnement", "prix"]
+    },
+    "data": {
+      "name": "Carte de données",
+      "title": "Projets actifs",
+      "keywords": ["données", "statistiques", "analyses", "métriques"]
+    }
+  },
+  "utility": {
+    "alert": {
+      "name": "MinimalAlert",
+      "keywords": ["alerte", "popup"]
+    },
+    "loaders": {
+      "name": "Chargeurs",
+      "simple": "Chargeur simple",
+      "dual": "Chargeur double",
+      "dots": "Chargeur de points",
+      "bar": "Chargeur en barre",
+      "keywords": ["spinner", "chargeur", "chargement"]
+    },
+    "tooltips": {
+      "name": "Info-bulles",
+      "simple": "Info-bulle simple",
+      "animated": "Info-bulle animée",
+      "refreshText": "Cliquez pour actualiser",
+      "deleteText": "Supprimer l'élément",
+      "keywords": ["info-bulle", "popup"]
+    }
+  },
+  "inputs": {
+    "text": {
+      "name": "Entrée de texte",
+      "label": "Entrée d'exemple",
+      "placeholder": "Entrez du texte",
+      "keywords": ["texte", "entrée", "champ", "formulaire"]
+    },
+    "password": {
+      "name": "Entrée de mot de passe",
+      "placeholder": "Entrez le mot de passe",
+      "keywords": ["mot de passe", "entrée", "champ", "formulaire", "afficher", "masquer"],
+      "label": "Mot de passe",
+      "error": "Mot de passe invalide"
+    },
+    "select": {
+      "name": "Sélectionner",
+      "label": "Sélectionner un exemple",
+      "keywords": ["sélectionner", "menu déroulant", "options", "choix"]
+    },
+    "checkbox": {
+      "name": "Case à cocher",
+      "label": "Case à cocher exemple",
+      "description": "Cochez cette option",
+      "keywords": ["case à cocher", "vérifier", "toggle", "booléen"]
+    },
+    "loginForm": {
+      "name": "Formulaire de connexion",
+      "keywords": ["connexion", "formulaire", "authentification", "se connecter", "auth", "email", "mot de passe"],
+      "desc": "Formulaire de connexion complet avec validation et options de connexion sociale"
+    },
+    "calendar": {
+      "name": "Calendrier",
+      "keywords": ["calendrier", "date", "planification", "mois", "événements"],
+      "desc": "Calendrier réactif et accessible avec vue mensuelle et indicateurs d'événements"
+    },
+    "emailAddress": {
+      "label": "Adresse e-mail",
+      "placeholder": "Entrez votre email",
+      "helperText": "Nous ne partagerons jamais votre e-mail.",
+      "required": "Requis"
+    },
+    "chooseOption": {
+      "label": "Choisir une option"
+    },
+    "termsConditions": {
+      "label": "Accepter les conditions",
+      "description": "Vous devez accepter les conditions générales"
+    },
+    "disabledOption":    {
+      "label": "Option désactivée",
+      "description": "Cette option est désactivée"
+    }
+  },
+  "backgrounds": {
+    "interactiveTiles": {
+      "name": "Carreaux interactifs",
+      "keywords": ["interactif", "carreaux", "arrière-plans", "grille"],
+      "desc": "Arrière-plan avec carreaux interactifs"
+    }
+  },
+  "navigation": {
+    "breadcrumb": {
+      "name": "Fil d'Ariane",
+      "keywords": ["fil d'ariane", "navigation", "chemin", "hiérarchie"]
+    },
+    "tabs": {
+      "name": "Onglets",
+      "keywords": ["onglets", "navigation", "commutateur", "basculer"]
+    },
+    "pagination": {
+      "name": "Pagination",
+      "keywords": ["pagination", "pages", "navigation", "pagination"]
+    }
+  },
+  "badges": {
+    "badge": {
+      "name": "Badge",
+      "primary": "Primaire",
+      "success": "Succès",
+      "warning": "Avertissement",
+      "danger": "Danger",
+      "closable": "Fermable",
+      "withIcon": "Avec icône",
+      "notifications": "Notifications",
+      "keywords": ["badge", "étiquette", "statut", "indicateur"],
+      "desc": "Utilisé pour les indicateurs de statut et les étiquettes"
+    },
+    "chip": {
+      "name": "Puce",
+      "primary": "Puce principale",
+      "success": "Succès",
+      "warning": "Avertissement",
+      "danger": "Danger",
+      "closable": "Fermable",
+      "withIcon": "Avec icône",
+      "keywords": ["puce", "étiquette", "filtre", "catégorie"],
+      "desc": "Utilisé pour les filtres, les catégories et les étiquettes amovibles"
+    }
+  },
+  "sections": {
+    "buttons": "Boutons",
+    "cards": "Cartes",
+    "inputs": "Entrées",
+    "backgrounds": "Arrière-plans",
+    "utility": "Utilitaires",
+    "navigation": "Navigation",
+    "badges": "Badges",
+    "avatars": "Avatars",
+    "accordion": "Accordéon",
+    "feedback": "Retour",
+    "formHelper": "Aide au formulaire"
+  },
+  "avatars": {
+    "group": "Groupe d'avatars"
+  },
+  "feedback": {
+    "success": "Message de retour de succès",
+    "error": "Message de retour d'erreur",
+    "warning": "Message de retour d'avertissement",
+    "info": "Message de retour d'information"
+  },
+  "formHelper": {
+    "datePicker": {
+      "title": "Sélecteur de date",
+      "label": "Choisir une date"
+    },
+    "slider": {
+      "title": "Curseur"
+    },
+    "fileUpload": {
+      "title": "Téléchargement de fichier"
+    },
+    "formValidation": {
+      "title": "Validation de formulaire"
+    },
+    "loginForm": {
+      "title": "Formulaire de connexion"
+    },
+    "signupPage": {
+      "title": "Page d'inscription"
+    },
+    "otpVerification": {
+      "title": "Vérification OTP",
+      "tryCode": "Essayez le code 123456"
+    }
+  },
+  "accordion": {
+    "basic": {
+      "title": "Accordéon de base",
+      "items": [
+        { "title": "Section 1", "content": "Contenu de la section 1" },
+        { "title": "Section 2", "content": "Contenu de la section 2" },
+        { "title": "Section 3", "content": "Contenu de la section 3" },
+        { "title": "Section 4", "content": "Contenu de la section 4" }
+      ]
+    },
+    "multiple": {
+      "title": "Accordéon à ouvertures multiples",
+      "items": [
+        { "title": "Section 1", "content": "Contenu de la section 1" },
+        { "title": "Section 2", "content": "Contenu de la section 2" },
+        { "title": "Section 3", "content": "Contenu de la section 3" },
+        { "title": "Section 4", "content": "Contenu de la section 4" }
+      ]
+    },
+    "minimal": {
+      "title": "Accordéon minimal",
+      "items": [
+        { "title": "Section 1", "content": "Contenu de la section 1" },
+        { "title": "Section 2", "content": "Contenu de la section 2" },
+        { "title": "Section 3", "content": "Contenu de la section 3" }
+      ]
+    },
+    "alwaysOpen": {
+      "title": "Accordéon toujours ouvert",
+      "items": [
+        { "title": "Section 1", "content": "Contenu de la section 1" },
+        { "title": "Section 2", "content": "Contenu de la section 2" }
+      ]
+    }
+  }
+}
+

@@ -1,0 +1,27 @@
+{
+  "navigation": {
+    "home": "होम",
+    "about": "परिचय",
+    "contact": "संपर्क",
+    "components": "घटक",
+    "playground": "🎮 प्लेग्राउंड",
+    "analytics": "विश्लेषण",
+    "feedback": "प्रतिक्रिया"
+  },
+  "footer": {
+    "brand": "मायलाइब्रेरी",
+    "subtitle": "कंपोनेंट लाइब्रेरी",
+    "description": "एक ओपन-सोर्स Next.js + Tailwind CSS कंपोनेंट लाइब्रेरी जिसमें तैयार-उपयोग UI कंपोनेंट्स शामिल हैं। डेवलपर्स के लिए सीखने, अभ्यास करने और Hacktoberfest के दौरान एवं उसके बाद योगदान देने के लिए उपयुक्त।",
+    "followUs": "हमारा अनुसरण करें",
+    "social": {
+      "github": "गिटहब",
+      "linkedin": "लिंक्डइन",
+      "twitter": "ट्विटर",
+      "discord": "डिस्कॉर्ड",
+      "youtube": "यूट्यूब"
+    },
+    "madeWith": "से बनाया गया",
+    "hacktoberfest": "Hacktoberfest के लिए",
+    "copyright": "मायलाइब्रेरी कंपोनेंट लाइब्रेरी। सर्वाधिकार सुरक्षित।"
+  }
+}

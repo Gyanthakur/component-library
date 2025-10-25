@@ -1,0 +1,78 @@
+{
+  "header": {
+    "title": "Contactez-nous",
+    "description": "Des questions sur notre bibliothèque de composants ? Vous souhaitez contribuer ou signaler un bug ? Nous serions ravis de vous entendre !"
+  },
+  "form": {
+    "title": "Envoyez-nous un message",
+    "success": "Merci pour votre message ! Nous vous répondrons bientôt.",
+    "error": "Désolé, une erreur s'est produite lors de l'envoi de votre message. Veuillez réessayer.",
+    "sending": "Envoi...",
+    "send": "Envoyer le message",
+    "fields": {
+      "name": {
+        "label": "Nom complet *",
+        "placeholder": "Entrez votre nom complet"
+      },
+      "email": {
+        "label": "Adresse e-mail *",
+        "placeholder": "your.email@example.com"
+      },
+      "subject": {
+        "label": "Sujet *",
+        "placeholder": "Sélectionnez un sujet",
+        "options": {
+          "bugReport": "Rapport de bug",
+          "featureRequest": "Demande de fonctionnalité",
+          "documentation": "Documentation",
+          "contribution": "Contribution",
+          "support": "Support général",
+          "other": "Autre"
+        }
+      },
+      "message": {
+        "label": "Message *",
+        "placeholder": "Dites-nous comment nous pouvons vous aider..."
+      }
+    }
+  },
+  "errors": {
+    "nameRequired": "Le nom est requis",
+    "emailRequired": "L'e-mail est requis",
+    "emailInvalid": "Veuillez entrer une adresse e-mail valide",
+    "subjectRequired": "Le sujet est requis",
+    "messageRequired": "Le message est requis",
+    "messageLength": "Le message doit contenir au moins 10 caractères"
+  },
+  "info": {
+    "title": "Informations de contact",
+    "email": {
+      "title": "E-mail"
+    },
+    "github": {
+      "title": "GitHub"
+    },
+    "linktree": {
+      "title": "Linktree",
+      "description": "Consultez notre Linktree pour tous nos liens sociaux :"
+    }
+  },
+  "social": {
+    "title": "Suivez-nous"
+  },
+  "faq": {
+    "title": "Questions fréquemment posées",
+    "q1": {
+      "title": "Comment puis-je contribuer à la bibliothèque ?",
+      "description": "Consultez notre fichier CONTRIBUTING.md pour les directives sur la contribution de composants, le signalement de bugs ou la suggestion d'améliorations."
+    },
+    "q2": {
+      "title": "Cette bibliothèque est-elle gratuite ?",
+      "description": "Oui ! Cette bibliothèque de composants est open source et gratuite pour une utilisation personnelle et commerciale."
+    },
+    "q3": {
+      "title": "Comment signaler un bug ?",
+      "description": "Vous pouvez signaler des bugs via notre page GitHub issues ou en utilisant le formulaire de contact ci-dessus avec \"Rapport de bug\" comme sujet."
+    }
+  }
+}

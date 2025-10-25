@@ -1,0 +1,78 @@
+{
+  "header": {
+    "title": "Contáctanos",
+    "description": "¿Tienes preguntas sobre nuestra biblioteca de componentes? ¿Quieres contribuir o reportar un error? ¡Nos encantaría saber de ti!"
+  },
+  "form": {
+    "title": "Envíanos un mensaje",
+    "success": "¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.",
+    "error": "Lo sentimos, hubo un error al enviar tu mensaje. Por favor, inténtalo de nuevo.",
+    "sending": "Enviando...",
+    "send": "Enviar mensaje",
+    "fields": {
+      "name": {
+        "label": "Nombre completo *",
+        "placeholder": "Ingresa tu nombre completo"
+      },
+      "email": {
+        "label": "Correo electrónico *",
+        "placeholder": "your.email@example.com"
+      },
+      "subject": {
+        "label": "Asunto *",
+        "placeholder": "Selecciona un asunto",
+        "options": {
+          "bugReport": "Reporte de error",
+          "featureRequest": "Solicitud de función",
+          "documentation": "Documentación",
+          "contribution": "Contribución",
+          "support": "Soporte general",
+          "other": "Otro"
+        }
+      },
+      "message": {
+        "label": "Mensaje *",
+        "placeholder": "Cuéntanos cómo podemos ayudarte..."
+      }
+    }
+  },
+  "errors": {
+    "nameRequired": "El nombre es obligatorio",
+    "emailRequired": "El correo electrónico es obligatorio",
+    "emailInvalid": "Por favor, ingresa una dirección de correo válida",
+    "subjectRequired": "El asunto es obligatorio",
+    "messageRequired": "El mensaje es obligatorio",
+    "messageLength": "El mensaje debe tener al menos 10 caracteres"
+  },
+  "info": {
+    "title": "Información de contacto",
+    "email": {
+      "title": "Correo electrónico"
+    },
+    "github": {
+      "title": "GitHub"
+    },
+    "linktree": {
+      "title": "Linktree",
+      "description": "Consulta nuestro Linktree para todos nuestros enlaces sociales:"
+    }
+  },
+  "social": {
+    "title": "Síguenos"
+  },
+  "faq": {
+    "title": "Preguntas frecuentes",
+    "q1": {
+      "title": "¿Cómo puedo contribuir a la biblioteca?",
+      "description": "Consulta nuestro archivo CONTRIBUTING.md para obtener pautas sobre cómo contribuir con componentes, reportar errores o sugerir mejoras."
+    },
+    "q2": {
+      "title": "¿Esta biblioteca es gratuita?",
+      "description": "¡Sí! Esta biblioteca de componentes es de código abierto y gratuita para uso personal y comercial."
+    },
+    "q3": {
+      "title": "¿Cómo reporto un error?",
+      "description": "Puedes reportar errores a través de nuestra página de issues en GitHub o usando el formulario de contacto arriba con \"Reporte de error\" como asunto."
+    }
+  }
+}

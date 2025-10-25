@@ -1,0 +1,38 @@
+{
+  "header": {
+    "title": "Tableau de bord des analyses de composants",
+    "description": "Suivez l’utilisation des composants, les performances et l’engagement des utilisateurs",
+    "export": "Exporter les données"
+  },
+  "overview": {
+    "totalViews": "Vues totales",
+    "totalCopies": "Copies totales",
+    "componentsUsed": "Composants utilisés",
+    "sessionTime": "Durée de la session"
+  },
+  "popular": {
+    "title": "Composants les plus populaires"
+  },
+  "recent": {
+    "title": "Activité des 7 derniers jours",
+    "today": "Aujourd’hui"
+  },
+  "performance": {
+    "title": "Aperçu des performances",
+    "avgViews": "Moyenne des vues par composant",
+    "copyRate": "Taux de copie",
+    "viewsWeek": "Vues cette semaine"
+  },
+  "actions": {
+    "title": "Actions rapides",
+    "viewComponents": "Voir les composants",
+    "export": "Exporter les analyses",
+    "reset": "Réinitialiser les données"
+  },
+  "modal": {
+    "title": "Réinitialiser les données d’analyse",
+    "message": "Cela supprimera définitivement toutes les données d’analyse, y compris les vues, les copies et les informations de session. Cette action est irréversible.",
+    "confirm": "Réinitialiser les données",
+    "cancel": "Annuler"
+  }
+}
