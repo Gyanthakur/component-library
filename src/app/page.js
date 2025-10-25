@@ -27,7 +27,7 @@
 
     return (
       <div className="transition-colors duration-300">
-        <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+        <div className="min-h-screen bg-[#1F2937]  w-full text-gray-900 dark:text-gray-100">
 
           {/* Hero Section */}
           <section className="max-w-7xl mx-auto px-6 py-24 flex flex-col md:flex-row items-center gap-4">
