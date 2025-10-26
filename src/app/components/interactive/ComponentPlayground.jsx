@@ -16,15 +16,9 @@ import {
   Palette,
   Zap,
   BarChart3,
-  Users,
   CreditCard,
-  User,
-  Database,
-  CheckSquare,
-  List,
   FileText,
   Info,
-  Sparkles,
   Heart
 } from "lucide-react";
 import PrimaryButton from "../buttons/PrimaryButton";
