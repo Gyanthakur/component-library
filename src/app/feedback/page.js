@@ -1,5 +1,6 @@
 "use client";
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import PrimaryButton from './../components/buttons/PrimaryButton';
 import SecondaryButton from './../components/buttons/SecondaryButton';
 import OutlineButton from './../components/buttons/OutlineButton';
@@ -10,6 +11,7 @@ import Badge from './../components/feedback/Badge';
 import ProgressBar from './../components/feedback/ProgressBar';
 
 export default function FeedbackPage() {
+  const t = useTranslations('feedback');
   const [feedback, setFeedback] = useState('');
   const [rating, setRating] = useState('');
   const [category, setCategory] = useState('');
@@ -18,18 +20,18 @@ export default function FeedbackPage() {
   const [showError, setShowError] = useState(false);
 
   const categoryOptions = [
-    { value: 'bug', label: 'Bug Report' },
-    { value: 'feature', label: 'Feature Request' },
-    { value: 'improvement', label: 'Improvement Suggestion' },
-    { value: 'general', label: 'General Feedback' }
+    { value: 'bug', label: t('category.bug') },
+    { value: 'feature', label: t('category.feature') },
+    { value: 'improvement', label: t('category.improvement') },
+    { value: 'general', label: t('category.general') }
   ];
 
   const ratingOptions = [
-    { value: '5', label: '⭐⭐⭐⭐⭐ Excellent' },
-    { value: '4', label: '⭐⭐⭐⭐ Good' },
-    { value: '3', label: '⭐⭐⭐ Average' },
-    { value: '2', label: '⭐⭐ Poor' },
-    { value: '1', label: '⭐ Very Poor' }
+    { value: '5', label: t('rating.5') },
+    { value: '4', label: t('rating.4') },
+    { value: '3', label: t('rating.3') },
+    { value: '2', label: t('rating.2') },
+    { value: '1', label: t('rating.1') }
   ];
 
   const handleSubmit = (e) => {
@@ -57,10 +59,10 @@ export default function FeedbackPage() {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            We Value Your Feedback
+            {t('header.title')}
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Help us improve MyLibrary by sharing your thoughts, reporting bugs, or suggesting new features.
+            {t('header.description')}
           </p>
         </div>
 
@@ -69,8 +71,8 @@ export default function FeedbackPage() {
           <div className="mb-6">
             <Alert
               type="success"
-              title="Thank you!"
-              message="Your feedback has been submitted successfully. We'll review it soon."
+              title={t('alert.success.title')}
+              message={t('alert.success.message')}
               dismissible
               onClose={() => setShowSuccess(false)}
             />
@@ -81,8 +83,8 @@ export default function FeedbackPage() {
           <div className="mb-6">
             <Alert
               type="error"
-              title="Error"
-              message="Please fill in all required fields before submitting."
+              title={t('alert.error.title')}
+              message={t('alert.error.message')}
               dismissible
               onClose={() => setShowError(false)}
             />
@@ -95,13 +97,13 @@ export default function FeedbackPage() {
           <div className="lg:col-span-2">
             <div className="bg-white rounded-lg shadow-sm border p-8">
               <h2 className="text-2xl font-semibold text-gray-900 mb-6">
-                Share Your Feedback
+                {t('form.title')}
               </h2>
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <Select
-                    label="Feedback Category *"
+                    label={t('form.categoryLabel')}
                     options={categoryOptions}
                     value={category}
                     onChange={(e) => setCategory(e.target.value)}
@@ -109,7 +111,7 @@ export default function FeedbackPage() {
                   />
                   
                   <Select
-                    label="Overall Rating"
+                    label={t('form.ratingLabel')}
                     options={ratingOptions}
                     value={rating}
                     onChange={(e) => setRating(e.target.value)}
@@ -117,22 +119,22 @@ export default function FeedbackPage() {
                 </div>
 
                 <TextInput
-                  label="Email (Optional)"
+                  label={t('form.emailLabel')}
                   type="email"
-                  placeholder="your.email@example.com"
+                  placeholder={t('form.emailPlaceholder')}
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  helperText="We'll only use this to follow up on your feedback"
+                  helperText={t('form.emailHelper')}
                 />
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Your Feedback *
+                    {t('form.feedbackLabel')}
                   </label>
                   <textarea
                     className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                     rows="6"
-                    placeholder="Tell us about your experience, report a bug, or suggest improvements..."
+                    placeholder={t('form.feedbackPlaceholder')}
                     value={feedback}
                     onChange={(e) => setFeedback(e.target.value)}
                     required
@@ -141,7 +143,7 @@ export default function FeedbackPage() {
 
                 <div className="flex gap-4">
                   <PrimaryButton type="submit">
-                    Submit Feedback
+                    {t('form.submit')}
                   </PrimaryButton>
                   <SecondaryButton 
                     type="button" 
@@ -152,7 +154,7 @@ export default function FeedbackPage() {
                       setEmail('');
                     }}
                   >
-                    Clear Form
+                    {t('form.clear')}
                   </SecondaryButton>
                 </div>
               </form>
@@ -165,23 +167,23 @@ export default function FeedbackPage() {
             {/* Quick Stats */}
             <div className="bg-white rounded-lg shadow-sm border p-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                Community Stats
+                {t('sidebar.stats.title')}
               </h3>
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <span className="text-gray-600">Total Components</span>
+                  <span className="text-gray-600">{t('sidebar.stats.totalComponents')}</span>
                   <Badge variant="primary">25+</Badge>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-gray-600">GitHub Stars</span>
+                  <span className="text-gray-600">{t('sidebar.stats.githubStars')}</span>
                   <Badge variant="success">1.2k</Badge>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-gray-600">Contributors</span>
+                  <span className="text-gray-600">{t('sidebar.stats.contributors')}</span>
                   <Badge variant="info">45</Badge>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-gray-600">Issues Resolved</span>
+                  <span className="text-gray-600">{t('sidebar.stats.issuesResolved')}</span>
                   <Badge variant="warning">89%</Badge>
                 </div>
               </div>
@@ -190,33 +192,33 @@ export default function FeedbackPage() {
             {/* Development Progress */}
             <div className="bg-white rounded-lg shadow-sm border p-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                Development Progress
+                {t('sidebar.progress.title')}
               </h3>
               <div className="space-y-4">
                 <div>
                   <div className="flex justify-between text-sm mb-1">
-                    <span>Button Components</span>
+                    <span>{t('sidebar.progress.buttons')}</span>
                     <span>100%</span>
                   </div>
                   <ProgressBar value={100} color="green" size="sm" />
                 </div>
                 <div>
                   <div className="flex justify-between text-sm mb-1">
-                    <span>Card Components</span>
+                    <span>{t('sidebar.progress.cards')}</span>
                     <span>85%</span>
                   </div>
                   <ProgressBar value={85} color="blue" size="sm" />
                 </div>
                 <div>
                   <div className="flex justify-between text-sm mb-1">
-                    <span>Form Components</span>
+                    <span>{t('sidebar.progress.forms')}</span>
                     <span>70%</span>
                   </div>
                   <ProgressBar value={70} color="yellow" size="sm" />
                 </div>
                 <div>
                   <div className="flex justify-between text-sm mb-1">
-                    <span>Navigation</span>
+                    <span>{t('sidebar.progress.navigation')}</span>
                     <span>60%</span>
                   </div>
                   <ProgressBar value={60} color="purple" size="sm" />
@@ -227,14 +229,14 @@ export default function FeedbackPage() {
             {/* Contact Info */}
             <div className="bg-white rounded-lg shadow-sm border p-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                    Other Ways to Reach Us
+                {t('sidebar.contact.title')}
               </h3>
               <div className="space-y-3">
                 <a
                   href="mailto:gps.96169@gmail.com"
                   className="w-full inline-flex justify-center px-4 py-2 border border-gray-200 rounded-md text-sm font-medium text-theme-secondary hover:bg-gray-50"
                 >
-                  📧 Email Support
+                  {t('sidebar.contact.email')}
                 </a>
 
                 <a
@@ -243,7 +245,7 @@ export default function FeedbackPage() {
                   rel="noopener noreferrer"
                   className="w-full inline-flex justify-center px-4 py-2 border border-gray-200 rounded-md text-sm font-medium text-theme-secondary hover:bg-gray-50"
                 >
-                  💬 Discord Community
+                  {t('sidebar.contact.discord')}
                 </a>
 
                 <a
@@ -252,7 +254,7 @@ export default function FeedbackPage() {
                   rel="noopener noreferrer"
                   className="w-full inline-flex justify-center px-4 py-2 border border-gray-200 rounded-md text-sm font-medium text-theme-secondary hover:bg-gray-50"
                 >
-                  🐙 GitHub Issues
+                  {t('sidebar.contact.github')}
                 </a>
               </div>
             </div>
@@ -262,7 +264,7 @@ export default function FeedbackPage() {
         {/* Recent Feedback Section */}
         <div className="mt-12">
           <h2 className="text-2xl font-semibold text-gray-900 mb-6">
-            Recent Community Feedback
+            {t('recent.title')}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div className="bg-white rounded-lg shadow-sm border p-6">
@@ -271,13 +273,13 @@ export default function FeedbackPage() {
                   A
                 </div>
                 <div className="ml-3">
-                  <p className="font-medium text-gray-900">Alex</p>
-                  <p className="text-sm text-gray-500">2 days ago</p>
+                  <p className="font-medium text-gray-900">{t('recent.items.0.name')}</p>
+                  <p className="text-sm text-gray-500">{t('recent.items.0.time')}</p>
                 </div>
-                <Badge variant="success" size="sm" className="ml-auto">Feature</Badge>
+                <Badge variant="success" size="sm" className="ml-auto">{t('recent.items.0.category')}</Badge>
               </div>
               <p className="text-gray-700 text-sm">
-                Love the new button variants! Could we get a loading state for buttons?
+                {t('recent.items.0.feedback')}
               </p>
             </div>
 
@@ -287,13 +289,13 @@ export default function FeedbackPage() {
                   S
                 </div>
                 <div className="ml-3">
-                  <p className="font-medium text-gray-900">Sarah</p>
-                  <p className="text-sm text-gray-500">1 week ago</p>
+                  <p className="font-medium text-gray-900">{t('recent.items.1.name')}</p>
+                  <p className="text-sm text-gray-500">{t('recent.items.1.time')}</p>
                 </div>
-                <Badge variant="error" size="sm" className="ml-auto">Bug</Badge>
+                <Badge variant="error" size="sm" className="ml-auto">{t('recent.items.1.category')}</Badge>
               </div>
               <p className="text-gray-700 text-sm">
-                Card component spacing issue on mobile devices. Fixed in latest update!
+                {t('recent.items.1.feedback')}
               </p>
             </div>
 
@@ -303,13 +305,13 @@ export default function FeedbackPage() {
                   M
                 </div>
                 <div className="ml-3">
-                  <p className="font-medium text-gray-900">Mike</p>
-                  <p className="text-sm text-gray-500">2 weeks ago</p>
+                  <p className="font-medium text-gray-900">{t('recent.items.2.name')}</p>
+                  <p className="text-sm text-gray-500">{t('recent.items.2.time')}</p>
                 </div>
-                <Badge variant="primary" size="sm" className="ml-auto">General</Badge>
+                <Badge variant="primary" size="sm" className="ml-auto">{t('recent.items.2.category')}</Badge>
               </div>
               <p className="text-gray-700 text-sm">
-                Excellent documentation and examples. Makes integration super easy!
+                {t('recent.items.2.feedback')}
               </p>
             </div>
           </div>

@@ -1,0 +1,30 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact",
+    "components": "Components",
+    "playground": "🎮 Playground",
+    "analytics": "Analytics",
+    "feedback": "Feedback",
+    "game":"🎮 Game",
+    "racing game":"🏁 Racing Game",
+    "fun": "Fun"
+  },
+  "footer": {
+    "brand": "MyLibrary",
+    "subtitle": "Component Library",
+    "description": "An open-source Next.js + Tailwind CSS Component Library with ready-to-use UI components. Perfect for developers to learn, practice, and contribute during Hacktoberfest and beyond.",
+    "followUs": "Follow Us",
+    "social": {
+      "github": "GitHub",
+      "linkedin": "LinkedIn",
+      "twitter": "Twitter",
+      "discord": "Discord",
+      "youtube": "YouTube"
+    },
+    "madeWith": "Made with",
+    "hacktoberfest": "for Hacktoberfest",
+    "copyright": "MyLibrary Component Library. All rights reserved."
+  }
+}

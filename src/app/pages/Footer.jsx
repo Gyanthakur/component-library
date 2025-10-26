@@ -1,5 +1,6 @@
 "use client";
 import { FaGithub, FaTwitter, FaLinkedin, FaDiscord, FaYoutube } from "react-icons/fa";
+import { useTranslations } from "next-intl";
 
 const FooterLink = ({ href, Icon, title }) => (
   <a
@@ -14,20 +15,21 @@ const FooterLink = ({ href, Icon, title }) => (
 );
 
 const Footer = () => {
+  const t = useTranslations('common');
   const socialLinks = [
     {
       href: "https://github.com/Gyanthakur/component-library",
       Icon: FaGithub,
-      title: "GitHub",
+      title: t('footer.social.github'),
     },
     {
       href: "https://www.linkedin.com/in/gyan-pratap-singh-275785236",
       Icon: FaLinkedin,
-      title: "LinkedIn",
+      title: t('footer.social.linkedin'),
     },
-    { href: "https://x.com/gps_96169", Icon: FaTwitter, title: "Twitter" },
-    { href: "https://discord.com", Icon: FaDiscord, title: "Discord" },
-    { href: "https://youtube.com", Icon: FaYoutube, title: "YouTube" },
+    { href: "https://x.com/gps_96169", Icon: FaTwitter, title: t('footer.social.twitter') },
+    { href: "https://discord.com", Icon: FaDiscord, title: t('footer.social.discord') },
+    { href: "https://youtube.com", Icon: FaYoutube, title: t('footer.social.youtube') },
   ];
 
   return (
@@ -38,21 +40,20 @@ const Footer = () => {
           <div className="text-center md:text-left max-w-md">
             <h2 className="text-2xl font-bold mb-2">
               <span className="bg-gradient-to-r from-blue-600 to-violet-600 dark:from-blue-400 dark:to-violet-400 bg-clip-text text-transparent">
-                MyLibrary
+                {t('footer.brand')}
               </span>{" "}
               <span className="text-lg font-medium text-gray-600 dark:text-gray-400">
-                Component Library
+                {t('footer.subtitle')}
               </span>
             </h2>
             <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-              An open-source Next.js + Tailwind CSS Component Library with ready-to-use UI components.
-              Perfect for developers to learn, practice, and contribute during Hacktoberfest and beyond.
+              {t('footer.description')}
             </p>
           </div>
 
           {/* Right Section (Social Links) */}
           <div className="text-center md:text-right flex flex-col items-center md:items-end gap-4">
-            <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-100">Follow Us</h3>
+            <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-100">{t('footer.followUs')}</h3>
             <div className="flex justify-center space-x-4">
               {socialLinks.map((link, index) => (
                 <FooterLink
@@ -70,12 +71,11 @@ const Footer = () => {
         <div className="border-t border-gray-200 dark:border-gray-600 transition-all duration-300  mt-4 pt-2.5 text-center">
           <div className="text-center space-y-1">
             <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
-              Made with <span className="text-red-500">💜</span> for Hacktoberfest
+              {t('footer.madeWith')} <span className="text-red-500">💜</span> {t('footer.hacktoberfest')}
             </p>
             <p className="text-sm text-gray-600 dark:text-gray-400">
-              © {new Date().getFullYear()} MyLibrary Component Library. All rights reserved.
+              © {new Date().getFullYear()} {t('footer.copyright')}
             </p>
-            
           </div>
         </div>
       </div>

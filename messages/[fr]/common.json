@@ -1,0 +1,31 @@
+
+{
+    "navigation": {
+    "home": "Accueil",
+    "about": "À propos",
+    "contact": "Contact",
+    "components": "Composants",
+    "playground": "🎮 Bac à sable",
+    "analytics": "Analytique",
+    "feedback": "Retour d'information",
+    "game": "🎮 Jeu",
+    "racing game": "🏁 Jeu de courses",
+    "fun": "Amusement"
+  },
+  "footer": {
+    "brand": "MaBibliothèque",
+    "subtitle": "Bibliothèque de composants",
+    "description": "Une bibliothèque de composants open-source Next.js + Tailwind CSS avec des composants d'interface utilisateur prêts à l'emploi. Parfaite pour les développeurs souhaitant apprendre, pratiquer et contribuer pendant le Hacktoberfest et au-delà.",
+    "followUs": "Suivez-nous",
+    "social": {
+      "github": "GitHub",
+      "linkedin": "LinkedIn",
+      "twitter": "Twitter",
+      "discord": "Discord",
+      "youtube": "YouTube"
+    },
+    "madeWith": "Fait avec",
+    "hacktoberfest": "pour le Hacktoberfest",
+    "copyright": "Bibliothèque de composants MaBibliothèque. Tous droits réservés."
+  }
+}

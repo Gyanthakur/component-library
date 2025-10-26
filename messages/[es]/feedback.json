@@ -1,0 +1,86 @@
+{
+  "header": {
+    "title": "Valoramos tus comentarios",
+    "description": "Ayúdanos a mejorar MyLibrary compartiendo tus opiniones, reportando errores o sugiriendo nuevas funcionalidades."
+  },
+  "alert": {
+    "success": {
+      "title": "¡Gracias!",
+      "message": "Tu comentario ha sido enviado con éxito. Lo revisaremos pronto."
+    },
+    "error": {
+      "title": "Error",
+      "message": "Por favor, completa todos los campos obligatorios antes de enviar."
+    }
+  },
+  "form": {
+    "title": "Comparte tus comentarios",
+    "categoryLabel": "Categoría de comentarios *",
+    "ratingLabel": "Calificación general",
+    "emailLabel": "Correo electrónico (opcional)",
+    "emailPlaceholder": "tu.email@ejemplo.com",
+    "emailHelper": "Solo lo usaremos para hacer un seguimiento de tus comentarios",
+    "feedbackLabel": "Tus comentarios *",
+    "feedbackPlaceholder": "Cuéntanos tu experiencia, informa un error o sugiere mejoras...",
+    "submit": "Enviar comentarios",
+    "clear": "Borrar formulario"
+  },
+  "category": {
+    "bug": "Reporte de error",
+    "feature": "Solicitud de característica",
+    "improvement": "Sugerencia de mejora",
+    "general": "Comentarios generales"
+  },
+  "rating": {
+    "5": "⭐⭐⭐⭐⭐ Excelente",
+    "4": "⭐⭐⭐⭐ Bueno",
+    "3": "⭐⭐⭐ Promedio",
+    "2": "⭐⭐ Malo",
+    "1": "⭐ Muy malo"
+  },
+  "sidebar": {
+    "stats": {
+      "title": "Estadísticas de la comunidad",
+      "totalComponents": "Componentes totales",
+      "githubStars": "Estrellas en GitHub",
+      "contributors": "Contribuidores",
+      "issuesResolved": "Problemas resueltos"
+    },
+    "progress": {
+      "title": "Progreso del desarrollo",
+      "buttons": "Componentes de botones",
+      "cards": "Componentes de tarjetas",
+      "forms": "Componentes de formularios",
+      "navigation": "Navegación"
+    },
+    "contact": {
+      "title": "Otras formas de contactarnos",
+      "email": "📧 Soporte por correo electrónico",
+      "discord": "💬 Comunidad de Discord",
+      "github": "🐙 Problemas en GitHub"
+    }
+  },
+  "recent": {
+    "title": "Comentarios recientes de la comunidad",
+    "items": [
+      {
+        "name": "Alex",
+        "time": "Hace 2 días",
+        "category": "Funcionalidad",
+        "feedback": "¡Me encantan las nuevas variantes de botones! ¿Podemos obtener un estado de carga para los botones?"
+      },
+      {
+        "name": "Sarah",
+        "time": "Hace 1 semana",
+        "category": "Error",
+        "feedback": "Problema de espaciado del componente de tarjeta en dispositivos móviles. ¡Solucionado en la última actualización!"
+      },
+      {
+        "name": "Mike",
+        "time": "Hace 2 semanas",
+        "category": "General",
+        "feedback": "¡Excelente documentación y ejemplos! Hace que la integración sea muy fácil."
+      }
+    ]
+  }
+}

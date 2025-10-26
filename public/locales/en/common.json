@@ -6,7 +6,8 @@
     "components": "Components",
     "playground": "🎮 Playground",
     "analytics": "Analytics",
-    "feedback": "Feedback"
+    "feedback": "Feedback",
+    "game":"🎮 Game"
   },
   "theme": {
     "toggle_light": "Switch to Light",
