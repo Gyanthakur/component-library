@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+'use client';
+
+import React, { useState, useId } from "react";
 import PropTypes from 'prop-types';
 
 export const DatePicker = ({ 
@@ -12,14 +14,15 @@ export const DatePicker = ({
   ...props 
 }) => {
   const [date, setDate] = useState("");
+  const uniqueId = useId(); // React's stable ID generation
 
   const handleChange = (e) => {
     setDate(e.target.value);
     if (onChange) onChange(e.target.value);
   };
 
-  // Generate a unique ID if not provided
-  const inputId = id || `date-picker-${Math.random().toString(36).substr(2, 9)}`;
+  // Use provided ID or generate a stable one using useId
+  const inputId = id || `date-picker-${uniqueId}`;
 
   return (
     <div className="mb-4">

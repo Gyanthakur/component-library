@@ -2,6 +2,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Search, SparklesIcon, X } from "lucide-react";
 import { useTranslations } from 'next-intl';
+import dynamic from 'next/dynamic';
 
 // [All imports remain the same as in your original code]
 import { useAnalytics } from "../context/AnalyticsContext";
@@ -34,6 +35,7 @@ import TextInput from "./inputs/TextInput";
 import Select from "./inputs/Select";
 import Checkbox from "./inputs/Checkbox";
 import PasswordInput from "./inputs/PasswordInput";
+// ReCaptcha is loaded dynamically below to avoid SSR/render issues
 
 // Nav
 import Tabs from "./navigation/Tabs";
@@ -170,6 +172,7 @@ export default function Page() {
 
   // All components with search data
   const allComponents = {
+
     buttons: [
       {
         name: t('buttons.primary.name'),
@@ -773,6 +776,28 @@ export default function Page() {
           </section>
         )}
 
+        {/* Form Helpers Section */}
+        {filteredComponents.formHelpers && (
+          <section
+            id="formHelpers"
+            className="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-blue-900/20 dark:via-indigo-900/20 dark:to-purple-900/20 border border-blue-100 dark:border-blue-900 shadow-xl rounded-2xl p-10"
+          >
+            <h2 className="relative text-2xl font-semibold mb-6 flex justify-center items-center gap-2 text-blue-600 dark:text-blue-300">
+              <span className="whitespace-nowrap text-[1.3rem] sm:text-2xl md:text-3xl lg:text-3xl">
+                Form Helpers ({filteredComponents.formHelpers.length})
+              </span>
+              <span className="absolute top-10 h-1 w-full bg-gradient-to-r from-blue-300 to-purple-300 rounded-full block" />
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              {filteredComponents.formHelpers.map((item, index) => (
+                <div key={index} title={item.name} className="flex justify-center">
+                  {item.component}
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
         {/* Inputs Section */}
         {filteredComponents.inputs && (
           <section
@@ -974,6 +999,31 @@ export default function Page() {
                   ✅ {t('formHelper.formValidation.title')}
                 </h3>
                 <FormValidation minLength={5} />
+              </div>
+
+              {/* ReCaptcha Card */}
+              <div className="w-full p-6 bg-gradient-to-r from-indigo-50 to-indigo-100/80 dark:from-indigo-900 dark:to-indigo-700 text-indigo-900 dark:text-indigo-100 rounded-xl font-medium shadow-sm border border-indigo-200 dark:border-indigo-800">
+                <h3 className="text-lg font-semibold mb-2">🔒 reCAPTCHA</h3>
+                <div className="flex justify-center">
+                  {(() => {
+                    const DynamicReCaptcha = dynamic(() => import('./FormInput/ReCaptcha'), {
+                      ssr: false,
+                      loading: () => (
+                        <div className="min-h-[78px] flex items-center justify-center">
+                          <div className="text-indigo-700 dark:text-indigo-300 text-sm">
+                            Loading reCAPTCHA...
+                          </div>
+                        </div>
+                      ),
+                    });
+                    return (
+                      <DynamicReCaptcha
+                        siteKey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+                        onVerify={(token) => console.log('Verified:', token)}
+                      />
+                    );
+                  })()}
+                </div>
               </div>
 
               {/* Login Form Card */}
