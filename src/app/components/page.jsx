@@ -28,6 +28,7 @@ import PricingCard from "./cards/PricingCard";
 import DataCard from "./cards/DataCard";
 import SmartCard from "./cards/SmartCard";
 import UserCard from "@/app/components/cards/UserCard";
+import CalendarCard from "./cards/CalendarCard";
 
 // Inputs
 import TextInput from "./inputs/TextInput";
@@ -239,6 +240,30 @@ export default function Page() {
       },
     ],
     cards: [
+      {
+        name: "Calendar Card",
+        component: (
+          <CalendarCard
+            events={[
+              { date: '2025-10-15', title: 'Project Launch' },
+              { date: '2025-10-20', title: 'Team Building' },
+              { date: '2025-10-25', title: 'Client Meeting' }
+            ]}
+            birthdays={[
+              { date: '2025-10-05', name: 'John Doe' },
+              { date: '2025-10-12', name: 'Jane Smith' },
+              { date: '2025-10-28', name: 'Mike Johnson' }
+            ]}
+            meetings={[
+              { date: '2025-10-08', title: 'Sprint Planning' },
+              { date: '2025-10-18', title: 'Code Review' },
+              { date: '2025-10-30', title: 'Team Sync' }
+            ]}
+            className="max-w-md"
+          />
+        ),
+        keywords: ["calendar", "date", "events", "meetings", "birthdays"],
+      },
       {
         name: t('cards.simple.name'),
         component: (
